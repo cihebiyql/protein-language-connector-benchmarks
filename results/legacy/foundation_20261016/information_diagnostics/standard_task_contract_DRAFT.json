@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "record_type": "task_contract",
+  "is_template": true,
+  "task_id": "protein-language-connector-foundation-20261016",
+  "run_id": "information_internal_known_seed17_PENDING_CHECKPOINT",
+  "contract_status": "draft",
+  "created_at": "2026-10-15T23:45:03.302193+00:00",
+  "frozen_at": null,
+  "revision": 1,
+  "previous_contract_sha256": null,
+  "revision_reason": null,
+  "identity": {
+    "title": "A data resource of peptide–protein interaction structures and binding affinities for peptide drug discovery",
+    "doi": "10.1038/s41597-026-07962-1",
+    "publication_status": "published",
+    "first_online_date": null,
+    "journal": "Scientific Data",
+    "paper_type": "data resource; source provenance only, no author model table reproduction",
+    "pdf": {
+      "path": "PROJECT_ROOT/papers/bench_v02/ppikb/article.pdf",
+      "sha256": "3a4c200f0097adfe90abb27b478249022fdc7f2d405f40b4d7cbbd592ee50def",
+      "version": "published",
+      "source_url": "https://doi.org/10.1038/s41597-026-07962-1"
+    },
+    "related_versions": [],
+    "eligibility": {
+      "scope": null,
+      "assessment": "unknown",
+      "evidence_paths": []
+    }
+  },
+  "execution_scope": {
+    "objective": "Frozen full A1 C1 source-content NLL sensitivity and C2 prompt-only information probes on a newly selected connector checkpoint.",
+    "authorization_reference": "User requested download and actual individual foundation benchmark execution in PROJECT_ROOT/; current parent delegated this bounded GPU stage.",
+    "relation_to_prior_run": "Uses this round three-epoch seed17 new connector checkpoints; frozen old predictor checkpoints are not substituted.",
+    "prior_run_ids": [],
+    "safety_assessment": "allowed",
+    "scope_coverage": "component_only",
+    "intended_level": "independent_inference",
+    "excluded_claims": [
+      "biological counterfactual",
+      "biological causality",
+      "full-paper reproduction",
+      "multitask coverage",
+      "three-seed confirmation",
+      "label information in bits"
+    ],
+    "restriction_check": {
+      "prior_platform_restriction": false,
+      "reason": "General scalar benchmark on frozen public data, no protein sequence generation or target-specific activity optimization; no platform rejection applies to this new task.",
+      "evidence_paths": [
+        "PROJECT_ROOT/configs/foundation_gpu_20261016.json"
+      ]
+    }
+  },
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T07:18:00+08:00",
+    "earliest_associated_preparation_at": "2026-10-16T07:18:00+08:00",
+    "wall_clock_cap_hours": 10,
+    "original_deadline_at": "2026-10-16T17:18:00+08:00",
+    "additional_deadlines_at": [],
+    "effective_deadline_at": "2026-10-16T17:18:00+08:00",
+    "prior_window_expired": false,
+    "retry_resets_clock": false,
+    "timing_evidence_paths": [
+      "PROJECT_ROOT/configs/foundation_gpu_20261016.json"
+    ]
+  },
+  "assets": {
+    "datasets": [
+      {
+        "name": "A1 v2 exact KD broad reference-target known-target split",
+        "version": "a1_locked_v2",
+        "source_url": "https://ppikb.duanlab.ac/",
+        "path": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/samples.jsonl",
+        "manifest_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+        "sample_count": 2361,
+        "statistical_unit": "source assay measurement",
+        "splits": {
+          "train": 2062,
+          "validation": 147,
+          "test": 152,
+          "split_manifest_sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249"
+        },
+        "integrity": "complete",
+        "notes": "Complete relative to the restricted source lock; assay construct/context and external-source coverage limits retained.",
+        "evidence_paths": [
+          "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/benchmark_lock.json"
+        ]
+      }
+    ],
+    "code": [
+      {
+        "role": "primary",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/information_diagnostics.py",
+        "archive_sha256": "fb21fee0ebbaa362ab5e3c234d62565c18f86ae3c410be43a63472a97eed13af",
+        "integrity": "complete"
+      }
+    ],
+    "models": [
+      {
+        "name": "Qwen2.5-1.5B-Instruct",
+        "version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/model.safetensors",
+        "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+        "configuration_path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/config.json",
+        "configuration_sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+        "integrity": "complete",
+        "coverage": "frozen causal LM; no LM weights updated",
+        "evidence_paths": [
+          "PROJECT_ROOT/sources/model_manifest.json"
+        ]
+      },
+      {
+        "name": "Frozen ESM2-150M layer30 residue feature cache",
+        "version": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "path": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015/manifest.json",
+        "sha256": "3d1abe67a9f321231a0bd10decdfb733bdce307fbc538f7870611e58fd8d8cee",
+        "integrity": "complete",
+        "coverage": "all peptide/target cached residues; no fresh ESM forward requested"
+      },
+      {
+        "name": "selected internal_cross_attention connector seed17",
+        "version": "three epoch validation-selected",
+        "path": null,
+        "sha256": null,
+        "integrity": "unknown",
+        "notes": "Must fill actual selected checkpoint, pin matching input manifest, and freeze before GPU execution."
+      }
+    ]
+  },
+  "targets": [
+    {
+      "target_id": "C2_delta_MSE",
+      "paper_endpoint": "new foundation diagnostic",
+      "required": true,
+      "metric": "held-out MSE reduction vs composition/chemistry plus zero128",
+      "metric_definition": "TRAIN-only standardized fixed seed42 Gaussian projection128; five ridge alphas selected by VALIDATION MSE; no TEST refit",
+      "statistical_unit": "locked assay measurement",
+      "denominator": 152,
+      "unit": "pKD squared",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "already selected validation NLL checkpoint, no further LM training",
+      "repetitions": {
+        "seed": 42,
+        "n_seeds": 1
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "reason": "new diagnostic; no author endpoint"
+      }
+    },
+    {
+      "target_id": "C1_original_gold_source_sensitivity",
+      "paper_endpoint": "new foundation diagnostic",
+      "required": true,
+      "metric": "per-sample mean answer-token NLL and G/P/H",
+      "metric_definition": "same original gold: G=Scorrect-Soff; P=Scorrect-Smismatch; H=Soff-Smismatch; P=G+H. donor actual-gold NLL separately",
+      "statistical_unit": "locked assay measurement; donor subset distinguished",
+      "denominator": 152,
+      "unit": "natural-log NLL",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "none at this diagnostic stage",
+      "repetitions": {
+        "seed": 42,
+        "n_seeds": 1
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "reason": "new diagnostic; unknown physical assay conditions prevent biological counterfactual claim"
+      }
+    }
+  ],
+  "environment": {
+    "isolation": "existing dedicated WSL virtual environment; no package mutation",
+    "environment_path": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080",
+    "lockfile_path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/environment_freeze.txt",
+    "lockfile_sha256": "26137c2dd41c5bb2e14b1711ef7a9011a08752fe510e234da58b7e276eeca51f",
+    "runtime_versions": {},
+    "shared_environment_modified": false
+  },
+  "resources": {
+    "expected_hostname": "LOCAL_HOST",
+    "cpu_threads": 2,
+    "data_loader_workers": 0,
+    "memory_limit_bytes": 12884901888,
+    "gpu_devices": [
+      0
+    ],
+    "gpu_memory_budget_bytes": 12348030976,
+    "resource_probe_path": null,
+    "resource_probe_at": null,
+    "start_gate": "awaiting_parent_GPU_release_then_live_probe",
+    "budget_basis": "Live compute process check; 11.5 GiB Torch allocation limit plus existing desktop; RSS watchdog <=12 GiB; no preemption.",
+    "no_preemption": true
+  },
+  "execution": {
+    "command": null,
+    "working_directory": "PROJECT_ROOT/",
+    "seed_policy": "one frozen seed17; fresh independent connector initialization per method",
+    "seeds": [
+      17
+    ],
+    "timeout_seconds": 840,
+    "process_control": {
+      "platform": "Linux WSL",
+      "mechanism": "new process session; monitor RSS and total elapsed; SIGTERM/SIGKILL own PGID only",
+      "whole_tree_bounded": true
+    },
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "stop_conditions": [
+    "达到有效截止",
+    "达到合同资源上限",
+    "执行范围超出合同",
+    "出现平台拒绝或缺少适用授权"
+  ],
+  "review": {
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "checks": [],
+    "evidence_paths": []
+  }
+}

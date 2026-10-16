@@ -1,0 +1,1281 @@
+{
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "device": "cpu",
+  "torch_version": "2.13.0+cpu",
+  "threads": 2,
+  "target_training_exposure": {
+    "d2_test": {
+      "rows_with_target_absent_from_d2_train": 4,
+      "n": 9
+    },
+    "d2_test_clean_after_t1_pretraining": {
+      "rows_with_target_absent_from_d2_train": 4,
+      "n": 5
+    },
+    "g1_direction": {
+      "rows_with_target_absent_from_d2_train": 11,
+      "n": 17
+    },
+    "g1_source_consistent_direction": {
+      "rows_with_target_absent_from_d2_train": 8,
+      "n": 14
+    }
+  },
+  "runs": [
+    {
+      "seed": 17,
+      "best_epoch": 15,
+      "optimizer_steps": 60,
+      "seconds": 1.5588693500030786,
+      "scores": {
+        "d2_test": {
+          "correct": {
+            "n": 9,
+            "accuracy": 0.5555555555555556,
+            "balanced_accuracy": 0.35714285714285715,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.14285714285714285,
+              0.8461538461538461
+            ],
+            "balanced_accuracy_ci95": [
+              0.125,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 9,
+            "accuracy": 0.7777777777777778,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.3333333333333333,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 9,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.7857142857142857,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.2222222222222222,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              1.0
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 9,
+            "accuracy": 0.3333333333333333,
+            "balanced_accuracy": 0.21428571428571427,
+            "class_counts": {
+              "0": 7,
+              "1": 2
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.7777777777777778
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.5555555555555556,
+          "n_distinct_series": 6
+        },
+        "d2_test_clean_after_t1_pretraining": {
+          "correct": {
+            "n": 5,
+            "accuracy": 0.2,
+            "balanced_accuracy": 0.16666666666666666,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.42857142857142855
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.25
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 5,
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 5,
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.6666666666666666,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.14285714285714285,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              1.0
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 5,
+            "accuracy": 0.4,
+            "balanced_accuracy": 0.3333333333333333,
+            "class_counts": {
+              "0": 3,
+              "1": 2
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.8571428571428571
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.8,
+          "n_distinct_series": 4
+        },
+        "g1_direction": {
+          "correct": {
+            "n": 17,
+            "accuracy": 0.35294117647058826,
+            "balanced_accuracy": 0.4903846153846154,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.07142857142857142,
+              0.6470588235294118
+            ],
+            "balanced_accuracy_ci95": [
+              0.06666666666666667,
+              0.7333333333333334
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 17,
+            "accuracy": 0.23529411764705882,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.5
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 17,
+            "accuracy": 0.6470588235294118,
+            "balanced_accuracy": 0.5096153846153846,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.35286764705882356,
+              0.9333333333333333
+            ],
+            "balanced_accuracy_ci95": [
+              0.2656372549019608,
+              0.9285714285714286
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 17,
+            "accuracy": 0.35294117647058826,
+            "balanced_accuracy": 0.4903846153846154,
+            "class_counts": {
+              "0": 4,
+              "1": 13
+            },
+            "accuracy_ci95": [
+              0.06666666666666667,
+              0.6471323529411761
+            ],
+            "balanced_accuracy_ci95": [
+              0.07142857142857142,
+              0.734362745098039
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.8823529411764706,
+          "n_distinct_series": 13
+        },
+        "g1_source_consistent_direction": {
+          "correct": {
+            "n": 14,
+            "accuracy": 0.35714285714285715,
+            "balanced_accuracy": 0.46969696969696967,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.7142857142857143
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.7700320512820512
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 14,
+            "accuracy": 0.21428571428571427,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.5384615384615384
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 14,
+            "accuracy": 0.6428571428571429,
+            "balanced_accuracy": 0.5303030303030303,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.3076923076923077,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.24166666666666667,
+              0.9705882352941176
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 14,
+            "accuracy": 0.35714285714285715,
+            "balanced_accuracy": 0.46969696969696967,
+            "class_counts": {
+              "0": 3,
+              "1": 11
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.6923076923076923
+            ],
+            "balanced_accuracy_ci95": [
+              0.029411764705882353,
+              0.7583333333333333
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.8571428571428571,
+          "n_distinct_series": 11
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "best_epoch": 9,
+      "optimizer_steps": 60,
+      "seconds": 1.2616289099969435,
+      "scores": {
+        "d2_test": {
+          "correct": {
+            "n": 9,
+            "accuracy": 0.3333333333333333,
+            "balanced_accuracy": 0.39285714285714285,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.08333333333333333,
+              0.7142857142857143
+            ],
+            "balanced_accuracy_ci95": [
+              0.05,
+              0.8
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 9,
+            "accuracy": 0.7777777777777778,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.3333333333333333,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 9,
+            "accuracy": 0.5555555555555556,
+            "balanced_accuracy": 0.5357142857142857,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.14285714285714285,
+              0.8461538461538461
+            ],
+            "balanced_accuracy_ci95": [
+              0.08333333333333333,
+              0.8888888888888888
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 9,
+            "accuracy": 0.4444444444444444,
+            "balanced_accuracy": 0.4642857142857143,
+            "class_counts": {
+              "0": 7,
+              "1": 2
+            },
+            "accuracy_ci95": [
+              0.15384615384615385,
+              0.8571428571428571
+            ],
+            "balanced_accuracy_ci95": [
+              0.1111111111111111,
+              0.9166666666666667
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.8888888888888888,
+          "n_distinct_series": 6
+        },
+        "d2_test_clean_after_t1_pretraining": {
+          "correct": {
+            "n": 5,
+            "accuracy": 0.4,
+            "balanced_accuracy": 0.41666666666666663,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.75
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.75
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 5,
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 5,
+            "accuracy": 0.4,
+            "balanced_accuracy": 0.41666666666666663,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.75
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.75
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 5,
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.5833333333333333,
+            "class_counts": {
+              "0": 3,
+              "1": 2
+            },
+            "accuracy_ci95": [
+              0.25,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.25,
+              1.0
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.8,
+          "n_distinct_series": 4
+        },
+        "g1_direction": {
+          "correct": {
+            "n": 17,
+            "accuracy": 0.5294117647058824,
+            "balanced_accuracy": 0.6057692307692308,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.25,
+              0.8571428571428571
+            ],
+            "balanced_accuracy_ci95": [
+              0.170625,
+              0.875
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 17,
+            "accuracy": 0.23529411764705882,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.5
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 17,
+            "accuracy": 0.7647058823529411,
+            "balanced_accuracy": 0.7596153846153846,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.47058823529411764,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.34615384615384615,
+              1.0
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 17,
+            "accuracy": 0.23529411764705882,
+            "balanced_accuracy": 0.2403846153846154,
+            "class_counts": {
+              "0": 4,
+              "1": 13
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.5294117647058824
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.6538461538461539
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.7058823529411765,
+          "n_distinct_series": 13
+        },
+        "g1_source_consistent_direction": {
+          "correct": {
+            "n": 14,
+            "accuracy": 0.5714285714285714,
+            "balanced_accuracy": 0.606060606060606,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.24970238095238098,
+              0.9230769230769231
+            ],
+            "balanced_accuracy_ci95": [
+              0.15192307692307694,
+              0.912878787878788
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 14,
+            "accuracy": 0.21428571428571427,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.5384615384615384
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 14,
+            "accuracy": 0.7857142857142857,
+            "balanced_accuracy": 0.8636363636363636,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.4666666666666667,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.6538461538461539,
+              1.0
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 14,
+            "accuracy": 0.21428571428571427,
+            "balanced_accuracy": 0.13636363636363635,
+            "class_counts": {
+              "0": 3,
+              "1": 11
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.5333333333333333
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.34615384615384615
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.6428571428571429,
+          "n_distinct_series": 11
+        }
+      }
+    },
+    {
+      "seed": 2026,
+      "best_epoch": 8,
+      "optimizer_steps": 60,
+      "seconds": 1.2865451640027459,
+      "scores": {
+        "d2_test": {
+          "correct": {
+            "n": 9,
+            "accuracy": 0.3333333333333333,
+            "balanced_accuracy": 0.39285714285714285,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.08333333333333333,
+              0.7142857142857143
+            ],
+            "balanced_accuracy_ci95": [
+              0.05,
+              0.8
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 9,
+            "accuracy": 0.2222222222222222,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.6666666666666666
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 9,
+            "accuracy": 0.5555555555555556,
+            "balanced_accuracy": 0.7142857142857143,
+            "class_counts": {
+              "0": 2,
+              "1": 7
+            },
+            "accuracy_ci95": [
+              0.1111111111111111,
+              0.9166666666666666
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.95
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 9,
+            "accuracy": 0.4444444444444444,
+            "balanced_accuracy": 0.2857142857142857,
+            "class_counts": {
+              "0": 7,
+              "1": 2
+            },
+            "accuracy_ci95": [
+              0.08333333333333333,
+              0.8888888888888888
+            ],
+            "balanced_accuracy_ci95": [
+              0.05,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1828,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 6,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.6666666666666666,
+          "n_distinct_series": 6
+        },
+        "d2_test_clean_after_t1_pretraining": {
+          "correct": {
+            "n": 5,
+            "accuracy": 0.4,
+            "balanced_accuracy": 0.41666666666666663,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              0.75
+            ],
+            "balanced_accuracy_ci95": [
+              0.0,
+              0.75
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 5,
+            "accuracy": 0.4,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 5,
+            "accuracy": 0.4,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 2,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.0,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 5,
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 3,
+              "1": 2
+            },
+            "accuracy_ci95": [
+              0.0,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1768,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 4,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.4,
+          "n_distinct_series": 4
+        },
+        "g1_direction": {
+          "correct": {
+            "n": 17,
+            "accuracy": 0.6470588235294118,
+            "balanced_accuracy": 0.6826923076923077,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.3333333333333333,
+              0.8947368421052632
+            ],
+            "balanced_accuracy_ci95": [
+              0.25,
+              0.9166666666666667
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 17,
+            "accuracy": 0.7647058823529411,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.5,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 17,
+            "accuracy": 0.6470588235294118,
+            "balanced_accuracy": 0.4230769230769231,
+            "class_counts": {
+              "0": 13,
+              "1": 4
+            },
+            "accuracy_ci95": [
+              0.35714285714285715,
+              0.8823529411764706
+            ],
+            "balanced_accuracy_ci95": [
+              0.30657051282051284,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 17,
+            "accuracy": 0.35294117647058826,
+            "balanced_accuracy": 0.5769230769230769,
+            "class_counts": {
+              "0": 4,
+              "1": 13
+            },
+            "accuracy_ci95": [
+              0.11764705882352941,
+              0.6428571428571429
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.6934294871794868
+            ],
+            "balanced_accuracy_valid_draws": 1940,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 12,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.47058823529411764,
+          "n_distinct_series": 13
+        },
+        "g1_source_consistent_direction": {
+          "correct": {
+            "n": 14,
+            "accuracy": 0.7142857142857143,
+            "balanced_accuracy": 0.696969696969697,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.36363636363636365,
+              0.9375
+            ],
+            "balanced_accuracy_ci95": [
+              0.22727272727272727,
+              0.9545454545454546
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "closed_raw_zero": {
+            "n": 14,
+            "accuracy": 0.7857142857142857,
+            "balanced_accuracy": 0.5,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.46153846153846156,
+              1.0
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "swapped_messages": {
+            "n": 14,
+            "accuracy": 0.6428571428571429,
+            "balanced_accuracy": 0.4090909090909091,
+            "class_counts": {
+              "0": 11,
+              "1": 3
+            },
+            "accuracy_ci95": [
+              0.3333333333333333,
+              0.9166666666666666
+            ],
+            "balanced_accuracy_ci95": [
+              0.2777777777777778,
+              0.5
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "reversed_input_and_label": {
+            "n": 14,
+            "accuracy": 0.35714285714285715,
+            "balanced_accuracy": 0.5909090909090909,
+            "class_counts": {
+              "0": 3,
+              "1": 11
+            },
+            "accuracy_ci95": [
+              0.08333333333333333,
+              0.6666666666666666
+            ],
+            "balanced_accuracy_ci95": [
+              0.5,
+              0.7222222222222222
+            ],
+            "balanced_accuracy_valid_draws": 1781,
+            "bootstrap_draws": 2000,
+            "bootstrap_seed": 2026,
+            "n_groups": 10,
+            "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+            "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+          },
+          "prediction_reversal_rate": 0.35714285714285715,
+          "n_distinct_series": 11
+        }
+      }
+    }
+  ],
+  "across_seed_mean": {
+    "d2_test": {
+      "correct": {
+        "accuracy": 0.4074074074074074,
+        "balanced_accuracy": 0.38095238095238093
+      },
+      "closed_raw_zero": {
+        "accuracy": 0.5925925925925926,
+        "balanced_accuracy": 0.5
+      },
+      "swapped_messages": {
+        "accuracy": 0.5925925925925927,
+        "balanced_accuracy": 0.6785714285714285
+      },
+      "reversed_input_and_label": {
+        "accuracy": 0.4074074074074074,
+        "balanced_accuracy": 0.32142857142857145
+      }
+    },
+    "d2_test_clean_after_t1_pretraining": {
+      "correct": {
+        "accuracy": 0.3333333333333333,
+        "balanced_accuracy": 0.3333333333333333
+      },
+      "closed_raw_zero": {
+        "accuracy": 0.5333333333333333,
+        "balanced_accuracy": 0.5
+      },
+      "swapped_messages": {
+        "accuracy": 0.4666666666666666,
+        "balanced_accuracy": 0.5277777777777778
+      },
+      "reversed_input_and_label": {
+        "accuracy": 0.5333333333333333,
+        "balanced_accuracy": 0.47222222222222215
+      }
+    },
+    "g1_direction": {
+      "correct": {
+        "accuracy": 0.5098039215686274,
+        "balanced_accuracy": 0.592948717948718
+      },
+      "closed_raw_zero": {
+        "accuracy": 0.411764705882353,
+        "balanced_accuracy": 0.5
+      },
+      "swapped_messages": {
+        "accuracy": 0.6862745098039215,
+        "balanced_accuracy": 0.5641025641025641
+      },
+      "reversed_input_and_label": {
+        "accuracy": 0.3137254901960784,
+        "balanced_accuracy": 0.4358974358974359
+      }
+    },
+    "g1_source_consistent_direction": {
+      "correct": {
+        "accuracy": 0.5476190476190476,
+        "balanced_accuracy": 0.5909090909090909
+      },
+      "closed_raw_zero": {
+        "accuracy": 0.4047619047619047,
+        "balanced_accuracy": 0.5
+      },
+      "swapped_messages": {
+        "accuracy": 0.6904761904761906,
+        "balanced_accuracy": 0.6010101010101011
+      },
+      "reversed_input_and_label": {
+        "accuracy": 0.30952380952380953,
+        "balanced_accuracy": 0.39898989898989895
+      }
+    }
+  },
+  "scope": "descriptive three-seed means on the same small test sets, not three independent experiments"
+}

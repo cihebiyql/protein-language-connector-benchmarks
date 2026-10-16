@@ -1,0 +1,137 @@
+{
+  "watchdog_pid": 206379,
+  "watchdog_pgid": 206379,
+  "controller": {
+    "pid": 206372,
+    "state": "S",
+    "ppid": 206370,
+    "pgid": 206372,
+    "start_ticks": 8583621,
+    "command": [
+      "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+      "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new.py"
+    ]
+  },
+  "started_utc": "2026-10-16T00:15:06.420055+00:00",
+  "absolute_stage_deadline_utc": "2026-10-16T02:15:06.274467+00:00",
+  "known_owned_children": {
+    "206414": {
+      "pid": 206414,
+      "state": "R",
+      "ppid": 206372,
+      "pgid": 206414,
+      "start_ticks": 8585477,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new.py",
+        "--worker",
+        "--phase",
+        "canary",
+        "--method",
+        "input_mlp",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_input_mlp_b4"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_input_mlp_b4/running-process.json"
+    },
+    "206673": {
+      "pid": 206673,
+      "state": "R",
+      "ppid": 206372,
+      "pgid": 206673,
+      "start_ticks": 8594808,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new.py",
+        "--worker",
+        "--phase",
+        "canary",
+        "--method",
+        "qformer_style",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_qformer_style_b4"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_qformer_style_b4/running-process.json"
+    },
+    "206836": {
+      "pid": 206836,
+      "state": "R",
+      "ppid": 206372,
+      "pgid": 206836,
+      "start_ticks": 8600788,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new.py",
+        "--worker",
+        "--phase",
+        "canary",
+        "--method",
+        "internal_cross_attention",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_internal_cross_attention_b4"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_internal_cross_attention_b4/running-process.json"
+    },
+    "206966": {
+      "pid": 206966,
+      "state": "D",
+      "ppid": 206372,
+      "pgid": 206966,
+      "start_ticks": 8606729,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new.py",
+        "--worker",
+        "--phase",
+        "canary",
+        "--method",
+        "constant",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_constant_b4"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_constant_b4/running-process.json"
+    },
+    "207170": {
+      "pid": 207170,
+      "state": "D",
+      "ppid": 206372,
+      "pgid": 207170,
+      "start_ticks": 8613161,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new.py",
+        "--worker",
+        "--phase",
+        "train",
+        "--method",
+        "input_mlp",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_train_input_mlp_seed17"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_train_input_mlp_seed17/running-process.json"
+    }
+  },
+  "events": [],
+  "policy": "Verify exact receipt PID/PGID, command, allowed project/output paths and process start ticks; never signal unrelated processes.",
+  "last_heartbeat_utc": "2026-10-16T00:22:01.157678+00:00",
+  "termination_trigger": "controller_exit_or_death",
+  "controller_alive_at_trigger": false,
+  "ended_utc": "2026-10-16T00:22:03.174975+00:00",
+  "terminal_owned_children": {
+    "206414": null,
+    "206673": null,
+    "206836": null,
+    "206966": null,
+    "207170": null
+  }
+}

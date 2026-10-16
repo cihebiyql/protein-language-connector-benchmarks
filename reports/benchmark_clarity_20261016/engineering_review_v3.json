@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T15:19:30.0639860+08:00",
+  "reviewer": "matched_protocol_review",
+  "status": "implementation_pending",
+  "qualification_status": "pending",
+  "decision": "Allow one prospective uniform generation batch2 candidate under unchanged TRAIN-only strict equivalence qualification; no formal execution release",
+  "scientific_protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "scientific_protocol_unchanged": true,
+  "basis": "TRAIN-only numerical token equivalence and inference throughput, not test-score-based selection or changed evaluation standard",
+  "V2_evidence": {
+    "qualification_path": "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/batch_invariance_qualification.json",
+    "qualification_sha256": "877a281856b7177a1d16862823ebe12233e21dda4ea8bdf46ff288e39ca1a441",
+    "accepted": false,
+    "test_rows_used": 0,
+    "reader_state_unchanged": true,
+    "comparison_batches": [
+      "B1",
+      "B4",
+      "B2_first_two"
+    ],
+    "mismatch_count": 6,
+    "mismatch_comparisons": [
+      "B4"
+    ],
+    "mismatched_sample_ids": [
+      "ppikb:PPIRE02255",
+      "ppikb:PPIRE09147"
+    ],
+    "failed_fields": [
+      "canonical_generated_token_ids",
+      "raw_text",
+      "parse"
+    ],
+    "batch2_interpretation": "Only first two TRAIN rows matched in V2; not full4-row or6-configuration qualification",
+    "receipt_path": "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/execution-receipt.json",
+    "receipt_sha256": "c0b1006796a879fd21ab470cbc348e0a0d4b019d71b17ada2ee1e9457cfc098e",
+    "exit_code": 1,
+    "process_group_absent": true,
+    "suite_state_path": "results/matched_budget_20261016/suite_batched_v2_20261016_1514/suite_state.json",
+    "suite_state_sha256": "b348cdd7860636c61934504b34e4dd5d18ffbce6200cb652458a6205aee9739f",
+    "suite_status": "failed_or_partial",
+    "suite_jobs": 1
+  },
+  "candidate": {
+    "generation_batch_size": 2,
+    "scope": "All36 models, unchanged contiguous frozen row order, last batch1",
+    "only_next_candidate": true,
+    "data_training_metrics_parser_dtype_numerical_policy_unchanged": true,
+    "V1_V2_outputs_and_failure_unchanged": true,
+    "new_source_manifest_contract_required": true,
+    "completed_V1_training_reuse": "Allowed only with exact same-case accepted checkpoint/history/pins; zero new optimizer steps and zero added training replicate",
+    "deadline": "2026-10-16T23:20:00+08:00",
+    "deadline_reset_allowed": false
+  },
+  "qualification_requirements": [
+    "Final V3 source/cache/contract and independent CPU implementation review",
+    "All original6 fixed TRAIN configurations, all original4 predetermined rows compared B1 versus contiguous B2 batches",
+    "Exact canonical first-EOS tokens, decoded text and original strict parse; same reader state unchanged",
+    "CPU mixedEOS/pad/noEOS24-step/length/ledger negative tests",
+    "Actual supervised memory/RSS/whole-batch throughput and valid/padded communication accounting",
+    "No V3 full trial or test until all6 qualification configurations pass"
+  ],
+  "failure_policy": "Any V3 mismatch stops and archives; no additional batch/dtype/parser search or test-based version selection. Return to accepted V1 within remaining original deadline or archive partial/k-of3.",
+  "scope_limit": "Finite TRAIN qualification cannot prove all test inputs or trained states batch-shape invariant; report any later version differences, never fill V3 with V1 answers",
+  "reviewer_actions": {
+    "new_test_scores_or_predictions_read": false,
+    "GPU_calls": 0,
+    "training_performed": false,
+    "source_edited": false,
+    "old_review_protocol_acceptance_changed": false
+  },
+  "report_sha256": "22c6e10dc1faf3d680333a578dd96519ee5b75d5f10076f69632e159ecdaceb0"
+}

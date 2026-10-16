@@ -1,0 +1,510 @@
+{
+  "audit_version": 1,
+  "created_utc": "2026-10-16T09:55:57.639827+00:00",
+  "scope": "official code identity and static source evidence only; downloaded source never imported/executed; no GPU/model/dataset job or dependency installation",
+  "local_reuse_search": "bounded rg filenames in existing project repos found no NormFormer/ReZero/fairseq reusable source; fresh isolated official archives used",
+  "official_association": [
+    {
+      "paper": "2110.09456v2",
+      "pdf_sha256": "c3bd7416cf2e37290a3a0ac807f193c344a905605afb86aad9bef3fd14bfc502",
+      "physical_page": 1,
+      "actual_pdf_link": "https://github.com/pytorch/fairseq/tree/main/examples/normformer",
+      "canonical_repo": "facebookresearch/fairseq",
+      "cross_check": "repo examples/normformer/README.md names exact paper and author contact @sshleifer; public GitHub API full_name confirms renamed canonical repo"
+    },
+    {
+      "paper": "2003.04887v2",
+      "pdf_sha256": "54eea1741fad2e7a20e52f55c64b34977f1206c5e3c8e14804ea5385c299c070",
+      "physical_page": 1,
+      "actual_pdf_link": "https://github.com/majumderb/rezero",
+      "canonical_repo": "majumderb/rezero",
+      "cross_check": "README names exact paper/authors; package author metadata and MIT copyright Bodhisattwa Majumder"
+    }
+  ],
+  "repositories": [
+    {
+      "key": "normformer_fairseq",
+      "requested_repo": "pytorch/fairseq",
+      "repo": "facebookresearch/fairseq",
+      "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+      "commit_date": "2025-09-30T11:16:06Z",
+      "paper": "2110.09456v2",
+      "paper_sha": "c3bd7416cf2e37290a3a0ac807f193c344a905605afb86aad9bef3fd14bfc502",
+      "paper_link": "https://github.com/pytorch/fairseq/tree/main/examples/normformer",
+      "paper_explicit_link_page_1based": 1,
+      "canonical_url": "https://github.com/facebookresearch/fairseq",
+      "default_branch": "main",
+      "license_spdx": "MIT",
+      "license_api_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "association": "PDF clickable author link; canonical public GitHub API metadata; snapshot is not claimed as original paper training commit",
+      "archive_url": "https://codeload.github.com/facebookresearch/fairseq/zip/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+      "archive_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99.zip",
+      "archive_bytes": 14039779,
+      "archive_sha256": "fe8bc0f9aae8bf027752e700840a5402a9af3dba71cd5daade7e3300a645a991",
+      "source_root": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source",
+      "extracted_bytes": 13734635,
+      "file_count": 1629,
+      "omissions": [
+        {
+          "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/adaptive_span/truncated_bptt_lm_task.py",
+          "reason": "symlink/descendant rejected; never resolved or created",
+          "mode": "0o120777",
+          "declared_bytes": 43
+        },
+        {
+          "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/mr_hubert/simple_kmeans",
+          "reason": "symlink/descendant rejected; never resolved or created",
+          "mode": "0o120777",
+          "declared_bytes": 23
+        },
+        {
+          "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/wav2vec/unsupervised/kaldi_self_train/st/steps",
+          "reason": "symlink/descendant rejected; never resolved or created",
+          "mode": "0o120777",
+          "declared_bytes": 18
+        },
+        {
+          "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/wav2vec/unsupervised/kaldi_self_train/st/utils",
+          "reason": "symlink/descendant rejected; never resolved or created",
+          "mode": "0o120777",
+          "declared_bytes": 18
+        },
+        {
+          "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/hubert/tests/sample.base.L9.npy",
+          "reason": "bundled HuBERT binary test fixture excluded from source-only partial view; original ZIP retains bytes; never loaded",
+          "declared_bytes": 1831104,
+          "sha256": "b44dc3a0519f6adb670a5da7410c1405f4fdb0e4866e5fc4983b136480212f34"
+        },
+        {
+          "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/hubert/tests/sample.large.L20.npy",
+          "reason": "bundled HuBERT binary test fixture excluded from source-only partial view; original ZIP retains bytes; never loaded",
+          "declared_bytes": 2441408,
+          "sha256": "4c82839134cc2340355eb49b41e7e3517e8e9dfdfaa6fc28f0464cc8ae9569ee"
+        },
+        {
+          "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/hubert/tests/sample.xlarge.L30.npy",
+          "reason": "bundled HuBERT binary test fixture excluded from source-only partial view; original ZIP retains bytes; never loaded",
+          "declared_bytes": 3051712,
+          "sha256": "bbe9f0929ecd4c58786be55215d83f85787ff0d81196bc2e73414f82a8939806"
+        }
+      ],
+      "extraction_policy": "reject all symlinks/special files/path escapes; symlink members skipped without resolving/following; absolute contained paths and exclusive writes; ZIP CRC read validation",
+      "initial_attempt": "strict whole-archive precheck rejected first symlink before source writes; archive retained; later non-link-only extraction",
+      "functional_checkout_claim": false,
+      "size_limit_bytes_per_repository": 52428800,
+      "budget_counts": "archive+extracted bytes <=50MiB perrepo",
+      "retrieved_utc": "2026-10-16T09:51:52.104570+00:00",
+      "third_party_code_executed": false,
+      "dependencies_installed": false,
+      "model_or_dataset_download_commands_executed": false,
+      "view_status": "partial regular-file source view; four symlinks plus three bundled binary fixtures omitted",
+      "symlink_omission_count": 4,
+      "bundled_binary_fixture_omission_count": 3,
+      "archive_zip_comment_commit_verified": true
+    },
+    {
+      "key": "rezero",
+      "requested_repo": "majumderb/rezero",
+      "repo": "majumderb/rezero",
+      "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+      "paper": "2003.04887v2",
+      "paper_sha": "54eea1741fad2e7a20e52f55c64b34977f1206c5e3c8e14804ea5385c299c070",
+      "paper_link": "https://github.com/majumderb/rezero",
+      "requested_repo_api_final_url": "https://api.github.com/repos/majumderb/rezero",
+      "canonical_url": "https://github.com/majumderb/rezero",
+      "default_branch": "master",
+      "commit_date": "2021-06-02T08:19:58Z",
+      "license_spdx": "MIT",
+      "license_api_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "paper_explicit_link_page_1based": 1,
+      "association": "PDF clickable author link; canonical public GitHub API metadata; not exact original training commit",
+      "archive_url": "https://codeload.github.com/majumderb/rezero/zip/e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+      "archive_final_url": "https://codeload.github.com/majumderb/rezero/zip/e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+      "archive_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/e2c94a825c5564217e8cf4d75a28d59cab1d7029.zip",
+      "archive_bytes": 6849,
+      "archive_sha256": "f63f24876d32e539a47245f17256a00c4097e35d63c0863a3555ecff1bf39584",
+      "source_root": "repos/benchmark_clarity_20261016/residual_scale/rezero/source",
+      "extracted_bytes": 12741,
+      "file_count": 8,
+      "extraction_policy": "all members prevalidated: reject absolute/drive/backslash/parent traversal/symlink/special files; resolved containment; exclusive writes; CRC checked by zip reader",
+      "size_limit_bytes_per_repository": 52428800,
+      "budget_counts": "archive+extracted bytes <=50MiB perrepo",
+      "retrieved_utc": "2026-10-16T09:50:43.291335+00:00",
+      "third_party_code_executed": false,
+      "dependencies_installed": false,
+      "model_or_dataset_download_commands_executed": false,
+      "archive_zip_comment_commit_verified": true
+    }
+  ],
+  "budget": {
+    "limit_bytes_per_repository": 52428800,
+    "limit_bytes_total": 104857600,
+    "total_downloaded_archive_bytes": 14046628,
+    "total_extracted_source_bytes": 13747376,
+    "total_archive_plus_source_bytes": 27794004,
+    "all_perrepo_and_total_within_limits": true
+  },
+  "safe_extraction": {
+    "first_whole_archive_attempt_rejected_and_preserved": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/extraction_attempt_1_rejected.json",
+    "fairseq_view": "partial regular-file source view, not complete checkout or full extraction",
+    "fairseq_symlink_omissions": [
+      {
+        "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/adaptive_span/truncated_bptt_lm_task.py",
+        "reason": "symlink/descendant rejected; never resolved or created",
+        "mode": "0o120777",
+        "declared_bytes": 43
+      },
+      {
+        "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/mr_hubert/simple_kmeans",
+        "reason": "symlink/descendant rejected; never resolved or created",
+        "mode": "0o120777",
+        "declared_bytes": 23
+      },
+      {
+        "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/wav2vec/unsupervised/kaldi_self_train/st/steps",
+        "reason": "symlink/descendant rejected; never resolved or created",
+        "mode": "0o120777",
+        "declared_bytes": 18
+      },
+      {
+        "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/wav2vec/unsupervised/kaldi_self_train/st/utils",
+        "reason": "symlink/descendant rejected; never resolved or created",
+        "mode": "0o120777",
+        "declared_bytes": 18
+      }
+    ],
+    "fairseq_bundled_binary_omissions": [
+      {
+        "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/hubert/tests/sample.base.L9.npy",
+        "reason": "bundled HuBERT binary test fixture excluded from source-only partial view; original ZIP retains bytes; never loaded",
+        "declared_bytes": 1831104,
+        "sha256": "b44dc3a0519f6adb670a5da7410c1405f4fdb0e4866e5fc4983b136480212f34"
+      },
+      {
+        "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/hubert/tests/sample.large.L20.npy",
+        "reason": "bundled HuBERT binary test fixture excluded from source-only partial view; original ZIP retains bytes; never loaded",
+        "declared_bytes": 2441408,
+        "sha256": "4c82839134cc2340355eb49b41e7e3517e8e9dfdfaa6fc28f0464cc8ae9569ee"
+      },
+      {
+        "member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/hubert/tests/sample.xlarge.L30.npy",
+        "reason": "bundled HuBERT binary test fixture excluded from source-only partial view; original ZIP retains bytes; never loaded",
+        "declared_bytes": 3051712,
+        "sha256": "bbe9f0929ecd4c58786be55215d83f85787ff0d81196bc2e73414f82a8939806"
+      }
+    ],
+    "original_zip_retained": true,
+    "symlinks_created_or_followed": false,
+    "all_extracted_regular_files_verified_against_zip": true,
+    "evidence_files_verified": 13,
+    "evidence_file_checks": [
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "examples/normformer/README.md",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/README.md",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/README.md",
+        "file_sha256": "3e24210c180e2a9d9cfb22369f77c8439c553ee984584b9c19d90fbda96e95f9",
+        "archive_member_sha256": "3e24210c180e2a9d9cfb22369f77c8439c553ee984584b9c19d90fbda96e95f9",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          2,
+          12,
+          20,
+          23,
+          29,
+          50
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/README.md"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "examples/normformer/train_lm.sh",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/train_lm.sh",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/train_lm.sh",
+        "file_sha256": "2813d74b232dad1030966ef2338141ed1d8ecf7f107739a4e217a817b9689475",
+        "archive_member_sha256": "2813d74b232dad1030966ef2338141ed1d8ecf7f107739a4e217a817b9689475",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          10,
+          11,
+          13,
+          19,
+          20,
+          24,
+          27,
+          33,
+          35,
+          56,
+          63
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/train_lm.sh"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/modules/transformer_layer.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/transformer_layer.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/transformer_layer.py",
+        "file_sha256": "3bc2d9b22997d4961349d80a517f242235d1128e78ac30c45f07aabf0f64058d",
+        "archive_member_sha256": "3bc2d9b22997d4961349d80a517f242235d1128e78ac30c45f07aabf0f64058d",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          277,
+          285,
+          310,
+          315,
+          451,
+          460,
+          465,
+          468,
+          506,
+          508,
+          512,
+          514
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/transformer_layer.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/modules/multihead_attention.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/multihead_attention.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/multihead_attention.py",
+        "file_sha256": "0dde50b837751582b66d5f51cfdfe0f0d62ae0c57afc0ba9fabd2439c1da83be",
+        "archive_member_sha256": "0dde50b837751582b66d5f51cfdfe0f0d62ae0c57afc0ba9fabd2439c1da83be",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          539,
+          551,
+          773
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/multihead_attention.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/modules/layer_norm.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/layer_norm.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/layer_norm.py",
+        "file_sha256": "25aa47361d2d89cdc9ae5f3c8766ba96e8e4d20bcdaecf00b71958db923fd4e9",
+        "archive_member_sha256": "25aa47361d2d89cdc9ae5f3c8766ba96e8e4d20bcdaecf00b71958db923fd4e9",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          29
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/layer_norm.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/models/transformer_lm.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/models/transformer_lm.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/models/transformer_lm.py",
+        "file_sha256": "21f2a6296174004c1f5898dd331fa9ecfd522f4f21fa0a45171b2a9a3b258b22",
+        "archive_member_sha256": "21f2a6296174004c1f5898dd331fa9ecfd522f4f21fa0a45171b2a9a3b258b22",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          376,
+          390
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/models/transformer_lm.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/optim/adam.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/optim/adam.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/optim/adam.py",
+        "file_sha256": "42496814f276444dfcb534d7ebdf2b0c6098543a70bdfcee898b28cfc4678c90",
+        "archive_member_sha256": "42496814f276444dfcb534d7ebdf2b0c6098543a70bdfcee898b28cfc4678c90",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          45,
+          48,
+          229
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/optim/adam.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "LICENSE",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/LICENSE",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/LICENSE",
+        "file_sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+        "archive_member_sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          1
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/LICENSE"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "README.md",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/README.md",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/README.md",
+        "file_sha256": "b766654a4144964fc3f52943db637788047f0a6c027f4d1fef7c7c29fa56e501",
+        "archive_member_sha256": "b766654a4144964fc3f52943db637788047f0a6c027f4d1fef7c7c29fa56e501",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          3,
+          5,
+          54,
+          60
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/README.md"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "rezero/transformer/rztx.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py",
+        "file_sha256": "eb0e1cb7fa4aa2d345b59944b597225708cb5e10144a99b75c2047e5f12c447b",
+        "archive_member_sha256": "eb0e1cb7fa4aa2d345b59944b597225708cb5e10144a99b75c2047e5f12c447b",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          37,
+          47,
+          71,
+          74,
+          79,
+          80,
+          103,
+          115,
+          137,
+          139,
+          140,
+          142,
+          145,
+          148
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "requirements.txt",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/requirements.txt",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/requirements.txt",
+        "file_sha256": "7da07370040c5eb199192e85dc54467427ead13dc00a95337c8f699595ef92f4",
+        "archive_member_sha256": "7da07370040c5eb199192e85dc54467427ead13dc00a95337c8f699595ef92f4",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          1
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/requirements.txt"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "setup.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/setup.py",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/setup.py",
+        "file_sha256": "1b02ac50908a5ae45d0415ed947052b70a12296a4f7d5ef8d9bd81f04b9c4315",
+        "archive_member_sha256": "1b02ac50908a5ae45d0415ed947052b70a12296a4f7d5ef8d9bd81f04b9c4315",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          6,
+          13
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/setup.py"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "LICENSE",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/LICENSE",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/LICENSE",
+        "file_sha256": "73dce5e91e19a640abc22befc3bd6f3b2118cfc59a513d58c92dfc743cc4995b",
+        "archive_member_sha256": "73dce5e91e19a640abc22befc3bd6f3b2118cfc59a513d58c92dfc743cc4995b",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          1
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/LICENSE"
+      }
+    ]
+  },
+  "static_findings": {
+    "NormFormer": {
+      "branch_norm": "transformer_layer.py attn_ln follows self_attn/c_attn and precedes dropout+residual addition; FFN LayerNorm follows activation/dropout and precedes fc2",
+      "learned_scales": "c_attn shape nheads initialized ones; w_resid shape hidden initialized ones and only scale_resids enables it; w_resid multiplies skip residual, not new attention branch",
+      "headscale_implementation_detail": "snapshot applies head-sized output slices after self_attn; MHA returned x already passes out_proj, including fast path; not literal before-WO headscale formula. Paper v2 physical page4 discusses moving scaling outside MHA for implementation efficiency",
+      "no_zero_gate": "NormFormer flags do not introduce ReZero scalar alpha0",
+      "recipe": "1.3B README:lr6e-4,scale-attn/scale-fc/scale-heads, no scale-resids; shell:24layers,hidden2048,32heads,seq2048,memory-efficient-fp16,FSDP8GPU,AdamW-style fairseq optimizer betas0.9/0.98,wd0.01,polynomial decay,warmup750,max-update ceiling286102",
+      "public_data_boundary": "README12/27 says paper Table2 uses much larger private dataset; recipe is not identical public data nor actual compute-matched completion receipt"
+    },
+    "ReZero": {
+      "gate": "trainable resweight=Tensor([0]); direct multiplication, no tanh",
+      "gate_sharing": "one encoder-layer scalar reused for self-attention and FFN; one decoder-layer scalar reused for self-attention,cross-attention,FFN",
+      "normalization": "no LayerNorm in downloaded RZTX layer implementation; README54 asks outer Transformer norm=None",
+      "defaults_not_paper_hyperparameters": "constructors dropout0.1/activation relu, README usage8heads; not paper AppendixB2heads,GELU,dropout0.2",
+      "training_coverage": "8 regular files provide layers/package and tutorial links; no complete paper training campaign or frozen original data/model/run receipts",
+      "version_boundary": "default snapshot commit2021-06-02 postdates arXiv v2 2020-06-25; no claim authors ran exact paper experiments at this commit"
+    }
+  },
+  "current_transfer_differences": [
+    "current LM stays pretrained/frozen/eval rather than original whole-network training",
+    "current one reader reads fixed16x128 ESM-derived memory with4heads and one tanh alpha gate; not original full self-attention stack or ReZero shared sublayer gate",
+    "current query LN is already present, no branch-output LN currently; any future output LN/calibration remains unexecuted separate proposal",
+    "current3epochs1548updates/strict pKD text task cannot inherit original enwiki8/pretraining gains",
+    "zero task gradients do not prevent AdamW decay on non-None zero gradients",
+    "repo availability/static mechanism evidence does not establish improvement or reproduction"
+  ],
+  "untouched_files_sha256": {
+    "reports/benchmark_clarity_20261016/residual_scale_literature.md": "de114e78e8b74f575d108b7c9aa8e51c85d2979fbff99c1ecc4813b6217f94ac",
+    "reports/benchmark_clarity_20261016/residual_scale_literature.json": "5c5e10e3e9f5e630721b2301fd37c0bda384aefd1c1d0db19fbf116bb1e920e2",
+    "reports/benchmark_clarity_20261016/benchmark_explanation_review.json": "5455390cdbf44280a94121e3d3f7aaca6e815504a7683d707ac23242bc62b4a0",
+    "reports/benchmark_clarity_20261016/benchmark_explanation_review.md": "401ab304188957acd1c0d100f3ab8cd41fca5a8e9734cbae62fe0a4893f80e1a",
+    "reports/benchmark_clarity_20261016/engineering_review_v2.json": "f6b4ef46a911d861291cfe2db3a93dd967672424f7ed7f937c32b564e8466f76",
+    "reports/benchmark_clarity_20261016/engineering_review_v2.md": "c251b4d82ecca76fc2f0266a3cfbc49aa27469bf8af545cc00bc9d97b085f8a3",
+    "reports/benchmark_clarity_20261016/engineering_review_v3.json": "17418786113eb277029a2dd99acade425a1c052688c3ff39b4a3c36e712d5ce2",
+    "reports/benchmark_clarity_20261016/engineering_review_v3.md": "22c6e10dc1faf3d680333a578dd96519ee5b75d5f10076f69632e159ecdaceb0",
+    "reports/benchmark_clarity_20261016/implementation_review.json": "458119bb1c4ba96913e24a2421bd85e63929c0f3f6b1131caaef3f6d628ce583",
+    "reports/benchmark_clarity_20261016/implementation_review.md": "3d3e5265e05df934713f3022e56ee306c9a0921d6d1afd8a5d09ef357d0aa835",
+    "reports/benchmark_clarity_20261016/implementation_review_v1_continuation.json": "32b2fc76696a8aa23fa330ac79fb4a9a6d042f0f0296b2f0d148082eb17d9d63",
+    "reports/benchmark_clarity_20261016/implementation_review_v1_continuation.md": "094b4d94b8020f0f73128f3e6acc329c5514c865905c13c5438f361bf392a205",
+    "reports/benchmark_clarity_20261016/implementation_review_v2.json": "30cfe41af36803076f4c3f5295d88b9a360333069d1dc6abf7610113b7243a7b",
+    "reports/benchmark_clarity_20261016/implementation_review_v2.md": "1da3cf256dc5ea853fa824379fbd25dac51fab99f372c3cb54643c88650aec2e",
+    "reports/benchmark_clarity_20261016/implementation_review_v3.json": "dc5213d8924c30a2ae0dd635928d8d07b6328a7934fe7c979f105727061e1522",
+    "reports/benchmark_clarity_20261016/implementation_review_v3.md": "32b1d1ebbdea09f9fac94a2feaddca72738990cce9f784fa5281887337efbc64",
+    "reports/benchmark_clarity_20261016/protocol_review.json": "9e06fac0fc78bba582806abeee280bfa5d436f0107119a6caec0690b7abcc77d",
+    "reports/benchmark_clarity_20261016/protocol_review.md": "0f680fb028e4a9f9d53bc79a325133c70f8dfbc372f046ff19d999c895574086"
+  },
+  "existing_literature_and_review_files_unchanged": true,
+  "current36_protocol_source_results_changed": false,
+  "local_GPU_used": false,
+  "third_party_code_executed": false,
+  "dependencies_installed": false,
+  "new_models_or_external_datasets_downloaded": false
+}

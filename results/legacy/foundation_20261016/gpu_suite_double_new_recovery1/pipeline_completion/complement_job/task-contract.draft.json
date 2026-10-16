@@ -1,0 +1,289 @@
+{
+  "schema_version": "1.0",
+  "record_type": "task_contract",
+  "is_template": false,
+  "task_id": "protein-language-connector-foundation-20261016",
+  "run_id": "BASE03_disjoint_complement_v1",
+  "contract_status": "draft",
+  "created_at": "2026-10-16T02:13:01.534072+00:00",
+  "frozen_at": "2026-10-16T02:13:01.534072+00:00",
+  "revision": 1,
+  "previous_contract_sha256": null,
+  "revision_reason": null,
+  "identity": {
+    "title": "A data resource of peptide–protein interaction structures and binding affinities for peptide drug discovery",
+    "doi": "10.1038/s41597-026-07962-1",
+    "publication_status": "published",
+    "first_online_date": null,
+    "journal": "Scientific Data",
+    "paper_type": "data resource; source provenance only, no author model table reproduction",
+    "pdf": {
+      "path": "PROJECT_ROOT/papers/bench_v02/ppikb/article.pdf",
+      "sha256": "3a4c200f0097adfe90abb27b478249022fdc7f2d405f40b4d7cbbd592ee50def",
+      "version": "accepted_manuscript",
+      "source_url": "https://doi.org/10.1038/s41597-026-07962-1"
+    },
+    "related_versions": [],
+    "eligibility": {
+      "scope": null,
+      "assessment": "unknown",
+      "evidence_paths": []
+    }
+  },
+  "execution_scope": {
+    "objective": "Generate only sealed missing record IDs using unchanged frozen BASE03 functions, prompt, model, predictor selection and24-token decoder; preserve invalid answered records.",
+    "authorization_reference": "Same user-requested actual foundation benchmark execution; parent explicitly extended the stage to both available full A1 scenarios without changing hyperparameters after observing test outcomes.",
+    "relation_to_prior_run": "CUBLAS_STATUS_INTERNAL_ERROR after27 updates; fresh failing-batch and first28-updates diagnostics pass with synchronous scheduling. Root cause remains unverified, not classified as OOM.",
+    "prior_run_ids": [
+      "recovery1_double_new_pipeline_BASE03_seed17"
+    ],
+    "safety_assessment": "allowed",
+    "scope_coverage": "component_only",
+    "intended_level": "independent_inference",
+    "excluded_claims": [
+      "full ProtT3 reproduction",
+      "three-seed confirmatory experiment",
+      "30-epoch matched-budget predictor comparison",
+      "unified multitask connector",
+      "biological affinity optimization",
+      "protein sequence generation",
+      "wet-lab validation"
+    ],
+    "restriction_check": {
+      "prior_platform_restriction": false,
+      "reason": "General scalar benchmark on frozen public data, no protein sequence generation or target-specific activity optimization; no platform rejection applies to this new task.",
+      "evidence_paths": [
+        "PROJECT_ROOT/configs/foundation_gpu_double_new_recovery1_20261016.json"
+      ]
+    }
+  },
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T07:18:00+08:00",
+    "earliest_associated_preparation_at": "2026-10-16T07:18:00+08:00",
+    "wall_clock_cap_hours": 10,
+    "original_deadline_at": "2026-10-16T17:18:00+08:00",
+    "additional_deadlines_at": [
+      "2026-10-16T02:32:32.279805+00:00"
+    ],
+    "effective_deadline_at": "2026-10-16T02:32:32.279805+00:00",
+    "prior_window_expired": false,
+    "retry_resets_clock": false,
+    "timing_evidence_paths": [
+      "PROJECT_ROOT/configs/foundation_gpu_double_new_recovery1_20261016.json"
+    ]
+  },
+  "assets": {
+    "datasets": [
+      {
+        "name": "A1 v2 exact KD broad reference-target new-peptide/new-target split",
+        "version": "a1_locked_v2",
+        "source_url": "https://ppikb.duanlab.ac/",
+        "path": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/samples.jsonl",
+        "manifest_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+        "sample_count": 2936,
+        "statistical_unit": "source assay measurement",
+        "splits": {
+          "train": 2063,
+          "validation": 431,
+          "test": 442,
+          "split_manifest_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f"
+        },
+        "integrity": "complete",
+        "notes": "Complete relative to the restricted source lock; assay construct/context and external-source coverage limits retained.",
+        "evidence_paths": [
+          "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/benchmark_lock.json"
+        ]
+      }
+    ],
+    "code": [
+      {
+        "role": "primary",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new_recovery1.py",
+        "archive_sha256": "720d80409b3f0ec8c18ac9cd9440c13e5e12e4b8c8d4b107f19a63e82a0395d4",
+        "sha256": "720d80409b3f0ec8c18ac9cd9440c13e5e12e4b8c8d4b107f19a63e82a0395d4",
+        "integrity": "complete",
+        "notes": "Frozen local task implementation, not an upstream author reproduction."
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/run_connectors.py",
+        "archive_sha256": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+        "sha256": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+        "integrity": "complete",
+        "notes": "Frozen local task implementation, not an upstream author reproduction."
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/connectors.py",
+        "archive_sha256": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318",
+        "sha256": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318",
+        "integrity": "complete",
+        "notes": "Frozen local task implementation, not an upstream author reproduction."
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/run_predictor_pipeline.py",
+        "archive_sha256": "56c0465d923984f58fec3c3812757d27299fe5980c005bbfbdde8343cf6cb049",
+        "sha256": "56c0465d923984f58fec3c3812757d27299fe5980c005bbfbdde8343cf6cb049",
+        "integrity": "complete",
+        "notes": "Frozen local task implementation, not an upstream author reproduction."
+      },
+      {
+        "role": "completion_orchestration",
+        "path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complete_remaining.py",
+        "sha256": "c42335c743f4f2b1372cc9dbfe21ecd5f88c3c45ae87b8bb8602413a65dd4700",
+        "archive_sha256": "c42335c743f4f2b1372cc9dbfe21ecd5f88c3c45ae87b8bb8602413a65dd4700",
+        "integrity": "complete",
+        "notes": "No frozen algorithm source changed."
+      },
+      {
+        "role": "completion_orchestration",
+        "path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/pipeline_completion_core.py",
+        "sha256": "b09d6400cbf88ba811f9d412ccc6c50468956fea35a2d3170148487bbb9b1cc2",
+        "archive_sha256": "b09d6400cbf88ba811f9d412ccc6c50468956fea35a2d3170148487bbb9b1cc2",
+        "integrity": "complete",
+        "notes": "No frozen algorithm source changed."
+      }
+    ],
+    "models": [
+      {
+        "name": "Qwen2.5-1.5B-Instruct",
+        "version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/model.safetensors",
+        "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+        "configuration_path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/config.json",
+        "configuration_sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+        "integrity": "complete",
+        "coverage": "frozen causal LM; no LM weights updated",
+        "evidence_paths": [
+          "PROJECT_ROOT/sources/model_manifest.json"
+        ]
+      },
+      {
+        "name": "Frozen ESM2-150M layer30 residue feature cache",
+        "version": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "path": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015/manifest.json",
+        "sha256": "3d1abe67a9f321231a0bd10decdfb733bdce307fbc538f7870611e58fd8d8cee",
+        "integrity": "complete",
+        "coverage": "all peptide/target cached residues; no fresh ESM forward requested"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "target_id": "test_parse_valid_rate",
+      "paper_endpoint": "new foundation endpoint; no corresponding author table",
+      "required": true,
+      "metric": "parse_valid_rate",
+      "metric_definition": "strict finite JSON valid fraction over disjoint remaining records; old invalid answers retained in final full denominator",
+      "statistical_unit": "held-out assay measurement",
+      "denominator": 196,
+      "unit": "fraction",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "existing full-validation MAE selection; no new fitting",
+      "repetitions": {
+        "seed": 17,
+        "n_seeds": 1,
+        "epochs": 0
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "absolute": null,
+        "relative": null,
+        "reason": "New foundation stage is not an author paper endpoint or matched 30-epoch predictor comparison."
+      }
+    }
+  ],
+  "environment": {
+    "isolation": "existing dedicated WSL virtual environment; no package mutation",
+    "environment_path": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080",
+    "lockfile_path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/environment_freeze.txt",
+    "lockfile_sha256": "26137c2dd41c5bb2e14b1711ef7a9011a08752fe510e234da58b7e276eeca51f",
+    "runtime_versions": {},
+    "shared_environment_modified": false,
+    "process_local_runtime_flags": {
+      "CUDA_LAUNCH_BLOCKING": "1",
+      "TORCH_SHOW_CPP_STACKTRACES": "1"
+    }
+  },
+  "resources": {
+    "expected_hostname": "LOCAL_HOST",
+    "cpu_threads": 2,
+    "data_loader_workers": 0,
+    "memory_limit_bytes": 12884901888,
+    "gpu_devices": [
+      0
+    ],
+    "gpu_memory_budget_bytes": 12348030976,
+    "resource_probe_path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_job/resource_probe.draft.json",
+    "resource_probe_at": "2026-10-16T02:13:01.527230+00:00",
+    "start_gate": "ready_for_exact_bounded_contract",
+    "budget_basis": "Live compute process check; 11.5 GiB Torch allocation limit plus existing desktop; RSS watchdog <=12 GiB; no preemption.",
+    "no_preemption": true
+  },
+  "execution": {
+    "command": [
+      "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+      "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complete_remaining.py",
+      "--worker",
+      "--job-dir",
+      "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_job"
+    ],
+    "working_directory": "PROJECT_ROOT/",
+    "seed_policy": "one frozen seed17; fresh independent connector initialization per method",
+    "seeds": [
+      17
+    ],
+    "timeout_seconds": 1110,
+    "process_control": {
+      "platform": "Linux WSL",
+      "mechanism": "new process session; monitor RSS and total elapsed; SIGTERM/SIGKILL own PGID only",
+      "whole_tree_bounded": true
+    },
+    "stdout_path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_job/stdout.log",
+    "stderr_path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_job/stderr.log"
+  },
+  "stop_conditions": [
+    "达到有效截止",
+    "达到合同资源上限",
+    "执行范围超出合同",
+    "出现平台拒绝或缺少适用授权"
+  ],
+  "review": {
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "checks": [],
+    "evidence_paths": []
+  },
+  "engineering_recovery": {
+    "prior_attempt": "results/foundation_20261016/gpu_suite_double_new",
+    "reason": "CUBLAS_STATUS_INTERNAL_ERROR after27 updates; fresh failing-batch and first28-updates diagnostics pass with synchronous scheduling. Root cause remains unverified, not classified as OOM.",
+    "heldout_predictions_seen_in_this_scenario_before_revision": false,
+    "algorithm_hyperparameters_changed": false,
+    "data_splits_changed": false,
+    "first_substantive_clock_reset": false,
+    "diagnostic_evidence": [
+      "results/foundation_20261016/gpu_suite_double_new/diagnostic_batch28_fresh_blocking",
+      "results/foundation_20261016/gpu_suite_double_new/diagnostic_prefix28_blocking"
+    ],
+    "numerical_note": "Same seed and mathematical update procedure do not imply bitwise bf16 parity; replay diverged numerically from step5."
+  },
+  "complement_plan_path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_plan.json",
+  "complement_plan_sha256": "553feeb0efab933392cab4809716c47bbb052424f36976a8843e256cfb8f95ad",
+  "frozen_function_binding": {
+    "module": "PROJECT_ROOT/scripts/foundation_20261016/run_predictor_pipeline.py",
+    "source_sha256": "56c0465d923984f58fec3c3812757d27299fe5980c005bbfbdde8343cf6cb049",
+    "unchanged_functions": [
+      "predictor_values",
+      "structured_input",
+      "prompt_text",
+      "greedy_tokens",
+      "generate_records",
+      "evaluate_records"
+    ],
+    "max_new_tokens": 24,
+    "model_weights_and_selection": "exact original registration/input pins; no training or selection update"
+  }
+}

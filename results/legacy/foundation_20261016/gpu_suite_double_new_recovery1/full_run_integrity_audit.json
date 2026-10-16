@@ -1,0 +1,202 @@
+{
+  "scope": "full-source integrity audit of four trained models plus reconciled BASE03; no paper equivalence",
+  "complete_noncanary_jobs": 5,
+  "expected_noncanary_jobs": 5,
+  "suite_status": "partial",
+  "coverage_status": "full_coverage_reconciled_preserved_partial",
+  "all_requested_runs_verified": true,
+  "results": [
+    {
+      "job": "recovery1_double_new_train_input_mlp_seed17",
+      "method": "input_mlp",
+      "source_test_count": 442,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 3,
+      "modes": {
+        "correct": {
+          "n_total": 442,
+          "n_valid": 442,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 1.9056241964989176
+        },
+        "off": {
+          "n_total": 442,
+          "n_valid": 70,
+          "n_failed": 372,
+          "parse_valid_rate": 0.1583710407239819,
+          "valid_only_mae": 3.966509197195959
+        }
+      }
+    },
+    {
+      "job": "recovery1_double_new_train_qformer_style_seed17",
+      "method": "qformer_style",
+      "source_test_count": 442,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 2,
+      "modes": {
+        "correct": {
+          "n_total": 442,
+          "n_valid": 442,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 1.7817553394446919
+        },
+        "off": {
+          "n_total": 442,
+          "n_valid": 70,
+          "n_failed": 372,
+          "parse_valid_rate": 0.1583710407239819,
+          "valid_only_mae": 3.966509197195959
+        }
+      }
+    },
+    {
+      "job": "recovery1_double_new_train_internal_cross_attention_seed17",
+      "method": "internal_cross_attention",
+      "source_test_count": 442,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 2,
+      "modes": {
+        "correct": {
+          "n_total": 442,
+          "n_valid": 442,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 1.5013685606314315
+        },
+        "off": {
+          "n_total": 442,
+          "n_valid": 70,
+          "n_failed": 372,
+          "parse_valid_rate": 0.1583710407239819,
+          "valid_only_mae": 3.966509197195959
+        }
+      }
+    },
+    {
+      "job": "recovery1_double_new_train_constant_seed17",
+      "method": "constant",
+      "source_test_count": 442,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 3,
+      "modes": {
+        "correct": {
+          "n_total": 442,
+          "n_valid": 442,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 1.767973032830928
+        },
+        "off": {
+          "n_total": 442,
+          "n_valid": 70,
+          "n_failed": 372,
+          "parse_valid_rate": 0.1583710407239819,
+          "valid_only_mae": 3.966509197195959
+        }
+      }
+    },
+    {
+      "method": "BASE03",
+      "execution_mode": "original_partial_plus_disjoint_complement",
+      "metrics": {
+        "validation": {
+          "n_total": 431,
+          "n_valid": 339,
+          "n_failed": 92,
+          "parse_valid_rate": 0.7865429234338747,
+          "failure_counts": {
+            "invalid_json_or_nonfinite": 92
+          },
+          "source_predictor_mae_same_all_examples": 1.602326020227852,
+          "source_predictor_mae_same_valid_examples": 1.5595481665350581,
+          "generated_pKD_mae_valid_only": 4.992587529681867,
+          "parsed_estimate_preservation_mae_valid_only": 4.345056096093038,
+          "parsed_estimate_preservation_max_error_valid_only": 6.724598000008463,
+          "full_sample_generated_mae": null,
+          "failure_policy": "no imputation, clipping, repair, or gold substitution",
+          "native_uncertainty_available": false
+        },
+        "test": {
+          "n_total": 442,
+          "n_valid": 336,
+          "n_failed": 106,
+          "parse_valid_rate": 0.7601809954751131,
+          "failure_counts": {
+            "invalid_json_or_nonfinite": 106
+          },
+          "source_predictor_mae_same_all_examples": 1.4210855003430791,
+          "source_predictor_mae_same_valid_examples": 1.3490666775960958,
+          "generated_pKD_mae_valid_only": 4.638924016351397,
+          "parsed_estimate_preservation_mae_valid_only": 4.110546028164414,
+          "parsed_estimate_preservation_max_error_valid_only": 7.992225646972656,
+          "full_sample_generated_mae": null,
+          "failure_policy": "no imputation, clipping, repair, or gold substitution",
+          "native_uncertainty_available": false
+        }
+      },
+      "original_complete_counts": {
+        "validation": 431,
+        "test": 246
+      },
+      "complement_counts": {
+        "validation": 0,
+        "test": 196
+      },
+      "checks_passed": [
+        "complete original and new byte lineage",
+        "no retry including invalid answers",
+        "exact full source order",
+        "all canonical source row hashes",
+        "frozen algorithms/receipts/contracts",
+        "literal strict parser",
+        "all full denominator metrics recomputed",
+        "both actual worker costs"
+      ]
+    }
+  ],
+  "failures": [],
+  "original_single_pipeline_job_completed": false
+}

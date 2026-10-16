@@ -1,0 +1,1050 @@
+{
+  "status": "failed_or_partial",
+  "started_utc": "2026-10-16T00:15:06.274467+00:00",
+  "first_substantive_started_at": "2026-10-16T07:18:00+08:00",
+  "configuration_sha256": "d0649a6b70bcfb5ab7d34ddd02a55d94d4233afa6b5be5bcf0059d1504d14110",
+  "controller_sha256": "903f60e7d26be2278ba6acd7e902d7a7b214910dfd5f58a0c8828ea149cce3f7",
+  "jobs": [
+    {
+      "job": "double_new_canary_input_mlp_b4",
+      "phase": "canary",
+      "method": "input_mlp",
+      "complete": true,
+      "receipt": {
+        "phase": "canary",
+        "method": "input_mlp",
+        "batch_size": 4,
+        "pid": 206414,
+        "pgid": 206414,
+        "started_utc": "2026-10-16T00:15:25.374398+00:00",
+        "ended_utc": "2026-10-16T00:16:31.143026+00:00",
+        "elapsed_seconds": 64.17306696699234,
+        "exit_code": 0,
+        "termination_reason": null,
+        "peak_host_rss_bytes": 4048580608,
+        "process_group_absent": true,
+        "stdout_sha256": "7813042c9444c70becf628f72e6c3e3e43893082f299dbffb5a40da26103be64",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual": {
+        "status": "passed",
+        "scope": "real train-only runtime canary, not benchmark performance",
+        "method": "input_mlp",
+        "batch_size": 4,
+        "answer_token_nll": 1.251380157470703,
+        "per_step_answer_token_nll": [
+          1.2089341163635254,
+          1.2308243751525878,
+          1.251380157470703
+        ],
+        "gradient_norms": [
+          10.016030311584473,
+          34.40178298950195,
+          29.920513153076172
+        ],
+        "step_seconds": [
+          1.4434019540058216,
+          0.16136040199489798,
+          0.1429225280007813
+        ],
+        "max_step_seconds": 1.4434019540058216,
+        "capacity": {
+          "method": "input_mlp",
+          "source_dim": 640,
+          "memory_dim": 128,
+          "num_memory_tokens": 16,
+          "insertion_layer": null,
+          "trainable_parameters": 282752,
+          "frozen_parameters": 1543714304,
+          "trainable_by_name": {
+            "type_embedding.weight": 1280,
+            "source_norm.weight": 640,
+            "source_norm.bias": 640,
+            "projection.0.weight": 81920,
+            "projection.0.bias": 128,
+            "projection.2.weight": 196608,
+            "projection.2.bias": 1536
+          },
+          "off_control": "remove_intervention"
+        },
+        "peak_allocated_bytes": 7651176960,
+        "peak_reserved_bytes": 8722055168,
+        "selected_sample_ids": [
+          "ppikb:PPIRE09493",
+          "ppikb:PPIRE19444",
+          "ppikb:PPIRE09154",
+          "ppikb:PPIRE09482"
+        ],
+        "selected_memory_lengths": [
+          3429,
+          3424,
+          3020,
+          3020
+        ],
+        "selection_policy": "longest full memory among immutable training rows; no held-out labels inspected",
+        "backbone_frozen": true,
+        "data_gate": {
+          "panel_id": "A1",
+          "scope": "panel_specific_predictor",
+          "status": "frozen_restricted_scope",
+          "benchmark_lock_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+          "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+          "split_counts": {
+            "train": 2063,
+            "test": 442,
+            "validation": 431
+          },
+          "disjointness": [
+            {
+              "field": "peptide_sequence",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.peptide_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.source_doi",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "group_id",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.target_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            }
+          ],
+          "external_isolation_verified": false,
+          "limitations": [
+            "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+            "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+            "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+            "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+            "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+            "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+          ],
+          "unified_multitask_connector_claim": false
+        },
+        "verified_models": {
+          "source_manifest_sha256": "b02684701bffd0c09610cf4b2a6eb6d7e0914ee0f4fbf11d4ed276134bcf6178",
+          "verified_files": [
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "README.md",
+              "sha256": "462a2f24724e19c6be0efab926315c294a863c9a9770e2c8b3d859b2d81a07de",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "config.json",
+              "sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "model.safetensors",
+              "sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566",
+              "official_sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "special_tokens_map.json",
+              "sha256": "3aedcd4211c0d43aec4e607ff60a63255f3174ead795e997350f09a5f8cd9ee1",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "tokenizer_config.json",
+              "sha256": "7e9161ecdb548ec45a41cbc6b24aa4476fdd418461f491c4207baa99419a29ad",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "vocab.txt",
+              "sha256": "0b82cc0a7c7cf9e567b1e5892d793285b9fbae822c964ca48696f7db44598e03",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "LICENSE",
+              "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "README.md",
+              "sha256": "2e1bcd8bd964728a820be709fa0f7b9dd54817a94fd2254c535df70c5e67fada",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "config.json",
+              "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "generation_config.json",
+              "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "merges.txt",
+              "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "model.safetensors",
+              "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+              "official_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer.json",
+              "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer_config.json",
+              "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "vocab.json",
+              "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+              "official_sha256": null
+            }
+          ]
+        }
+      },
+      "job_directory": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_input_mlp_b4"
+    },
+    {
+      "job": "double_new_canary_qformer_style_b4",
+      "phase": "canary",
+      "method": "qformer_style",
+      "complete": true,
+      "receipt": {
+        "phase": "canary",
+        "method": "qformer_style",
+        "batch_size": 4,
+        "pid": 206673,
+        "pgid": 206673,
+        "started_utc": "2026-10-16T00:17:01.082839+00:00",
+        "ended_utc": "2026-10-16T00:17:33.168534+00:00",
+        "elapsed_seconds": 31.053601057996275,
+        "exit_code": 0,
+        "termination_reason": null,
+        "peak_host_rss_bytes": 3858022400,
+        "process_group_absent": true,
+        "stdout_sha256": "9be5a704ced79fb8b70e7739de5e3768b27358d35c0b872bb8c191a86ef5d45b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual": {
+        "status": "passed",
+        "scope": "real train-only runtime canary, not benchmark performance",
+        "method": "qformer_style",
+        "batch_size": 4,
+        "answer_token_nll": 1.0746721267700194,
+        "per_step_answer_token_nll": [
+          1.291532325744629,
+          1.1580543518066406,
+          1.0746721267700194
+        ],
+        "gradient_norms": [
+          7.928503513336182,
+          3.8608789443969727,
+          1.7860203981399536
+        ],
+        "step_seconds": [
+          1.0541931279876735,
+          0.12844270099594723,
+          0.12920097200549208
+        ],
+        "max_step_seconds": 1.0541931279876735,
+        "capacity": {
+          "method": "qformer_style",
+          "source_dim": 640,
+          "memory_dim": 128,
+          "num_memory_tokens": 16,
+          "insertion_layer": null,
+          "trainable_parameters": 350848,
+          "frozen_parameters": 1543714304,
+          "trainable_by_name": {
+            "queries": 2048,
+            "type_embedding.weight": 1280,
+            "source_norm.weight": 640,
+            "source_norm.bias": 640,
+            "source_projection.weight": 81920,
+            "source_projection.bias": 128,
+            "cross_attention.in_proj_weight": 49152,
+            "cross_attention.in_proj_bias": 384,
+            "cross_attention.out_proj.weight": 16384,
+            "cross_attention.out_proj.bias": 128,
+            "output_projection.weight": 196608,
+            "output_projection.bias": 1536
+          },
+          "off_control": "remove_intervention"
+        },
+        "peak_allocated_bytes": 7677833728,
+        "peak_reserved_bytes": 8757706752,
+        "selected_sample_ids": [
+          "ppikb:PPIRE09493",
+          "ppikb:PPIRE19444",
+          "ppikb:PPIRE09154",
+          "ppikb:PPIRE09482"
+        ],
+        "selected_memory_lengths": [
+          3429,
+          3424,
+          3020,
+          3020
+        ],
+        "selection_policy": "longest full memory among immutable training rows; no held-out labels inspected",
+        "backbone_frozen": true,
+        "data_gate": {
+          "panel_id": "A1",
+          "scope": "panel_specific_predictor",
+          "status": "frozen_restricted_scope",
+          "benchmark_lock_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+          "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+          "split_counts": {
+            "train": 2063,
+            "test": 442,
+            "validation": 431
+          },
+          "disjointness": [
+            {
+              "field": "peptide_sequence",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.peptide_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.source_doi",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "group_id",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.target_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            }
+          ],
+          "external_isolation_verified": false,
+          "limitations": [
+            "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+            "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+            "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+            "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+            "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+            "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+          ],
+          "unified_multitask_connector_claim": false
+        },
+        "verified_models": {
+          "source_manifest_sha256": "b02684701bffd0c09610cf4b2a6eb6d7e0914ee0f4fbf11d4ed276134bcf6178",
+          "verified_files": [
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "README.md",
+              "sha256": "462a2f24724e19c6be0efab926315c294a863c9a9770e2c8b3d859b2d81a07de",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "config.json",
+              "sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "model.safetensors",
+              "sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566",
+              "official_sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "special_tokens_map.json",
+              "sha256": "3aedcd4211c0d43aec4e607ff60a63255f3174ead795e997350f09a5f8cd9ee1",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "tokenizer_config.json",
+              "sha256": "7e9161ecdb548ec45a41cbc6b24aa4476fdd418461f491c4207baa99419a29ad",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "vocab.txt",
+              "sha256": "0b82cc0a7c7cf9e567b1e5892d793285b9fbae822c964ca48696f7db44598e03",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "LICENSE",
+              "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "README.md",
+              "sha256": "2e1bcd8bd964728a820be709fa0f7b9dd54817a94fd2254c535df70c5e67fada",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "config.json",
+              "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "generation_config.json",
+              "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "merges.txt",
+              "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "model.safetensors",
+              "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+              "official_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer.json",
+              "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer_config.json",
+              "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "vocab.json",
+              "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+              "official_sha256": null
+            }
+          ]
+        }
+      },
+      "job_directory": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_qformer_style_b4"
+    },
+    {
+      "job": "double_new_canary_internal_cross_attention_b4",
+      "phase": "canary",
+      "method": "internal_cross_attention",
+      "complete": true,
+      "receipt": {
+        "phase": "canary",
+        "method": "internal_cross_attention",
+        "batch_size": 4,
+        "pid": 206836,
+        "pgid": 206836,
+        "started_utc": "2026-10-16T00:18:02.627297+00:00",
+        "ended_utc": "2026-10-16T00:18:33.669784+00:00",
+        "elapsed_seconds": 30.05109339200135,
+        "exit_code": 0,
+        "termination_reason": null,
+        "peak_host_rss_bytes": 3921432576,
+        "process_group_absent": true,
+        "stdout_sha256": "ba3c713f729348f9b872ace595175574c78b29c2a32b6d18092deafee0604c8f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual": {
+        "status": "passed",
+        "scope": "real train-only runtime canary, not benchmark performance",
+        "method": "internal_cross_attention",
+        "batch_size": 4,
+        "answer_token_nll": 0.8560955047607421,
+        "per_step_answer_token_nll": [
+          1.243260097503662,
+          0.9894038200378418,
+          0.8560955047607421
+        ],
+        "gradient_norms": [
+          4.887979507446289,
+          2.8847999572753906,
+          1.6937036514282227
+        ],
+        "step_seconds": [
+          0.98719621199416,
+          0.1056453969940776,
+          0.09608534700237215
+        ],
+        "max_step_seconds": 0.98719621199416,
+        "capacity": {
+          "method": "internal_cross_attention",
+          "source_dim": 640,
+          "memory_dim": 128,
+          "num_memory_tokens": 16,
+          "insertion_layer": 14,
+          "trainable_parameters": 548608,
+          "frozen_parameters": 1543714304,
+          "trainable_by_name": {
+            "type_embedding.weight": 1280,
+            "source_norm.weight": 640,
+            "source_norm.bias": 640,
+            "source_projection.weight": 81920,
+            "source_projection.bias": 128,
+            "cross_attention.in_proj_weight": 49152,
+            "cross_attention.in_proj_bias": 384,
+            "cross_attention.out_proj.weight": 16384,
+            "cross_attention.out_proj.bias": 128,
+            "output_projection.weight": 196608,
+            "output_projection.bias": 1536,
+            "query_norm.weight": 1536,
+            "query_norm.bias": 1536,
+            "query_projection.weight": 196608,
+            "query_projection.bias": 128
+          },
+          "off_control": "remove_intervention"
+        },
+        "peak_allocated_bytes": 6453487616,
+        "peak_reserved_bytes": 7461666816,
+        "selected_sample_ids": [
+          "ppikb:PPIRE09493",
+          "ppikb:PPIRE19444",
+          "ppikb:PPIRE09154",
+          "ppikb:PPIRE09482"
+        ],
+        "selected_memory_lengths": [
+          3429,
+          3424,
+          3020,
+          3020
+        ],
+        "selection_policy": "longest full memory among immutable training rows; no held-out labels inspected",
+        "backbone_frozen": true,
+        "data_gate": {
+          "panel_id": "A1",
+          "scope": "panel_specific_predictor",
+          "status": "frozen_restricted_scope",
+          "benchmark_lock_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+          "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+          "split_counts": {
+            "train": 2063,
+            "test": 442,
+            "validation": 431
+          },
+          "disjointness": [
+            {
+              "field": "peptide_sequence",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.peptide_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.source_doi",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "group_id",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.target_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            }
+          ],
+          "external_isolation_verified": false,
+          "limitations": [
+            "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+            "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+            "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+            "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+            "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+            "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+          ],
+          "unified_multitask_connector_claim": false
+        },
+        "verified_models": {
+          "source_manifest_sha256": "b02684701bffd0c09610cf4b2a6eb6d7e0914ee0f4fbf11d4ed276134bcf6178",
+          "verified_files": [
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "README.md",
+              "sha256": "462a2f24724e19c6be0efab926315c294a863c9a9770e2c8b3d859b2d81a07de",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "config.json",
+              "sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "model.safetensors",
+              "sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566",
+              "official_sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "special_tokens_map.json",
+              "sha256": "3aedcd4211c0d43aec4e607ff60a63255f3174ead795e997350f09a5f8cd9ee1",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "tokenizer_config.json",
+              "sha256": "7e9161ecdb548ec45a41cbc6b24aa4476fdd418461f491c4207baa99419a29ad",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "vocab.txt",
+              "sha256": "0b82cc0a7c7cf9e567b1e5892d793285b9fbae822c964ca48696f7db44598e03",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "LICENSE",
+              "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "README.md",
+              "sha256": "2e1bcd8bd964728a820be709fa0f7b9dd54817a94fd2254c535df70c5e67fada",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "config.json",
+              "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "generation_config.json",
+              "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "merges.txt",
+              "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "model.safetensors",
+              "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+              "official_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer.json",
+              "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer_config.json",
+              "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "vocab.json",
+              "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+              "official_sha256": null
+            }
+          ]
+        }
+      },
+      "job_directory": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_internal_cross_attention_b4"
+    },
+    {
+      "job": "double_new_canary_constant_b4",
+      "phase": "canary",
+      "method": "constant",
+      "complete": true,
+      "receipt": {
+        "phase": "canary",
+        "method": "constant",
+        "batch_size": 4,
+        "pid": 206966,
+        "pgid": 206966,
+        "started_utc": "2026-10-16T00:19:03.748410+00:00",
+        "ended_utc": "2026-10-16T00:19:36.875090+00:00",
+        "elapsed_seconds": 32.062635845999466,
+        "exit_code": 0,
+        "termination_reason": null,
+        "peak_host_rss_bytes": 4008812544,
+        "process_group_absent": true,
+        "stdout_sha256": "9f5c69a0f91b7bec2f6685de5bed198a0e09120062eb1baccb9e365acee3f4a4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual": {
+        "status": "passed",
+        "scope": "real train-only runtime canary, not benchmark performance",
+        "method": "constant",
+        "batch_size": 4,
+        "answer_token_nll": 1.226032829284668,
+        "per_step_answer_token_nll": [
+          1.3583449363708495,
+          1.2822011947631835,
+          1.226032829284668
+        ],
+        "gradient_norms": [
+          4.944469928741455,
+          3.651292324066162,
+          4.876959800720215
+        ],
+        "step_seconds": [
+          1.4626537889998872,
+          0.13739835600426886,
+          0.1288125580031192
+        ],
+        "max_step_seconds": 1.4626537889998872,
+        "capacity": {
+          "method": "constant",
+          "source_dim": 640,
+          "memory_dim": 128,
+          "num_memory_tokens": 16,
+          "insertion_layer": null,
+          "trainable_parameters": 24576,
+          "frozen_parameters": 1543714304,
+          "trainable_by_name": {
+            "constant_tokens": 24576
+          },
+          "off_control": "remove_intervention"
+        },
+        "peak_allocated_bytes": 7578859520,
+        "peak_reserved_bytes": 8669626368,
+        "selected_sample_ids": [
+          "ppikb:PPIRE09493",
+          "ppikb:PPIRE19444",
+          "ppikb:PPIRE09154",
+          "ppikb:PPIRE09482"
+        ],
+        "selected_memory_lengths": [
+          3429,
+          3424,
+          3020,
+          3020
+        ],
+        "selection_policy": "longest full memory among immutable training rows; no held-out labels inspected",
+        "backbone_frozen": true,
+        "data_gate": {
+          "panel_id": "A1",
+          "scope": "panel_specific_predictor",
+          "status": "frozen_restricted_scope",
+          "benchmark_lock_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+          "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+          "split_counts": {
+            "train": 2063,
+            "test": 442,
+            "validation": 431
+          },
+          "disjointness": [
+            {
+              "field": "peptide_sequence",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.peptide_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.source_doi",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "group_id",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            },
+            {
+              "field": "groups.target_family",
+              "missing": 0,
+              "overlapping_groups": 0,
+              "examples": {},
+              "verified": true
+            }
+          ],
+          "external_isolation_verified": false,
+          "limitations": [
+            "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+            "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+            "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+            "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+            "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+            "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+          ],
+          "unified_multitask_connector_claim": false
+        },
+        "verified_models": {
+          "source_manifest_sha256": "b02684701bffd0c09610cf4b2a6eb6d7e0914ee0f4fbf11d4ed276134bcf6178",
+          "verified_files": [
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "README.md",
+              "sha256": "462a2f24724e19c6be0efab926315c294a863c9a9770e2c8b3d859b2d81a07de",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "config.json",
+              "sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "model.safetensors",
+              "sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566",
+              "official_sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "special_tokens_map.json",
+              "sha256": "3aedcd4211c0d43aec4e607ff60a63255f3174ead795e997350f09a5f8cd9ee1",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "tokenizer_config.json",
+              "sha256": "7e9161ecdb548ec45a41cbc6b24aa4476fdd418461f491c4207baa99419a29ad",
+              "official_sha256": null
+            },
+            {
+              "repo": "facebook/esm2_t30_150M_UR50D",
+              "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+              "file": "vocab.txt",
+              "sha256": "0b82cc0a7c7cf9e567b1e5892d793285b9fbae822c964ca48696f7db44598e03",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "LICENSE",
+              "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "README.md",
+              "sha256": "2e1bcd8bd964728a820be709fa0f7b9dd54817a94fd2254c535df70c5e67fada",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "config.json",
+              "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "generation_config.json",
+              "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "merges.txt",
+              "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "model.safetensors",
+              "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+              "official_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer.json",
+              "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "tokenizer_config.json",
+              "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+              "official_sha256": null
+            },
+            {
+              "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+              "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+              "file": "vocab.json",
+              "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+              "official_sha256": null
+            }
+          ]
+        }
+      },
+      "job_directory": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_canary_constant_b4"
+    },
+    {
+      "job": "double_new_train_input_mlp_seed17",
+      "phase": "train",
+      "method": "input_mlp",
+      "complete": false,
+      "receipt": {
+        "phase": "train",
+        "method": "input_mlp",
+        "batch_size": 4,
+        "pid": 207170,
+        "pgid": 207170,
+        "started_utc": "2026-10-16T00:20:09.885006+00:00",
+        "ended_utc": "2026-10-16T00:21:16.945551+00:00",
+        "elapsed_seconds": 65.29346639900177,
+        "exit_code": 1,
+        "termination_reason": null,
+        "peak_host_rss_bytes": 4478984192,
+        "process_group_absent": true,
+        "stdout_sha256": "dcc08ba313d960e8809477441b64c395a08f82704913d4a1d044d0d1bba4ad1e",
+        "stderr_sha256": "ab6063c158ec677eac9e06d8319b249956b7330299c2f6ca5821a233bc360dbc"
+      },
+      "actual": null,
+      "job_directory": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/double_new_train_input_mlp_seed17"
+    }
+  ],
+  "external_watchdog_launch": {
+    "watchdog_pid": 206379,
+    "watchdog_pgid": 206379,
+    "detached": true
+  },
+  "selected_batch_size": 4,
+  "budget_frozen_before_test": "2026-10-16T00:19:50.316376+00:00",
+  "exception_type": "KeyboardInterrupt",
+  "exception": "Controller interrupted by signal 15",
+  "ended_utc": "2026-10-16T00:22:02.107682+00:00"
+}

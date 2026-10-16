@@ -1,0 +1,903 @@
+{
+  "seed": 42,
+  "epochs": 30,
+  "optimizer_steps": 60,
+  "d2_batch_size": 32,
+  "d1_d2_samples_per_epoch": [
+    34,
+    34
+  ],
+  "total_sample_presentations": 2040,
+  "loss": "0.5 * (mean D1 known-positive CE + mean D2 A/B CE)",
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ]
+  },
+  "selection": "earliest highest D2 validation balanced accuracy; all 30 epochs; no test selection",
+  "best_epoch": 9,
+  "best_validation_balanced_accuracy": 0.7545454545454545,
+  "flip": "D2 train only: SHA256(seed|epoch|pair_id) first digest byte % 2; exchange messages and label",
+  "order": "D2 CPU randperm Generator(seed+epoch); replay Generator(seed+100000+epoch), first 34",
+  "initialization": "same-seed validation-selected T1 MLP; front and T1 head inherited; new pair head",
+  "architecture": "front 640->256 GELU dropout .1; T1 head 256->34; pair [hA,hB,diff,absdiff,target34 onehot]->256 GELU dropout .1->2",
+  "normalization": "fixed inherited T1 train mean/std; no D2/G1 numerical preprocessing fit",
+  "closed_definition": "both raw mean-pooled residue features zeroed before inherited normalization; target unchanged",
+  "swap_definition": "exchange A/B messages only, fixed target and original reference label; reversal evaluated with complementary reference separately",
+  "target_identity": "fixed measurement catalog; opaque onehot, no raw gene/domain semantics; target columns absent from D2 train receive no target-specific gradient (AdamW weight decay still applies)",
+  "target_training_exposure": {
+    "d2_test": {
+      "rows_with_target_absent_from_d2_train": 4,
+      "n": 9
+    },
+    "d2_test_clean_after_t1_pretraining": {
+      "rows_with_target_absent_from_d2_train": 4,
+      "n": 5
+    },
+    "g1_direction": {
+      "rows_with_target_absent_from_d2_train": 11,
+      "n": 17
+    },
+    "g1_source_consistent_direction": {
+      "rows_with_target_absent_from_d2_train": 8,
+      "n": 14
+    }
+  },
+  "data_scope": {
+    "d2_label_strength": "real screen-count direction weak supervision; endpoint p comparison identity unresolved; specific-pair statistical significance not verified",
+    "input_library_qc": "both EV1 peptide_coverage_counts > 0",
+    "input_coverage_excluded_count": 6
+  },
+  "target_catalog_sha256": "4f49723e68d0c4246d7043940414053d14f54b0e45702c41679c6f64751561a6",
+  "inputs_sha256": {
+    "t3_d2_pairs.jsonl": "63c62e3a00ba81f0df743fc655cd3bd331bf8c1869a968c06cc2e1896b5091be",
+    "t3_g1_direction_pairs.jsonl": "e5f498e072298e8e58970781095c20ce5dea39158f2bc0482da5d7913b07ba9e",
+    "t3_g1_source_consistent_direction_pairs.jsonl": "9f7374f7ab2f6d4540dd0f268b262d60e84f5559c530cfd7caae4e4fb4163a94",
+    "t3_split_manifest.json": "14719bd73cc19d10495941448123c2f1f75fd9ab0d55121b140eb99a65e3b0f5"
+  },
+  "script_sha256": "39a2e9fcafc6693022f74f39f3bede9a4b50053c9d4041ecfa86ed725720d8a0",
+  "trainable_parameters": 444452,
+  "scores": {
+    "d2_test": {
+      "correct": {
+        "n": 9,
+        "accuracy": 0.3333333333333333,
+        "balanced_accuracy": 0.39285714285714285,
+        "class_counts": {
+          "0": 2,
+          "1": 7
+        },
+        "accuracy_ci95": [
+          0.08333333333333333,
+          0.7142857142857143
+        ],
+        "balanced_accuracy_ci95": [
+          0.05,
+          0.8
+        ],
+        "balanced_accuracy_valid_draws": 1828,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 6,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "closed_raw_zero": {
+        "n": 9,
+        "accuracy": 0.7777777777777778,
+        "balanced_accuracy": 0.5,
+        "class_counts": {
+          "0": 2,
+          "1": 7
+        },
+        "accuracy_ci95": [
+          0.3333333333333333,
+          1.0
+        ],
+        "balanced_accuracy_ci95": [
+          0.5,
+          0.5
+        ],
+        "balanced_accuracy_valid_draws": 1828,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 6,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "swapped_messages": {
+        "n": 9,
+        "accuracy": 0.5555555555555556,
+        "balanced_accuracy": 0.5357142857142857,
+        "class_counts": {
+          "0": 2,
+          "1": 7
+        },
+        "accuracy_ci95": [
+          0.14285714285714285,
+          0.8461538461538461
+        ],
+        "balanced_accuracy_ci95": [
+          0.08333333333333333,
+          0.8888888888888888
+        ],
+        "balanced_accuracy_valid_draws": 1828,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 6,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "reversed_input_and_label": {
+        "n": 9,
+        "accuracy": 0.4444444444444444,
+        "balanced_accuracy": 0.4642857142857143,
+        "class_counts": {
+          "0": 7,
+          "1": 2
+        },
+        "accuracy_ci95": [
+          0.15384615384615385,
+          0.8571428571428571
+        ],
+        "balanced_accuracy_ci95": [
+          0.1111111111111111,
+          0.9166666666666667
+        ],
+        "balanced_accuracy_valid_draws": 1828,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 6,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "prediction_reversal_rate": 0.8888888888888888,
+      "n_distinct_series": 6
+    },
+    "d2_test_clean_after_t1_pretraining": {
+      "correct": {
+        "n": 5,
+        "accuracy": 0.4,
+        "balanced_accuracy": 0.41666666666666663,
+        "class_counts": {
+          "0": 2,
+          "1": 3
+        },
+        "accuracy_ci95": [
+          0.0,
+          0.75
+        ],
+        "balanced_accuracy_ci95": [
+          0.0,
+          0.75
+        ],
+        "balanced_accuracy_valid_draws": 1768,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 4,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "closed_raw_zero": {
+        "n": 5,
+        "accuracy": 0.6,
+        "balanced_accuracy": 0.5,
+        "class_counts": {
+          "0": 2,
+          "1": 3
+        },
+        "accuracy_ci95": [
+          0.0,
+          1.0
+        ],
+        "balanced_accuracy_ci95": [
+          0.5,
+          0.5
+        ],
+        "balanced_accuracy_valid_draws": 1768,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 4,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "swapped_messages": {
+        "n": 5,
+        "accuracy": 0.4,
+        "balanced_accuracy": 0.41666666666666663,
+        "class_counts": {
+          "0": 2,
+          "1": 3
+        },
+        "accuracy_ci95": [
+          0.0,
+          0.75
+        ],
+        "balanced_accuracy_ci95": [
+          0.0,
+          0.75
+        ],
+        "balanced_accuracy_valid_draws": 1768,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 4,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "reversed_input_and_label": {
+        "n": 5,
+        "accuracy": 0.6,
+        "balanced_accuracy": 0.5833333333333333,
+        "class_counts": {
+          "0": 3,
+          "1": 2
+        },
+        "accuracy_ci95": [
+          0.25,
+          1.0
+        ],
+        "balanced_accuracy_ci95": [
+          0.25,
+          1.0
+        ],
+        "balanced_accuracy_valid_draws": 1768,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 4,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "prediction_reversal_rate": 0.8,
+      "n_distinct_series": 4
+    },
+    "g1_direction": {
+      "correct": {
+        "n": 17,
+        "accuracy": 0.5294117647058824,
+        "balanced_accuracy": 0.6057692307692308,
+        "class_counts": {
+          "0": 13,
+          "1": 4
+        },
+        "accuracy_ci95": [
+          0.25,
+          0.8571428571428571
+        ],
+        "balanced_accuracy_ci95": [
+          0.170625,
+          0.875
+        ],
+        "balanced_accuracy_valid_draws": 1940,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 12,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "closed_raw_zero": {
+        "n": 17,
+        "accuracy": 0.23529411764705882,
+        "balanced_accuracy": 0.5,
+        "class_counts": {
+          "0": 13,
+          "1": 4
+        },
+        "accuracy_ci95": [
+          0.0,
+          0.5
+        ],
+        "balanced_accuracy_ci95": [
+          0.5,
+          0.5
+        ],
+        "balanced_accuracy_valid_draws": 1940,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 12,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "swapped_messages": {
+        "n": 17,
+        "accuracy": 0.7647058823529411,
+        "balanced_accuracy": 0.7596153846153846,
+        "class_counts": {
+          "0": 13,
+          "1": 4
+        },
+        "accuracy_ci95": [
+          0.47058823529411764,
+          1.0
+        ],
+        "balanced_accuracy_ci95": [
+          0.34615384615384615,
+          1.0
+        ],
+        "balanced_accuracy_valid_draws": 1940,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 12,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "reversed_input_and_label": {
+        "n": 17,
+        "accuracy": 0.23529411764705882,
+        "balanced_accuracy": 0.2403846153846154,
+        "class_counts": {
+          "0": 4,
+          "1": 13
+        },
+        "accuracy_ci95": [
+          0.0,
+          0.5294117647058824
+        ],
+        "balanced_accuracy_ci95": [
+          0.0,
+          0.6538461538461539
+        ],
+        "balanced_accuracy_valid_draws": 1940,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 12,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "prediction_reversal_rate": 0.7058823529411765,
+      "n_distinct_series": 13
+    },
+    "g1_source_consistent_direction": {
+      "correct": {
+        "n": 14,
+        "accuracy": 0.5714285714285714,
+        "balanced_accuracy": 0.606060606060606,
+        "class_counts": {
+          "0": 11,
+          "1": 3
+        },
+        "accuracy_ci95": [
+          0.24970238095238098,
+          0.9230769230769231
+        ],
+        "balanced_accuracy_ci95": [
+          0.15192307692307694,
+          0.912878787878788
+        ],
+        "balanced_accuracy_valid_draws": 1781,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 10,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "closed_raw_zero": {
+        "n": 14,
+        "accuracy": 0.21428571428571427,
+        "balanced_accuracy": 0.5,
+        "class_counts": {
+          "0": 11,
+          "1": 3
+        },
+        "accuracy_ci95": [
+          0.0,
+          0.5384615384615384
+        ],
+        "balanced_accuracy_ci95": [
+          0.5,
+          0.5
+        ],
+        "balanced_accuracy_valid_draws": 1781,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 10,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "swapped_messages": {
+        "n": 14,
+        "accuracy": 0.7857142857142857,
+        "balanced_accuracy": 0.8636363636363636,
+        "class_counts": {
+          "0": 11,
+          "1": 3
+        },
+        "accuracy_ci95": [
+          0.4666666666666667,
+          1.0
+        ],
+        "balanced_accuracy_ci95": [
+          0.6538461538461539,
+          1.0
+        ],
+        "balanced_accuracy_valid_draws": 1781,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 10,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "reversed_input_and_label": {
+        "n": 14,
+        "accuracy": 0.21428571428571427,
+        "balanced_accuracy": 0.13636363636363635,
+        "class_counts": {
+          "0": 3,
+          "1": 11
+        },
+        "accuracy_ci95": [
+          0.0,
+          0.5333333333333333
+        ],
+        "balanced_accuracy_ci95": [
+          0.0,
+          0.34615384615384615
+        ],
+        "balanced_accuracy_valid_draws": 1781,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "n_groups": 10,
+        "group_unit": "group_id (entire parent / near-sequence component; shared pockets retained together)",
+        "balanced_ci_rule": "omit bootstrap draws missing a class present in the original evaluated subset"
+      },
+      "prediction_reversal_rate": 0.6428571428571429,
+      "n_distinct_series": 11
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5420494745759403,
+      "d1_replay_loss": 0.30764120028299446,
+      "d2_loss": 0.7764576954000136,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.5,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6165744066238403,
+      "d1_replay_loss": 0.39414427210302916,
+      "d2_loss": 0.8390045411446515,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.6161634834373698,
+      "d1_replay_loss": 0.577208144699826,
+      "d2_loss": 0.6551188230514526,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6420711278915405,
+      "d1_replay_loss": 0.6720385130713967,
+      "d2_loss": 0.6121038023163291,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.5368507609647863,
+      "d1_replay_loss": 0.5480088907129624,
+      "d2_loss": 0.5256926066735211,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.4759594377349405,
+      "d1_replay_loss": 0.4955051716636209,
+      "d2_loss": 0.4564136740039377,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.5763382631189683,
+      "d1_replay_loss": 0.6031193102107328,
+      "d2_loss": 0.549557271249154,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.5280182887526119,
+      "d1_replay_loss": 0.5256632128182579,
+      "d2_loss": 0.530373306835399,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.5692930361803841,
+      "d1_replay_loss": 0.7011295136283425,
+      "d2_loss": 0.4374566113247591,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.7545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.463122637832866,
+      "d1_replay_loss": 0.5732602652381448,
+      "d2_loss": 0.35298503847683177,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.7545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.48395173339282765,
+      "d1_replay_loss": 0.6307277959935805,
+      "d2_loss": 0.337175669038997,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6636363636363636,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.3778278897790348,
+      "d1_replay_loss": 0.4296013151898104,
+      "d2_loss": 0.3260544924175038,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6636363636363636,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.4429473771768458,
+      "d1_replay_loss": 0.5524089459110709,
+      "d2_loss": 0.33348581019569845,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6636363636363636,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.39584045550402475,
+      "d1_replay_loss": 0.47562357958625345,
+      "d2_loss": 0.31605733142179604,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6636363636363636,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.3456825210767634,
+      "d1_replay_loss": 0.39890459924936295,
+      "d2_loss": 0.29246044158935547,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.7545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.3819906483678257,
+      "d1_replay_loss": 0.467094708014937,
+      "d2_loss": 0.29688661589342,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.7545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.4311983129557441,
+      "d1_replay_loss": 0.5895631874308866,
+      "d2_loss": 0.272833410431357,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.39022869441439123,
+      "d1_replay_loss": 0.48234911635518074,
+      "d2_loss": 0.2981082444243571,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.5453221938189339,
+      "d1_replay_loss": 0.7774650489582735,
+      "d2_loss": 0.31317928258110495,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.4643845978905173,
+      "d1_replay_loss": 0.7362251281738281,
+      "d2_loss": 0.19254408250836766,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.7545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.4094968788764056,
+      "d1_replay_loss": 0.5096259713172913,
+      "d2_loss": 0.30936778643551993,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.7545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.43701683686060067,
+      "d1_replay_loss": 0.5682939141988754,
+      "d2_loss": 0.30573978757157044,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.3352226457449005,
+      "d1_replay_loss": 0.38983243995565264,
+      "d2_loss": 0.2806128234985997,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.4570612626917222,
+      "d1_replay_loss": 0.5932652153732145,
+      "d2_loss": 0.3208572794409359,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.5004409761989818,
+      "d1_replay_loss": 0.8111140727996826,
+      "d2_loss": 0.18976789186982548,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6545454545454545,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.3410411634865929,
+      "d1_replay_loss": 0.5227979772231158,
+      "d2_loss": 0.1592843357254477,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6090909090909091,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.40096335551318,
+      "d1_replay_loss": 0.6063258928411147,
+      "d2_loss": 0.19560083571602316,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6090909090909091,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.3582272406886606,
+      "d1_replay_loss": 0.54829601855839,
+      "d2_loss": 0.16815844791776993,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6090909090909091,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.3517661007011638,
+      "d1_replay_loss": 0.5430192281218136,
+      "d2_loss": 0.16051295969416113,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.6875,
+        "balanced_accuracy": 0.6090909090909091,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.3259484802975374,
+      "d1_replay_loss": 0.511302162619198,
+      "d2_loss": 0.14059480060549343,
+      "validation": {
+        "n": 16,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.4727272727272727,
+        "class_counts": {
+          "0": 11,
+          "1": 5
+        }
+      }
+    }
+  ],
+  "seconds": 1.2830121220031288
+}

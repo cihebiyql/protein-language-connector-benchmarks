@@ -1,0 +1,142 @@
+{
+  "scope": "engineering_canary_only_not_biological_accuracy",
+  "seed": 17,
+  "synthetic_sequences": [
+    "ACDEFGHIKLMNPQRS",
+    "SRQPNMLKIHGFEDCA"
+  ],
+  "batch_size": 2,
+  "padded_sequence_length": 512,
+  "nonpadding_length": 61,
+  "real_residues": 16,
+  "steps_per_interface": 2,
+  "precision": "BF16 base models / FP32 adapter",
+  "python": "3.10.12",
+  "torch": "2.12.1+cu130",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA GeForce RTX 5080",
+  "interfaces": [
+    {
+      "esm_layer": 15,
+      "qwen_after_layer": 0,
+      "losses": [
+        0.007787019480019808,
+        0.0004625662986654788
+      ],
+      "gradient_norms": [
+        0.43063268065452576,
+        0.04032536968588829
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 8.25,
+      "reordered_residue_max_logit_delta": 1.5,
+      "seconds": 0.8340040600014618,
+      "peak_allocated_mib": 7512.09814453125,
+      "peak_reserved_mib": 8352.0
+    },
+    {
+      "esm_layer": 15,
+      "qwen_after_layer": 7,
+      "losses": [
+        0.007933548651635647,
+        0.0017556988168507814
+      ],
+      "gradient_norms": [
+        0.2453620433807373,
+        0.03716497868299484
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 5.40625,
+      "reordered_residue_max_logit_delta": 1.21875,
+      "seconds": 0.37068897700009984,
+      "peak_allocated_mib": 6950.21533203125,
+      "peak_reserved_mib": 7216.0
+    },
+    {
+      "esm_layer": 15,
+      "qwen_after_layer": 14,
+      "losses": [
+        0.0046897209249436855,
+        0.0009606895036995411
+      ],
+      "gradient_norms": [
+        0.08212269842624664,
+        0.020144794136285782
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 6.375,
+      "reordered_residue_max_logit_delta": 0.875,
+      "seconds": 0.32875511499878485,
+      "peak_allocated_mib": 6397.58251953125,
+      "peak_reserved_mib": 6664.0
+    },
+    {
+      "esm_layer": 30,
+      "qwen_after_layer": 0,
+      "losses": [
+        0.014353815466165543,
+        0.0015765475109219551
+      ],
+      "gradient_norms": [
+        1.237045407295227,
+        0.09749400615692139
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 7.953125,
+      "reordered_residue_max_logit_delta": 1.734375,
+      "seconds": 0.4029936180013465,
+      "peak_allocated_mib": 7503.34814453125,
+      "peak_reserved_mib": 7784.0
+    },
+    {
+      "esm_layer": 30,
+      "qwen_after_layer": 7,
+      "losses": [
+        0.005189732648432255,
+        0.0006167712854221463
+      ],
+      "gradient_norms": [
+        0.15588240325450897,
+        0.04386366903781891
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 9.125,
+      "reordered_residue_max_logit_delta": 1.875,
+      "seconds": 0.34662234900315525,
+      "peak_allocated_mib": 6950.21533203125,
+      "peak_reserved_mib": 7216.0
+    },
+    {
+      "esm_layer": 30,
+      "qwen_after_layer": 14,
+      "losses": [
+        0.005333617329597473,
+        0.0014387776609510183
+      ],
+      "gradient_norms": [
+        0.0748557597398758,
+        0.033521465957164764
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 7.5625,
+      "reordered_residue_max_logit_delta": 2.84375,
+      "seconds": 0.32758884400027455,
+      "peak_allocated_mib": 6397.58251953125,
+      "peak_reserved_mib": 6664.0
+    }
+  ],
+  "script_sha256": "27aafa83aed4cec8d6ea2c29246045a13ab7dd052c36541c39bd5812f2fa0df1",
+  "bridge_sha256": "65c1fb3041c8226bdb219d22833705758fb5ba0ecf56b5fad99bf653db2b149d"
+}

@@ -1,0 +1,228 @@
+{
+  "status": "passed",
+  "scope": "real train-only runtime canary, not benchmark performance",
+  "method": "internal_cross_attention",
+  "batch_size": 4,
+  "answer_token_nll": 0.7542835712432862,
+  "per_step_answer_token_nll": [
+    1.1651287078857422,
+    0.8874406814575195,
+    0.7542835712432862
+  ],
+  "gradient_norms": [
+    4.590454578399658,
+    2.646022319793701,
+    1.862586498260498
+  ],
+  "step_seconds": [
+    0.9715212510054698,
+    0.10453257600602228,
+    0.1007504000008339
+  ],
+  "max_step_seconds": 0.9715212510054698,
+  "capacity": {
+    "method": "internal_cross_attention",
+    "source_dim": 640,
+    "memory_dim": 128,
+    "num_memory_tokens": 16,
+    "insertion_layer": 14,
+    "trainable_parameters": 548608,
+    "frozen_parameters": 1543714304,
+    "trainable_by_name": {
+      "type_embedding.weight": 1280,
+      "source_norm.weight": 640,
+      "source_norm.bias": 640,
+      "source_projection.weight": 81920,
+      "source_projection.bias": 128,
+      "cross_attention.in_proj_weight": 49152,
+      "cross_attention.in_proj_bias": 384,
+      "cross_attention.out_proj.weight": 16384,
+      "cross_attention.out_proj.bias": 128,
+      "output_projection.weight": 196608,
+      "output_projection.bias": 1536,
+      "query_norm.weight": 1536,
+      "query_norm.bias": 1536,
+      "query_projection.weight": 196608,
+      "query_projection.bias": 128
+    },
+    "off_control": "remove_intervention"
+  },
+  "peak_allocated_bytes": 6453487616,
+  "peak_reserved_bytes": 7461666816,
+  "selected_sample_ids": [
+    "ppikb:PPIRE09493",
+    "ppikb:PPIRE19444",
+    "ppikb:PPIRE13598",
+    "ppikb:PPIRE13599"
+  ],
+  "selected_memory_lengths": [
+    3429,
+    3424,
+    3068,
+    3068
+  ],
+  "selection_policy": "longest full memory among immutable training rows; no held-out labels inspected",
+  "backbone_frozen": true,
+  "data_gate": {
+    "panel_id": "A1",
+    "scope": "panel_specific_predictor",
+    "status": "frozen_restricted_scope",
+    "benchmark_lock_sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249",
+    "samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+    "split_counts": {
+      "train": 2062,
+      "test": 152,
+      "validation": 147
+    },
+    "disjointness": [
+      {
+        "field": "peptide_sequence",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "groups.peptide_family",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "groups.source_doi",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "group_id",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      }
+    ],
+    "external_isolation_verified": false,
+    "limitations": [
+      "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+      "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+      "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+      "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+      "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+      "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+    ],
+    "unified_multitask_connector_claim": false
+  },
+  "verified_models": {
+    "source_manifest_sha256": "b02684701bffd0c09610cf4b2a6eb6d7e0914ee0f4fbf11d4ed276134bcf6178",
+    "verified_files": [
+      {
+        "repo": "facebook/esm2_t30_150M_UR50D",
+        "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "file": "README.md",
+        "sha256": "462a2f24724e19c6be0efab926315c294a863c9a9770e2c8b3d859b2d81a07de",
+        "official_sha256": null
+      },
+      {
+        "repo": "facebook/esm2_t30_150M_UR50D",
+        "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "file": "config.json",
+        "sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+        "official_sha256": null
+      },
+      {
+        "repo": "facebook/esm2_t30_150M_UR50D",
+        "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "file": "model.safetensors",
+        "sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566",
+        "official_sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      {
+        "repo": "facebook/esm2_t30_150M_UR50D",
+        "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "file": "special_tokens_map.json",
+        "sha256": "3aedcd4211c0d43aec4e607ff60a63255f3174ead795e997350f09a5f8cd9ee1",
+        "official_sha256": null
+      },
+      {
+        "repo": "facebook/esm2_t30_150M_UR50D",
+        "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "file": "tokenizer_config.json",
+        "sha256": "7e9161ecdb548ec45a41cbc6b24aa4476fdd418461f491c4207baa99419a29ad",
+        "official_sha256": null
+      },
+      {
+        "repo": "facebook/esm2_t30_150M_UR50D",
+        "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "file": "vocab.txt",
+        "sha256": "0b82cc0a7c7cf9e567b1e5892d793285b9fbae822c964ca48696f7db44598e03",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "LICENSE",
+        "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "README.md",
+        "sha256": "2e1bcd8bd964728a820be709fa0f7b9dd54817a94fd2254c535df70c5e67fada",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "config.json",
+        "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "generation_config.json",
+        "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "merges.txt",
+        "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "model.safetensors",
+        "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+        "official_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "tokenizer.json",
+        "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "tokenizer_config.json",
+        "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+        "official_sha256": null
+      },
+      {
+        "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "file": "vocab.json",
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "official_sha256": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "model": "frozen ESM2-150M layer30 residue mean + 640/256/34 MLP",
+  "seed": 2026,
+  "epochs": 30,
+  "optimizer_steps": 900,
+  "effective_batch_size": 64,
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ]
+  },
+  "loss": "equal-sample known-positive soft-label cross entropy",
+  "order": "CPU torch.Generator(seed + epoch), torch.randperm; epoch=1..30",
+  "selection": "earliest highest validation MRR across all 30 epochs; no early stopping",
+  "best_epoch": 12,
+  "best_validation_mrr": 0.7067526998079752,
+  "split_sizes": {
+    "train": 1914,
+    "validation": 393,
+    "test": 387
+  },
+  "input_sha256": "57038156925fb5d772824716eef68cf6ce55d288175913e5d86a095007c9e8da",
+  "scores": {
+    "correct": {
+      "n": 387,
+      "known_positive_recall_at_3": 0.7756244616709733,
+      "mrr": 0.6771804565978613
+    },
+    "closed_raw_zero": {
+      "n": 387,
+      "known_positive_recall_at_3": 0.02670111972437554,
+      "mrr": 0.08460075168050317
+    },
+    "closed_train_mean": {
+      "n": 387,
+      "known_positive_recall_at_3": 0.16279069767441862,
+      "mrr": 0.2160252624466935
+    },
+    "mismatched_10_donor_mean": {
+      "n": 387,
+      "n_donors_per_sample": 10,
+      "known_positive_recall_at_3": 0.11507321274763135,
+      "mrr": 0.15027116232775603
+    }
+  },
+  "paired_intervention_cis": {
+    "recall_at_3": {
+      "closed_raw_zero": {
+        "mean_difference": 0.7489233419465977,
+        "ci95": [
+          0.6958239557988646,
+          0.7973332660952532
+        ],
+        "n_samples": 387,
+        "n_groups": 235,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "unit": "test group_id; sample-weighted mean"
+      },
+      "closed_train_mean": {
+        "mean_difference": 0.6128337639965546,
+        "ci95": [
+          0.547207695479785,
+          0.6735599910476305
+        ],
+        "n_samples": 387,
+        "n_groups": 235,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "unit": "test group_id; sample-weighted mean"
+      },
+      "mismatched_10_donor_mean": {
+        "mean_difference": 0.660551248923342,
+        "ci95": [
+          0.6128441993335433,
+          0.7034643426748691
+        ],
+        "n_samples": 387,
+        "n_groups": 235,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "unit": "test group_id; sample-weighted mean"
+      }
+    },
+    "reciprocal_rank": {
+      "closed_raw_zero": {
+        "mean_difference": 0.5925797049173581,
+        "ci95": [
+          0.5482782505913961,
+          0.6326511729290025
+        ],
+        "n_samples": 387,
+        "n_groups": 235,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "unit": "test group_id; sample-weighted mean"
+      },
+      "closed_train_mean": {
+        "mean_difference": 0.46115519415116774,
+        "ci95": [
+          0.40483892153050327,
+          0.5135680479067478
+        ],
+        "n_samples": 387,
+        "n_groups": 235,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "unit": "test group_id; sample-weighted mean"
+      },
+      "mismatched_10_donor_mean": {
+        "mean_difference": 0.5269092942701051,
+        "ci95": [
+          0.4836662998746373,
+          0.5669893675019204
+        ],
+        "n_samples": 387,
+        "n_groups": 235,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 2026,
+        "unit": "test group_id; sample-weighted mean"
+      }
+    }
+  },
+  "interventions": {
+    "closed_raw_zero": "raw pooled ESM feature set to zero before train-only standardization",
+    "closed_train_mean": "raw pooled ESM feature replaced by training mean; sensitivity check",
+    "mismatched": "10 distinct same-test donor pooled features, different group, length +/-2, disjoint documented targets; per-draw metric then mean"
+  },
+  "trainable_parameters": 172834,
+  "seconds": 1.4047954639972886,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.8306543308863943,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.6755725190839694,
+        "mrr": 0.59941137205771
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 2.056681259049642,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.693384223918575,
+        "mrr": 0.6354833723667817
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.7543848427859219,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7264631043256997,
+        "mrr": 0.6526427809896089
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.5869287173949813,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7531806615776081,
+        "mrr": 0.6622789558747533
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.4507744103016151,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7633587786259542,
+        "mrr": 0.6814758843626709
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.358679825111118,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7633587786259542,
+        "mrr": 0.6923592502660941
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.2718941270993671,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7748091603053435,
+        "mrr": 0.6890890475521725
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.1966800737032197,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7748091603053435,
+        "mrr": 0.6954645829967244
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.145502698085151,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7811704834605598,
+        "mrr": 0.6945202783984723
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.074793007742524,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7811704834605598,
+        "mrr": 0.704003120648462
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 1.0281812695001984,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7837150127226463,
+        "mrr": 0.6992969174450475
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.9797980145725461,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7862595419847328,
+        "mrr": 0.7067526998079752
+      }
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.9355990681154974,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7798982188295165,
+        "mrr": 0.697907214767177
+      }
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.8969096375732462,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7862595419847328,
+        "mrr": 0.6986625570649531
+      }
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.8669772592208727,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7748091603053435,
+        "mrr": 0.7002384950160332
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.8273472962832874,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7862595419847328,
+        "mrr": 0.7020317234366026
+      }
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.7904352914452428,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7888040712468194,
+        "mrr": 0.6968025944663999
+      }
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.7599205611392373,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7824427480916031,
+        "mrr": 0.7018777877275478
+      }
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.7203456728311417,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.77735368956743,
+        "mrr": 0.697447938986487
+      }
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.6997841597849049,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7735368956743003,
+        "mrr": 0.6960221089757985
+      }
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.6698758491901768,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7837150127226463,
+        "mrr": 0.6957771693176599
+      }
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.6423090521320156,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7684478371501272,
+        "mrr": 0.6957100010967919
+      }
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.616608398336851,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7824427480916031,
+        "mrr": 0.6896895197161195
+      }
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.5917725857646986,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.77735368956743,
+        "mrr": 0.6948844539630057
+      }
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.5735124155583178,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7748091603053435,
+        "mrr": 0.6917800769141881
+      }
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.5546836817214731,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7646310432569975,
+        "mrr": 0.6918968957014247
+      }
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.5298679416829889,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.772264631043257,
+        "mrr": 0.6934958441833905
+      }
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.5144589711506165,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7684478371501272,
+        "mrr": 0.6873060677870582
+      }
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.4913588346234185,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.772264631043257,
+        "mrr": 0.6931767243410275
+      }
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.47750571370124817,
+      "validation": {
+        "n": 393,
+        "known_positive_recall_at_3": 0.7709923664122137,
+        "mrr": 0.6874362561162756
+      }
+    }
+  ],
+  "script_sha256": "267bf1de411a18393bff1ec5056ba428856df173d8bf68e0ae43a481ebe53402"
+}

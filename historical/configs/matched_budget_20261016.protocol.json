@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "status": "specified_pending_review_closure_and_runtime_qualification",
+  "goal": "Clarify benchmark then run multiseed parameter-and-message-budget matched depth/content/gate/pooling controls",
+  "authorization": "2026-10-16 user explicitly requested new multiseed matched-budget controls, causal diagnosis and paper-grounded improvements, preserving frozen tests and old results",
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T13:20:00+08:00",
+    "earliest_associated_preparation_at": "2026-10-16T13:20:00+08:00",
+    "effective_deadline_at": "2026-10-16T23:20:00+08:00",
+    "old_foundation_start": "2026-10-16T07:18:00+08:00",
+    "old_foundation_deadline_preserved": "2026-10-16T17:18:00+08:00",
+    "relationship": "new explicitly authorized matched-budget objective, previously excluded from foundation scope; no old failed contract resumed or deadline rewritten"
+  },
+  "data_root": "data/processed/bench_v02/a1_locked_v2",
+  "scenarios": {
+    "new_peptide_known_target": {
+      "train": 2062,
+      "validation": 147,
+      "test": 152,
+      "samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e"
+    },
+    "new_peptide_new_target": {
+      "train": 2063,
+      "validation": 431,
+      "test": 442,
+      "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71"
+    }
+  },
+  "cross_scenario_trained_state_sharing": false,
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "training": {
+    "epochs": 3,
+    "batch_size": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "optimizer_steps": 1548,
+    "checkpoint_selection": "minimum full validation answer-token NLL, earliest tie",
+    "early_stopping": false,
+    "backbone_frozen": true
+  },
+  "generation": {
+    "max_new_tokens": 24,
+    "sampling": false,
+    "KV_cache": false,
+    "strict_parser": "unchanged scripts/foundation_20261016/run_connectors.py parse_answer",
+    "gold_score": "original unrounded pKD",
+    "any_failure_full_sample_MAE": null,
+    "clipping": false,
+    "manual_answer_repair": false
+  },
+  "sender": {
+    "trainable_parameters": 0,
+    "source_dim": 640,
+    "source_normalization": "per-residue LayerNorm without affine",
+    "main_pool": "balanced:8 peptide plus8 target independent ordered adaptive averages",
+    "extension_pool": "global16:concatenated ordered adaptive averages",
+    "projection": "fixed Gaussian640x128 std1/sqrt640 seed314159",
+    "slot_normalization": "LayerNorm128 without affine",
+    "message_shape": [
+      16,
+      128
+    ],
+    "message_dtype": "float32",
+    "logical_payload_bytes": 8192,
+    "neutral": "scenario TRAIN-only per-slot message mean; same16x128 for every row; mask all ones",
+    "test_labels_used_in_sender": false
+  },
+  "reader": {
+    "hidden_dim": 1536,
+    "message_dim": 128,
+    "heads": 4,
+    "dropout": 0,
+    "trainable_parameters": 464001,
+    "parameter_count_interpretation": "nominal requires-grad tensor elements in identical modules, not identifiable statistical degrees of freedom; standard attention K bias can cancel and zero gate gives expected first-step zero branch gradients",
+    "components": [
+      "LayerNorm1536 affine",
+      "Linear1536to128 bias",
+      "MultiheadAttention128 bias",
+      "Linear128to1536 bias",
+      "one scalar tanh gate"
+    ],
+    "main_gate_alpha_init": 0.0,
+    "gate_initialization_extension": 3.0,
+    "paired_initialization": "same tensor state by seed across locations/content; only declared gate value differs in gate extension",
+    "extra_LM_positions": 0,
+    "queries": "one read per physical padded text position per forward; valid logical writes are masked",
+    "keys": 16,
+    "locations": {
+      "early": "after embedding before decoder block1",
+      "mid": "after one-based decoder block14"
+    }
+  },
+  "matrix": {
+    "primary_depth_content": {
+      "scenario_count": 2,
+      "seeds": [
+        17,
+        42,
+        2026
+      ],
+      "locations": [
+        "early",
+        "mid"
+      ],
+      "content": [
+        "real",
+        "neutral"
+      ],
+      "pool": "balanced",
+      "gate_alpha": 0.0,
+      "runs": 24
+    },
+    "gate_initialization_extension": {
+      "scenario_count": 2,
+      "seeds": [
+        17,
+        42,
+        2026
+      ],
+      "locations": [
+        "mid"
+      ],
+      "content": [
+        "real"
+      ],
+      "pool": "balanced",
+      "gate_alpha": 3.0,
+      "additional_runs": 6,
+      "control_reused": "primary mid real alpha0"
+    },
+    "pool_allocation_extension": {
+      "scenario_count": 2,
+      "seeds": [
+        17,
+        42,
+        2026
+      ],
+      "locations": [
+        "mid"
+      ],
+      "content": [
+        "real"
+      ],
+      "pool": "global16",
+      "gate_alpha": 0.0,
+      "additional_runs": 6,
+      "control_reused": "primary mid real balanced"
+    },
+    "total_new_training_runs": 36
+  },
+  "ordered_trial_rule": "primary:seed17,42,2026 then known,double then early,mid then real,neutral; gate extension:seed then scenario; pool extension:seed then scenario",
+  "content_vs_inference_mode": "CLI message-input real|neutral is the content axis; both activate the branch with model message_mode=correct. model message_mode=off is the separate frozen-LM inference reference, not a content training condition.",
+  "endpoint_contrast_orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+  "paired_contrasts_per_scenario": [
+    {
+      "name": "depth_real",
+      "formula": "MAE(early,real)-MAE(mid,real)"
+    },
+    {
+      "name": "depth_neutral",
+      "formula": "MAE(early,neutral)-MAE(mid,neutral)"
+    },
+    {
+      "name": "content_early",
+      "formula": "MAE(early,neutral)-MAE(early,real)"
+    },
+    {
+      "name": "content_mid",
+      "formula": "MAE(mid,neutral)-MAE(mid,real)"
+    },
+    {
+      "name": "depth_content_difference_in_differences",
+      "formula": "depth_real-depth_neutral"
+    },
+    {
+      "name": "gate_zero_initialization",
+      "formula": "MAE(mid,real,balanced,alpha3)-MAE(mid,real,balanced,alpha0)"
+    },
+    {
+      "name": "balanced_pool_allocation",
+      "formula": "MAE(mid,real,global16,alpha0)-MAE(mid,real,balanced,alpha0)"
+    }
+  ],
+  "missing_seed_rule": "A3-seed mean/SD or contrast is emitted only with all3 valid complete seed values; otherwise emit null with k/3 and missing/failed/invalid cases. No averaging only successful seeds as a3-seed finding. Coverage per seed is always shown.",
+  "endpoints": {
+    "primary": [
+      "strict JSON parse coverage and failures",
+      "full-population pKD MAE only when all answers valid"
+    ],
+    "conditional": [
+      "valid-only MAE with explicit denominator",
+      "original target-macro MAE with correct naming"
+    ],
+    "mechanism": [
+      "unchanged full answer C1 NLL difference",
+      "gate trajectory and delta-to-hidden norm ratio on TRAIN/VALIDATION",
+      "format/numeric answer-token NLL as additional diagnostic only"
+    ],
+    "statistics": [
+      "all seeds and fixed paired contrasts by-seed differences",
+      "seed mean and sample SD only with3/3, separate from frozen-test group uncertainty",
+      "unchanged source/family-component bootstrap2000 seed2026",
+      "no best-seed selection or metric/threshold/group changes"
+    ]
+  },
+  "resources": {
+    "host": "LOCAL_HOST",
+    "environment": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+    "cpu_threads": 2,
+    "host_RSS_limit_bytes": 12884901888,
+    "torch_GPU_allocation_limit_bytes": 12348030976,
+    "trial_timeout_seconds": 1800,
+    "canary_timeout_seconds": 240,
+    "one_GPU_worker_at_a_time": true,
+    "fresh_probe_each_job": true,
+    "new_dependencies": false
+  },
+  "numerical_policy": {
+    "base_dtype": "bfloat16",
+    "reader_and_message_dtype": "float32",
+    "reader_autocast": false,
+    "CUDA_LAUNCH_BLOCKING": "1",
+    "TORCH_SHOW_CPP_STACKTRACES": "1",
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "float32_matmul_precision": "highest",
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "qualification": "Strict numerical policy is tested on TRAIN-only canaries before any full trial. Unsupported deterministic kernels stop qualification and require a documented prospective engineering revision; no runtime or model change selected from test results. Exact paired initialization is enforced separately."
+  },
+  "execution_gates": [
+    "independent protocol review closed",
+    "old data and results asset manifest unchanged",
+    "source and cache pins verified",
+    "CPU correctness and negative tests",
+    "real TRAIN-only forward-backward canary and end-to-end scoring serialization",
+    "fresh hostname/load/GPU-process/storage checks",
+    "real frozen standard task contract valid_for_execution"
+  ],
+  "test_status": "old test already observed; prospectively specified new comparisons on an existing repeated benchmark, not an untouched confirmatory test",
+  "communication_accounting": {
+    "exact_training_controls": "same example/token presentation and reader calls;16x128 float32 logical source message per object per forward; same16KV and per-text query schedule",
+    "query_ledgers": [
+      "valid unmasked logical text queries",
+      "all physical BxLmax padded queries including rows already EOS",
+      "valid masked residual writes",
+      "physical residual tensor bytes and attention edges"
+    ],
+    "generation_controls": "same per-forward budget and24-token maximum; realized forward counts and bytes may vary with EOS and must be reported, including whole-batch EOS consumption",
+    "physical_transport": "logical module-boundary payload, not measured PCI/network bytes or Shannon information",
+    "dummy_calls_to_equalize_consumption": false
+  },
+  "protocol_authority": "This final36-trial specification supersedes historical learned-codec, ungated and true-prefix suggestions in audit/literature candidate tables for current execution. All audit facts and old results remain unchanged. alpha3 is a near-unit tanh gate, not ungated; early is dynamic residual cross-attention, not old MLP or classical prefix. Neutral removes variable message content while retaining the unchanged allowed prompt context.",
+  "remaining_axes_not_matched": [
+    "gradient propagation through28 versus14 frozen LM blocks",
+    "actual wall time and FLOPs, reported not claimed equal",
+    "realized generation reads when EOS length differs, within identical fixed maximum budget"
+  ],
+  "excluded_current_execution": [
+    "true prefix claimed completely matched to dynamic internal reads",
+    "jointly learned or warmup sender",
+    "external corpus pretraining without exposure audit",
+    "B2/C3 or same-condition experiments without gold",
+    "protein sequence generation or biological affinity optimization"
+  ]
+}

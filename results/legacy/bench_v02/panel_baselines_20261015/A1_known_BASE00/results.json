@@ -1,0 +1,909 @@
+{
+  "benchmark_version": "0.2",
+  "panel_id": "A1",
+  "baseline_id": "BASE-00",
+  "channel": "predictor",
+  "role": "controlled_predictor",
+  "execution_receipt": {
+    "panel_id": "A1",
+    "scope": "panel_specific_predictor",
+    "status": "frozen_restricted_scope",
+    "benchmark_lock_sha256": "9ec16a84ef0ef52665c5f83a64d9971e1079dc48580a10e203e95cf7a778ea96",
+    "samples_sha256": "86fd8a1a739d72b605536af50d3349f0ac8603e25e8dc08f4e727bc0daaf119f",
+    "split_counts": {
+      "train": 2065,
+      "test": 152,
+      "validation": 147
+    },
+    "disjointness": [
+      {
+        "field": "peptide_sequence",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "groups.peptide_family",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "groups.source_doi",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      }
+    ],
+    "external_isolation_verified": false,
+    "limitations": [
+      "PEPBI workbook inaccessible via official endpoints (401/403); coverage limited to official Table1 ITC source DOIs and experimentally observed template sequences; full variant identity audit incomplete.",
+      "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+      "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+      "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+      "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+      "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits."
+    ],
+    "unified_multitask_connector_claim": false
+  },
+  "models": {
+    "train_mean": {
+      "selected_parameter": null,
+      "validation_trials": [
+        {
+          "parameter": null,
+          "validation_mae": 1.3845694629395735
+        }
+      ],
+      "test": {
+        "n": 152,
+        "mae": 1.6195184128385596,
+        "spearman": null,
+        "n_groups": 42,
+        "group_macro_mae": 1.4988694825989406,
+        "groups": [
+          {
+            "group_id": "tf:655b0e233155e540ef48affcb42464bb12cc38b193cd9ef302606592bd7f7b73",
+            "n": 1,
+            "mae": 2.768732420429548,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a5f256fc653515d110f6dd48ad55b8ea21bf6d45af33b7f5c182c6c31455b636",
+            "n": 17,
+            "mae": 1.91290406292402,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0016b146f34c128e3aeb4367dfc306384fc2417cdf4f863f022625a36579b8bd",
+            "n": 3,
+            "mae": 0.9653728002526236,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1cab5dc123997b09de6b3c5d0e0a1b1315a7db3fa2e32dcf7cbe00daf3f43bd6",
+            "n": 2,
+            "mae": 1.7552616064500333,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:bc5007edacb977af5009c5c7d7a9f6849269b365f141e6dc4ae07888629347ee",
+            "n": 7,
+            "mae": 2.175465800573286,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c7e920fd4bedf3d69d790dcb40cc27b05e17211ccf7df8f4b5e8c33818b88f96",
+            "n": 4,
+            "mae": 1.5310282824447148,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9ad5ef9ba35def920a684e5d92e22b0a2e05baefcec3c9f173e2773ca8cc0646",
+            "n": 1,
+            "mae": 0.236448092074232,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:907190d6984113e380f933f5c52ca845921e460b09488f750311d99f1f6e9279",
+            "n": 6,
+            "mae": 0.6824300285254759,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0841e7c8ebd6a4a9e9e051538600d8f201c6682b3246dfb95ba301ab6233a3e3",
+            "n": 2,
+            "mae": 0.8287189167999829,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:14eeb8860ee3ab4c11cde04f4a7e701bc4c8d6e5a947c9abeda8657d301ec937",
+            "n": 3,
+            "mae": 0.702668120561075,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:76a1b3b4f9a241cb2c1c2415ba7851b7f33e2803f817af8c553b845dcb76d2b4",
+            "n": 1,
+            "mae": 1.424392177924914,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9947d2c5b5ddc2893700fa695c8c05d8b1cd28213fdf19298eb174d8e85d3013",
+            "n": 1,
+            "mae": 1.757606856960296,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6ca8b89b8a573a51d1631cbbe600f08b2d015df3e398adf1b2bca7441801edad",
+            "n": 1,
+            "mae": 2.538763617483665,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2d0a1e51ee3c726aa5f46609580a570c5c6be7f1ff70d1d1667b361a477a087b",
+            "n": 1,
+            "mae": 3.132180647308121,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:50d35dc554d3538bc4e0d1b240d835298f63a9469094433d8fb2b73afe7d2a4d",
+            "n": 1,
+            "mae": 0.6753107352673133,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3c818ee2c080f534eaf3cb422f25c94f2f49241f958d47673d7c8575ec18a73e",
+            "n": 5,
+            "mae": 1.931448268247356,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:115c25fe50be706d85ec9231d65b74ebaf3ed82a3faba2fb9216d5714d941a67",
+            "n": 1,
+            "mae": 2.8940254112520263,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:90075634f6e58f794e31bf42343ef834835c81871f3ddca6fb99a05750b8c507",
+            "n": 2,
+            "mae": 0.828940608744662,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:311f5899cfd9afdd7395f1610fc3aa31bd87cab83d312322f068ba0eb59d99bb",
+            "n": 15,
+            "mae": 1.558610995766973,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:60fb850ac860f713fa5fe81be16ac222810e8692d1ca9b3dc98939d78e8e312f",
+            "n": 23,
+            "mae": 2.107358832398498,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:cabcd0382ed2f6481aa338d4235c57b559cc4d1a254f9c9aae6c341230ecaa90",
+            "n": 2,
+            "mae": 1.3171874269335762,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:099111483542dc4a0adbc153ad02fa06e249c769296a5a535d0211db3e656fe4",
+            "n": 3,
+            "mae": 0.4837084217651804,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:22346d98b5064074ee969402d2f39701db9f0863a11012fe68ccb67f8f538d10",
+            "n": 5,
+            "mae": 0.5835070731248665,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:53b054db88f740bc1d6e333e9648e5399c12ada9ff343f39305bc8906436563d",
+            "n": 2,
+            "mae": 0.9769484264875885,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7ff04ddccf949e11263e780f4fb3492ae973c50c851a4df836fb5d6e323a318a",
+            "n": 2,
+            "mae": 1.5120969781967903,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6b402a1892373e6a463901be5105db1b94dc15e5dda544de1f347f4844f15ae3",
+            "n": 1,
+            "mae": 0.3104488256180771,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0f79dd8c1ea278edbe797ca3ccb235de12e8d482492499a37a977a0692d3e49b",
+            "n": 2,
+            "mae": 0.7128995724597886,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a2a625c2ddbdbf826d7dff0c4248b871a0d5ed3323f7b46a27597d37fc7ee17e",
+            "n": 4,
+            "mae": 3.0969144672190665,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8e6243dda6cb628412d9650d80763148742604dfe2f2f03e5782c827777400af",
+            "n": 2,
+            "mae": 1.818965495267467,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:cd390cd121a89a5dd0bc34d8204b6054afb295bd6b1413461b6b373949938b37",
+            "n": 1,
+            "mae": 1.2475943367255118,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1670aefbe2d9baf3412d23252180a37554c5647a0ad5cb1fbd06bb18417aee49",
+            "n": 1,
+            "mae": 1.5232197526153985,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:799cf8df386dcafa3672116e8453a7432f74c94ebd542e8e2c5d475ba5cf4de0",
+            "n": 6,
+            "mae": 1.678316821461399,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1d8ec0fecbd97e24ce186779dff9efc9fed39e0673c9cb0421036e560aeda012",
+            "n": 6,
+            "mae": 1.8221249613221915,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2f0d3e8db03b3f71ad9b90a65bfc9a62160332c9ebae2badf94067184d8f8945",
+            "n": 6,
+            "mae": 1.4788739963511999,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:01c165290470a36ed2a6a71ebd3484ad7ec9a49f2b52631a1da8ea5351024af5",
+            "n": 2,
+            "mae": 2.573512874081511,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:161255590640c3fcb7de9245e5948baeee7d78329e2ca4370c34533eeb7b3001",
+            "n": 1,
+            "mae": 3.264691335057402,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6c038ed8f95e0248a1ffd4dbab53c0ff1d973269cc93901237862549053780be",
+            "n": 3,
+            "mae": 1.0019716317598382,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:f2d9dc375a82d5decdd59aeb2b2e69bbde886e95a84efdc37343f647c5f20a76",
+            "n": 2,
+            "mae": 0.48821991169654666,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8625b8e5664220caffd8c457d023faa6156bab712d487986eaeab87c99b668e5",
+            "n": 1,
+            "mae": 0.8326756401051361,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:55f1e06179ede08b2c14670e8946ad963789a0d6affad821ac8ad5a3b0e097f8",
+            "n": 1,
+            "mae": 1.0094188299540958,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:af347fa91bfe87a1c37db17c0e25828c2e02dd67ba3822dcd147acae0b273154",
+            "n": 1,
+            "mae": 2.62260438475131,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2acbdeb91429f02cc55ccf91e0f0231a91357591a84ddb5de389553cab4b17bf",
+            "n": 1,
+            "mae": 0.18894882381273792,
+            "spearman": null
+          }
+        ]
+      }
+    },
+    "composition_chemistry_ridge": {
+      "selected_parameter": 1000.0,
+      "validation_trials": [
+        {
+          "parameter": 0.1,
+          "validation_mae": 1.4297452775336992
+        },
+        {
+          "parameter": 1.0,
+          "validation_mae": 1.4296358795920108
+        },
+        {
+          "parameter": 10.0,
+          "validation_mae": 1.4285556141936955
+        },
+        {
+          "parameter": 100.0,
+          "validation_mae": 1.4191631350937028
+        },
+        {
+          "parameter": 1000.0,
+          "validation_mae": 1.379938465926492
+        }
+      ],
+      "test": {
+        "n": 152,
+        "mae": 1.5886093970492425,
+        "spearman": 0.16439708073534998,
+        "n_groups": 42,
+        "group_macro_mae": 1.3991570336550478,
+        "groups": [
+          {
+            "group_id": "tf:655b0e233155e540ef48affcb42464bb12cc38b193cd9ef302606592bd7f7b73",
+            "n": 1,
+            "mae": 2.499346734500028,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a5f256fc653515d110f6dd48ad55b8ea21bf6d45af33b7f5c182c6c31455b636",
+            "n": 17,
+            "mae": 2.257464617294931,
+            "spearman": -0.2870404496031808
+          },
+          {
+            "group_id": "tf:0016b146f34c128e3aeb4367dfc306384fc2417cdf4f863f022625a36579b8bd",
+            "n": 3,
+            "mae": 1.2890349505363703,
+            "spearman": 0.4999999999999999
+          },
+          {
+            "group_id": "tf:1cab5dc123997b09de6b3c5d0e0a1b1315a7db3fa2e32dcf7cbe00daf3f43bd6",
+            "n": 2,
+            "mae": 2.203419097940025,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:bc5007edacb977af5009c5c7d7a9f6849269b365f141e6dc4ae07888629347ee",
+            "n": 7,
+            "mae": 2.460768695032461,
+            "spearman": -0.8660254037844387
+          },
+          {
+            "group_id": "tf:c7e920fd4bedf3d69d790dcb40cc27b05e17211ccf7df8f4b5e8c33818b88f96",
+            "n": 4,
+            "mae": 1.630946332720408,
+            "spearman": -0.3999999999999999
+          },
+          {
+            "group_id": "tf:9ad5ef9ba35def920a684e5d92e22b0a2e05baefcec3c9f173e2773ca8cc0646",
+            "n": 1,
+            "mae": 0.397208932332914,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:907190d6984113e380f933f5c52ca845921e460b09488f750311d99f1f6e9279",
+            "n": 6,
+            "mae": 0.5974862223765675,
+            "spearman": -0.6
+          },
+          {
+            "group_id": "tf:0841e7c8ebd6a4a9e9e051538600d8f201c6682b3246dfb95ba301ab6233a3e3",
+            "n": 2,
+            "mae": 0.9786601238845609,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:14eeb8860ee3ab4c11cde04f4a7e701bc4c8d6e5a947c9abeda8657d301ec937",
+            "n": 3,
+            "mae": 0.6004364697313044,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:76a1b3b4f9a241cb2c1c2415ba7851b7f33e2803f817af8c553b845dcb76d2b4",
+            "n": 1,
+            "mae": 0.05889936032310228,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9947d2c5b5ddc2893700fa695c8c05d8b1cd28213fdf19298eb174d8e85d3013",
+            "n": 1,
+            "mae": 1.5148392336652194,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6ca8b89b8a573a51d1631cbbe600f08b2d015df3e398adf1b2bca7441801edad",
+            "n": 1,
+            "mae": 2.543195370965495,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2d0a1e51ee3c726aa5f46609580a570c5c6be7f1ff70d1d1667b361a477a087b",
+            "n": 1,
+            "mae": 3.04077154775831,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:50d35dc554d3538bc4e0d1b240d835298f63a9469094433d8fb2b73afe7d2a4d",
+            "n": 1,
+            "mae": 1.2814188318142872,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3c818ee2c080f534eaf3cb422f25c94f2f49241f958d47673d7c8575ec18a73e",
+            "n": 5,
+            "mae": 2.3636420690469517,
+            "spearman": 0.5789473684210528
+          },
+          {
+            "group_id": "tf:115c25fe50be706d85ec9231d65b74ebaf3ed82a3faba2fb9216d5714d941a67",
+            "n": 1,
+            "mae": 2.4147807416050036,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:90075634f6e58f794e31bf42343ef834835c81871f3ddca6fb99a05750b8c507",
+            "n": 2,
+            "mae": 1.0208690314429778,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:311f5899cfd9afdd7395f1610fc3aa31bd87cab83d312322f068ba0eb59d99bb",
+            "n": 15,
+            "mae": 1.4249371283213867,
+            "spearman": 0.1777290247869316
+          },
+          {
+            "group_id": "tf:60fb850ac860f713fa5fe81be16ac222810e8692d1ca9b3dc98939d78e8e312f",
+            "n": 23,
+            "mae": 1.961567142088452,
+            "spearman": 0.3078125413903961
+          },
+          {
+            "group_id": "tf:cabcd0382ed2f6481aa338d4235c57b559cc4d1a254f9c9aae6c341230ecaa90",
+            "n": 2,
+            "mae": 1.2195070813854283,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:099111483542dc4a0adbc153ad02fa06e249c769296a5a535d0211db3e656fe4",
+            "n": 3,
+            "mae": 0.49793256599114066,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:22346d98b5064074ee969402d2f39701db9f0863a11012fe68ccb67f8f538d10",
+            "n": 5,
+            "mae": 0.4402790289940587,
+            "spearman": 0.29999999999999993
+          },
+          {
+            "group_id": "tf:53b054db88f740bc1d6e333e9648e5399c12ada9ff343f39305bc8906436563d",
+            "n": 2,
+            "mae": 0.5182543237214845,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:7ff04ddccf949e11263e780f4fb3492ae973c50c851a4df836fb5d6e323a318a",
+            "n": 2,
+            "mae": 1.1259450590178206,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:6b402a1892373e6a463901be5105db1b94dc15e5dda544de1f347f4844f15ae3",
+            "n": 1,
+            "mae": 0.6880468530416604,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0f79dd8c1ea278edbe797ca3ccb235de12e8d482492499a37a977a0692d3e49b",
+            "n": 2,
+            "mae": 0.14804930866847066,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:a2a625c2ddbdbf826d7dff0c4248b871a0d5ed3323f7b46a27597d37fc7ee17e",
+            "n": 4,
+            "mae": 3.0797763333283,
+            "spearman": 0.2581988897471611
+          },
+          {
+            "group_id": "tf:8e6243dda6cb628412d9650d80763148742604dfe2f2f03e5782c827777400af",
+            "n": 2,
+            "mae": 1.0765569576049776,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:cd390cd121a89a5dd0bc34d8204b6054afb295bd6b1413461b6b373949938b37",
+            "n": 1,
+            "mae": 1.7444613566003833,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1670aefbe2d9baf3412d23252180a37554c5647a0ad5cb1fbd06bb18417aee49",
+            "n": 1,
+            "mae": 1.5282528039481438,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:799cf8df386dcafa3672116e8453a7432f74c94ebd542e8e2c5d475ba5cf4de0",
+            "n": 6,
+            "mae": 1.9801482170148776,
+            "spearman": -0.02857142857142857
+          },
+          {
+            "group_id": "tf:1d8ec0fecbd97e24ce186779dff9efc9fed39e0673c9cb0421036e560aeda012",
+            "n": 6,
+            "mae": 1.3746934222925844,
+            "spearman": 0.2125118592516207
+          },
+          {
+            "group_id": "tf:2f0d3e8db03b3f71ad9b90a65bfc9a62160332c9ebae2badf94067184d8f8945",
+            "n": 6,
+            "mae": 1.4298596855987775,
+            "spearman": -0.02857142857142857
+          },
+          {
+            "group_id": "tf:01c165290470a36ed2a6a71ebd3484ad7ec9a49f2b52631a1da8ea5351024af5",
+            "n": 2,
+            "mae": 2.1673560039387176,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:161255590640c3fcb7de9245e5948baeee7d78329e2ca4370c34533eeb7b3001",
+            "n": 1,
+            "mae": 3.158353745629577,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6c038ed8f95e0248a1ffd4dbab53c0ff1d973269cc93901237862549053780be",
+            "n": 3,
+            "mae": 0.3012506651895149,
+            "spearman": 0.8660254037844387
+          },
+          {
+            "group_id": "tf:f2d9dc375a82d5decdd59aeb2b2e69bbde886e95a84efdc37343f647c5f20a76",
+            "n": 2,
+            "mae": 0.6216735513885072,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:8625b8e5664220caffd8c457d023faa6156bab712d487986eaeab87c99b668e5",
+            "n": 1,
+            "mae": 0.2574978671608008,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:55f1e06179ede08b2c14670e8946ad963789a0d6affad821ac8ad5a3b0e097f8",
+            "n": 1,
+            "mae": 0.8891545077879037,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:af347fa91bfe87a1c37db17c0e25828c2e02dd67ba3822dcd147acae0b273154",
+            "n": 1,
+            "mae": 1.852649470702163,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2acbdeb91429f02cc55ccf91e0f0231a91357591a84ddb5de389553cab4b17bf",
+            "n": 1,
+            "mae": 0.1252039711259636,
+            "spearman": null
+          }
+        ]
+      }
+    },
+    "composition_chemistry_knn": {
+      "selected_parameter": 25,
+      "validation_trials": [
+        {
+          "parameter": 1,
+          "validation_mae": 1.7924954995947526
+        },
+        {
+          "parameter": 3,
+          "validation_mae": 1.6498239037401117
+        },
+        {
+          "parameter": 5,
+          "validation_mae": 1.588940095495821
+        },
+        {
+          "parameter": 10,
+          "validation_mae": 1.4789440306999848
+        },
+        {
+          "parameter": 25,
+          "validation_mae": 1.312224225255813
+        }
+      ],
+      "test": {
+        "n": 152,
+        "mae": 1.704925535387108,
+        "spearman": 0.08706139116625326,
+        "n_groups": 42,
+        "group_macro_mae": 1.5529960083527352,
+        "groups": [
+          {
+            "group_id": "tf:655b0e233155e540ef48affcb42464bb12cc38b193cd9ef302606592bd7f7b73",
+            "n": 1,
+            "mae": 3.121494945024245,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a5f256fc653515d110f6dd48ad55b8ea21bf6d45af33b7f5c182c6c31455b636",
+            "n": 17,
+            "mae": 2.5967848682381485,
+            "spearman": -0.41238562410238644
+          },
+          {
+            "group_id": "tf:0016b146f34c128e3aeb4367dfc306384fc2417cdf4f863f022625a36579b8bd",
+            "n": 3,
+            "mae": 1.082153701598025,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:1cab5dc123997b09de6b3c5d0e0a1b1315a7db3fa2e32dcf7cbe00daf3f43bd6",
+            "n": 2,
+            "mae": 0.8673427783012766,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:bc5007edacb977af5009c5c7d7a9f6849269b365f141e6dc4ae07888629347ee",
+            "n": 7,
+            "mae": 2.5776222187235853,
+            "spearman": -0.8660254037844387
+          },
+          {
+            "group_id": "tf:c7e920fd4bedf3d69d790dcb40cc27b05e17211ccf7df8f4b5e8c33818b88f96",
+            "n": 4,
+            "mae": 1.4327743883530681,
+            "spearman": -0.3999999999999999
+          },
+          {
+            "group_id": "tf:9ad5ef9ba35def920a684e5d92e22b0a2e05baefcec3c9f173e2773ca8cc0646",
+            "n": 1,
+            "mae": 0.5495089081383169,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:907190d6984113e380f933f5c52ca845921e460b09488f750311d99f1f6e9279",
+            "n": 6,
+            "mae": 1.204618238115999,
+            "spearman": -0.5428571428571428
+          },
+          {
+            "group_id": "tf:0841e7c8ebd6a4a9e9e051538600d8f201c6682b3246dfb95ba301ab6233a3e3",
+            "n": 2,
+            "mae": 2.3332908019829146,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:14eeb8860ee3ab4c11cde04f4a7e701bc4c8d6e5a947c9abeda8657d301ec937",
+            "n": 3,
+            "mae": 0.4976640442827736,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:76a1b3b4f9a241cb2c1c2415ba7851b7f33e2803f817af8c553b845dcb76d2b4",
+            "n": 1,
+            "mae": 0.6408576640626809,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9947d2c5b5ddc2893700fa695c8c05d8b1cd28213fdf19298eb174d8e85d3013",
+            "n": 1,
+            "mae": 2.5818996739319533,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6ca8b89b8a573a51d1631cbbe600f08b2d015df3e398adf1b2bca7441801edad",
+            "n": 1,
+            "mae": 2.1834399519827365,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2d0a1e51ee3c726aa5f46609580a570c5c6be7f1ff70d1d1667b361a477a087b",
+            "n": 1,
+            "mae": 1.7795708096443628,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:50d35dc554d3538bc4e0d1b240d835298f63a9469094433d8fb2b73afe7d2a4d",
+            "n": 1,
+            "mae": 1.7458241805138588,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3c818ee2c080f534eaf3cb422f25c94f2f49241f958d47673d7c8575ec18a73e",
+            "n": 5,
+            "mae": 2.023064197593181,
+            "spearman": 0.6842105263157896
+          },
+          {
+            "group_id": "tf:115c25fe50be706d85ec9231d65b74ebaf3ed82a3faba2fb9216d5714d941a67",
+            "n": 1,
+            "mae": 2.769943463822422,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:90075634f6e58f794e31bf42343ef834835c81871f3ddca6fb99a05750b8c507",
+            "n": 2,
+            "mae": 1.276594119367454,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:311f5899cfd9afdd7395f1610fc3aa31bd87cab83d312322f068ba0eb59d99bb",
+            "n": 15,
+            "mae": 1.0929227856966366,
+            "spearman": 0.6035381466722884
+          },
+          {
+            "group_id": "tf:60fb850ac860f713fa5fe81be16ac222810e8692d1ca9b3dc98939d78e8e312f",
+            "n": 23,
+            "mae": 1.445163181021564,
+            "spearman": 0.7344735438345962
+          },
+          {
+            "group_id": "tf:cabcd0382ed2f6481aa338d4235c57b559cc4d1a254f9c9aae6c341230ecaa90",
+            "n": 2,
+            "mae": 0.7618367161789186,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:099111483542dc4a0adbc153ad02fa06e249c769296a5a535d0211db3e656fe4",
+            "n": 3,
+            "mae": 1.0427334177132856,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:22346d98b5064074ee969402d2f39701db9f0863a11012fe68ccb67f8f538d10",
+            "n": 5,
+            "mae": 0.6673319294084198,
+            "spearman": -0.29999999999999993
+          },
+          {
+            "group_id": "tf:53b054db88f740bc1d6e333e9648e5399c12ada9ff343f39305bc8906436563d",
+            "n": 2,
+            "mae": 0.07605667455679566,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:7ff04ddccf949e11263e780f4fb3492ae973c50c851a4df836fb5d6e323a318a",
+            "n": 2,
+            "mae": 1.8094501909043932,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:6b402a1892373e6a463901be5105db1b94dc15e5dda544de1f347f4844f15ae3",
+            "n": 1,
+            "mae": 0.7811914542545724,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0f79dd8c1ea278edbe797ca3ccb235de12e8d482492499a37a977a0692d3e49b",
+            "n": 2,
+            "mae": 0.95261223387753,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:a2a625c2ddbdbf826d7dff0c4248b871a0d5ed3323f7b46a27597d37fc7ee17e",
+            "n": 4,
+            "mae": 3.0481787923551327,
+            "spearman": 0.2581988897471611
+          },
+          {
+            "group_id": "tf:8e6243dda6cb628412d9650d80763148742604dfe2f2f03e5782c827777400af",
+            "n": 2,
+            "mae": 2.491025643714668,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:cd390cd121a89a5dd0bc34d8204b6054afb295bd6b1413461b6b373949938b37",
+            "n": 1,
+            "mae": 1.484955395710502,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1670aefbe2d9baf3412d23252180a37554c5647a0ad5cb1fbd06bb18417aee49",
+            "n": 1,
+            "mae": 1.8319956229367866,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:799cf8df386dcafa3672116e8453a7432f74c94ebd542e8e2c5d475ba5cf4de0",
+            "n": 6,
+            "mae": 3.770647530713417,
+            "spearman": 0.3142857142857143
+          },
+          {
+            "group_id": "tf:1d8ec0fecbd97e24ce186779dff9efc9fed39e0673c9cb0421036e560aeda012",
+            "n": 6,
+            "mae": 2.5277919744184345,
+            "spearman": -0.2732295333235123
+          },
+          {
+            "group_id": "tf:2f0d3e8db03b3f71ad9b90a65bfc9a62160332c9ebae2badf94067184d8f8945",
+            "n": 6,
+            "mae": 1.719653697971598,
+            "spearman": -0.08571428571428572
+          },
+          {
+            "group_id": "tf:01c165290470a36ed2a6a71ebd3484ad7ec9a49f2b52631a1da8ea5351024af5",
+            "n": 2,
+            "mae": 1.081802715972732,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:161255590640c3fcb7de9245e5948baeee7d78329e2ca4370c34533eeb7b3001",
+            "n": 1,
+            "mae": 2.9380818721335236,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6c038ed8f95e0248a1ffd4dbab53c0ff1d973269cc93901237862549053780be",
+            "n": 3,
+            "mae": 1.174232575409655,
+            "spearman": -0.8660254037844387
+          },
+          {
+            "group_id": "tf:f2d9dc375a82d5decdd59aeb2b2e69bbde886e95a84efdc37343f647c5f20a76",
+            "n": 2,
+            "mae": 0.25246823255391426,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:8625b8e5664220caffd8c457d023faa6156bab712d487986eaeab87c99b668e5",
+            "n": 1,
+            "mae": 0.22391975559655997,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:55f1e06179ede08b2c14670e8946ad963789a0d6affad821ac8ad5a3b0e097f8",
+            "n": 1,
+            "mae": 0.37818310362976604,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:af347fa91bfe87a1c37db17c0e25828c2e02dd67ba3822dcd147acae0b273154",
+            "n": 1,
+            "mae": 2.0536446850273578,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2acbdeb91429f02cc55ccf91e0f0231a91357591a84ddb5de389553cab4b17bf",
+            "n": 1,
+            "mae": 0.3555032153817228,
+            "spearman": null
+          }
+        ]
+      }
+    }
+  },
+  "selection": "validation_MAE_only_no_test_refit",
+  "seeds": "deterministic_no_stochastic_training",
+  "full_target_sequence_composition": true,
+  "within_condition_pair_metrics": null,
+  "strict_comparable_pairs_available": false,
+  "elapsed_seconds": 0.4195906999957515,
+  "script_sha256": "237446d0366be8e82dc4cb84b02c30f34cea07921c50311429ae2d73cbd83e5c",
+  "artifact_sha256": {
+    "composition_chemistry_knn.state.npz": "67418ff968b90642c34e36247c2c51868ebba7cd174274d7c0a1dd5d42f40eb7",
+    "composition_chemistry_ridge.state.npz": "c69e625b70de675647ce3b422e02326a45c9a0148a29810bec83c9bebc5bc2d9",
+    "test_predictions.jsonl": "bb923392d016dc9bf4bdf61a05b2207754f5a5abbabb4e4a76faf86873eebc9b",
+    "train_mean.state.npz": "6f06082b240be8428c0d18eb9ae7bef8b2294b430359a4f8ebd934519ffaf6b0"
+  }
+}

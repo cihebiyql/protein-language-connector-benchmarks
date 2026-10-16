@@ -1,0 +1,354 @@
+{
+  "schema_version": "1.0",
+  "record_type": "task_contract",
+  "is_template": false,
+  "task_id": "protein-language-connector-foundation-20261016",
+  "run_id": "contractfix_real_frozen_cpu_canary",
+  "contract_status": "frozen",
+  "created_at": "2026-10-16T02:30:14.072743+00:00",
+  "frozen_at": "2026-10-16T02:30:14.072743+00:00",
+  "revision": 1,
+  "previous_contract_sha256": null,
+  "revision_reason": null,
+  "identity": {
+    "title": "A data resource of peptide–protein interaction structures and binding affinities for peptide drug discovery",
+    "doi": "10.1038/s41597-026-07962-1",
+    "publication_status": "published",
+    "first_online_date": null,
+    "journal": "Scientific Data",
+    "paper_type": "data source provenance for new controlled computational diagnostics",
+    "pdf": {
+      "path": "PROJECT_ROOT/papers/bench_v02/ppikb/article.pdf",
+      "sha256": "3a4c200f0097adfe90abb27b478249022fdc7f2d405f40b4d7cbbd592ee50def",
+      "version": "accepted_manuscript",
+      "role": "official_reference",
+      "pages": 17,
+      "source_url": "https://doi.org/10.1038/s41597-026-07962-1"
+    },
+    "related_versions": [],
+    "eligibility": {
+      "scope": "official_reference",
+      "assessment": "data_source_only",
+      "evidence_paths": [
+        "PROJECT_ROOT/papers/bench_v02/ppikb/article.pdf"
+      ]
+    }
+  },
+  "execution_scope": {
+    "objective": "Full locked A1 new_peptide_known_target both diagnostics on a newly trained connector, frozen inference only.",
+    "authorization_reference": "User requested download and actual individual foundation benchmark execution in PROJECT_ROOT/; current parent delegated this bounded GPU stage. Parent GPU release: parent explicit metadata-only correction; real frozen-contract CPU validation only, worker never spawned",
+    "relation_to_prior_run": "Same source start/deadline retained; this follows this round completed three-epoch seed17 selected connector.",
+    "prior_run_ids": [
+      "internal_cross_attention_seed17"
+    ],
+    "safety_assessment": "allowed",
+    "scope_coverage": "component_only",
+    "intended_level": "independent_inference",
+    "excluded_claims": [
+      "biological counterfactual",
+      "biological causality",
+      "mutated protein generation",
+      "full-paper reproduction",
+      "multitask coverage",
+      "three-seed confirmation",
+      "information in bits"
+    ],
+    "restriction_check": {
+      "prior_platform_restriction": false,
+      "reason": "Frozen scalar public-data diagnostics; no protein engineering or biological activity optimization.",
+      "evidence_paths": [
+        "PROJECT_ROOT/configs/foundation_gpu_20261016.json"
+      ]
+    }
+  },
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T07:18:00+08:00",
+    "earliest_associated_preparation_at": "2026-10-16T07:18:00+08:00",
+    "wall_clock_cap_hours": 10,
+    "original_deadline_at": "2026-10-16T17:18:00+08:00",
+    "additional_deadlines_at": [],
+    "effective_deadline_at": "2026-10-16T17:18:00+08:00",
+    "prior_window_expired": false,
+    "retry_resets_clock": false,
+    "timing_evidence_paths": [
+      "PROJECT_ROOT/configs/foundation_gpu_20261016.json"
+    ]
+  },
+  "assets": {
+    "datasets": [
+      {
+        "name": "A1 v2 new_peptide_known_target",
+        "version": "a1_locked_v2",
+        "path": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/samples.jsonl",
+        "sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+        "manifest_path": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/benchmark_lock.json",
+        "sample_count": 2361,
+        "statistical_unit": "locked source assay measurement",
+        "splits": {
+          "train": 2062,
+          "validation": 147,
+          "test": 152,
+          "split_manifest_sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249"
+        },
+        "integrity": "complete",
+        "notes": "Complete restricted lock; physical construct and unknown experimental conditions retained.",
+        "evidence_paths": [
+          "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/benchmark_lock.json",
+          "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/cpu_readiness_v2.json"
+        ]
+      }
+    ],
+    "code": [
+      {
+        "role": "primary",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/execute_information_contractfix.py",
+        "sha256": "58c49f979c57cf9182b5b55361e68a6eb6a07d72225590926a474bdaf4727168",
+        "archive_sha256": "58c49f979c57cf9182b5b55361e68a6eb6a07d72225590926a474bdaf4727168",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/information_diagnostics.py",
+        "sha256": "da6850d37fdbdf30a555b6f77e06a8f2a040d2f10610412d20115440e13010d9",
+        "archive_sha256": "da6850d37fdbdf30a555b6f77e06a8f2a040d2f10610412d20115440e13010d9",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/connectors.py",
+        "sha256": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318",
+        "archive_sha256": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/foundation_20261016/run_connectors.py",
+        "sha256": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+        "archive_sha256": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/bench_v02/run_simple_baselines.py",
+        "sha256": "237446d0366be8e82dc4cb84b02c30f34cea07921c50311429ae2d73cbd83e5c",
+        "archive_sha256": "237446d0366be8e82dc4cb84b02c30f34cea07921c50311429ae2d73cbd83e5c",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/bench_v02/train_panel_baselines.py",
+        "sha256": "c215d72317400eb2a315d8b2149dde7b1cd46df9f62e58fb66274c188d2721c9",
+        "archive_sha256": "c215d72317400eb2a315d8b2149dde7b1cd46df9f62e58fb66274c188d2721c9",
+        "integrity": "complete"
+      }
+    ],
+    "models": [
+      {
+        "name": "Qwen2.5-1.5B-Instruct",
+        "version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/model.safetensors",
+        "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+        "configuration_path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/config.json",
+        "configuration_sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+        "integrity": "complete",
+        "coverage": "all backbone parameters frozen"
+      },
+      {
+        "name": "ESM2-150M layer30 residue cache",
+        "version": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+        "path": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015/manifest.json",
+        "sha256": "3d1abe67a9f321231a0bd10decdfb733bdce307fbc538f7870611e58fd8d8cee",
+        "integrity": "complete",
+        "coverage": "physical full-sequence residue features"
+      },
+      {
+        "name": "internal_cross_attention",
+        "version": "new three-epoch seed17 validation-selected connector",
+        "path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/artifacts/best_connector.pt",
+        "sha256": "f5239b6c06198c85b27746decb94242c35bd6dade08811646bd39450b6804725",
+        "integrity": "complete",
+        "evidence_paths": [
+          "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/artifacts/result.json",
+          "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/artifacts/input_manifest.json"
+        ]
+      }
+    ]
+  },
+  "targets": [
+    {
+      "target_id": "C2_raw",
+      "paper_endpoint": "new computational foundation diagnostic; no author paper comparison",
+      "required": true,
+      "metric": "delta_MSE_vs_B",
+      "metric_definition": "B200=52 composition/chemistry plus148 full allowed ContextEncoder (TRAIN statistics); B200+zero128 vs B200+TRAIN-standardized fixed random projection128 of raw; five-alpha validation MSE selection; TEST once",
+      "statistical_unit": "locked held-out assay measurement",
+      "denominator": 152,
+      "unit": "pKD_squared",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "source validation-selected checkpoint fixed; probe alpha selected on source validation MSE only",
+      "repetitions": {
+        "seed": 42,
+        "n_seeds": 1
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "reason": "new diagnostic; no author reference endpoint"
+      }
+    },
+    {
+      "target_id": "C2_message",
+      "paper_endpoint": "new computational foundation diagnostic; no author paper comparison",
+      "required": true,
+      "metric": "delta_MSE_vs_B",
+      "metric_definition": "B200=52 composition/chemistry plus148 full allowed ContextEncoder (TRAIN statistics); B200+zero128 vs B200+TRAIN-standardized fixed random projection128 of message; five-alpha validation MSE selection; TEST once",
+      "statistical_unit": "locked held-out assay measurement",
+      "denominator": 152,
+      "unit": "pKD_squared",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "source validation-selected checkpoint fixed; probe alpha selected on source validation MSE only",
+      "repetitions": {
+        "seed": 42,
+        "n_seeds": 1
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "reason": "new diagnostic; no author reference endpoint"
+      }
+    },
+    {
+      "target_id": "C2_receiver",
+      "paper_endpoint": "new computational foundation diagnostic; no author paper comparison",
+      "required": true,
+      "metric": "delta_MSE_vs_B",
+      "metric_definition": "B200=52 composition/chemistry plus148 full allowed ContextEncoder (TRAIN statistics); B200+zero128 vs B200+TRAIN-standardized fixed random projection128 of receiver; five-alpha validation MSE selection; TEST once",
+      "statistical_unit": "locked held-out assay measurement",
+      "denominator": 152,
+      "unit": "pKD_squared",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "source validation-selected checkpoint fixed; probe alpha selected on source validation MSE only",
+      "repetitions": {
+        "seed": 42,
+        "n_seeds": 1
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "reason": "new diagnostic; no author reference endpoint"
+      }
+    },
+    {
+      "target_id": "C1_correct",
+      "paper_endpoint": "new computational foundation diagnostic; no author paper comparison",
+      "required": true,
+      "metric": "mean_answer_token_nll",
+      "metric_definition": "Mean per-sample answer-token NLL, teacher-forced real original gold, correct source",
+      "statistical_unit": "locked held-out assay measurement",
+      "denominator": 152,
+      "unit": "nats_per_answer_token",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "source validation-selected checkpoint fixed; probe alpha selected on source validation MSE only",
+      "repetitions": {
+        "seed": 42,
+        "n_seeds": 1
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "reason": "new diagnostic; no author reference endpoint"
+      }
+    },
+    {
+      "target_id": "C1_off",
+      "paper_endpoint": "new computational foundation diagnostic; no author paper comparison",
+      "required": true,
+      "metric": "mean_answer_token_nll",
+      "metric_definition": "Mean per-sample answer-token NLL, teacher-forced real original gold, off source",
+      "statistical_unit": "locked held-out assay measurement",
+      "denominator": 152,
+      "unit": "nats_per_answer_token",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "source validation-selected checkpoint fixed; probe alpha selected on source validation MSE only",
+      "repetitions": {
+        "seed": 42,
+        "n_seeds": 1
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "reason": "new diagnostic; no author reference endpoint"
+      }
+    }
+  ],
+  "environment": {
+    "isolation": "existing dedicated WSL venv; no package mutation",
+    "environment_path": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080",
+    "lockfile_path": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/environment_freeze.txt",
+    "lockfile_sha256": "26137c2dd41c5bb2e14b1711ef7a9011a08752fe510e234da58b7e276eeca51f",
+    "runtime_versions": {},
+    "shared_environment_modified": false
+  },
+  "resources": {
+    "expected_hostname": "LOCAL_HOST",
+    "cpu_threads": 2,
+    "data_loader_workers": 0,
+    "memory_limit_bytes": 12884901888,
+    "gpu_devices": [
+      0
+    ],
+    "gpu_memory_budget_bytes": 12348030976,
+    "resource_probe_path": "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/contractfix_real_frozen_cpu_canary/resource_probe.json",
+    "resource_probe_at": "2026-10-16T02:30:13.877218+00:00",
+    "start_gate": "ready_for_exact_bounded_contract",
+    "budget_basis": "Fresh no-compute-process probe; Torch11.5GiB allocation limit; whole PGID RSS12GiB watchdog; no preemption.",
+    "no_preemption": true
+  },
+  "execution": {
+    "command": [
+      "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+      "PROJECT_ROOT/scripts/foundation_20261016/execute_information_contractfix.py",
+      "--worker",
+      "--parent-pid",
+      "223890",
+      "--checkpoint",
+      "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/artifacts/best_connector.pt",
+      "--scenario",
+      "new_peptide_known_target",
+      "--mode",
+      "both",
+      "--output",
+      "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/contractfix_real_frozen_cpu_canary/artifacts",
+      "--timeout-seconds",
+      "840",
+      "--batch-size",
+      "4"
+    ],
+    "working_directory": "PROJECT_ROOT/",
+    "seed_policy": "fixed seed42 projection and donor selection; source seed17 checkpoint",
+    "seeds": [
+      42
+    ],
+    "timeout_seconds": 840,
+    "process_control": {
+      "platform": "Linux WSL",
+      "mechanism": "new PID/PGID; parent-death SIGKILL before Torch; subreaper; whole-group RSS/deadline watchdog; SIGINT/TERM cleanup and wait",
+      "whole_tree_bounded": true
+    },
+    "stdout_path": "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/contractfix_real_frozen_cpu_canary/stdout.log",
+    "stderr_path": "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/contractfix_real_frozen_cpu_canary/stderr.log"
+  },
+  "stop_conditions": [
+    "达到有效截止",
+    "达到合同资源上限",
+    "执行范围超出合同",
+    "出现平台拒绝或缺少适用授权"
+  ],
+  "review": {
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "checks": [],
+    "evidence_paths": []
+  }
+}

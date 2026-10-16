@@ -1,0 +1,115 @@
+{
+  "watchdog_pid": 203186,
+  "watchdog_pgid": 203186,
+  "controller": {
+    "pid": 201697,
+    "state": "S",
+    "ppid": 201695,
+    "pgid": 201697,
+    "start_ticks": 8383026,
+    "command": [
+      "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+      "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_suite.py"
+    ]
+  },
+  "started_utc": "2026-10-15T23:52:10.223011+00:00",
+  "absolute_stage_deadline_utc": "2026-10-16T01:41:09.168990+00:00",
+  "known_owned_children": {
+    "203049": {
+      "pid": 203049,
+      "state": "S",
+      "ppid": 201697,
+      "pgid": 203049,
+      "start_ticks": 8444458,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_suite.py",
+        "--worker",
+        "--phase",
+        "train",
+        "--method",
+        "qformer_style",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_qformer_style_seed17"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_qformer_style_seed17/running-process.json"
+    },
+    "204042": {
+      "pid": 204042,
+      "state": "D",
+      "ppid": 201697,
+      "pgid": 204042,
+      "start_ticks": 8479741,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_suite.py",
+        "--worker",
+        "--phase",
+        "train",
+        "--method",
+        "internal_cross_attention",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/running-process.json"
+    },
+    "204677": {
+      "pid": 204677,
+      "state": "R",
+      "ppid": 201697,
+      "pgid": 204677,
+      "start_ticks": 8510110,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_suite.py",
+        "--worker",
+        "--phase",
+        "train",
+        "--method",
+        "constant",
+        "--batch-size",
+        "4",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_constant_seed17"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_constant_seed17/running-process.json"
+    },
+    "205374": {
+      "pid": 205374,
+      "state": "R",
+      "ppid": 201697,
+      "pgid": 205374,
+      "start_ticks": 8543435,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_suite.py",
+        "--worker",
+        "--phase",
+        "pipeline",
+        "--method",
+        "BASE03",
+        "--batch-size",
+        "1",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite/pipeline_BASE03_seed17"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/pipeline_BASE03_seed17/running-process.json"
+    }
+  },
+  "events": [],
+  "policy": "Verify exact receipt PID/PGID, command, allowed project/output paths and process start ticks; never signal unrelated processes.",
+  "last_heartbeat_utc": "2026-10-16T00:11:56.881597+00:00",
+  "termination_trigger": "controller_exit_or_death",
+  "controller_alive_at_trigger": false,
+  "ended_utc": "2026-10-16T00:11:58.900333+00:00",
+  "terminal_owned_children": {
+    "203049": null,
+    "204042": null,
+    "204677": null,
+    "205374": null
+  }
+}

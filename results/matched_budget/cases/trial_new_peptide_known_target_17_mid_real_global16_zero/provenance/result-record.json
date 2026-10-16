@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0",
+  "record_type": "result_record",
+  "is_template": false,
+  "task_id": "protein-language-connector-matched-budget-20261016",
+  "run_id": "v1_continuation__trial_new_peptide_known_target_17_mid_real_global16_zero",
+  "contract_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/task-contract.json",
+  "contract_sha256": "d683e99baf3c1b6c27aedd73ee90a0daceae000a4b29be558fdea3cb81ed76d6",
+  "recorded_at": "2026-10-16T15:07:43.964570+00:00",
+  "lifecycle_status": "succeeded",
+  "reproduction_level": "training",
+  "scope_coverage": "component_only",
+  "claims": [
+    {
+      "text": "Literal matched-budget execution completed",
+      "evidence_type": "actual_run",
+      "evidence_paths": [
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/execution-receipt.json"
+      ],
+      "limitations": "One component trial; not full paper or independent unseen confirmatory test."
+    }
+  ],
+  "assets_integrity": {
+    "datasets": {
+      "status": "complete",
+      "scope": "exact frozen contract",
+      "evidence_paths": [
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/contract-validation.json"
+      ]
+    },
+    "code": {
+      "status": "complete",
+      "scope": "exact frozen contract",
+      "evidence_paths": [
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/contract-validation.json"
+      ]
+    },
+    "models": {
+      "status": "complete",
+      "scope": "exact frozen contract",
+      "evidence_paths": [
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/contract-validation.json"
+      ]
+    },
+    "environment": {
+      "status": "complete",
+      "scope": "exact frozen contract",
+      "evidence_paths": [
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/contract-validation.json"
+      ]
+    }
+  },
+  "execution": {
+    "performed": true,
+    "command": [
+      "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+      "PROJECT_ROOT/scripts/matched_budget_20261016/execute_remaining_v1.py",
+      "--worker",
+      "--case-file",
+      "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/case.json",
+      "--protocol",
+      "PROJECT_ROOT/configs/matched_budget_20261016.frozen.json",
+      "--protocol-sha256",
+      "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+      "--cache-manifest",
+      "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_admission_manifest.json",
+      "--cache-manifest-sha256",
+      "dbc0fd9ce870369c512d770e3494db19c2c563d85475a149bf0a67399fd28045",
+      "--output",
+      "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts",
+      "--timeout-seconds",
+      "1360"
+    ],
+    "working_directory": "PROJECT_ROOT/",
+    "environment_path": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080",
+    "hostname": "LOCAL_HOST",
+    "resource_probe_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/resource_probe.json",
+    "resource_usage_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/resource_usage.jsonl",
+    "seeds": [
+      17
+    ],
+    "seed_notes": null,
+    "started_at": "2026-10-16T14:57:26.488676+00:00",
+    "ended_at": "2026-10-16T15:07:43.927652+00:00",
+    "effective_deadline_at": "2026-10-16T23:20:00+08:00",
+    "timeout_seconds": 1360,
+    "pid": 312725,
+    "pgid": 312725,
+    "job_object_or_tree_control": "Own process group; subreaper and kernel PDEATHSIG",
+    "exit_code": 0,
+    "timed_out": false,
+    "termination_reason": null,
+    "handles_absent_verified_at": "2026-10-16T15:07:43.927652+00:00",
+    "exit_verification_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/execution-receipt.json",
+    "stdout_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/stdout.log",
+    "stderr_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/stderr.log",
+    "receipt_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/execution-receipt.json",
+    "notes": null
+  },
+  "metric_comparisons": [
+    {
+      "target_id": "parse_coverage",
+      "paper_endpoint": "new controlled experiment; no author table",
+      "metric": "parse_valid_rate",
+      "metric_definition": "strict finite JSON predictions divided by every designated evaluation row; failures retained",
+      "statistical_unit": "held-out database measurement",
+      "denominator": 152,
+      "unit": "fraction",
+      "paper_value": null,
+      "actual_value": 1.0,
+      "baseline_value": null,
+      "absolute_difference": null,
+      "relative_difference": null,
+      "comparability": "not_comparable",
+      "passed": null,
+      "reason": "New prospectively specified experiment, no corresponding author endpoint",
+      "evidence_paths": [
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/result.json"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/best_reader.pt",
+      "location": "local",
+      "available": true,
+      "size_bytes": 1944130,
+      "sha256": "1af83e3bd5228ef8ae7302e6fab6e5052803e8d70fff6172f5073b4500c63f40"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/history.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 9132,
+      "sha256": "9836600d1e710d2cb7b60b572ef3956914471a705e3f31d311f2033f96d61171"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/latest_partial_reader.pt",
+      "location": "local",
+      "available": true,
+      "size_bytes": 1944066,
+      "sha256": "230efd9267f485ca907fa400c535e153f38a073b01095b8c37821289f2cde1a6"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/process.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 1833,
+      "sha256": "5c217db6da06e7870cf57521186e250c08f38146d154cf7698b210b8c7fa80f4"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/result.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 122473,
+      "sha256": "7166d8756be43e047ce3567a4f143e25c623818968a50bcc55f88f263167bd5f"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/run.jsonl",
+      "location": "local",
+      "available": true,
+      "size_bytes": 433403,
+      "sha256": "1b9c9b179b86f8d7712fbf6672484f9ba969c52600dcdf4b2b4aaa041a670c38"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/run_preregistration.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 90056,
+      "sha256": "e92d067a38c47961c53546dbd3336aa55c8b47ccf6f3c7d38925e8a8c0dfb837"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/selection_before_test.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 346,
+      "sha256": "876923df5540c9d1dc88037a022e856a7391806574ae353af195a896f58d6282"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/test_C1_answer_nll.jsonl",
+      "location": "local",
+      "available": true,
+      "size_bytes": 206747,
+      "sha256": "2e1283f5b088184ef42d228ee35fa31ec5b7059552bb4e51477a7579c0f0b272"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/test_input_snapshot.jsonl",
+      "location": "local",
+      "available": true,
+      "size_bytes": 896767,
+      "sha256": "ea1cba1614b0ca9badb46ce8d66e6ef01261eb29ffafa78f802ed5d1fbb65b54"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/test_predictions_correct.jsonl",
+      "location": "local",
+      "available": true,
+      "size_bytes": 59495,
+      "sha256": "31be267f4265ee21d0b73f9c32099b66fa492cd07e3ee3987103440427dbce2d"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/train_input_snapshot.jsonl",
+      "location": "local",
+      "available": true,
+      "size_bytes": 11413481,
+      "sha256": "5de6ae47ac1b36808de5bc18fe3ca8ee92b9ed69542ecd382524de0047cbc40d"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/validation_input_snapshot.jsonl",
+      "location": "local",
+      "available": true,
+      "size_bytes": 825566,
+      "sha256": "ef5a56873f26a8be25f74d6dc77613a09ac7009d7edba8a80532783265ddffe2"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/case.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 180,
+      "sha256": "b39e66475f9d204dc0dda714d4777e60b7091902ef5e126291e5d3405b81e039"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/contract-validation.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 5701,
+      "sha256": "02fa4ac22eb9432db8dc26a152c2f94cb38dbba1ccc468cf8846361b73df41ed"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/execution-receipt.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 529,
+      "sha256": "560d42e59234a6cac421404f632b207b40feceb9f0aef4902b128691fd6b1011"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/numerical_policy_actual.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 730,
+      "sha256": "4646cc28146b897ce9d19bc3663672ad9a0d31020ce7aa8516f8f4732eb30687"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/resource_probe.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 574,
+      "sha256": "250664baefda6e69014bf1af5c59acc71d827e68ac81a5d0b3e3daac61f1fd31"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/resource_usage.jsonl",
+      "location": "local",
+      "available": true,
+      "size_bytes": 249268,
+      "sha256": "dbe86d91538090d30e4204355961f59ed0c737ada9ddb5c2101da7603bf90cf2"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/running-process.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 1138,
+      "sha256": "d671448fe2c82c54e0d7cd1f7f12224a1570413e91c023e7ccfcd42c70691639"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/stderr.log",
+      "location": "local",
+      "available": true,
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/stdout.log",
+      "location": "local",
+      "available": true,
+      "size_bytes": 433403,
+      "sha256": "1b9c9b179b86f8d7712fbf6672484f9ba969c52600dcdf4b2b4aaa041a670c38"
+    },
+    {
+      "role": "literal_run_artifact",
+      "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/task-contract.json",
+      "location": "local",
+      "available": true,
+      "size_bytes": 15112,
+      "sha256": "d683e99baf3c1b6c27aedd73ee90a0daceae000a4b29be558fdea3cb81ed76d6"
+    }
+  ],
+  "differences": [
+    {
+      "category": "scope",
+      "description": "New fixed-message depth/content/gate/pooling experiment; original results retained",
+      "effect_on_comparison": "No full paper replication or matched total FLOPs claim",
+      "evidence_type": "source_fact",
+      "evidence_paths": [
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/task-contract.json"
+      ]
+    }
+  ],
+  "incomplete_reasons": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "mechanical contract/archive audit; scientific review separate",
+    "reviewed_at": "2026-10-16T15:07:44.120755+00:00",
+    "checks": [],
+    "evidence_paths": [],
+    "notes": null
+  }
+}

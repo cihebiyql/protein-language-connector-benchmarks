@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "scope": "new A1-v2 known-target foundation stage; no full-paper or multitask claim",
+  "authorization": "User requested download and actual individual foundation benchmark execution in PROJECT_ROOT/; current parent delegated this bounded GPU stage.",
+  "first_substantive_started_at": "2026-10-16T07:18:00+08:00",
+  "effective_deadline_at": "2026-10-16T17:18:00+08:00",
+  "scenario": "new_peptide_known_target",
+  "expected_counts": {
+    "train": 2062,
+    "validation": 147,
+    "test": 152
+  },
+  "methods": [
+    "input_mlp",
+    "qformer_style",
+    "internal_cross_attention",
+    "constant"
+  ],
+  "seed": 17,
+  "epochs": 3,
+  "batch_candidates": [
+    4,
+    2,
+    1
+  ],
+  "max_new_tokens": 24,
+  "message_modes": [
+    "correct",
+    "off"
+  ],
+  "cpu_threads": 2,
+  "memory_limit_bytes": 12884901888,
+  "gpu_allocation_budget_bytes": 12348030976,
+  "stage_timeout_seconds": 7200,
+  "method_timeout_seconds": 1200,
+  "canary_timeout_seconds": 180,
+  "expected_hostname": "LOCAL_HOST",
+  "predictor_pipeline": {
+    "run": true,
+    "predictor_device": "cpu",
+    "split": "both",
+    "new_training": false
+  },
+  "excluded_claims": [
+    "full ProtT3 reproduction",
+    "three-seed confirmatory experiment",
+    "30-epoch matched-budget predictor comparison",
+    "unified multitask connector",
+    "biological affinity optimization",
+    "protein sequence generation",
+    "wet-lab validation"
+  ],
+  "readiness_policy": "Fresh exact-task host, paths, writable mount, GPU utilization and compute-process checks; physical pinned files and real forward/backward canaries. Historical generic ESM8M/650M helper cards do not establish readiness for this distinct Qwen1.5B plus cached ESM150M task."
+}

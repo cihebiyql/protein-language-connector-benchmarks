@@ -1,0 +1,354 @@
+# Foundation independent review — 2026-10-16
+
+**Final current verdict (revision 18): the contracted foundation stage is ready for delivery.** Both A1 scenarios'20 unique generation/numerical channel rows and all8 real C1/C2 jobs are independently verified. Current open P1/P2 findings: **0/0**. Latest unified CPU coverage is183 unique tests, plus12 separately passing completion fixtures. All experiment-owned controllers/workers/watchdogs are terminal. Formal superiority, full multitask and biological-causal claims remain outside the completed evidence. Earlier sections preserve the historical findings and resolutions.
+
+Read-only review of `scripts/foundation_20261016/{connectors,run_connectors,run_predictor_pipeline,rt_baselines,replay_predictors}.py`, their focused tests, current RT contract/protocol/receipts, replay result, current `configs/bench_v02.json`, and A1 readiness. This review did not start GPU work, train models, change historical data, or assess an unfinished runtime controller.
+
+**One actionable P2 test-contract mismatch; no P1 production defect found in reviewed code.** The foundation test suite cannot currently be described as all passing.
+
+## P2 — Align the BASE03 fixture with the current allowed-context contract
+
+`tests/test_foundation_pipeline.py:24` makes the legitimate assay field contain the gold number (`SECRET_ASSAY_` plus gold), while lines 84–87 require that assay to disappear and that changing it not affect the prompt. Current `scripts/foundation_20261016/run_predictor_pipeline.py:60` intentionally shares `run_connectors.context_view`, which passes the same allowlisted assay/buffer/chemistry information as the existing predictor. `tests/test_foundation_runner.py` separately checks this matched information contract. Removing assay from production would break that newly established match.
+
+Actual CPU result: **42 tests run, 41 passed, 1 failed**. Failure is `FoundationPipelineTests.test_prompt_excludes_gold_identifiers_and_untrusted_strings`, line 85, because `SECRET_ASSAY` reaches the prompt through the allowed assay field. This is a stale synthetic fixture and is not evidence that real benchmark gold labels enter prompts.
+
+Minimum fix: give the fixture a legitimate assay string independent of gold; assert that allowed assay is preserved; for the no-gold invariant mutate only direct gold, sample identity, source/name/raw metadata and other excluded fields, keeping allowed experimental context fixed. Update the comment at `run_predictor_pipeline.py:55`: assay/buffer strings are accessible by design, so the broad claim that arbitrary strings are inaccessible is inaccurate.
+
+Verification command (existing environment, CPU fixtures only):
+
+```text
+wsl -- LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s PROJECT_ROOT/tests -p test_foundation_*.py -v
+```
+
+## Reviewed checks requiring no change
+
+- `connectors.py:198–212` removes prefix positions before ordinary causal shifting; the runner supervises answer tokens only. Cumulative active-token positions and last-active-token decoding handle left padding. The tiny real Qwen tests exercise these paths and pass.
+- The LM is frozen at construction, remains in eval mode under connector training, and the runner verifies no LM gradients. Trainable connector gradients traverse the frozen downstream LM. Off mode exactly matches the ordinary frozen LM and retains a zero connector gradient graph. Relevant CPU tests pass.
+- Masked adaptive pooling preserves the order of valid concatenated peptide/target residues, excludes masked residues, and has no learned pooling weights. Type embeddings distinguish molecule roles. Q-former/internal attention receive contextual ESM vectors; lack of a second residue-position embedding is not a demonstrated implementation defect.
+- Both generation scorers use exact finite single-field JSON, reject duplicates/prose/booleans/nonfinite values, retain every sample and report parsing failures. Full-sample regression MAE is null if any output fails; valid-only MAE is explicitly named. No imputation or gold substitution is present.
+- BASE03 chooses BASE01 versus MEANPOOL using stored full-validation MAE with a fixed tie rule. Connector checkpoints use validation answer-token NLL and earliest tie. The criteria differ because one predicts a continuous target and the other trains a token-generative model; this is explicit, not test-based selection. Final scientific comparisons must retain parse rates and per-example coverage.
+- Current replay result reports `scope=published_project_checkpoint_replay_not_new_training`, 18 replayed checkpoints, six deterministic refits, and descriptive validation-reused calibration. It explicitly denies independent conformal/family-shift guarantees and new training. No scope inflation found.
+- Current RT contract freezes a new target-condition diagnostic, not a DeepLC reproduction, and explicitly leaves original A2 HOLD unchanged. Physical selection and calibration sets are disjoint; scaler fits train only; model/hyperparameter selection and calibration occur before worker loads test labels. Current result archive validation says `valid_for_acceptance=true`, errors empty. The report states 7,070 target rows and target-only limits. No scope inflation found.
+
+## Scope still requiring later verification
+
+`run_connectors.py:377–378` defaults to one seed (17), three epochs; its results set `formal_multitask_connector_result=false`. This establishes a bounded A1 generation foundation, not the three-seed full multitask study described in the broader benchmark configuration. At review time no completed new-generation result/contract was present under `results/foundation_20261016`; runtime-controller code was explicitly excluded because another owner was implementing it. No completion, exit, budget, frozen-command or aggregated-status guarantee is inferred for that stage.
+
+The review inspected current contracts/configuration rather than treating older campaign reports as authority. No code/data/assets were changed; only these independent review files were created. Re-run the focused suite after correcting the fixture and review the actual generation receipt before publishing all-green foundation status.
+
+## Revision 2 — Running GPU stage and comparison limits
+
+The new `execute_gpu_suite.py`, `foundation.py`, both GPU config files, the four terminal train-only canary receipts and the active input-MLP registration/contract are now available and were reviewed. The earlier finding and 42/41/1 test outcome above are retained as historical evidence; no corrected test outcome has been asserted. The first GPU suite is still running. Input-MLP history contains three completed epochs and 1,548 optimizer steps, but no terminal training/generation result was present at this revision; this is not a completion receipt.
+
+Two additional actionable P2 issues were found in presentation and interruption handling:
+
+1. `execute_gpu_suite.py:431` reads `generated_regression_valid_only.mae`, while BASE03 emits `generated_pKD_mae_valid_only` at `run_predictor_pipeline.py:138`. The suite report will display an undefined BASE03 MAE even when finite generated answers exist. Correct a separate derived summarizer or a future controller revision; do not edit the actively hashed controller. Expose both correct and off generation modes in the eventual index; the controller table currently displays only correct mode.
+2. `execute_gpu_suite.py:312–331` launches a new worker session but lacks cleanup in a `finally` around its monitor and lacks a controller termination handler. An interrupt or monitor exception can leave that independent worker running after the watchdog exits. `main` saves state in `finally` but does not stop the current worker; `foundation.py` adds no outer time/tree bound. Normal terminal canary receipts correctly show absent groups, but they do not prove interruption cleanup. Minimum fix for a future controller: retain the owned process; terminate/wait for its PGID in `finally` and emit terminal receipt on monitor exception/interruption; handle SIGTERM or establish parent-death termination. Until the active immutable controller exits, retain a separate bounded watch of its own controller/worker PGID. Do not kill unrelated processes.
+
+The current known-target config explicitly fixes seed 17, three epochs, batch 4 selected from train-only canaries, 24 generated tokens, correct/off modes, 1,200 seconds per method, 7,200 seconds for the stage, and the original absolute deadline. The active physical contract matches 2,062/147/152 rows and its preregistration has no subset limits. These establish the planned sample denominators, not completed generated output counts. The second config freezes 2,063/431/442 and the same learning/decoding budget; its separate controller/execution is not inferred from the mere config file.
+
+### Capacity and source-length budgets
+
+All four canaries are actual three-step training runtime checks on the same four longest training memories (maximum 3,429 residues), with frozen Qwen size 1,543,714,304 parameters. They are not benchmark scores:
+
+| Architecture | Trainable parameters | Canary peak allocated bytes | Canary peak reserved bytes |
+|---|---:|---:|---:|
+| input MLP | 282,752 | 7,651,422,720 | 8,722,055,168 |
+| Q-former style | 350,848 | 7,677,833,728 | 8,757,706,752 |
+| internal cross-attention | 548,608 | 6,453,487,616 | 7,461,666,816 |
+| constant prefix | 24,576 | 7,578,859,520 | 8,669,626,368 |
+
+The registered `capacity` reports parameter counts, source dimension 640, latent dimension 128, nominal memory token count 16 and internal insertion block 14. **The token-count field has different semantics:** input MLP and Q-former output 16 prefix tokens; internal attention uses all valid peptide/target residues as keys for each text query and does not use `num_memory_tokens` to limit keys. It avoids the 16 additional LM positions. The observed internal canary peak is lower despite its extra trainable parameters; neither parameter count nor nominal token count alone measures total cost. The final derived index should explicitly record effective key count, added LM positions, full-memory lengths, parameters and observed timing/peak memory. Existing immutable registrations should be retained as literal historical artifacts.
+
+Input MLP pools the concatenated peptide-then-target sequence uniformly into 16 ordered bins. Long target proteins therefore reduce peptide representation share. A read-only count of the entire current known-target lock gives 2,361 rows, maximum 3,429 residues, mean peptide fraction 0.0495626, minimum 0.00146028, and 1,749 rows with peptide fraction below 1/16. In these cases the peptide falls into the first adaptive bin and is averaged with target residues. This is an explicit foundation architecture choice, not a proven implementation defect; lower downstream performance cannot isolate connector location from this compression asymmetry.
+
+Future controlled comparisons should preserve this foundation result and add separately frozen controls: molecule-balanced pooling with fixed peptide/target quotas; internal attention over the same 16 compressed keys; a prespecified token-budget/parameter-budget sweep; and matched optimizer/example/decoding budgets. Until then interpret results as end-to-end architecture baselines under the stated unequal representation budgets. The existing 30-epoch predictor-to-LM control additionally differs in training duration from the new three-epoch connectors, as its contract correctly states.
+
+Review status remains **changes requested / generation completion pending**. No live GPU operation or hashed source/config/contract was changed by this reviewer.
+
+## Revision 3 — First completed full generation result
+
+`gpu_suite/train_input_mlp_seed17/artifacts/result.json` is now terminal: three epochs, 1,548 optimizer steps. The controller receipt records exit 0, absent owned process group and no forced termination; archive validation has `valid_for_acceptance=true` with empty errors. Every artifact fingerprint in the result recomputes correctly.
+
+Both prediction files contain exactly 152 unique records in frozen test-snapshot order. Correct mode has 152 valid answers, no failures, parse rate 1.0 and independently recomputed MAE 1.9962375221398578. Off mode has 27 valid answers and 125 failures, parse rate 0.17763157894736842, independently recomputed valid-only MAE 3.1491419033118215 and full-sample MAE null. Counts and MAEs agree exactly with the result. This verifies complete denominators for this run, not completion of the other architectures or scenario.
+
+The 1.9962 correct-mode MAE and 3.1491 off-mode valid-only MAE do not share a population: the latter uses only 27 examples. Report parsing coverage separately; a conditional paired error comparison, if produced, must use those same 27 examples for both modes. No whole-population off-mode MAE improvement can be inferred. Original fixture finding and remaining controller/presentation issues remain unresolved in this review snapshot.
+
+## Revision 4 — Verified resolutions; GPU suite remains running
+
+The original fixture P2 is **resolved and verified**. The current fixture uses legitimate gold-independent assay/buffer, preserves allowed context, and changes only excluded gold/identity/raw fields for the leakage invariant. Current production pipeline SHA256 is `56c0465d923984f58fec3c3812757d27299fe5980c005bbfbdde8343cf6cb049`; the comment now matches the allowlist. The independently inspected unified test receipt `tests_20261016_075513/result.json` matches all three actual log fingerprints: Windows discovers 106 tests with 95 passing and 11 Torch-dependent skips; WSL existing panel tests pass 16/16 and cover those skipped test classes; WSL foundation tests pass 53/53. The earlier 42/41/1 observation remains historical rather than being overwritten.
+
+The interruption finding has a **verified current operational mitigation and future-controller fix**. The initial hashed controller was not edited. Its separate `gpu_suite/external_watchdog.py` validates controller command/PID/PGID/start ticks, discovers exact worker receipts, verifies identity again before signalling, and terminates only those owned independent groups on controller death or the fixed stage deadline. At independent OS read **2026-10-16 07:56:36 Asia/Shanghai**, initial controller PID 201697 and detached watchdog PID 203186 both exist with exact expected commands. The watchdog receipt has a current heartbeat, identifies the active Q-former worker, and records no signals or unrelated process changes. This is evidence of an active safeguard, not its eventual terminal outcome.
+
+The separately authored `execute_gpu_double_new.py` has try/finally owned-group cleanup at lines 315–340, SIGINT/SIGTERM handling at lines 474–477, and pre-Torch `PR_SET_PDEATHSIG` plus parent-identity checks at lines 355–365. The CPU injected SIGINT fixture records child exit -15 and `process_group_absent=true`; no GPU or model was used. This verifies the requested interruption path for the future controller. It does not turn the initial immutable source into a fixed source or establish future GPU completion.
+
+The reporting P2 remains **pending final derived-summary proof**. The future double-new controller uses the correct BASE03 MAE field, but the original controller/report is retained. At this revision the current derived index still does not expose both correct/off outcomes and representation-budget semantics. The eventual publication must display the constant's 24,576 versus MLP's 282,752 trainable parameters (and other capacities), fixed16-prefix versus all-residue internal keys, and the source-length/pooling limitation, alongside per-mode complete denominators. An insertion-position label alone is insufficient.
+
+Current disposition: historical findings 3; fixture resolved 1; supervision mitigated/future fix verified 1; presentation pending 1. The initial GPU suite remains **running**, not all green. No model, hashed controller, configuration, contract, or old result was edited by this reviewer.
+
+## Revision 5 — Derived reporting logic resolved; three actual architectures verified
+
+The separate `scripts/foundation_20261016/make_report.py` now resolves the presentation issue without modifying the original controller. Its pipeline branch reads the real `generated_pKD_mae_valid_only` and `full_sample_generated_mae` fields. `normalized_generation` rejects inconsistent counts, nonfinite/negative MAE and a claimed full-population MAE when any generation fails. Independent CPU execution of `test_foundation_reporting.py` passes **4/4**, including the actual BASE03 schema fixture preserving a full MAE of 1.5. This is a schema fixture, not an observed BASE03 result.
+
+The current readable `reports/foundation_results_20261016.md` and `results/foundation_20261016/derived_comparison.json` expose all six rows from three completed methods, both correct/off modes, valid/total denominators, null off full-sample MAE, and the common-valid 27-sample conditional comparison. They also disclose fixed 16-token prefix versus variable full-residue internal memory, unequal parameter/compute budgets, long-target pooling dilution, and the historical 30-epoch predictor versus new three-epoch generation distinction. Constant control remains described as a smaller 16-token learned parameter budget; its exact parameter count is sourced from registration when that run completes. The audit's canary table already records its 24,576 versus MLP's 282,752 parameters.
+
+All three terminal new runs were independently rechecked against literal files: input MLP, Q-former style and internal cross-attention. Every result artifact SHA matches; each terminal receipt has exit 0 and absent process group; each archive has `valid_for_acceptance=true` and no errors. For each method both correct/off files have 152 unique IDs in frozen snapshot order. Correct mode is 152/152 valid, with MAEs **1.9962375221398578**, **1.442674172563715**, and **2.1613332667319782**, respectively. Every off file is 27/152 valid, with conditional MAE **3.1491419033118215** and full MAE null. Derived counts, raw-record MAEs and common-valid paired MAEs agree within 1e-12; the only nonexact equality is Q-former Python versus NumPy summation at about 8e-16.
+
+Disposition: all three historical P2 issues have a verified fix or current mitigation. The derived presentation logic is resolved **conditionally on the reviewed source schema**, with the first real BASE03 result still pending; no BASE03 metric has been invented. Constant training and the second scenario were not terminal at this snapshot. Overall status is **reviewed components pass; stage completion pending**. Further real result/terminal receipts remain necessary before a complete-foundation claim.
+
+## Revision 6 — Known-target stage complete; failed second attempt and recovery remain distinct
+
+### Actual BASE03 and constant results
+
+The known-target suite now has all four connector results and the actual BASE03 result. Independent review of `gpu_suite/pipeline_BASE03_seed17` confirms terminal exit 0, absent owned process group, accepted result archive with no errors, matching registration/prediction SHA, and every frozen input pin unchanged. Candidate selection used validation only: BASE01 MAE 1.2975516625841486 versus MEANPOOL 1.2869575520333176, selecting MEANPOOL. No new optimizer step occurred.
+
+Literal BASE03 validation predictions contain 147 unique records in physical split order: 81 valid and 66 failed. Test contains 152 unique ordered records: **91 valid and 61 failed**. All prompt hashes match. The structured input's numeric estimate equals the separately stored source-predictor output; the inspected payload has no direct gold/identity/sequence fields. Every source estimate in both splits matches the independently audited frozen MEANPOOL seed17 replay exactly (maximum absolute difference 0).
+
+On the 152 test cases, the **source numerical predictor MAE is 1.4686985760783524**. On the 91 cases where generation parses, the source predictor MAE is 1.3814002431690247 while generated MAE is **5.922364502805869**. Generated-versus-source preservation MAE is 5.283050853145698. Generated full-population MAE remains null. Independent raw-record arithmetic agrees within 1e-12. The separate derived report correctly preserves both numerical-source and generated channels rather than repairing generated answers with the source prediction. The actual BASE03 branch therefore resolves the earlier schema/presentation finding beyond its CPU fixture. This poor zero-shot rendering does not establish superiority over a fully optimized predictor-plus-LM system.
+
+`gpu_suite/train_constant_seed17` also has exit 0, absent group, accepted archive, all artifact fingerprints equal, three epochs and 1,548 updates with **24,576 trainable parameters**. Correct mode has 152 unique valid answers in snapshot order, MAE **1.9656087454219924**; off is again 27 valid/125 failures out of 152, conditional MAE 3.1491419033118215 and full MAE null. The actual constant count now appears in the derived table.
+
+### Negative internal-attention comparison is retained
+
+The internal connector MAE 2.1613332667319782 is higher than the constant control's 1.9656087454219924 by **0.195724521309986** pKD. Independent reimplementation of the report's paired 2,000-draw bootstrap over 67 physical source/family connected groups, seed2026, reproduces `constant minus internal = -0.19572452130998652`, with interval **[-0.3424609575991278, -0.05819941920622589]**. Thus this fixed known-target run gives no evidence of an internal-connector advantage over the constant control; its observed error is worse. This remains a descriptive fixed-checkpoint result, without training-seed uncertainty, multiplicity control or budget-matched location attribution. It must not be generalized into a universal claim about internal attention. Q-former versus numerical source remains a separate comparison whose reported interval crosses zero.
+
+### Failed double-new attempt and engineering recovery
+
+The original `gpu_suite_double_new/double_new_train_input_mlp_seed17` is retained as **failed**: 27 optimizer-step events, zero test-generation events, no test prediction file and no terminal model result. Failure is `CUBLAS_STATUS_INTERNAL_ERROR`; the process receipt shows exit 1 and absent group, and stdout/stderr hashes match. Its accepted archive validates an honest failed-run record; it is not a successful experiment. The second-suite controller was subsequently interrupted and its state remains failed/partial.
+
+Two separate diagnostic tasks are train-only: fresh former minibatch, and the exact first 28-update prefix. Both have exit0, absent groups and accepted archives; neither supplies held-out performance. The observed success under synchronous scheduling establishes a usable engineering path, not a proven CUDA root cause or OOM diagnosis.
+
+`configs/foundation_gpu_double_new_recovery1_20261016.json` differs from the prior config only in explicit scope, added process-local runtime flags and engineering-revision metadata. Recovery keeps the same data, seed17, three epochs, batch4, 24 generated tokens, correct/off modes, optimizer and connector hyperparameters. Both active preregistrations have the same sample SHA, and all five executing algorithm-source hashes are identical between failed and recovery attempts and match current files. Recovery's physical contract records `CUDA_LAUNCH_BLOCKING=1` and `TORCH_SHOW_CPP_STACKTRACES=1`, prior-run linkage, no test outputs before the change, original substantive start **2026-10-16 07:18 Asia/Shanghai** and original deadline **17:18**. It correctly warns that bf16 trajectories can diverge despite the same seed; these runs are not asserted bitwise equivalent.
+
+At this revision recovery's input-MLP training has **no terminal result yet**. Its contract is executable and its separate watchdog has a live heartbeat; this is a running recovery, not a second-scenario success. No recovered metric is filled into the report. Failed and diagnostic runs must remain excluded from scientific result counts.
+
+### PDF identity clarification
+
+The append-only `gpu_suite/identity_clarification_receipt.json` corrects the initial contract's PDF version from `published` to `accepted_manuscript`. The unchanged PDF text actually begins `ARTICLE IN PRESS`, reports acceptance, and says the unedited manuscript precedes final publication. Independent SHA verification matches the PDF, extracted text and **all nine original frozen contracts** listed in the receipt. This corrects version metadata without rewriting the original contracts or changing scientific inputs/predictions. Future recovery contracts correctly use accepted-manuscript identity. No final-layout PDF claim is inferred from a published article's status.
+
+Current disposition: known-target foundation executions verified; historical findings resolved or mitigated; second-scenario engineering recovery running and unresolved. The initial external watchdog has now terminated normally with all four tracked terminal worker PIDs absent. This review did not start GPU work or edit any shared runtime artifact.
+
+## Revision 7 — C1/C2 protocol v3 static and CPU audit
+
+The latest unified test receipt is `tests_20261016_083914/result.json`; all three recorded log SHA values recompute correctly. Windows discovers 106 tests (95 pass, 11 Torch-dependent skips), the existing WSL panel lane passes 16 and covers those skipped classes, and the foundation lane passes 67. This covers 173 unique tests (106 existing plus 67 foundation); the WSL lane additionally repeats five tests already executed on Windows. The original 42-test failure is historical and is no longer the current verification verdict.
+
+Independent CPU rerun of `test_foundation_information.py` passes **18/18**, including real tiny-Qwen state capture and Linux child timeout, memory-limit and SIGTERM cleanup. The v3 readiness receipt matches the current source SHA for `information_diagnostics.py`, `execute_information.py` and its test file; its CPU-log hash also matches. No information-diagnostic model result exists at this review snapshot; these are pre-execution implementation checks, not scientific C1/C2 findings.
+
+### Verified statistical and representation contract
+
+- C1 scores use `S=-mean answer-token NLL` per sample. Therefore `G=NLL_off−NLL_correct`, `P=NLL_mismatch−NLL_correct` and `H=NLL_mismatch−NLL_off`, with `P=G+H`. Positive G means the supplied message improves teacher-forced scoring. Both full correct/off paths use every held-out row; no JSON-parsing filter applies to NLL. The answer is the existing two-decimal serialized pKD target, not a new continuous-output MAE or a biological effect measurement.
+- Donor selection uses exact physical target sequence, peptide length and allowed observed chemistry/context; it excludes the same peptide and the same locked `group_id`, never fitting to gold. Both physical locks have zero independent eligible donors. Consequently P/H remain undefined, without relaxing donor independence or fabricating mismatches; full-test G remains evaluable. Matching unknown-context indicators does not prove equality of unknown experimental conditions.
+- C2 extraction calls `collate(..., supervised=False)` and refuses labels before hooks. The last real prompt token is selected correctly with left/right padding; receiver state is captured after internal injection, including final-layer insertion, and hook cleanup is tested. All model parameters remain frozen. Raw vectors are the separate mean peptide/target ESM representations; message and receiver readouts use the recorded architecture definitions.
+- The conditioning baseline B is **200 dimensions**: 52 composition/chemistry/missingness features plus the existing **148-dimensional ContextEncoder**. Numeric statistics and all later scalers fit TRAIN only. Context strings use fixed hashes without held-out vocabulary fitting; direct labels, IDs, DOI, source names and raw metadata are excluded. Each of four ridge probes is 328-dimensional: `B+zero128`, `B+raw128`, `B+message128`, `B+receiver128`. Each 128-dimensional projection is fixed Gaussian after TRAIN-only scaling. All share the same five alpha values; validation MSE selects alpha with earliest tie, and TEST is scored after selection. Changing test labels cannot alter stored fitted states, as the fixture verifies.
+- Delta MSE is baseline test MSE minus augmented test MSE, in pKD squared; positive means better conditional linear recoverability. Bootstrap resamples actual frozen physical `group_id` and retains every row of each sampled group. It is a fixed-checkpoint test-sample diagnostic, without training-seed uncertainty, information-in-bits interpretation or biological causality.
+- A constant message vector is identical for every sample. An unpenalized-intercept ridge gains no sample-dependent information from its constant projected columns; theoretical message ΔMSE is zero up to numerical effects. A receiver state may still transform allowed prompt context nonlinearly, so receiver-probe improvement alone is insufficient evidence of additional protein-source information. The four-method plan includes constant controls to expose this distinction.
+
+The wrapper uses only the standard library before its child, arms parent-death SIGKILL before Torch, checks parent identity around guard installation, monitors summed PGID RSS, adopts/reaps unexpected descendants, handles SIGINT/SIGTERM, kills/waits its own group in finally, and writes remaining-process evidence. The 18-test suite verifies standard-library import, bad-parent rejection, normal exit, timeout, memory termination and SIGTERM cleanup. Limits are two CPU threads, 12 GiB whole-group RSS, 11.5 GiB Torch allocation, maximum 840 seconds per job, and the original 17:18 deadline with cleanup reserve. Fresh host/storage/idle-GPU admission precedes each proposed diagnostic; no GPU operation was run by this reviewer.
+
+### P2 — Require source execution and accepted-archive receipts before checkpoint admission
+
+At `scripts/foundation_20261016/execute_information.py:223–235`, `checkpoint_receipt` checks the source's `result.status=complete`, three epochs/seed17, matching scenario/full scope, checkpoint SHA and input-manifest SHA. It does **not** require the source's actual `execution-receipt.json` exit0/absent group, accepted `result-validation.json`, or linked `result-record.json`/contract/hash evidence, although the v3 plan lists accepted source admission as mandatory. A source result file can exist before its supervising task has successfully terminated and been accepted. The actual known-target sources already passed the independent audit, so this is an admission-control gap, not observed contamination.
+
+Minimum owner fix and acceptance criteria: reject absent/failed/unaccepted source execution records; check exit0 and group absence, successful accepted result-record lifecycle and matching source contract, source result/checkpoint/manifest SHA linkage; record the checked receipt hashes in the frozen diagnostic contract. CPU negative fixtures must reject missing archive, nonzero exit, remaining group, failed/unaccepted lifecycle and changed receipt/result hashes; positive fixtures must admit the actual completed known-target source. Re-run the focused suite and refresh readiness source SHA before release. Only the independent wrapper and CPU tests need change; frozen training algorithms/locks must remain unchanged. The owner has been notified and is implementing this fix. No new P1 or other P2 was identified in the reviewed statistical paths.
+
+## Revision 8 — Source-admission P2 closed by independently verified guard
+
+The updated wrapper SHA256 is **d524f3c3ee9ac9fee028beb011f772f73ceb3355b5dfdf09d79eefaebc259ab5**. The scientific `information_diagnostics.py` hash remains **da6850d37fdbdf30a555b6f77e06a8f2a040d2f10610412d20115440e13010d9**, so protocol v3 has not changed. The source-admission P2 can be closed for this reviewed revision.
+
+The new `checkpoint_receipt` requires source result, registration, manifest, terminal receipt, accepted validation, successful accepted training result-record and frozen contract. It checks a true integer exit0, absent group and no termination reason; exact contract path/SHA and task/run binding; performed execution, matching command/PID/PGID/receipt and exit-verification paths; every archived file's local containment, existence, byte size and SHA; explicit archived hashes for the scientific result and execution receipt; stdout/stderr receipt hashes; selected `best_connector.pt` path/hash; matching input-manifest hash; and same full scenario, seed17 and three epochs.
+
+Independent CPU execution passes **27/27**. The nine source-admission fixtures include a valid positive archive and refusals for missing terminal archive, nonzero exit, remaining group, unaccepted validation, changed contract hash, changed scientific-result artifact, changed selected checkpoint and record/receipt PID mismatch. The retained owner test log hashes to `a28648b6e96b3ea02b44fbd16b99e1e33d2ba44e7cd0c5010dbc8971030c5375`.
+
+The reviewer also directly invokes the actual guard in a fresh standard-library-only WSL Python process against **all four real known-target source checkpoints**. All four are admitted and `torch_imported=false`, confirming actual existing contracts/records/artifact paths pass, beyond synthetic fixtures. The retained owner receipt `known4_source_archive_admission_v3_stdlib.json` hashes to `c43c6c4eb5fbed907f9311316d4e429f621cd478298b9e3e6a8e860ba4106b75` and records each source result/record/contract/receipt/checkpoint SHA. New source-admission plan and draft documents are separately versioned; historical materials remain present.
+
+This closes the identified source-admission gate only. Diagnostic jobs still require their own fresh resource probe, frozen contract and bounded execution, followed by actual artifact/exit review. No C1/C2 GPU result was present at this check and no diagnostic GPU operation was performed by the reviewer. Last unified coverage remains 173 unique tests; the supplemental guard suite adds nine independently passing cases without being mislabelled as a new full unified regression run. Current open P1/P2 findings: **zero**; runtime/scientific completion remains separate.
+
+## Revision 9 — Three complete double-new recovery architectures verified
+
+The separate recovery1 input-MLP, Q-former and internal-attention jobs are now complete. For every run, the whole TRAIN/validation/TEST input snapshots exactly equal the immutable physical source rows and order: **2,063/431/442** unique measurements, with no subset limit. Registration retains seed17, three epochs, batch4, 24 generation tokens and correct/off. All three run **1,548 optimizer updates**; validation-only earliest-minimum answer NLL selects epoch3, epoch2 and epoch2 respectively.
+
+| Architecture | Selected epoch | Full correct answers | Correct full MAE | Process wall seconds |
+|---|---:|---:|---:|---:|
+| input MLP | 3 | 442/442 | 1.9056241964989176 | 867.1643 |
+| Q-former style | 2 | 442/442 | 1.7817553394446919 | 870.2430 |
+| internal cross-attention | 2 | 442/442 | 1.5013685606314315 | 755.1050 |
+
+Every correct/off prediction file contains 442 unique IDs in frozen TEST order. Every off file has **70 valid and 372 failed** responses, conditional MAE **3.966509197195959**, and null full-population MAE. Raw-record MAEs reproduce the results within 1e-12; no failed answer disappears from the full denominator.
+
+For each job all artifact, checkpoint and input-manifest SHA values recompute correctly; physical samples/lock hashes match; the archived result-record binds the right frozen contract; exit is 0, owned group is absent and archive acceptance is true with no errors. CPU-only `torch.load(..., weights_only=True, map_location='cpu')` verifies each selected checkpoint's registration, selected epoch and validation NLL against the result. Every saved learned tensor is finite on CPU, no backbone tensor is saved, and state-tensor element count equals the registered trainable capacity.
+
+Independent paired group bootstrap over **125 physical groups**, 2,000 draws, seed2026 reproduces the derived double-new intervals. `MLP minus Q-former MAE = 0.12386885705422583`, interval **[0.014381825267564445, 0.23391127375181542]**; `MLP minus internal MAE = 0.4042556358674859`, interval **[0.26962720845089494, 0.5325027038341807]**. These are descriptive fixed-checkpoint effects, without training-seed uncertainty or multiplicity adjustment, under unequal communication/parameter budgets.
+
+The observed ordering is scenario dependent: internal attention underperformed the constant in known-target, but has lower error than input MLP in this completed double-new run. The known-target negative result must not be carried over as a double-new conclusion. No double-new comparison against its still-running constant or its uncompleted predictor/LM channel is asserted.
+
+The original double-new failure remains archived as failed and still has no scientific result. Recovery results are additional identified executions, not overwritten success labels for that failure. There are still **zero C1/C2 scientific result files** at this snapshot. No GPU computation was initiated by this reviewer.
+
+Outstanding final audit: double-new constant and BASE03 literal generation records/source-numeric separation; their terminal contracts/receipt/archive hashes; eventual C1/C2 actual arrays, statistical outputs and full denominators; recovery-suite/watchdog terminal group absence; and final derived reports that retain failures and the single-seed/scope restrictions. Current reviewed results pass; these outstanding executions remain unclaimed.
+
+## Revision 10 — Double-new constant accepted; latest CPU coverage and pending continuation
+
+The recovery1 double-new constant run is now independently verified. Whole split snapshots equal all source rows in order (2,063/431/442); there are no subset limits. It ran three epochs, 1,548 updates, and validation alone selects epoch3. Correct mode contains **442 unique ordered valid answers**, full MAE **1.767973032830928**. Off mode contains the same 442 IDs with 70 valid/372 failures, valid-only MAE 3.966509197195959, full MAE null.
+
+All run artifact, checkpoint, input-manifest, physical data/lock and record/contract hashes match; receipt exit0 and absent group agree with successful archive acceptance and empty errors. Process wall time is **831.054678703993 seconds**, below its 1,200-second method cap. CPU weights-only loading verifies registration, selected epoch and validation NLL; the saved state contains only finite CPU `constant_tokens`, exactly 24,576 parameters. This completes independent review of all eight connector training executions. It does not complete double-new BASE03 or information diagnostics.
+
+The newest unified receipt is `tests_20261016_092646/result.json`, and all three log SHA values recompute correctly. Windows has 106 discovered tests, 95 pass/11 Torch skips; WSL existing tests pass16 and cover those skips; the new foundation suite passes77, including27 information cases. Unique coverage is **106+77=183**, not 106+16+77. There are188 executed test invocations because five existing cases are repeated across platforms. The older173 coverage remains a historical run.
+
+### Missing-ID complement: acceptance requirements, not a released execution
+
+At this review the original double-new BASE03 inference remains active with no terminal execution receipt. A proposed independent complement helper has not yet appeared in the reviewed source inventory. Its release cannot be inferred from these requirements. The original job must retain its existing1,200-second limit and the original recovery stage deadline; no locked algorithm, prompt, selected source predictor, seed, model, or24-token decoding budget may be changed.
+
+Before any complement executes, the original job must actually terminate incomplete at its registered cap, preserve its partial/failure archive, and verify absent owned PGID. If it finishes in budget, no complement may run. The helper must freeze a new separate contract identifying the original attempt and immutable partial-file hashes, and generate only the exact missing physical IDs. Matching must cover complete canonical row contents/SHA, split and original order, not merely sample IDs. Existing complete lines must not be overwritten, repaired, regenerated or duplicated; truncated final output must be rejected as incomplete evidence rather than silently counted.
+
+An aggregate must reassemble each physical validation431 and TEST442 population exactly once in original order, with no omissions, duplicates, cross-split swaps or source-data drift. Each record needs its literal source segment/path/line or ID and line hash, while segment-level registration/checkpoint/model/algorithm/decoding pins must agree. Score complete assembled populations using the unchanged real parser/evaluator, retaining all generation failures and a separately identified source numerical channel. Report both actual segment elapsed times, exit/group-absence receipts and total wall/cost; never portray two executions as one original successful process. Original cap-failure identity remains visible. New output/contract and CPU rejection fixtures require independent review before admission; no such helper has been approved here.
+
+Still pending: actual complement helper/fixtures if required; eventual double-new BASE03 full431/442 result and row provenance; C1/C2 actual diagnostics; recovery/watchdog terminal absence; final derived totals/scope. No GPU execution or shared-file edit was performed by this reviewer.
+
+## Revision 11 — Byte-preserving completion core passes; wrapper admission still pending
+
+The independently reviewed component is `gpu_suite_double_new_recovery1/pipeline_completion/pipeline_completion_core.py`, SHA256 **7074eac3c8af00416d709fbc9fe54d5d0e374be61fdd4a19efa36525168846e9**. `test_core.py` SHA is **265da27e80320dd882573da468c9ddde5a1b202f9d7fdfb0a6c1a29a0392066c**. Independent CPU execution passes **6/6**; it imports no model or GPU library and creates no scientific result.
+
+The reviewed reader counts every complete outer prediction record as completed, including an invalid model answer (`parse.valid=false`). A fully readable final record without newline is also retained, not regenerated. Only the final non-newline-terminated bytes that cannot parse as an outer JSON record are returned separately as an incomplete tail. Malformed interior/complete lines, unknown or repeated IDs, wrong splits, missing required original prediction fields and changed prompt hashes are rejected.
+
+`remaining_rows` uses the missing ID complement in original source order. `merge_exact` rejects overlap even when the original answer failed parsing, requires the full physical ID universe exactly once, and assembles output in frozen source order. It retains source file/line number, source line SHA, field-name schema, original delimiter status, raw generated-text SHA, token-ID SHA and JSON-payload SHA for each row. `write_aggregate` writes literal original payload bytes and supplies only a missing line delimiter. The tests verify original payload byte equality, retained failed answers, no retry, incomplete-tail isolation, readable non-newline completion, duplicate rejection, bad-line/split/schema rejection and complete-universe ordering.
+
+No blocking P1/P2 was identified in this bookkeeping component. Its boundary matters: `read_completed` receives an expected-ID set and does not itself establish complete source-row SHA or model/selection/prompt provenance. It also does not establish original timeout, terminal archive, owned-group absence, the new frozen contract, or combined timing. Those are mandatory wrapper-level checks, not facts implied by six passing bookkeeping tests.
+
+The independent wrapper is still being prepared. Before any GPU complement it must prove the original task actually ended incomplete at its existing cap (not a still-running or successful task), freeze source files only after terminal absence, bind all source row contents and immutable generation settings, preserve the original failure/partial identity, and enforce the original recovery-stage **10:32** deadline as well as the overall deadline. Its aggregate must expose431 validation and442 TEST cases exactly once, unchanged invalid model outputs, per-row source-byte provenance, and both segments' real costs/terminal receipts. No complement or scientific aggregate is approved by this component-only review.
+
+## Revision 12 — Actual BASE03 cap and first wrapper preflight: fixes required
+
+The original double-new BASE03 now has an actual terminal receipt: **exit -15**, reason `timeout`, monotonic elapsed **1,200.700283202008 seconds**, owned group absent. Its failed archive is accepted with no schema errors. The recovery watchdog ended and all nine tracked owned workers are absent. Original scientific `result.json` is absent; suite state remains partial. This satisfies the actual incomplete/absent-source prerequisite without extending the original job's budget.
+
+Independent core reading of the physical sealed partial files gives:
+
+| Split | Full population | Complete records | Valid answers | Invalid completed answers | Missing |
+|---|---:|---:|---:|---:|---:|
+| validation | 431 | 431 | 339 | 92 | 0 |
+| TEST | 442 | 246 | 194 | 52 | 196 |
+
+Both record sequences are exact physical source prefixes and neither has an incomplete outer-record tail. Validation file SHA256 is `6b33c55f4f82d6f7a09ea8ab7cba61fe711a3480ae628799add67edf5504a7f9`; TEST partial SHA is `f99b5663e0763ea2c5e22fcec4aabd12b5bdb9f6ab20300152bb41eab1d8348a`. The **144 already completed invalid answers must remain completed** and must never be retried to improve coverage.
+
+The first reviewed `pipeline_completion/complete_remaining.py` hashes to **9870eee1c10723710f2a679d03ea539f6266d1d5ce64f507fac8b159b2736b11**. It reuses the unchanged frozen predictor/generation/evaluator functions, preserves full CPU predictor batch grouping, plans only missing IDs, and intends to aggregate full431/442 populations while retaining both real elapsed times. It copies the original contract and imposes the original stage deadline. However, execution is **not admitted yet** because:
+
+1. **P2, source sealing (`verify_plan`, line33; recorded hashes lines72–73):** the plan stores original registration and execution-receipt SHA but does not recheck them. Preparation also omits enforcing the original failed accepted result-record/contract binding and exact timeout reason. This leaves the sealed selection/failure metadata unguarded while the worker rereads it. Required fix: verify all source registration/receipt/record/validation/contract/watchdog pins at preparation and before/after worker/merge, require the actual registered cap-failure identity and absence, and reject changed metadata in CPU fixtures.
+2. **P2, interruption and unsuccessful complement archival (lines287–298):** interruption exits through finally but bypasses the terminal execution-receipt code after it; a nonzero worker does write a receipt but raises before a standard failed result-record is archived. A continuation failure could therefore lack the promised second-segment terminal/failure evidence. Required fix: catch monitor/interruption errors, terminate/wait owned group, then always emit a literal exit/group/log-hash receipt and honest failed archive before propagating failure. Verify timeout/interruption/nonzero paths with CPU fixtures.
+
+The wrapper additionally needs the requested explicit canonical full-source-row SHA in plan and row lineage. Whole source-file SHA already protects physical contents, but the per-record identity/content binding is not yet exposed. Check a changed row, changed registration/receipt, exact196 missing IDs, no retry of invalid answers, and interrupted failed archival before final admission. Source/model/code pins, original deadline10:32:32, segment costs and accepted full aggregate must be reviewed from the final frozen draft. These fixes concern only the new orchestration/helper files; the five frozen algorithm sources and physical partial outputs must remain untouched. Both parent and runner have received the specific blockers. No second GPU job has been started by this reviewer.
+
+## Revision 13 — V2 complement preflight approved for the exact sealed task
+
+Both new-wrapper P2 findings are now resolved for the independently checked source and sealed plan:
+
+| Material | SHA256 |
+|---|---|
+| `complete_remaining.py` | `c42335c743f4f2b1372cc9dbfe21ecd5f88c3c45ae87b8bb8602413a65dd4700` |
+| `pipeline_completion_core.py` | `b09d6400cbf88ba811f9d412ccc6c50468956fea35a2d3170148487bbb9b1cc2` |
+| `complement_plan.json` | `553feeb0efab933392cab4809716c47bbb052424f36976a8843e256cfb8f95ad` |
+| `complement_job/task-contract.draft.json` | `771918a52aac6b95a1a0fe2a6de9c73b4891c670e450e36cad8bf0a1aaca4402` |
+
+Independent read-only checks reproduce every seal: all2,936 canonical physical source rows; nine original registration/receipt/contract/record/validation/cleanup/log files; the original registration and receipt hashes; every algorithm/prior-model input pin; and both partial prediction SHA values. Exact source full-ID order and missing complement remain validation0 / TEST196;92 and52 already answered invalid cases remain completed. The immutable original actual receipt is still a timeout failure with absent group, with accepted failed contract/archive and ended watchdog. This approval is for that particular cap failure, not arbitrary failed attempts.
+
+`verify_plan` now enforces metadata seals and full canonical row hashes before execution and again around worker/aggregate completion. Row lineage includes the canonical source-row SHA in addition to original payload/token/text/line identities. `run_guarded` catches interruption, terminates/waits its own group, and returns actual terminal/log-hash evidence; main constructs and validates a failed standard archive before propagating a failed/interrupted worker or aggregate error. The full scientific result is published only after successful aggregate/archive acceptance.
+
+Independent CPU execution first passes11/11, then **12/12** after a test-only addition. Added cases exercise changed registration/receipt bytes, changed gold/metadata row SHA, exact196 missing IDs with52 failed old answers, real child timeout and SIGINT cleanup/receipt, and an actual nonzero exit3 retaining stderr SHA and absent group. The12-test retained log hashes to `5928ee57b52d3ea240315ee8d99f5df0665fac211b5dfa8f33b7068dabf487b2`. Wrapper/core/plan/draft sources remained unchanged when the last test was added.
+
+The draft itself has no validation errors; its sole execution blocker is `contract is not frozen`. It binds196 new records, the original24-token functions/source SHA and original absolute deadline **2026-10-16T02:32:32.279805+00:00** (**10:32:32.279805 Asia/Shanghai**). Its draft timeout is1,110 seconds; the actual launch must recompute remaining time with cleanup reserve, perform a fresh idle-resource probe and freeze a contract that returns `valid_for_execution=true`. No complement running-process record existed at this review check.
+
+**Disposition: the two P2 gates can be lifted for this reviewed v2 task.** Parent execution release remains distinct from this technical review. The reviewer initiated no GPU operation. Eventual literal196 complement records, full431/442 byte-provenance aggregate, both actual costs, success/failure archives and final process absence still require post-run independent verification; no completed result is inferred from admission.
+
+## Revision 14 — Actual BASE03 composite final verification
+
+The sole full composite `pipeline_completion/result.json` now hashes to **d296389d2462029663c00aa4383e3aeeaffa49a893049136cc41ef1a403815e2**. The reviewer independently verifies all873 unique source IDs/lineage records:431 validation plus442 TEST, in physical source order. All2,936 canonical source-row seals, all original metadata and algorithm/prior-model pins, plan SHA, prediction-file SHA and lineage SHA match.
+
+All original431 validation and246 TEST payloads are **byte-for-byte unchanged** in the aggregate, including their144 invalid model answers. Exactly196 new TEST records form the sealed disjoint complement; there are zero new validation records, no overlap/duplicates/omissions and no outer partial tail. The196 new records include54 invalid answers, retained rather than regenerated. Every lineage entry independently matches actual source file/line, canonical row SHA, original payload bytes, raw-line SHA, raw-generated-text SHA, token-ID SHA, schema, delimiter flag and origin label.
+
+| Full aggregate split | Total unique rows | Valid | Failed | Source numerical MAE | Generated valid-only MAE | Generated full MAE |
+|---|---:|---:|---:|---:|---:|---|
+| validation | 431 | 339 | 92 | 1.602326020227852 | 4.992587529681867 | null |
+| TEST | 442 | 336 | 106 | 1.4210855003430791 | 4.638924016351397 | null |
+
+Independent CPU execution of the unchanged `evaluate_records` reproduces every metric. For all873 rows, the local pinned tokenizer and frozen prompt functions reproduce the structured payload, exact prompt, input token IDs and token counts; decoding the literal output IDs reproduces raw text, and the strict parser reproduces each stored parse record. Both splits' source numerical predictions match the independent frozen MEANPOOL seed17 replay exactly, maximum absolute difference0. The source channel has not replaced, repaired or rescued failed generated answers.
+
+The complement worker221981 exits0 with absent PGID and no forced termination. Its actual elapsed **363.26979181499337 seconds** plus the original timeout's **1,200.700283202008** equals reported cost **1,563.9700750170014** exactly. The original failed result-record stays failed and the original recovery suite stays partial; the full aggregate explicitly sets `original_single_job_completed=false`. The new contract was executable before launch, preserves the **10:32:32.279805** stage deadline, and its result archive is accepted with empty errors and matching contract/artifact SHA. Actual completion is10:22:55, before that deadline. Archive-time new-launch blockers do not negate its already successful, previously admitted execution.
+
+All104 post-run archive bindings recompute correctly. All four stage/watchdog terminal receipts actually have end stamps and every tracked child is null. The10:23:50.750902 handoff receipt records no active owned processes, no GPU compute process and5% GPU utilization at that time. A fresh reviewer standard-library `/proc` scan also finds no process running any of the old stage controller/worker/watchdog entrypoints. This says those stages released ownership; it does not claim that later authorized information work must remain idle.
+
+The current derived comparison has **20 rows and20 unique `(scenario, method, mode)` keys**, with exactly one full double-new BASE03 aggregate supplying its generated and numerical-source channels. The strong source numerical MAE **1.42109 is lower than internal attention's1.50137** in double-new. Its observed point ordering and the different budgets prevent a claim that the new model wins generally. The source is independent of poor zero-shot rendering. Both scenario-specific and negative results remain visible. All original failed attempts retain their identities; no additional neural training or paper-system reproduction is inferred.
+
+## Revision 15 — Information contract metadata correction independently admitted
+
+The initial information attempt was refused by the prelaunch standard contract gate because its complete dataset asset supplied samples `sha256` but omitted required `manifest_sha256`. Its receipt records **worker not started/GPU inference0**. The old wrapper remains **d524f3c3ee9ac9fee028beb011f772f73ceb3355b5dfdf09d79eefaebc259ab5**; all eight files in the original failed directory recompute to their preserved inventory, and no running-process file exists there.
+
+The separate `execute_information_contractfix.py` hashes to **58c49f979c57cf9182b5b55361e68a6eb6a07d72225590926a474bdaf4727168**. Independent exact-text comparison confirms its sole change is adding the actual `benchmark_lock.json` as `manifest_path` and its SHA as `manifest_sha256`; samples path/SHA remain intact. The scientific v3 script stays **da6850d37fdbdf30a555b6f77e06a8f2a040d2f10610412d20115440e13010d9**. Source admission, statistical methods, labels, dimensions, alphas and inference protocol are unchanged.
+
+The reviewer independently reruns full `--check-files` on the **real non-template frozen** CPU-canary contract, SHA **940363d991937288778ba2ba7f5c126d085dfac5e48db6a84d0c98ee9e442bf6**: **valid_for_execution=true, errors=[], blockers=[],24 physical references checked**. The actual samples SHA matches the physical samples file and manifest SHA matches the physical benchmark lock. Both negative files are also independently revalidated: missing manifest SHA is refused by the complete-asset gate, and an incorrect SHA is refused at `manifest_path` with SHA mismatch. This goes beyond a template-only or source-only check.
+
+The revised plan has exactly eight jobs, all calling the new wrapper. Its first known internal-attention job uses a separate `_attempt2` directory; the old failed path remains untouched and the other seven planned names remain. The CPU canary spawned no worker and imported no Torch. On the parent's standing authorization, the reviewer explicitly notified the owner that it may resume those eight jobs through fresh per-job probes and executable frozen contracts. This is metadata admission, not a C1/C2 result. Actual statistical arrays, zero-donor treatment, constant-message behavior, full denominators and terminal receipts will be reviewed after real runs. The reviewer initiated no GPU work.
+
+## Revision 16 — First two real C1/C2 jobs independently replayed
+
+Actual complete results now exist for `v3_all8/internal_cross_attention_known_both_attempt2` and `v3_all8/qformer_style_known_both`. Both preserve the full2,062/147/152 physical split populations and exact sample order. Every result artifact, data/lock, pinned code and selected source-checkpoint SHA matches. Both standard contracts were executable before launch, reference the corrected58c wrapper, bind the right contract/result record, and end with exit0, absent group, empty remaining-process list, accepted archive and matching stdout/stderr SHA. Actual elapsed times are134.38267584099958 and139.041177719002 seconds.
+
+### C1 full-population mean checks
+
+| Known-target architecture | Test records | Correct NLL | Off NLL | G=off−correct |
+|---|---:|---:|---:|---:|
+| internal attention | 152 | 0.6539162307193405 | 1.2119851002567692 | 0.5580688695374288 |
+| Q-former | 152 | 0.6476212149780047 | 1.2119851002567692 | 0.5643638852787646 |
+
+All units are nats per answer token, averaged over all152 samples. Independent recomputation from the literal per-row records matches both means and G; all NLL values are finite and every answer-token count is positive. Test IDs and donor-map recomputation match exactly. Both have zero independent donors, P/H remain undefined and matched algebra is null. Positive G shows a message-presence computational sensitivity, not independently established protein-source-content transfer; constant-message controls and the unavailable independent mismatch test remain material to interpretation.
+
+### C2 actual-array and training-selection replay
+
+Both jobs store finite raw arrays2361×1280 and message/receiver arrays2361×1536. Raw is the concatenation of separate peptide and target mean ESM vectors; prefix message is a mean of prefix vectors, internal message is the last-prompt projected intervention, and receiver is the final-decoder last-prompt state. Each is then reduced to128 dimensions. These summaries do not measure full residual-sequence information retention.
+
+The reviewer independently reconstructs B200, its TRAIN-only numeric statistics and all three seed42 Gaussian projections from actual arrays. Four328-dimensional probe models are independently refit using TRAIN only, their five validation-MSE trials and selected alpha checked, and saved-state TEST predictions replayed. **Maximum saved-score difference is0** for both jobs. Stored TEST gold and baseline conditioning receipts match. Independently repeated2,000-draw bootstrap over67 physical locked groups reproduces every interval.
+
+| Known-target architecture | B test MSE | Raw ΔMSE | Message ΔMSE | Receiver ΔMSE |
+|---|---:|---:|---:|---:|
+| internal attention | 3.0475890337126246 | +0.06279528200412932 | −0.16699689076186663 | −0.32012766853291064 |
+| Q-former | 3.0475890337126246 | +0.06279528200412932 | −0.05034138573110081 | −0.2709142039469845 |
+
+Delta is B MSE minus augmented-probe MSE in pKD squared. Internal receiver interval is[-0.600002379095923,−0.034191465006658935]; Q-former receiver interval is[-0.49848226770995424,−0.04229319069126339]. Message and raw intervals cross zero. Negative deltas remain genuine worse conditional linear-readout results in the recorded tables; they are not clipped or renamed gains.
+
+B and raw outcomes are identical across these two methods, and raw-array byte SHA is identical: `0f52e69eb295652065e39a02a2449b68cb2941cfa8119aadca06928338d6fb6c`. This is the expected shared-input sanity check. B uses a lossy text hash and receiver states may nonlinearly reencode allowed context; neither receiver improvement nor decline alone establishes total molecular information or biology. Remaining six jobs, especially constant-message zero-additional-information sanity and within-scenario B/raw consistency, remain to be checked. CPU refits here verify frozen outputs and create no new benchmark result or neural training; the reviewer used no GPU.
+
+## Revision 17 — All four known-target information jobs verified
+
+The two newly completed jobs, `input_mlp_known_both` and `constant_known_both`, pass the same independent CPU audit without rerunning already verified neural jobs. Full source populations/order, artifacts, source checkpoint/data/code pins, executable contract and contract-record SHA, log SHA, exit0/absent group and accepted archive are correct. Actual times are142.01509795201127 seconds for MLP and145.53871810200508 seconds for constant. All four probes' TRAIN-only statistics/projections/ridge fits, five validation trials, selected alpha and152 TEST predictions replay exactly (saved-score difference0);67-group2,000-draw intervals also reproduce.
+
+| Additional known-target method | Correct NLL | Off NLL | G | Message ΔMSE | Receiver ΔMSE |
+|---|---:|---:|---:|---:|---:|
+| input MLP | 0.6671948095685557 | 1.2119851002567692 | 0.5447902906882135 | +0.13770214927202273 | −0.21096108400673286 |
+| constant | 0.6564128589081136 | 1.2119851002567692 | 0.5555722413486556 | 0 | −0.057913252667204596 |
+
+MLP's message interval is[-0.19374760069121846,0.4740177844245733], crossing zero; its receiver interval is[-0.45448430192968214,0.012390233898308475]. Constant's message interval is exactly[0,0], with maximum row-to-row message-vector difference exactly0. Its receiver interval[-0.36173762946794663,0.22358254591720167] crosses zero. All four methods have the same B MSE3.0475890337126246 and raw ΔMSE0.06279528200412932; all four receiver point deltas are negative.
+
+An additional exact array comparison across all four methods confirms identical raw arrays, B TEST scores, raw TEST scores, and every B/raw fitted scaler/projection/ridge state. These are the same physical152 held-out measurements, not608 independent gold examples. This supports matched shared-input comparisons and the constant-message sanity check without increasing the sample denominator.
+
+The learned constant has positive G comparable to the source-conditioned connectors while carrying zero sample-varying message information. Thus correct/off G alone cannot identify protein-content use. The learned constant is a distinct low-parameter trained control, not a substitute for an independent randomized-message or matched-donor control. Independent donor count remains0 for each run, with P/H undefined. These facts and all negative outcomes remain explicit. No overall MI, complete-residue-retention or biological-causal inference is made; the remaining four double-new information jobs will be reviewed together after completion. No GPU was used by the reviewer.
+
+## Revision 18 — Final eight-job audit and delivery verdict
+
+The four remaining double-new information jobs independently pass the same CPU replay, completing **8/8 actual accepted C1/C2 audits**. Each double-new job has all2,063/431/442 rows in physical order and finite2936×1280 raw /2936×1536 message and receiver arrays. All artifact, source code/data/checkpoint and contract/result bindings match; contracts were executable before launch; every job exits0 with absent group, empty remaining-process list, valid accepted archive and matching logs. Every job stays within840 seconds,12GiB whole-group RSS and11.5GiB Torch allocation.
+
+For each unreviewed double-new job the reviewer independently rebuilds TRAIN-only B200 and standardization, all three fixed seed42 projections, all four328D ridge models' TRAIN fits and five-alpha validation selection, and all442 saved TEST predictions. Maximum replay difference is **0**. All C1 per-row NLL means/G and zero-donor maps recompute, and all125-physical-group2,000-draw bootstrap intervals reproduce. Previously verified known-target fits were not unnecessarily rerun.
+
+| Double-new method | Correct NLL | Off NLL | G | Message ΔMSE | Receiver ΔMSE |
+|---|---:|---:|---:|---:|---:|
+| internal attention | 0.6582781614491303 | 1.2036653395691608 | 0.5453871781200306 | +0.023418437929192848 | −0.043076580513200735 |
+| Q-former | 0.6611901220962473 | 1.2036653395691608 | 0.5424752174729136 | +0.08778661173352953 | −0.11603765262388466 |
+| input MLP | 0.6602836322730483 | 1.2036653395691608 | 0.5433817072961126 | −0.05246187345254327 | −0.04168603104061086 |
+| constant | 0.6531410581385928 | 1.2036653395691608 | 0.5505242814305681 | ≈0 | −0.1239969869014419 |
+
+Double-new B MSE is3.1690580412746163 and raw ΔMSE is−0.14840254295509725 for every method. Raw arrays, B/raw fitted states and B/raw TEST scores are independently **exactly equal across all four methods within that scenario**; raw-array SHA is `b22212988aa14556aeb55854936ccef69b271c2b70dd43bea23a5eac89219223`. Constant message rows are exactly identical. Its actual ΔMSE is4.440892098500626e−16, with interval[−3.488980819879891e−16,7.544807372150317e−16]; maximum constant-message versus B prediction difference is1.7763568394002505e−15. These are floating-point zero, retained in the machine evidence rather than presented as a gain.
+
+All six nonconstant message ΔMSE intervals across the two scenarios cross zero. All eight receiver point deltas are negative. Constant G remains approximately0.55nats/token in both scenarios. The deliverable consequently preserves the weak conditional-readout evidence, source-numeric control and scenario-dependent generation ranking. Summarized128D linear readouts, lossy B context hashing, trained constant controls and zero independent donors support no total-MI, full-residue-retention or biological-causal claim. The source numerical predictor is better at the double-new point estimate than the new internal connector; overall model superiority has not been established.
+
+The eight information worker durations total **1,701.9987173430272 seconds**, ranging134.38267584099958–301.9132726490061 seconds. The actual final release receipt at **11:12:42.046979 Asia/Shanghai** records every worker PGID, controller and launcher absent and no GPU compute process. An independent standard-library process scan also finds no active old-stage or information entrypoint. The original failed information preflight, d524 wrapper and scientific da685 script remain unchanged; no further GPU work is planned by their owners.
+
+The latest unified receipt [tests_20261016_103606/result.json](../results/legacy/foundation_20261016/tests_20261016_103606/result.json) is passed; all three log hashes recompute. Unique coverage is **106existing+77foundation=183**; WSL16 covers11 Windows skips and repeats5 cases, so it is not added again. Completion's12 fixtures are separately recorded. The final comparison has **20/20 unique generation keys and8/8 unique information method/scenario keys**. The reviewer checked20 local entry links with no missing target; the parent additionally reports24-file static checks and65 local references across5 delivery documents passing.
+
+Final evidence entrypoints are [the20-channel comparison](../results/legacy/foundation_20261016/derived_comparison.json), [actual eight-job summary](../results/legacy/foundation_20261016/information_diagnostics/all8_actual_summary.json), [eight-job numeric integrity audit](../results/legacy/foundation_20261016/information_diagnostics/all8_numeric_integrity_audit.json), [information GPU release](../results/legacy/foundation_20261016/information_diagnostics/gpu_release_after_information_receipt.json), and [the104-binding recovery archive](../results/legacy/foundation_20261016/gpu_suite_double_new_recovery1/post_run_archive.json).
+
+**Delivery scope is complete for this foundation contract.** Remaining formal research work includes multi-seed confirmation and matched representation/parameter/compute budgets; verified same-condition affinity pairs/assay constructs; independent donor coverage and additional randomized/capacity/deletion controls; exact RT source/PTM recovery and cross-condition training; broader B1 unseen classes; adjudicated B2 QA/C3 atomic facts; and separately admitted original-author system reproductions. Those unexecuted endpoints remain explicitly unclaimed and do not become positive results through this audit. No new shared implementation, dependency or GPU computation was introduced by the reviewer. Only these two audit files were edited.

@@ -1,0 +1,2702 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-16T15:43:48.881930+00:00",
+  "scope": "Read-only license/source audit. Only these two report files written; no dataset copies, model execution, large downloads, upstream execution or upload.",
+  "redistribution_is_not_download_availability": true,
+  "dataset_article_code_model_licenses_separate": true,
+  "primary_evidence": {
+    "ppikb_database": {
+      "license": "CC-BY-4.0",
+      "scope": "database, not merely journal article",
+      "url": "https://ppikb.duanlab.ac/",
+      "download_page": "https://ppikb.duanlab.ac/downloads/",
+      "observed_utc": "2026-10-16T15:43:48.687553+00:00",
+      "evidence": "About paragraph explicitly instructs use of the database under CCBY4.0; downloads page independently labels its work CC BY4.0.",
+      "short_quote": "Please use our database in accordance with the CCBY 4.0 agreement."
+    },
+    "ppikb_article": {
+      "license": "CC-BY-NC-ND-4.0",
+      "url": "https://link.springer.com/article/10.1038/s41597-026-07962-1",
+      "scope": "published early accepted article; not database license",
+      "evidence": "Rights and permissions explicitly state Attribution-NonCommercial-NoDerivatives4.0; page says accepted early version will be replaced.",
+      "policy": "link_only; do not use article license to infer dataset rights or publicly distribute translations/adapted figures under permissive project license"
+    },
+    "pepbi": {
+      "license": "CC0-1.0",
+      "url": "https://datadryad.org/dataset/doi:10.5061/dryad.wstqjq2wk",
+      "terms_url": "https://datadryad.org/terms",
+      "local_dataset_metadata": "sources/continuation_20261016/prior_share_campaign/data/datasets/PEPBI-dryad.json",
+      "evidence": "Dataset-level API metadata license is https://spdx.org/licenses/CC0-1.0.html; Dryad terms independently place submitted datasets under CC0.",
+      "version": "2025-06-17"
+    },
+    "benz2022": {
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "url": "https://link.springer.com/article/10.15252/msb.202110584",
+      "scope": "article and associated supplements unless separate notices",
+      "evidence": "Publisher Rights and permissions explicitly allow reproduction under Creative Commons Attribution; retain all source/citation notices."
+    },
+    "kliche2024": {
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "url": "https://link.springer.com/article/10.1038/s44320-024-00055-4",
+      "scope": "associated data excluding separately credited third-party material and graphical creative elements",
+      "evidence": "Publisher explicitly extends CC0 waiver to associated data, excluding illustrations/charts/figures."
+    },
+    "rt_pride": {
+      "license": "CC0",
+      "url": "https://www.ebi.ac.uk/pride/archive/projects/PXD064311",
+      "api_url": "https://www.ebi.ac.uk/pride/ws/archive/v2/projects/PXD064311",
+      "local_metadata": "data/raw/bench_v02/rt/PXD064311_project.json",
+      "evidence": "Official PRIDE project metadata explicitly says Creative Commons Public Domain(CC0); live rendered/API pages could not be parsed in this audit, so claim is tied to the frozen official snapshot.",
+      "scope": "PXD064311 measured pH9 data, not all DeepLC source corpora"
+    },
+    "rt_zenodo": {
+      "license": "CC-BY-4.0",
+      "url": "https://zenodo.org/records/17314612",
+      "concept_or_old_reference": "https://doi.org/10.5281/zenodo.15269422",
+      "local_metadata": "data/raw/bench_v02/rt/zenodo_metadata.json",
+      "scope": "exact record17314612 tar and associated deposited files; not a license for independent external datasets"
+    },
+    "rt_source_2019": {
+      "license": "CC-BY-4.0",
+      "url": "https://zenodo.org/records/2652602",
+      "local_metadata": "data/raw/bench_v02/rt/Guan2019_zenodo.json"
+    },
+    "rt_source_2021": {
+      "license": "CC-BY-4.0",
+      "url": "https://zenodo.org/records/4542884",
+      "local_metadata": "data/raw/bench_v02/rt/zenodo_2021_metadata.json"
+    },
+    "elm": {
+      "license": "ELM Software/Academic License Agreement; non-commercial restriction",
+      "url": "https://elm.eu.org/elms/elmPages/DOC_MAPK_MEF2A_6.html",
+      "license_url": "https://elm.eu.org/media/Elm_academic_license.pdf",
+      "evidence": "Official ELM page search text explicitly limits downloading/distribution to non-commercial use under its ELM agreement. Full agreement timed out; the2024 paper CC BY does not override database terms.",
+      "policy": "do not bundle ELM/B1 data or class descriptions in an unrestricted MIT/Apache release; publish accession/hash/download recipe only until exact redistribution conditions are reviewed"
+    },
+    "ccby_terms": {
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence": "Share/adapt, including commercial use, with attribution, license link and modifications indicated; no extra restrictions; third-party rights may remain."
+    }
+  },
+  "small_data_allowlist": [
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/samples.jsonl",
+      "bytes": 13138175,
+      "sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/test_gold.jsonl",
+      "bytes": 896919,
+      "sha256": "6f50e85443d1056ef35d509b5229dfb0bc364e266da2aebfa3fa78dcdb07c07b",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/manifest.json",
+      "bytes": 2587,
+      "sha256": "f90f94866baa34f05af2b5d9416c653847fe4beb0cebbd4614592399e12c190e",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/benchmark_lock.json",
+      "bytes": 8467,
+      "sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/samples.jsonl",
+      "bytes": 16380521,
+      "sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/test_gold.jsonl",
+      "bytes": 2583839,
+      "sha256": "388e50ac4776bd122dc3fb60a688ee715173a8703c890ac7d0ad38eaab82065f",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/manifest.json",
+      "bytes": 2609,
+      "sha256": "508aa3835d652aab4d115a61fa90bc6aa157e3c195e035803fb808b0cbed88c5",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/benchmark_lock.json",
+      "bytes": 8445,
+      "sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+      "license": "CC-BY-4.0 for inherited PPIKB fields; retain separately-labelled first-party split/normalization metadata",
+      "evidence_key": "ppikb_database",
+      "role": "frozen_A1_split_gold_or_lock",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PPIKB authors+DOI+database/download URL; note Oct15 frozen snapshot and local KD→pKD/filter/group/split modifications; preserve original field provenance and source DOIs. Do not relabel third-party data as MIT."
+    },
+    {
+      "path": "data/processed/foundation_20261016/rt_target_diagnostic/calibration.jsonl",
+      "bytes": 784287,
+      "sha256": "498df1e684d11c4bd5813f5f430e0a35a08cbac3f14a73fc9fa740ee6414fe61",
+      "license": "CC0 measured source + first-party split metadata",
+      "evidence_key": "rt_pride",
+      "role": "target_only_RT_diagnostic_not_original_cross_condition_benchmark",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311; retain original source snapshot SHA and distinguish measured minutes from iRT/model predictions. No scientific readiness upgrade."
+    },
+    {
+      "path": "data/processed/foundation_20261016/rt_target_diagnostic/excluded.json",
+      "bytes": 4,
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "license": "CC0 measured source + first-party split metadata",
+      "evidence_key": "rt_pride",
+      "role": "target_only_RT_diagnostic_not_original_cross_condition_benchmark",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311; retain original source snapshot SHA and distinguish measured minutes from iRT/model predictions. No scientific readiness upgrade."
+    },
+    {
+      "path": "data/processed/foundation_20261016/rt_target_diagnostic/frozen_protocol.json",
+      "bytes": 329187,
+      "sha256": "8a15cce4d1daf5d7e7ddb2aa1f85750975a3b7a60ad4bca36d535d81962520ed",
+      "license": "CC0 measured source + first-party split metadata",
+      "evidence_key": "rt_pride",
+      "role": "target_only_RT_diagnostic_not_original_cross_condition_benchmark",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311; retain original source snapshot SHA and distinguish measured minutes from iRT/model predictions. No scientific readiness upgrade."
+    },
+    {
+      "path": "data/processed/foundation_20261016/rt_target_diagnostic/selection.jsonl",
+      "bytes": 775373,
+      "sha256": "763d2b6c0ed2b1c87df1a34054057591d1cf7e7185fb3954ffee491afb9a9984",
+      "license": "CC0 measured source + first-party split metadata",
+      "evidence_key": "rt_pride",
+      "role": "target_only_RT_diagnostic_not_original_cross_condition_benchmark",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311; retain original source snapshot SHA and distinguish measured minutes from iRT/model predictions. No scientific readiness upgrade."
+    },
+    {
+      "path": "data/processed/foundation_20261016/rt_target_diagnostic/test.jsonl",
+      "bytes": 1571592,
+      "sha256": "03ed93ce1a963510ff50e4bf8bb76e10b4d24b022f9af6be7a60b81d03e57b5c",
+      "license": "CC0 measured source + first-party split metadata",
+      "evidence_key": "rt_pride",
+      "role": "target_only_RT_diagnostic_not_original_cross_condition_benchmark",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311; retain original source snapshot SHA and distinguish measured minutes from iRT/model predictions. No scientific readiness upgrade."
+    },
+    {
+      "path": "data/processed/foundation_20261016/rt_target_diagnostic/train.jsonl",
+      "bytes": 7327826,
+      "sha256": "b16cf3165746d827da9bdbfe7ce2e4d7592e71e0ec2bdac82cfdb2b56cfb1a50",
+      "license": "CC0 measured source + first-party split metadata",
+      "evidence_key": "rt_pride",
+      "role": "target_only_RT_diagnostic_not_original_cross_condition_benchmark",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311; retain original source snapshot SHA and distinguish measured minutes from iRT/model predictions. No scientific readiness upgrade."
+    },
+    {
+      "path": "data/processed/foundation_20261016/rt_target_diagnostic/validation.jsonl",
+      "bytes": 1559660,
+      "sha256": "f61f2ae4ccad234a3ef631987af8cc2bc7ca204e259219f61e1e2f103c42645c",
+      "license": "CC0 measured source + first-party split metadata",
+      "evidence_key": "rt_pride",
+      "role": "target_only_RT_diagnostic_not_original_cross_condition_benchmark",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311; retain original source snapshot SHA and distinguish measured minutes from iRT/model predictions. No scientific readiness upgrade."
+    },
+    {
+      "path": "data/raw/bench_v02/rt/peptides_ph9_march.csv",
+      "bytes": 419200,
+      "sha256": "e2b044df2c1d13437351dbcfd239d25bc5fd979d4d3c00c8efedaf24465b4ea6",
+      "license": "CC0",
+      "evidence_key": "rt_pride",
+      "role": "small_frozen_measured_RT_source",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Cite PXD064311 and original authors; retain exact SHA/version."
+    },
+    {
+      "path": "data/raw/bench_v02/ppikb/pepbi_official/browser_recovery/PEPBI.xlsx",
+      "bytes": 217930,
+      "sha256": "0f3ae5e9021b5c0e925114c5b53a0cb441de90adc42134e5144d4ac9c4826a24",
+      "license": "CC0-1.0 dataset",
+      "evidence_key": "pepbi",
+      "role": "recovered_small_official_PEPBI_spreadsheet",
+      "redistribution_status": "allow_with_attribution_and_notices",
+      "conditions": "Dataset DOI10.5061/dryad.wstqjq2wk;2025-06-17 version. Cite dataset and original article; distinguish measured ITC fields from computed RIA values."
+    }
+  ],
+  "small_allowlist_count": 17,
+  "small_allowlist_total_bytes": 46006621,
+  "optional_small_supplements": [
+    {
+      "source": "benz2022",
+      "label": "Dataset EV1 (download XLSX )",
+      "path": "data/raw/benz2022/EV1.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM2_ESM.xlsx",
+      "bytes": 26635,
+      "sha256": "7198343ba64917e03aa1dcc9913b9dffb54deb0b1565e4ed818ddfb69113fa35",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV2 (download XLSX )",
+      "path": "data/raw/benz2022/EV2.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM3_ESM.xlsx",
+      "bytes": 43535,
+      "sha256": "a984ef7851a915b6384925f232b017b5a1b8681cffe375681b32f625aac82e04",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV3 (download XLSX )",
+      "path": "data/raw/benz2022/EV3.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM4_ESM.xlsx",
+      "bytes": 1796436,
+      "sha256": "7d30a28ccda75e97b7e2dbd2f93f0fa50721979c43b2e3f39469e420d5213282",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV4 (download XLSX )",
+      "path": "data/raw/benz2022/EV4.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM5_ESM.xlsx",
+      "bytes": 900676,
+      "sha256": "5a22832b4a363c8075cebbeeaabb118e51ac52c1cdd9fc5b79bf45d7c8ea301e",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV5 (download XLSX )",
+      "path": "data/raw/benz2022/EV5.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM6_ESM.xlsx",
+      "bytes": 100982,
+      "sha256": "53c0cc441d90b33ef36cd6c9e42af68aebb4cb1a848c716992d1d10fa3de235e",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV6 (download XLSX )",
+      "path": "data/raw/benz2022/EV6.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM7_ESM.xlsx",
+      "bytes": 76988,
+      "sha256": "c48a63b68a62222009e48d10b7c15988bc700a3d5e7477f366b69ca60ae5427c",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV7 (download XLSX )",
+      "path": "data/raw/benz2022/EV7.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM8_ESM.xlsx",
+      "bytes": 160620,
+      "sha256": "94d314ba1fda94853814753b2b132df231b2ccd3cfa9dcfa5135a45ad1bb4cde",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV8 (download XLSX )",
+      "path": "data/raw/benz2022/EV8.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM9_ESM.xlsx",
+      "bytes": 30596,
+      "sha256": "449c45b73cca26053959cd9c4c33a411ef8b190b48bd2007bb9fa2870503aa08",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV9 (download XLSX )",
+      "path": "data/raw/benz2022/EV9.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM10_ESM.xlsx",
+      "bytes": 7219771,
+      "sha256": "9c5ce85c2624a4bbe3604093089f2b930112ca02f323b77d847bbe3cda23517f",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV10 (download XLSX )",
+      "path": "data/raw/benz2022/EV10.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM11_ESM.xlsx",
+      "bytes": 114592,
+      "sha256": "de0fbd48d2dfb8078bde0ebc5c25711e478050b522b4e76e08e3dd9250a62006",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "benz2022",
+      "label": "Dataset EV11 (download XLSX )",
+      "path": "data/raw/benz2022/EV11.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM12_ESM.xlsx",
+      "bytes": 1164500,
+      "sha256": "32dc9835d4769830225289714f73d1c06e0609b155a81f0f55960c8e9fa2b3de",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "evidence_key": "benz2022",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV1 (download XLSX )",
+      "path": "data/raw/kliche2024/EV1.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM3_ESM.xlsx",
+      "bytes": 8765019,
+      "sha256": "65e889ce29d80aac5d4c01cb4639fdb595f16465a000804d9618522a603f0d03",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV2 (download XLSX )",
+      "path": "data/raw/kliche2024/EV2.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM4_ESM.xlsx",
+      "bytes": 334843,
+      "sha256": "9076bff9b90e60a179902505b97b224bb6196f42a9128d1597aac07f832c3f1e",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV3 (download XLSX )",
+      "path": "data/raw/kliche2024/EV3.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM5_ESM.xlsx",
+      "bytes": 644122,
+      "sha256": "da315cf6b3cadcf4a9d452509c543291cddff31e95b97d33170b76b5ec25370a",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV4 (download XLSX )",
+      "path": "data/raw/kliche2024/EV4.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM6_ESM.xlsx",
+      "bytes": 1201064,
+      "sha256": "ecc7d40a0d75d4fb7b7a181998ba12ca983c83ba42efd89a0095bc91862e7483",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV5 (download XLSX )",
+      "path": "data/raw/kliche2024/EV5.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM7_ESM.xlsx",
+      "bytes": 52110,
+      "sha256": "16bf08703ef17e24e30053be37db491a2111c17e293f69e5ffb8fbdddd1fa5eb",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV6 (download XLSX )",
+      "path": "data/raw/kliche2024/EV6.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM8_ESM.xlsx",
+      "bytes": 708076,
+      "sha256": "f83259f8cbcc028486f05423b7737f986ee02dbd49fa9aee18fa6485fce18925",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV7 (download XLSX )",
+      "path": "data/raw/kliche2024/EV7.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM9_ESM.xlsx",
+      "bytes": 895332,
+      "sha256": "81bed615a734d0c76c8585d50b8bd001b1847aba96c4a76f02af51dd4630c2c2",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV8 (download XLSX )",
+      "path": "data/raw/kliche2024/EV8.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM10_ESM.xlsx",
+      "bytes": 11515,
+      "sha256": "0e61d03cd04d78a2daeced83887aabc1f89ffc1d55a3e451b8e393cd83b61292",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV9 (download XLSX )",
+      "path": "data/raw/kliche2024/EV9.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM11_ESM.xlsx",
+      "bytes": 16240,
+      "sha256": "7d32db0bdc672fa0d4562cecac1d5d330e7f14e6e73ad7907fb2f761e4bc1d68",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV10 (download XLSX )",
+      "path": "data/raw/kliche2024/EV10.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM12_ESM.xlsx",
+      "bytes": 16683,
+      "sha256": "c1447df9180c13d964d35cc3a91009c259ea5ab592e339b702c5870ed4dd97cc",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    },
+    {
+      "source": "kliche2024",
+      "label": "Dataset EV11 (download XLSX )",
+      "path": "data/raw/kliche2024/EV11.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM13_ESM.xlsx",
+      "bytes": 10383,
+      "sha256": "f1b577ea9e259dfb139e19c47f7dbcf49c04529fc7724aef53cac19203dbdfc2",
+      "redistribution_status": "optional_conditional_data_supplement",
+      "license": "CC0-1.0 for associated data; CC-BY-4.0 for article",
+      "evidence_key": "kliche2024",
+      "conditions": "Keep source notices and separately credited exceptions; optional for minimal A1 release, not automatically copied."
+    }
+  ],
+  "upstream_repositories": [
+    {
+      "name": "OPUS-PLLM",
+      "repository_url": "https://github.com/Fanchuana/OPUS-PLLM",
+      "commit": "a9597043fb0ce34d78e8ba11b655f01c66a56c2f",
+      "commit_url": "https://github.com/Fanchuana/OPUS-PLLM/tree/a9597043fb0ce34d78e8ba11b655f01c66a56c2f",
+      "license_observed": "GPL-3.0",
+      "license_evidence": [
+        {
+          "path": "repos/OPUS-PLLM/LICENSE",
+          "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+          "detected_license": "GPL-3.0 (verify -only/or-later before code reuse)"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "ProtST",
+      "repository_url": "https://github.com/DeepGraphLearning/ProtST",
+      "commit": "db53a76ed2430eb66dd9c8134ace99fd60980fb3",
+      "commit_url": "https://github.com/DeepGraphLearning/ProtST/tree/db53a76ed2430eb66dd9c8134ace99fd60980fb3",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/DeepGraphLearning__ProtST/LICENSE",
+          "sha256": "d6d6e40dcc643e9f684ebffff740e901f5388fe65d9540a50ab41d810396fe6a",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "proteinclip",
+      "repository_url": "https://github.com/wukevin/proteinclip",
+      "commit": "c732a4083f0093042d3fe8a69e899623ec585e6f",
+      "commit_url": "https://github.com/wukevin/proteinclip/tree/c732a4083f0093042d3fe8a69e899623ec585e6f",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/wukevin__proteinclip/LICENSE",
+          "sha256": "a880cc853458aa8e390d1996e2fd2956e1dd4fba4a9c612136ea0e4fdabf68b0",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "Prot2Text",
+      "repository_url": "https://github.com/hadi-abdine/Prot2Text",
+      "commit": "1bc9fcf7236cd7297974ed8d201545fa0491c93c",
+      "commit_url": "https://github.com/hadi-abdine/Prot2Text/tree/1bc9fcf7236cd7297974ed8d201545fa0491c93c",
+      "license_observed": "CC-BY-NC-SA-4.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/hadi-abdine__Prot2Text/LICENSE",
+          "sha256": "047d2259741a3ebb30d8c8a43d4ba79b5b229a069acd1d2bea49f22b297d8e98",
+          "detected_license": "CC-BY-NC-SA-4.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "ProtT3",
+      "repository_url": "https://github.com/acharkq/ProtT3",
+      "commit": "f427daca2cf94e7544354b03e777f853bcd6bdce",
+      "commit_url": "https://github.com/acharkq/ProtT3/tree/f427daca2cf94e7544354b03e777f853bcd6bdce",
+      "license_observed": "no_root_license; some source SPDX BSD-3-Clause",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "ProtLLM",
+      "repository_url": "https://github.com/ProtLLM/ProtLLM",
+      "commit": "78c7582c026e904a8ef5d44ae36a105bb41d2f0c",
+      "commit_url": "https://github.com/ProtLLM/ProtLLM/tree/78c7582c026e904a8ef5d44ae36a105bb41d2f0c",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "Prot2Text-V2",
+      "repository_url": "https://github.com/ColinFX/Prot2Text-V2",
+      "commit": "0d75d4642bd3d2aae1cce4c371635407598880a9",
+      "commit_url": "https://github.com/ColinFX/Prot2Text-V2/tree/0d75d4642bd3d2aae1cce4c371635407598880a9",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/Prot2Text-V2/LICENSE",
+          "sha256": "96665668e1c7da5f0913f1e197955f85960445726c53523866c24e46325dfa18",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "protnote",
+      "repository_url": "https://github.com/microsoft/protnote",
+      "commit": "b29e17fa308d8c0fc1d9692f705b37dff3a8cf5e",
+      "commit_url": "https://github.com/microsoft/protnote/tree/b29e17fa308d8c0fc1d9692f705b37dff3a8cf5e",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/ProtNote/LICENSE",
+          "sha256": "9906940f61b1f0b533fa7d99baf55178b2808fbe113ea51dfbfad8572ccd5f2b",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "ProTrek",
+      "repository_url": "https://github.com/westlake-repl/ProTrek",
+      "commit": "48715468b8daa08236d05ff3310cd61db1896e94",
+      "commit_url": "https://github.com/westlake-repl/ProTrek/tree/48715468b8daa08236d05ff3310cd61db1896e94",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/westlake-repl__ProTrek/LICENSE",
+          "sha256": "91f321954e48bd3de77a90abe5796870f2b8aa2531b1ade80e8a41c49f469806",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "Prot2Chat",
+      "repository_url": "https://github.com/wangzc1233/Prot2Chat",
+      "commit": "c6817c855cdae60074577425e4733f3219c634c2",
+      "commit_url": "https://github.com/wangzc1233/Prot2Chat/tree/c6817c855cdae60074577425e4733f3219c634c2",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "ProCyon",
+      "repository_url": "https://github.com/mims-harvard/ProCyon",
+      "commit": "69d5c5b46d0e135adfc170f6a3b9ff738d94d351",
+      "commit_url": "https://github.com/mims-harvard/ProCyon/tree/69d5c5b46d0e135adfc170f6a3b9ff738d94d351",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/mims-harvard__ProCyon/LICENSE",
+          "sha256": "cad5bedbf6f33476a14ecbc517496187711540b87cc60fc8156129c282c9cf11",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "InterPLM",
+      "repository_url": "https://github.com/ElanaPearl/InterPLM",
+      "commit": "5f4cbf90a0b3c1c031951ffd0b3b8e11b6f2ed61",
+      "commit_url": "https://github.com/ElanaPearl/InterPLM/tree/5f4cbf90a0b3c1c031951ffd0b3b8e11b6f2ed61",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/ElanaPearl__InterPLM/LICENSE",
+          "sha256": "92b83b38422d3e78e65e42afd4b085b051fc9478aafe1bb4321865b8e204caba",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "pepinstruction",
+      "repository_url": "https://github.com/kjY7836/pepinstruction",
+      "commit": "695fa0deab7cde0f6f5db8bba4d904453cf2e2cb",
+      "commit_url": "https://github.com/kjY7836/pepinstruction/tree/695fa0deab7cde0f6f5db8bba4d904453cf2e2cb",
+      "license_observed": "no LICENSE file",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "PepInter",
+      "repository_url": "https://github.com/zhanxinke/PepInter",
+      "commit": "7a93c909e63f7d440ac40fcc24162fd74d2ba9f1",
+      "commit_url": "https://github.com/zhanxinke/PepInter/tree/7a93c909e63f7d440ac40fcc24162fd74d2ba9f1",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/zhanxinke__PepInter/LICENSE",
+          "sha256": "1f363cf9aecd294ae6c1f0ece9aa78c6ed48393292964e0b770cb5b247e4bc78",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "BioReason-Pro",
+      "repository_url": "https://github.com/bowang-lab/BioReason-Pro",
+      "commit": "a93ac2a96387103c100c4d6a6674d6fe1dfaf9e8",
+      "commit_url": "https://github.com/bowang-lab/BioReason-Pro/tree/a93ac2a96387103c100c4d6a6674d6fe1dfaf9e8",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/BioReason-Pro/LICENSE",
+          "sha256": "37955620cd947ab0670e9183c26c3f79e36e4e089c206a628f1d7b5eb497cd76",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "C2C",
+      "repository_url": "https://github.com/thu-nics/C2C",
+      "commit": "bdb932aa63637959074a9a6fd59992a4d0d9ad22",
+      "commit_url": "https://github.com/thu-nics/C2C/tree/bdb932aa63637959074a9a6fd59992a4d0d9ad22",
+      "license_observed": "Apache-2.0 LICENSE; pyproject claims MIT (inconsistent)",
+      "license_evidence": [
+        {
+          "path": "repos/C2C/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "C2C root LICENSE Apache2 versus pyproject MIT conflict retained; obtain clarification before copying."
+    },
+    {
+      "name": "Draft-KV",
+      "repository_url": "https://github.com/Svardfox/Draft-KV",
+      "commit": "e369f1b2629875642fe5a87feb4d432c6f4971b8",
+      "commit_url": "https://github.com/Svardfox/Draft-KV/tree/e369f1b2629875642fe5a87feb4d432c6f4971b8",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/Draft-KV/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "gated_attention",
+      "repository_url": "https://github.com/qiuzh20/gated_attention",
+      "commit": "f4c2a5f6ffd6ec709e0c60072c95ed4f5ce5b5d2",
+      "commit_url": "https://github.com/qiuzh20/gated_attention/tree/f4c2a5f6ffd6ec709e0c60072c95ed4f5ce5b5d2",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/qiuzh20__gated_attention/LICENSE",
+          "sha256": "be97669306a609bb93c5c1ee7c7fcf23aada0cb65a432a75f3522122c738b843",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "protein",
+      "repository_url": "https://github.com/ahart34/protein",
+      "commit": "9715e5e02e3918298775c797353c8dc5fa74a2af",
+      "commit_url": "https://github.com/ahart34/protein/tree/9715e5e02e3918298775c797353c8dc5fa74a2af",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "unilm",
+      "repository_url": "https://github.com/microsoft/unilm",
+      "commit": "31c5b904ca1bf2afb4c234a6675c683a4e5fc7cd",
+      "commit_url": "https://github.com/microsoft/unilm/tree/31c5b904ca1bf2afb4c234a6675c683a4e5fc7cd",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/microsoft__unilm/LICENSE",
+          "sha256": "904dc4d8749877f1dba1cda48200d2462dccbeb7c134d5e4ef6fa75e0198c8fe",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "DeepSeek-R1",
+      "repository_url": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "commit": "0cf78561f1d51c84a21b2190626b21116d5c68bb",
+      "commit_url": "https://github.com/deepseek-ai/DeepSeek-R1/tree/0cf78561f1d51c84a21b2190626b21116d5c68bb",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/deepseek-ai__DeepSeek-R1/LICENSE",
+          "sha256": "f2c6c602815669d292889e5be8c802f2ed950653b77999b1584e8e6aed25d040",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "coconut",
+      "repository_url": "https://github.com/facebookresearch/coconut",
+      "commit": "27273cb8cca4bb763c041a63b036d0c3b7cbbb48",
+      "commit_url": "https://github.com/facebookresearch/coconut/tree/27273cb8cca4bb763c041a63b036d0c3b7cbbb48",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/facebookresearch__coconut/LICENSE",
+          "sha256": "98d5cea9c8ead20362a25feca7268effc2dd31baabdfe45c20d09020ab41e7b4",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "MapDiff",
+      "repository_url": "https://github.com/peizhenbai/MapDiff",
+      "commit": "6c1299584b71d3c53ad42e1d591459a59f299ed3",
+      "commit_url": "https://github.com/peizhenbai/MapDiff/tree/6c1299584b71d3c53ad42e1d591459a59f299ed3",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/peizhenbai__MapDiff/LICENSE",
+          "sha256": "702d99b3cdfd6fde63adfca12eb1ddcfc410dc70f82b678b0105a5766e38e497",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "LAVIS",
+      "repository_url": "https://github.com/salesforce/LAVIS",
+      "commit": "05cb670f47296522e24e7727e366b4a997d28582",
+      "commit_url": "https://github.com/salesforce/LAVIS/tree/05cb670f47296522e24e7727e366b4a997d28582",
+      "license_observed": "BSD-3-Clause",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/salesforce__LAVIS/LICENSE.txt",
+          "sha256": "3b62fa0805b3af3a74068123d70d9e27c4c6359f914a4111de93e807fc069456",
+          "detected_license": "BSD-3-Clause"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "LatentMAS",
+      "repository_url": "https://github.com/Gen-Verse/LatentMAS",
+      "commit": "9a9e4d331eb11430bd9e64754c6b252b06d73031",
+      "commit_url": "https://github.com/Gen-Verse/LatentMAS/tree/9a9e4d331eb11430bd9e64754c6b252b06d73031",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/LatentMAS/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "Inner-Adaptor-Architecture",
+      "repository_url": "https://github.com/360CVGroup/Inner-Adaptor-Architecture",
+      "commit": "c09c0446a50881b869af51e7cc2fc04876faa24f",
+      "commit_url": "https://github.com/360CVGroup/Inner-Adaptor-Architecture/tree/c09c0446a50881b869af51e7cc2fc04876faa24f",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/360CVGroup__Inner-Adaptor-Architecture/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "DeepStack-VL",
+      "repository_url": "https://github.com/MengLcool/DeepStack-VL",
+      "commit": "3aab69bff6d7ce587b839f518dda40d3379e522d",
+      "commit_url": "https://github.com/MengLcool/DeepStack-VL/tree/3aab69bff6d7ce587b839f518dda40d3379e522d",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/MengLcool__DeepStack-VL/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "minimind",
+      "repository_url": "https://github.com/jingyaogong/minimind",
+      "commit": "f659b55761b754d306bd140573493a6543cafd7f",
+      "commit_url": "https://github.com/jingyaogong/minimind/tree/f659b55761b754d306bd140573493a6543cafd7f",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/minimind/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "minimind-v",
+      "repository_url": "https://github.com/jingyaogong/minimind-v",
+      "commit": "1862b633fc082a723e78dbead9777545f09d960c",
+      "commit_url": "https://github.com/jingyaogong/minimind-v/tree/1862b633fc082a723e78dbead9777545f09d960c",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/minimind-v/LICENSE",
+          "sha256": "5ad8c213095c573921d7388edf93f6a9f54490b8ebf3b165ae8ef1947cf70846",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "DeepLC",
+      "repository_url": "https://github.com/compomics/DeepLC",
+      "commit": "e24a5822bdb5304fcb1beb9ee5b307e1ab643221",
+      "commit_url": "https://github.com/compomics/DeepLC/tree/e24a5822bdb5304fcb1beb9ee5b307e1ab643221",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/bench_v02/DeepLC-current/LICENSE",
+          "sha256": "988b2ce6b5e93eea134cde8c7294e00dc50e5e798e979968a5c62f98b308f686",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "DeepLCRetrainer",
+      "repository_url": "https://github.com/RobbinBouwmeester/DeepLCRetrainer",
+      "commit": "dc0ea5c6589304949918d2f0e3f0dbb34b778e00",
+      "commit_url": "https://github.com/RobbinBouwmeester/DeepLCRetrainer/tree/dc0ea5c6589304949918d2f0e3f0dbb34b778e00",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/RobbinBouwmeester__DeepLCRetrainer/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "ProteomicsML",
+      "repository_url": "https://github.com/ProteomicsML/ProteomicsML",
+      "commit": "4d880356ab963893de1c8b1e3cd80f4f35ed63d3",
+      "commit_url": "https://github.com/ProteomicsML/ProteomicsML/tree/4d880356ab963893de1c8b1e3cd80f4f35ed63d3",
+      "license_observed": "CC-BY-4.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/ProteomicsML__ProteomicsML/LICENSE",
+          "sha256": "cbd5af318286b74656f145dff5091907cc23d6d8c9ad09e0291ec2497792ba41",
+          "detected_license": "CC-BY-4.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "DataSAIL",
+      "repository_url": "https://github.com/kalininalab/DataSAIL",
+      "commit": "c31695688a9fd59c2fd17314fe27e36ddc701c3a",
+      "commit_url": "https://github.com/kalininalab/DataSAIL/tree/c31695688a9fd59c2fd17314fe27e36ddc701c3a",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/kalininalab__DataSAIL/LICENSE",
+          "sha256": "6e784da6bcf5969ee2e63823e996d46b44d4cff735718fbf850e33bf33f531bb",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "be_parser",
+      "repository_url": "https://github.com/normandavey/be_parser",
+      "commit": "7c41e1d193d33c2166a21e8526bb996081ff2eb7",
+      "commit_url": "https://github.com/normandavey/be_parser/tree/7c41e1d193d33c2166a21e8526bb996081ff2eb7",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "conditional-probing",
+      "repository_url": "https://github.com/john-hewitt/conditional-probing",
+      "commit": "bebc90aa0c910395e2370910409076a945279fe0",
+      "commit_url": "https://github.com/john-hewitt/conditional-probing/tree/bebc90aa0c910395e2370910409076a945279fe0",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/john-hewitt__conditional-probing/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "control-tasks",
+      "repository_url": "https://github.com/john-hewitt/control-tasks",
+      "commit": "be70d7f42324797dcf2bb5360a94d8e64100fea8",
+      "commit_url": "https://github.com/john-hewitt/control-tasks/tree/be70d7f42324797dcf2bb5360a94d8e64100fea8",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/john-hewitt__control-tasks/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "Interchange",
+      "repository_url": "https://github.com/atticusg/Interchange",
+      "commit": "6ac2a48aaffe32e83e01ad8064725c1cfff36370",
+      "commit_url": "https://github.com/atticusg/Interchange/tree/6ac2a48aaffe32e83e01ad8064725c1cfff36370",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "antra",
+      "repository_url": "https://github.com/hansonhl/antra",
+      "commit": "860c12697211f4cb3c9ef7aa1c8dee247f2710f4",
+      "commit_url": "https://github.com/hansonhl/antra/tree/860c12697211f4cb3c9ef7aa1c8dee247f2710f4",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/hansonhl__antra/LICENSE",
+          "sha256": "ef5a08fc43b0a78bdb7539deb551a8555876da9eb8d282f1990c789867411683",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "eraserbenchmark",
+      "repository_url": "https://github.com/jayded/eraserbenchmark",
+      "commit": "36467f1662812cbd4fbdd66879946cd7338e08ec",
+      "commit_url": "https://github.com/jayded/eraserbenchmark/tree/36467f1662812cbd4fbdd66879946cd7338e08ec",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/jayded__eraserbenchmark/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "FActScore",
+      "repository_url": "https://github.com/shmsw25/FActScore",
+      "commit": "f28272deffcf33efc1f1117d5479c10bb75221a9",
+      "commit_url": "https://github.com/shmsw25/FActScore/tree/f28272deffcf33efc1f1117d5479c10bb75221a9",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/shmsw25__FActScore/LICENSE",
+          "sha256": "69684418e97a8c16ed069da970c62923be2dbd351fef2f12d9be7a548b4d7b14",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "Aristotelian",
+      "repository_url": "https://github.com/mlbio-epfl/Aristotelian",
+      "commit": "2fba6ae704f9e905264f84faced3157db86393a0",
+      "commit_url": "https://github.com/mlbio-epfl/Aristotelian/tree/2fba6ae704f9e905264f84faced3157db86393a0",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/mlbio-epfl__Aristotelian/LICENSE",
+          "sha256": "763dc1b266c44384892c9963063d1867fc5c8acdfeff08f734df8e4605ec5dad",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "platonic-rep",
+      "repository_url": "https://github.com/minyoungg/platonic-rep",
+      "commit": "dcd76ba3c950c1b197a2ae8b1c6713535c94ecf9",
+      "commit_url": "https://github.com/minyoungg/platonic-rep/tree/dcd76ba3c950c1b197a2ae8b1c6713535c94ecf9",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "StateBridge",
+      "repository_url": "https://github.com/YanwenPneg/StateBridge",
+      "commit": "3f6bf5442c6e8848555a6132516e6d36f35444fb",
+      "commit_url": "https://github.com/YanwenPneg/StateBridge/tree/3f6bf5442c6e8848555a6132516e6d36f35444fb",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/StateBridge/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "Model_Stitch_Vision_Foundation_Model",
+      "repository_url": "https://github.com/RaptorMai/Model_Stitch_Vision_Foundation_Model",
+      "commit": "e00d92f4a0d3a3cafbfa0f1b7fa5303cc344d2f3",
+      "commit_url": "https://github.com/RaptorMai/Model_Stitch_Vision_Foundation_Model/tree/e00d92f4a0d3a3cafbfa0f1b7fa5303cc344d2f3",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "gibberlink",
+      "repository_url": "https://github.com/PennyroyalTea/gibberlink",
+      "commit": "693ef3e36ee61da7e2323519711c0dfab327c284",
+      "commit_url": "https://github.com/PennyroyalTea/gibberlink/tree/693ef3e36ee61da7e2323519711c0dfab327c284",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/PennyroyalTea__gibberlink/LICENSE",
+          "sha256": "f04b182af922c4234ef4691672c818eb826b1b57e8035a8211a6a3b7356c44e8",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "ggwave",
+      "repository_url": "https://github.com/ggerganov/ggwave",
+      "commit": "060aec73dd7123ccac200442f75bdc7369795ffe",
+      "commit_url": "https://github.com/ggerganov/ggwave/tree/060aec73dd7123ccac200442f75bdc7369795ffe",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/ggerganov__ggwave/LICENSE",
+          "sha256": "c71e2d555b40ab72b85b0b92ba78c1c4e61309e848914e908e321d6fd9940929",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "alphafold",
+      "repository_url": "https://github.com/google-deepmind/alphafold",
+      "commit": "c77e5d2a8961d1a353632c462914ff0a32a950f6",
+      "commit_url": "https://github.com/google-deepmind/alphafold/tree/c77e5d2a8961d1a353632c462914ff0a32a950f6",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/google-deepmind__alphafold/LICENSE",
+          "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "esm",
+      "repository_url": "https://github.com/facebookresearch/esm",
+      "commit": "2b369911bb5b4b0dda914521b9475cad1656b2ac",
+      "commit_url": "https://github.com/facebookresearch/esm/tree/2b369911bb5b4b0dda914521b9475cad1656b2ac",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/facebookresearch__esm/LICENSE",
+          "sha256": "63e8210e6bf3e8c032dc0c69b1d1d2e3ab72c14b02cabcc0dada2618bb188b97",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "Qwen2.5",
+      "repository_url": "https://github.com/QwenLM/Qwen2.5",
+      "commit": "2abc0f3243e20cf45b6a3ab60308db701c0c3111",
+      "commit_url": "https://github.com/QwenLM/Qwen2.5/tree/2abc0f3243e20cf45b6a3ab60308db701c0c3111",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "DeepLoc-2.0",
+      "repository_url": "https://github.com/teevee112/DeepLoc-2.0",
+      "commit": "e6d44d01f6026b756ba35c4a89715e23a2957590",
+      "commit_url": "https://github.com/teevee112/DeepLoc-2.0/tree/e6d44d01f6026b756ba35c4a89715e23a2957590",
+      "license_observed": "CC-BY-NC-SA-4.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/teevee112__DeepLoc-2.0/LICENSE",
+          "sha256": "047d2259741a3ebb30d8c8a43d4ba79b5b229a069acd1d2bea49f22b297d8e98",
+          "detected_license": "CC-BY-NC-SA-4.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "LocPro",
+      "repository_url": "https://github.com/idrblab/LocPro",
+      "commit": "5a89bde671c014ac299482cecac5a3c82d7374d0",
+      "commit_url": "https://github.com/idrblab/LocPro/tree/5a89bde671c014ac299482cecac5a3c82d7374d0",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/idrblab__LocPro/LICENSE",
+          "sha256": "749abf7ac669a7bc4ecb3e25a7c930159fd30c84ca5ab7dcd71833f03d29c2d9",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "deepgo2",
+      "repository_url": "https://github.com/bio-ontology-research-group/deepgo2",
+      "commit": "6c77c985ef9453548dca629830c044b2dc1b4982",
+      "commit_url": "https://github.com/bio-ontology-research-group/deepgo2/tree/6c77c985ef9453548dca629830c044b2dc1b4982",
+      "license_observed": "BSD-3-Clause",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/bio-ontology-research-group__deepgo2/LICENSE",
+          "sha256": "6f435d22f0ab4804853102ff89d238ccc5453939f56578dd4d62c075751ef117",
+          "detected_license": "BSD-3-Clause"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "CLEAN",
+      "repository_url": "https://github.com/tttianhao/CLEAN",
+      "commit": "f2bf2a4f497fa2cc87dac2a1bb314fee587c0a15",
+      "commit_url": "https://github.com/tttianhao/CLEAN/tree/f2bf2a4f497fa2cc87dac2a1bb314fee587c0a15",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "google-research",
+      "repository_url": "https://github.com/google-research/google-research",
+      "commit": "3ef52111c1fabc301880818f5a547570e926a76b",
+      "commit_url": "https://github.com/google-research/google-research/tree/3ef52111c1fabc301880818f5a547570e926a76b",
+      "license_observed": "Apache-2.0",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/google-research__google-research/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "detected_license": "Apache-2.0"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "subcellular_localization",
+      "repository_url": "https://github.com/JJAlmagro/subcellular_localization",
+      "commit": "c3b2a79addc8a3db2034710669318bff5fa21dc5",
+      "commit_url": "https://github.com/JJAlmagro/subcellular_localization/tree/c3b2a79addc8a3db2034710669318bff5fa21dc5",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "ProteinGym",
+      "repository_url": "https://github.com/OATML-Markslab/ProteinGym",
+      "commit": "144fe22b07dfaeec2b366f2346203a9838a55b4c",
+      "commit_url": "https://github.com/OATML-Markslab/ProteinGym/tree/144fe22b07dfaeec2b366f2346203a9838a55b4c",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/OATML-Markslab__ProteinGym/LICENSE",
+          "sha256": "8bd8ac4e1afee5652519c06383d534b437e03a1b6ef8c911d58e772dfdf6a03e",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    },
+    {
+      "name": "protein-uq",
+      "repository_url": "https://github.com/microsoft/protein-uq",
+      "commit": "5e7b2b9cd219805eaabe73b21d4d9955cf882448",
+      "commit_url": "https://github.com/microsoft/protein-uq/tree/5e7b2b9cd219805eaabe73b21d4d9955cf882448",
+      "license_observed": "unknown_no_root_license_observed",
+      "license_evidence": [],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": "No root license is not permission to redistribute."
+    },
+    {
+      "name": "GEMS",
+      "repository_url": "https://github.com/camlab-ethz/GEMS",
+      "commit": "4cc2e76b9e3559bc57d452999ad258b8a8ccaf23",
+      "commit_url": "https://github.com/camlab-ethz/GEMS/tree/4cc2e76b9e3559bc57d452999ad258b8a8ccaf23",
+      "license_observed": "MIT",
+      "license_evidence": [
+        {
+          "path": "repos/continuation_20261016/camlab-ethz__GEMS/LICENSE",
+          "sha256": "b677a737630abcb396e39449263c4e84a14ae645d82dfb1063593b702de01e1a",
+          "detected_license": "MIT"
+        }
+      ],
+      "license_scope": "Root source-code license only; does not automatically license datasets, model weights, embedded figures or third-party subdirectories.",
+      "release_policy": "link_commit_license_index_only; no upstream source tree vendoring",
+      "notes": null
+    }
+  ],
+  "upstream_repository_count": 58,
+  "official_download_manifest": [
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM2_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV1.xlsx",
+      "bytes": 26635,
+      "sha256": "7198343ba64917e03aa1dcc9913b9dffb54deb0b1565e4ed818ddfb69113fa35",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM3_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV2.xlsx",
+      "bytes": 43535,
+      "sha256": "a984ef7851a915b6384925f232b017b5a1b8681cffe375681b32f625aac82e04",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM4_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV3.xlsx",
+      "bytes": 1796436,
+      "sha256": "7d30a28ccda75e97b7e2dbd2f93f0fa50721979c43b2e3f39469e420d5213282",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM5_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV4.xlsx",
+      "bytes": 900676,
+      "sha256": "5a22832b4a363c8075cebbeeaabb118e51ac52c1cdd9fc5b79bf45d7c8ea301e",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM6_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV5.xlsx",
+      "bytes": 100982,
+      "sha256": "53c0cc441d90b33ef36cd6c9e42af68aebb4cb1a848c716992d1d10fa3de235e",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM7_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV6.xlsx",
+      "bytes": 76988,
+      "sha256": "c48a63b68a62222009e48d10b7c15988bc700a3d5e7477f366b69ca60ae5427c",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM8_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV7.xlsx",
+      "bytes": 160620,
+      "sha256": "94d314ba1fda94853814753b2b132df231b2ccd3cfa9dcfa5135a45ad1bb4cde",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM9_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV8.xlsx",
+      "bytes": 30596,
+      "sha256": "449c45b73cca26053959cd9c4c33a411ef8b190b48bd2007bb9fa2870503aa08",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM10_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV9.xlsx",
+      "bytes": 7219771,
+      "sha256": "9c5ce85c2624a4bbe3604093089f2b930112ca02f323b77d847bbe3cda23517f",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM11_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV10.xlsx",
+      "bytes": 114592,
+      "sha256": "de0fbd48d2dfb8078bde0ebc5c25711e478050b522b4e76e08e3dd9250a62006",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fmsb.202110584/MediaObjects/44320_2022_BFMSB202110584_MOESM12_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/benz2022/EV11.xlsx",
+      "bytes": 1164500,
+      "sha256": "32dc9835d4769830225289714f73d1c06e0609b155a81f0f55960c8e9fa2b3de",
+      "license": "CC-BY (publisher link resolves original version; do not silently assign a different SPDX version)",
+      "license_evidence": "benz2022",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM3_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV1.xlsx",
+      "bytes": 8765019,
+      "sha256": "65e889ce29d80aac5d4c01cb4639fdb595f16465a000804d9618522a603f0d03",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM4_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV2.xlsx",
+      "bytes": 334843,
+      "sha256": "9076bff9b90e60a179902505b97b224bb6196f42a9128d1597aac07f832c3f1e",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM5_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV3.xlsx",
+      "bytes": 644122,
+      "sha256": "da315cf6b3cadcf4a9d452509c543291cddff31e95b97d33170b76b5ec25370a",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM6_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV4.xlsx",
+      "bytes": 1201064,
+      "sha256": "ecc7d40a0d75d4fb7b7a181998ba12ca983c83ba42efd89a0095bc91862e7483",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM7_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV5.xlsx",
+      "bytes": 52110,
+      "sha256": "16bf08703ef17e24e30053be37db491a2111c17e293f69e5ffb8fbdddd1fa5eb",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM8_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV6.xlsx",
+      "bytes": 708076,
+      "sha256": "f83259f8cbcc028486f05423b7737f986ee02dbd49fa9aee18fa6485fce18925",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM9_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV7.xlsx",
+      "bytes": 895332,
+      "sha256": "81bed615a734d0c76c8585d50b8bd001b1847aba96c4a76f02af51dd4630c2c2",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM10_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV8.xlsx",
+      "bytes": 11515,
+      "sha256": "0e61d03cd04d78a2daeced83887aabc1f89ffc1d55a3e451b8e393cd83b61292",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM11_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV9.xlsx",
+      "bytes": 16240,
+      "sha256": "7d32db0bdc672fa0d4562cecac1d5d330e7f14e6e73ad7907fb2f761e4bc1d68",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM12_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV10.xlsx",
+      "bytes": 16683,
+      "sha256": "c1447df9180c13d964d35cc3a91009c259ea5ab592e339b702c5870ed4dd97cc",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs44320-024-00055-4/MediaObjects/44320_2024_55_MOESM13_ESM.xlsx",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/EV11.xlsx",
+      "bytes": 10383,
+      "sha256": "f1b577ea9e259dfb139e19c47f7dbcf49c04529fc7724aef53cac19203dbdfc2",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/downloads/file_stream/4123524",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/Binding_Group_Structures.zip",
+      "bytes": null,
+      "sha256": null,
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "failed",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/downloads/file_stream/4123521",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/PEPBI.py",
+      "bytes": null,
+      "sha256": null,
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "failed",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/downloads/file_stream/4123522",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/PEPBI.xlsx",
+      "bytes": null,
+      "sha256": null,
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "failed",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/downloads/file_stream/4123531",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/README.md",
+      "bytes": null,
+      "sha256": null,
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "failed",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/downloads/file_stream/4123523",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/Technical_Validation.csv",
+      "bytes": null,
+      "sha256": null,
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "failed",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/dataset/doi:10.5061/dryad.wstqjq2wk",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/source_page.html",
+      "bytes": 59052,
+      "sha256": "66e93563236e025d0f6510a061fa3cfc1d80345d9505ec0187f7c8dc96d159ef",
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.wstqjq2wk",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/api_dataset.json",
+      "bytes": 4987,
+      "sha256": "6117943e7a41b3efe288bbe3e9ba768e21dce7d643b75a31de04dfa4f1de646b",
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://datadryad.org/api/v2/versions/370880/files",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/api_files.json",
+      "bytes": 3421,
+      "sha256": "a947ffb850584f54701ec63028353bbd4686b04764c037adbf3323da9bb4bd8f",
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://zenodo.org/api/records/15678269",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/zenodo_record.json",
+      "bytes": 6949,
+      "sha256": "15ffb2aa2175fcc2aade7de46fd0e7b1fa3e9ff4f436a7c71d52c98dc74297a2",
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://cn.dataone.org/cn/v2/query/solr/?q=%22dryad.wstqjq2wk%22&wt=json&rows=50",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/pepbi/dataone_search.json",
+      "bytes": 149,
+      "sha256": "2b4b557217e51aa540c6a8899192a8218bc3b150bcd46c7693e46f926edd786f",
+      "license": "CC0-1.0 dataset",
+      "license_evidence": "pepbi",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://link.springer.com/article/10.1038/s44320-024-00055-4/tables/1",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/kliche2024/table1.html",
+      "bytes": 249644,
+      "sha256": "532b89726b174affc5a64949bf9d78608707e1b73bfd79862a3c7e49c8ff3b0c",
+      "license": "CC0-1.0 associated data",
+      "license_evidence": "kliche2024",
+      "status": "downloaded",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/literature_data_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://ppikb.duanlab.ac/downloads/Affinity%20Dataset%28main%29.xlsx",
+      "upstream_landing_url": "https://ppikb.duanlab.ac/downloads/",
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/bench_v02/ppikb/Main.xlsx",
+      "bytes": 7786520,
+      "sha256": "0f31b10949195bf25aa258e7b14706f69d82859d8136319118bd81ffcb6ee4e2",
+      "license": "CC-BY-4.0 database",
+      "license_evidence": "ppikb_database",
+      "status": null,
+      "redistribution": "download_index_only_default",
+      "source_manifest": "data/raw/bench_v02/ppikb/fetch_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://ppikb.duanlab.ac/downloads/Affinity%20Dataset%28branch%29.xlsx",
+      "upstream_landing_url": "https://ppikb.duanlab.ac/downloads/",
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/bench_v02/ppikb/Branch.xlsx",
+      "bytes": 837885,
+      "sha256": "2e9d3ee01d786bf97e13122a19dac243840328c8bea51267021781e1e9d881cd",
+      "license": "CC-BY-4.0 database",
+      "license_evidence": "ppikb_database",
+      "status": null,
+      "redistribution": "download_index_only_default",
+      "source_manifest": "data/raw/bench_v02/ppikb/fetch_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://ppikb.duanlab.ac/downloads/research.xlsx",
+      "upstream_landing_url": "https://ppikb.duanlab.ac/downloads/",
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/bench_v02/ppikb/research.xlsx",
+      "bytes": 3407022,
+      "sha256": "283069c12a613b2a542e21472c5c4690501513bf9bf231ec95634b176b1635f9",
+      "license": "CC-BY-4.0 database",
+      "license_evidence": "ppikb_database",
+      "status": null,
+      "redistribution": "download_index_only_default",
+      "source_manifest": "data/raw/bench_v02/ppikb/fetch_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://ppikb.duanlab.ac/downloads/patent.xlsx",
+      "upstream_landing_url": "https://ppikb.duanlab.ac/downloads/",
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/bench_v02/ppikb/patent.xlsx",
+      "bytes": 531764,
+      "sha256": "1f313c1a95b6553c8f1dfc2d39667d2d29ff077c903fecd99353fbe2503ae106",
+      "license": "CC-BY-4.0 database",
+      "license_evidence": "ppikb_database",
+      "status": null,
+      "redistribution": "download_index_only_default",
+      "source_manifest": "data/raw/bench_v02/ppikb/fetch_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/MolAstra/PepInter/main/README.md",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/bench_v02/ppikb/pepinter_README.md",
+      "bytes": 1485,
+      "sha256": "17ce5cfa7b81cf30551a43807b9f11dfd0a32188acdb0f5a548981ae3c239434",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": null,
+      "redistribution": "download_index_only_default",
+      "source_manifest": "data/raw/bench_v02/ppikb/fetch_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://api.github.com/repos/MolAstra/PepInter/git/trees/main?recursive=1",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/bench_v02/ppikb/pepinter_tree.json",
+      "bytes": 18568,
+      "sha256": "6c0afb6918fef99ea308bddf748682f0c4732661e4097aab7cb818a2f5a046bc",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": null,
+      "redistribution": "download_index_only_default",
+      "source_manifest": "data/raw/bench_v02/ppikb/fetch_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://zenodo.org/api/records/18604811",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/bench_v02/ppikb/pepinter_zenodo.json",
+      "bytes": 3845,
+      "sha256": "fce2a311931b63b7d72fc8ea27d0b902d3562a2685b0805f1083389e1266fae2",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": null,
+      "redistribution": "download_index_only_default",
+      "source_manifest": "data/raw/bench_v02/ppikb/fetch_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://osf.io/download/jyw7p/",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/ProtT3/proteinkg25.zip",
+      "bytes": 138380545,
+      "sha256": "b459a7f066127ed777cd35b0cc08042a2e3f46f1116ac21578a52c011633de6b",
+      "license": "unknown_dataset_specific_OSF_license_not_verified",
+      "license_evidence": "ProtT3 code license cannot license OSF text corpora",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": true
+    },
+    {
+      "upstream_download_url": "https://osf.io/download/en2gu/",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/ProtT3/SwissProtV3.zip",
+      "bytes": 148410120,
+      "sha256": "2a8296d43549a2f55fedcf7b552474208aba28933322713c60736bf0ab5f97d1",
+      "license": "unknown_dataset_specific_OSF_license_not_verified",
+      "license_evidence": "ProtT3 code license cannot license OSF text corpora",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": true
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/CASPSimilar_Description.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/CASPSimilar_Description.json",
+      "bytes": 109648,
+      "sha256": "b84eeabf4f0144d0ed23f9ed020c84975507df45c7432f2e2847f6c8b76d38b0",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/CASPSimilar_GO.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/CASPSimilar_GO.json",
+      "bytes": 93770,
+      "sha256": "85aaa6e865822d6a8e727017d0c9d0a47720a6de8b015e9ea339d2e945cbb6e6",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/CASPSimilar_Keyword.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/CASPSimilar_Keyword.json",
+      "bytes": 93121,
+      "sha256": "d0d769664bd7f707385fa40be2851b084fa921b33fc12046b96ca2eeeefd3d80",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/DeepLoc.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/DeepLoc.json",
+      "bytes": 1422143,
+      "sha256": "9b743713b6eab9f9a7de78d34e5d92bf49d1a2cee602a50f16feec3c0faecc9d",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/EC_New392.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/EC_New392.json",
+      "bytes": 230474,
+      "sha256": "99c7a5d492bc4d6b06e15ebed6b5ddae865634e2c3832c3c1f3f4b15256e0bc7",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/EC_Price149.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/EC_Price149.json",
+      "bytes": 76489,
+      "sha256": "611630ee03fefd913999fecf14903c7c8670064ca2193cce5ca257db38d7777f",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/IDFilter_Description.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/IDFilter_Description.json",
+      "bytes": 716884,
+      "sha256": "617ba46367131f8718e0e9762c89c5a05510e5826087f5246698c4c76b670160",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/IDFilter_GO.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/IDFilter_GO.json",
+      "bytes": 737328,
+      "sha256": "7371e2fe6448a78a9152bab292b81c5547a65467e9977ba327f1253ce3c88f73",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/IDFilter_Keyword.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/IDFilter_Keyword.json",
+      "bytes": 606845,
+      "sha256": "cf5f1da5b5f652e7951b6cc8183e5a4ace3186731ed7744d60cace1cf53e9b19",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/OPILoc.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/OPILoc.json",
+      "bytes": 1839085,
+      "sha256": "1de7067c7983552dfb77612428f3a5d197d52ac55ee5a8587d737dd2b1493ac3",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/Swiss2024_Description.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/Swiss2024_Description.json",
+      "bytes": 1828833,
+      "sha256": "bbc863742d4ad4934583b8bbb74a8679493960ce57a9385d5ccc0cc5c5f2246b",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/Swiss2024_GO.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/Swiss2024_GO.json",
+      "bytes": 1171561,
+      "sha256": "fdba04f36403e6e5a93042b408eb6c1f89c46b2aff5103c107dfe39c53726bdc",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/Swiss2024_Keyword.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/Swiss2024_Keyword.json",
+      "bytes": 1230766,
+      "sha256": "edbeed32fbfc6d3576c217b2f8dc8d7fdf2d8fc8c28e35bebc9598b6993debe2",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/Swiss2024_Loc.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/Swiss2024_Loc.json",
+      "bytes": 524215,
+      "sha256": "3cee0a055db60a78d6fedb432b22d33ec53ee992295720aa6620a6e99aa14935",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/UniProt_Function.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/UniProt_Function.json",
+      "bytes": 2799603,
+      "sha256": "6c5b812cad2d47b0e5e8f042adeef215c1703c892391a7d0cebc880b0d023351",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/UniProt_GO.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/UniProt_GO.json",
+      "bytes": 2847969,
+      "sha256": "9c4ad9fae74976361e6dd15f83b33aa4db9dc689262e913d1ad622872c1b8959",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/UniProt_Keyword.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/UniProt_Keyword.json",
+      "bytes": 2278197,
+      "sha256": "229c88617e9b8f40404f0ee7e47a6925a8ffe2986b451c4d1540afe0d150fb2a",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/YifanXu24/OPUS-InstructionCorpus-Benchmark/resolve/29f7620de5db692c5cbff8fcc0db2b0117a5bbd2/benchmarks/multichoice_test_benchmark.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "29f7620de5db692c5cbff8fcc0db2b0117a5bbd2",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Benchmark/benchmarks/multichoice_test_benchmark.json",
+      "bytes": 2366442,
+      "sha256": "1a61ef604ecf7e3f1f355cefb811cc615c669da6ee8a6c6364b7eea7219cb651",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/datasets/YifanXu24/OPUS-InstructionCorpus/resolve/b42fea9b0b9f55ae1c6caedc74cb0d8bbc93226d/OPUS-InstructionCorpus.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "b42fea9b0b9f55ae1c6caedc74cb0d8bbc93226d",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus/OPUS-InstructionCorpus.json",
+      "bytes": 1534241673,
+      "sha256": "f39a6a8fef1d6109067c8e492ea38bc2f7b062f670d502715ccdd99a9442f49c",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://huggingface.co/datasets/YifanXu24/OPUS-InstructionCorpus-Evol/resolve/958f4ccb8e796f892f6740536481b7caa2ca86f1/OPUS-InstructionCorpus-Evol.json",
+      "upstream_landing_url": null,
+      "version_or_commit": "958f4ccb8e796f892f6740536481b7caa2ca86f1",
+      "local_payload_path": "data/raw/continuation_20261016/OPUS-InstructionCorpus-Evol/OPUS-InstructionCorpus-Evol.json",
+      "bytes": 3327988260,
+      "sha256": "c0fdb026bf65fb3736b7752657c5ff8c073b4a87cbb9614d36215a00aac88f2b",
+      "license": "CC-BY-4.0 dataset card; retain embedded source notices",
+      "license_evidence": "OPUS official frozen HF API cardData.license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/gb1/5LDE_1.fasta",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/gb1/5LDE_1.fasta",
+      "bytes": 374,
+      "sha256": "0316a39393885ff3337c43fd885286d0d1517b8c26d6bf03572893298005d03b",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/gb1/README.md",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/gb1/README.md",
+      "bytes": 3993,
+      "sha256": "a458c5f106b18d4d7e8ce5461c817e34c3c96e907c23d56e43550f02d6a7adf9",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/gb1/four_mutations_full_data.csv.zip",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/gb1/four_mutations_full_data.csv.zip",
+      "bytes": 2659007,
+      "sha256": "85692d808dcd3ae54fa2ac31f4e590858d4582369b6c7b05df299b9b6c383bff",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/gb1/splits.zip",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/gb1/splits.zip",
+      "bytes": 562259,
+      "sha256": "6c923970d9ae0745003b93ae0c5897b114052cac14fd1f04074cb03f9e3609c1",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/meltome/README.md",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/meltome/README.md",
+      "bytes": 3946,
+      "sha256": "7f152212ad9b21d74187e8be1a884321f14de48e10b9d520682ac69740a5bf64",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/meltome/full_dataset.json.zip",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/meltome/full_dataset.json.zip",
+      "bytes": 45866963,
+      "sha256": "9e43778730760180581493d05b08c493ad897e4390763cfadad092e62aaea05d",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/meltome/full_dataset_sequences.fasta.zip",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/meltome/full_dataset_sequences.fasta.zip",
+      "bytes": 15743096,
+      "sha256": "45b4a9735040add8685e12338d485fada0616f569ef3f3fd2d088b79e23758b0",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/meltome/meltome_PIDE20_clusters.tsv",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/meltome/meltome_PIDE20_clusters.tsv",
+      "bytes": 8625975,
+      "sha256": "681bfa23a56c3faf8c8e380ddbb66efc19bbbe22e28e3e58fdc32ba3ccdd3866",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "upstream_download_url": "https://raw.githubusercontent.com/microsoft/protein-uq/5e7b2b9cd219805eaabe73b21d4d9955cf882448/data/meltome/splits.zip",
+      "upstream_landing_url": null,
+      "version_or_commit": null,
+      "local_payload_path": "data/raw/continuation_20261016/protein-uq/meltome/splits.zip",
+      "bytes": 14183034,
+      "sha256": "d79f9bb85edf605ad04211e71dfe2c989922f31d840d7960ba5a0cec705f7438",
+      "license": "unknown_asset_specific_license",
+      "license_evidence": "no blanket inheritance from repository license",
+      "status": "downloaded_payload",
+      "redistribution": "download_index_only_default",
+      "source_manifest": "sources/continuation_20261016/asset_manifest.json",
+      "access_query_omitted": false
+    },
+    {
+      "resource": "ProtNote/data.zip",
+      "upstream_landing_url": "https://zenodo.org/records/13897920",
+      "upstream_download_url": "https://zenodo.org/api/records/13897920/files/data.zip/content",
+      "version_or_commit": "13897920",
+      "bytes": 17594525298,
+      "sha256": "a5efe8fef2411efc96bbaccdc872ed1d58b62d727b2a3d830a117d7db64e8f50",
+      "official_md5": "703141e8eb7a89c83190122f0adfde35",
+      "license": "mit-license",
+      "license_scope": "Declared for deposited record; third-party component notices still apply",
+      "redistribution": "large_payload_index_only_no_upload",
+      "source_manifest": "sources/continuation_20261016/full_primary_metadata/13897920.json"
+    },
+    {
+      "resource": "PepInter/Pepinter_classification.ckpt",
+      "upstream_landing_url": "https://zenodo.org/records/18604811",
+      "upstream_download_url": "https://zenodo.org/api/records/18604811/files/Pepinter_classification.ckpt/content",
+      "version_or_commit": "18604811",
+      "bytes": 6900954326,
+      "sha256": "210d6b8e64d86b81209aa203374b929c0e666c50a350c5792bf6c2d22b9919c2",
+      "official_md5": "759f7649ba6c4b8ff98921420c954dbf",
+      "license": "cc-by-4.0",
+      "license_scope": "Declared for deposited record; third-party component notices still apply",
+      "redistribution": "large_payload_index_only_no_upload",
+      "source_manifest": "sources/continuation_20261016/full_primary_metadata/18604811.json"
+    },
+    {
+      "resource": "PepInter/pepinter_regression.ckpt",
+      "upstream_landing_url": "https://zenodo.org/records/18604811",
+      "upstream_download_url": "https://zenodo.org/api/records/18604811/files/pepinter_regression.ckpt/content",
+      "version_or_commit": "18604811",
+      "bytes": 7011734946,
+      "sha256": "fa0c5692d080f30308a2a8e2e194758fc97b40a28e96f4cf0c422dc8213a08a4",
+      "official_md5": "69cc0f4afd28aff1c0c4a16b005716d1",
+      "license": "cc-by-4.0",
+      "license_scope": "Declared for deposited record; third-party component notices still apply",
+      "redistribution": "large_payload_index_only_no_upload",
+      "source_manifest": "sources/continuation_20261016/full_primary_metadata/18604811.json"
+    },
+    {
+      "resource": "facebook/esm2_t30_150M_UR50D",
+      "upstream_download_url": "https://huggingface.co/facebook/esm2_t30_150M_UR50D/resolve/a695f6045e2e32885fa60af20c13cb35398ce30c/model.safetensors",
+      "version_or_commit": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "bytes": 595257706,
+      "sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566",
+      "license": "MIT",
+      "license_evidence": "official HF model card and frozen local LICENSE/README",
+      "redistribution": "base_weight_index_only_no_upload"
+    },
+    {
+      "resource": "Qwen/Qwen2.5-1.5B-Instruct",
+      "upstream_download_url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/model.safetensors",
+      "version_or_commit": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "bytes": 3087467144,
+      "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+      "license": "Apache-2.0",
+      "license_evidence": "official HF model card and frozen local LICENSE/README",
+      "redistribution": "base_weight_index_only_no_upload"
+    },
+    {
+      "resource": "DeepLC_TL_zenodo_inccal.tar",
+      "upstream_landing_url": "https://zenodo.org/records/17314612",
+      "upstream_download_url": "https://zenodo.org/api/records/17314612/files/DeepLC_TL_zenodo_inccal.tar/content",
+      "version_or_commit": "17314612",
+      "bytes": 40396094976,
+      "sha256": null,
+      "official_checksum": "md5:8fe6d14af195bdcc8322cb46c88bc66f",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "LCMSMS_Pred_Supplemental_Material_section_S6.zip",
+      "upstream_landing_url": "https://zenodo.org/records/2652602",
+      "upstream_download_url": "https://zenodo.org/api/records/2652602/files/LCMSMS_Pred_Supplemental_Material_section_S6.zip/content",
+      "version_or_commit": "2652602",
+      "bytes": 1015874185,
+      "sha256": null,
+      "official_checksum": "md5:a3fd720ea05aeefa87f4947cf7dbea35",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/Guan2019_zenodo.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "dataset_configurations.zip",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/dataset_configurations.zip/content",
+      "version_or_commit": "4542884",
+      "bytes": 121996138,
+      "sha256": null,
+      "official_checksum": "md5:3ce5e73464890c26341e2070f866f04f",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "calibration_proteometools.zip",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/calibration_proteometools.zip/content",
+      "version_or_commit": "4542884",
+      "bytes": 4148,
+      "sha256": null,
+      "official_checksum": "md5:68e189568e8fa47738e7a888bff9932c",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "OpenmodAnalysis.zip",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/OpenmodAnalysis.zip/content",
+      "version_or_commit": "4542884",
+      "bytes": 868189404,
+      "sha256": null,
+      "official_checksum": "md5:72d9b8e9a72b4d8608109e91bef6eb64",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "train_eval.zip",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/train_eval.zip/content",
+      "version_or_commit": "4542884",
+      "bytes": 118771813,
+      "sha256": null,
+      "official_checksum": "md5:ac1b54af23bdafb1c90c9698eea4ec52",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "figures.zip",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/figures.zip/content",
+      "version_or_commit": "4542884",
+      "bytes": 33949676787,
+      "sha256": null,
+      "official_checksum": "md5:9e2bc487a5cec948e241a2c431dd38c6",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "README.md",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/README.md/content",
+      "version_or_commit": "4542884",
+      "bytes": 2406,
+      "sha256": null,
+      "official_checksum": "md5:4b68ed9403211550b2ff55b0e3f84d49",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "figures_without_models.zip",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/figures_without_models.zip/content",
+      "version_or_commit": "4542884",
+      "bytes": 1236084779,
+      "sha256": null,
+      "official_checksum": "md5:473dc68a47a302c834d91f824ca02ca4",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "workflow_pxd_to_speclib-0.1.1.zip",
+      "upstream_landing_url": "https://zenodo.org/records/4542884",
+      "upstream_download_url": "https://zenodo.org/api/records/4542884/files/workflow_pxd_to_speclib-0.1.1.zip/content",
+      "version_or_commit": "4542884",
+      "bytes": 28737,
+      "sha256": null,
+      "official_checksum": "md5:c3ae1e5333998ec525228360ad5b7d01",
+      "license": "cc-by-4.0",
+      "source_manifest": "data/raw/bench_v02/rt/zenodo_2021_metadata.json",
+      "redistribution": "archive_index_only_no_upload",
+      "hash_status": "No whole-file local SHA asserted for undownloaded/range-only archive"
+    },
+    {
+      "resource": "PEPBI.xlsx recovered official physical file",
+      "upstream_landing_url": "https://datadryad.org/dataset/doi:10.5061/dryad.wstqjq2wk",
+      "upstream_download_url": "https://datadryad.org/downloads/file_stream/4123522",
+      "version_or_commit": "2025-06-17",
+      "local_payload_path": "data/raw/bench_v02/ppikb/pepbi_official/browser_recovery/PEPBI.xlsx",
+      "bytes": 217930,
+      "sha256": "0f3ae5e9021b5c0e925114c5b53a0cb441de90adc42134e5144d4ac9c4826a24",
+      "license": "CC0-1.0",
+      "redistribution": "small_data_optional_allow",
+      "status": "physically_present_recovered; earlier failed acquisition records retained as historical attempts"
+    }
+  ],
+  "not_in_default_public_payload": [
+    {
+      "pattern": "data/raw/bench_v02/elm/**; data/processed/bench_v02/b1*; B1 derived class descriptions/regex/QA cards",
+      "status": "restricted_noncommercial_database_terms; full agreement unresolved",
+      "action": "index/download recipe only in unrestricted public release; do not relicense as MIT/CCBY",
+      "evidence_key": "elm"
+    },
+    {
+      "pattern": "repos/**",
+      "status": "link_index_only",
+      "action": "Publish repository URL, frozen commit and license evidence; no vendoring the2GB tree or .git/history/LFS objects"
+    },
+    {
+      "pattern": "models/**; data/cache/**; data/raw/continuation_20261016/full_primary_assets/**",
+      "status": "large_payload_excluded_by_release_scope",
+      "action": "Publish pinned official URL/version/bytes/hash/license; no weights/archive/cache upload"
+    },
+    {
+      "pattern": "data/raw/bench_v02/ppikb/pepinter_raw_PDBbind.csv and other aggregated external affinity tables",
+      "status": "asset_specific_rights_unknown_or_third_party_terms",
+      "action": "Do not infer dataset permission from PepInter code MIT or weights CC BY; reference each original resource instead"
+    },
+    {
+      "pattern": "Pep-Instructions data and ProtT3 OSF text corpora",
+      "status": "no verified blanket dataset redistribution license",
+      "action": "Source/commit/download index only; public availability does not itself grant redistribution"
+    },
+    {
+      "pattern": "PPIKB article PDF, extracted full text, Chinese translation, adapted article figures",
+      "status": "article_CC_BY_NC_ND4; unrestricted/adapted redistribution not authorized by that license",
+      "action": "Official DOI/publisher link only in main public repository; do not claim databaseCCBY covers article"
+    },
+    {
+      "pattern": "data/processed/bench_v02/a1_locked/** old superseded splits",
+      "status": "not selected_public_benchmark_version",
+      "action": "Keep historical evidence local or metadata only; do not mix old split version with currenta1_locked_v2"
+    },
+    {
+      "pattern": "Any unknown LICENSE or mixed third-party payload",
+      "status": "unknown_not_permission",
+      "action": "Publish bibliographic/index metadata only pending asset-specific evidence"
+    }
+  ],
+  "required_data_attribution": {
+    "PPIKB": "Derived from PPIKB, Zhu et al.(2026), DOI10.1038/s41597-026-07962-1, https://ppikb.duanlab.ac/ and its downloads, database CC BY4.0 https://creativecommons.org/licenses/by/4.0/. Frozen source fetched2026-10-15; original source file hashes retained. Changes: canonicalization, exact-KD eligibility filters, unit normalization and pKD transformation, exclusions, source/family connected-component grouping, and fixed train/validation/test splits. No endorsement is implied.",
+    "PEPBI": "Torres, Pantazes and Kieslich(2025), Dryad DOI10.5061/dryad.wstqjq2wk, dataset CC0; cite associated article10.1038/s41597-025-05754-7.",
+    "RT": "PXD064311, frozen official PRIDE project/license metadata; target-only measured pH9 March RT diagnostic, CC0. This is not the held original cross-condition RT benchmark.",
+    "B1": "ELM provenance and non-commercial agreement retained; do not bundle its records/descriptions in a generic permissive release."
+  },
+  "raw_prediction_gold_policy": {
+    "A1": "May publish original numeric pKD gold/sample IDs alongside own predictions as a PPIKB-derived data artifact under its database attribution terms; no additional row-level restriction observed in the audited frozen fields. Do not label inherited gold as first-party MIT.",
+    "B1_ELM": "Unknown/restricted independently of paper open access; omit gold/labels/descriptions from unrestricted package until ELM agreement conditions resolved.",
+    "RT_PXD064311": "CC0 measured values may be included with source citation and snapshot SHA.",
+    "unknown_sources": "No blanket permission claimed; metadata/derived aggregate metrics without copied third-party expressive text are the default.",
+    "evaluation_acceptance_independent": "Redistribution license does not turn unaccepted runs into valid benchmark results; preserve failed/missing/status metadata."
+  },
+  "public_index_privacy": "Public index uses relative paths and omits URL access-token/view_only queries; do not copy raw internal manifests containing machine paths, credentials or access capabilities without separate publication sanitization.",
+  "source_manifest_sha256": {
+    "sources/repository_manifest.json": "9bef18c3307eb2f0059fbbae256f4595d7a3d4b47bca359d9aff6fadd8650ac4",
+    "sources/literature_data_manifest.json": "30789dd6d39643c1fa4bd6c7189354141a27acafc21c45461a253134a08a0738",
+    "sources/model_manifest.json": "b02684701bffd0c09610cf4b2a6eb6d7e0914ee0f4fbf11d4ed276134bcf6178",
+    "sources/continuation_20261016/asset_manifest.json": "4408d5adf7dd1c3341230d11f297a2a5a1a45eac274afb318cf9c93b7153a7f8",
+    "sources/continuation_20261016/additional_full_verification.json": "664a395ee021194330e8545cbd43153a0caca39a944d5d093b81c5601a0eed04",
+    "data/raw/bench_v02/rt/PXD064311_project.json": "9156c2f995710046cdc41f9c90982085b4c3b36842c1c04253a606e1451f14b1"
+  },
+  "audit_checks": {
+    "output_contains_view_only_query": false,
+    "large_payloads_read_or_rehashed": false,
+    "GB_payloads_downloaded": false,
+    "upstream_trees_vendored": false,
+    "current_small_allowlist_hashed": true,
+    "old_manifest_failures_not_treated_as_final_availability": "PEPBI recovered current file separately indexed; do not infer unavailable from historical failed attempt"
+  }
+}

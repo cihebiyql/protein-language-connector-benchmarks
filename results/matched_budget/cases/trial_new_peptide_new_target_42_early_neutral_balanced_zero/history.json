@@ -1,0 +1,233 @@
+[
+  {
+    "epoch": 1,
+    "train_answer_token_nll": 0.7071019841661119,
+    "validation_answer_token_nll": 0.6831586353208444,
+    "best_epoch": 1,
+    "optimizer_steps": 516,
+    "train_reader_diagnostics": {
+      "placement": "early",
+      "alpha": 0.006923099514096975,
+      "gate_tanh_alpha": 0.006922988686710596,
+      "reader_forward_calls": 516,
+      "realized_padded_text_queries": 495105,
+      "realized_logical_message_payload_bytes": 16900096,
+      "realized_attention_edges_including_heads": 31686720,
+      "realized_written_delta_bytes": 1520962560,
+      "byte_semantics": "module boundary logical tensors; not measured PCI/network bytes or Shannon information",
+      "active_text_positions": 491799,
+      "hidden_l2_per_token_rms": 1.0058274431745016,
+      "gated_delta_l2_per_token_rms": 0.2783688852327618,
+      "raw_delta_l2_per_token_rms": 35.226361508581554,
+      "raw_delta_over_hidden_l2": 35.02227121324439,
+      "gated_delta_over_hidden_l2": 0.27675610475908186
+    },
+    "validation_reader_diagnostics": {
+      "placement": "early",
+      "alpha": 0.006923099514096975,
+      "gate_tanh_alpha": 0.006922988686710596,
+      "reader_forward_calls": 108,
+      "realized_padded_text_queries": 103138,
+      "realized_logical_message_payload_bytes": 3530752,
+      "realized_attention_edges_including_heads": 6600832,
+      "realized_written_delta_bytes": 316839936,
+      "byte_semantics": "module boundary logical tensors; not measured PCI/network bytes or Shannon information",
+      "active_text_positions": 102758,
+      "hidden_l2_per_token_rms": 1.0057462336287795,
+      "gated_delta_l2_per_token_rms": 0.2689991652204259,
+      "raw_delta_l2_per_token_rms": 38.85650604530336,
+      "raw_delta_over_hidden_l2": 38.634503163991255,
+      "gated_delta_over_hidden_l2": 0.26746226456137384
+    },
+    "validation_token_nll_breakdown": {
+      "format": {
+        "loss_sum": 17.286547540933356,
+        "count": 2586,
+        "nll_nats_per_token": 0.006684666489146696,
+        "contribution_nats_per_full_token": 0.003999663938207625
+      },
+      "numeric": {
+        "loss_sum": 2935.32507146016,
+        "count": 1736,
+        "nll_nats_per_token": 1.6908554559102305,
+        "contribution_nats_per_full_token": 0.679158970721925
+      },
+      "mixed": {
+        "loss_sum": 0.0,
+        "count": 0,
+        "nll_nats_per_token": null,
+        "contribution_nats_per_full_token": 0.0
+      },
+      "full": {
+        "loss_sum": 2952.6116190010935,
+        "count": 4322,
+        "nll_nats_per_token": 0.6831586346601327,
+        "contribution_nats_per_full_token": 0.6831586346601327
+      },
+      "reference_supervised_nll": {
+        "loss_sum": 2952.6116218566895,
+        "count": 4322,
+        "nll_nats_per_token": 0.6831586353208444
+      },
+      "accounting": {
+        "diagnostic_sum_minus_reference_fp32_sum": -2.855595994333271e-06,
+        "category_count_equals_full": true,
+        "checkpoint_selection": "unchanged legacy.supervised_nll full-answer value only"
+      }
+    }
+  },
+  {
+    "epoch": 2,
+    "train_answer_token_nll": 0.6760665087663913,
+    "validation_answer_token_nll": 0.673119796089197,
+    "best_epoch": 2,
+    "optimizer_steps": 1032,
+    "train_reader_diagnostics": {
+      "placement": "early",
+      "alpha": 0.0075278254225850105,
+      "gate_tanh_alpha": 0.007527683395892382,
+      "reader_forward_calls": 516,
+      "realized_padded_text_queries": 495165,
+      "realized_logical_message_payload_bytes": 16900096,
+      "realized_attention_edges_including_heads": 31690560,
+      "realized_written_delta_bytes": 1521146880,
+      "byte_semantics": "module boundary logical tensors; not measured PCI/network bytes or Shannon information",
+      "active_text_positions": 491799,
+      "hidden_l2_per_token_rms": 1.0058275379356114,
+      "gated_delta_l2_per_token_rms": 0.3067591207009186,
+      "raw_delta_l2_per_token_rms": 40.5589682876698,
+      "raw_delta_over_hidden_l2": 40.32397877166314,
+      "gated_delta_over_hidden_l2": 0.3049818275313078
+    },
+    "validation_reader_diagnostics": {
+      "placement": "early",
+      "alpha": 0.0075278254225850105,
+      "gate_tanh_alpha": 0.007527683395892382,
+      "reader_forward_calls": 108,
+      "realized_padded_text_queries": 103138,
+      "realized_logical_message_payload_bytes": 3530752,
+      "realized_attention_edges_including_heads": 6600832,
+      "realized_written_delta_bytes": 316839936,
+      "byte_semantics": "module boundary logical tensors; not measured PCI/network bytes or Shannon information",
+      "active_text_positions": 102758,
+      "hidden_l2_per_token_rms": 1.0057462336287795,
+      "gated_delta_l2_per_token_rms": 0.29204447915141823,
+      "raw_delta_l2_per_token_rms": 38.79617695731675,
+      "raw_delta_over_hidden_l2": 38.57451876040175,
+      "gated_delta_over_hidden_l2": 0.2903759113247763
+    },
+    "validation_token_nll_breakdown": {
+      "format": {
+        "loss_sum": 3.0837126809312707,
+        "count": 2586,
+        "nll_nats_per_token": 0.0011924643004374597,
+        "contribution_nats_per_full_token": 0.0007134920594473093
+      },
+      "numeric": {
+        "loss_sum": 2906.1400611286444,
+        "count": 1736,
+        "nll_nats_per_token": 1.6740438140141962,
+        "contribution_nats_per_full_token": 0.6724063075262944
+      },
+      "mixed": {
+        "loss_sum": 0.0,
+        "count": 0,
+        "nll_nats_per_token": null,
+        "contribution_nats_per_full_token": 0.0
+      },
+      "full": {
+        "loss_sum": 2909.2237738095755,
+        "count": 4322,
+        "nll_nats_per_token": 0.6731197995857416,
+        "contribution_nats_per_full_token": 0.6731197995857416
+      },
+      "reference_supervised_nll": {
+        "loss_sum": 2909.2237586975098,
+        "count": 4322,
+        "nll_nats_per_token": 0.673119796089197
+      },
+      "accounting": {
+        "diagnostic_sum_minus_reference_fp32_sum": 1.5112065739231184e-05,
+        "category_count_equals_full": true,
+        "checkpoint_selection": "unchanged legacy.supervised_nll full-answer value only"
+      }
+    }
+  },
+  {
+    "epoch": 3,
+    "train_answer_token_nll": 0.6724664773348799,
+    "validation_answer_token_nll": 0.6742178746143572,
+    "best_epoch": 2,
+    "optimizer_steps": 1548,
+    "train_reader_diagnostics": {
+      "placement": "early",
+      "alpha": 0.0066208974458277225,
+      "gate_tanh_alpha": 0.0066208005882799625,
+      "reader_forward_calls": 516,
+      "realized_padded_text_queries": 495222,
+      "realized_logical_message_payload_bytes": 16900096,
+      "realized_attention_edges_including_heads": 31694208,
+      "realized_written_delta_bytes": 1521321984,
+      "byte_semantics": "module boundary logical tensors; not measured PCI/network bytes or Shannon information",
+      "active_text_positions": 491799,
+      "hidden_l2_per_token_rms": 1.005827569522646,
+      "gated_delta_l2_per_token_rms": 0.3067800800082509,
+      "raw_delta_l2_per_token_rms": 38.30093280541151,
+      "raw_delta_over_hidden_l2": 38.07902464195596,
+      "gated_delta_over_hidden_l2": 0.3050026558268284
+    },
+    "validation_reader_diagnostics": {
+      "placement": "early",
+      "alpha": 0.0066208974458277225,
+      "gate_tanh_alpha": 0.0066208005882799625,
+      "reader_forward_calls": 108,
+      "realized_padded_text_queries": 103138,
+      "realized_logical_message_payload_bytes": 3530752,
+      "realized_attention_edges_including_heads": 6600832,
+      "realized_written_delta_bytes": 316839936,
+      "byte_semantics": "module boundary logical tensors; not measured PCI/network bytes or Shannon information",
+      "active_text_positions": 102758,
+      "hidden_l2_per_token_rms": 1.0057462336287795,
+      "gated_delta_l2_per_token_rms": 0.26303501006728763,
+      "raw_delta_l2_per_token_rms": 39.728922447624164,
+      "raw_delta_over_hidden_l2": 39.50193509975211,
+      "gated_delta_over_hidden_l2": 0.26153218503065634
+    },
+    "validation_token_nll_breakdown": {
+      "format": {
+        "loss_sum": 4.76710639349767,
+        "count": 2586,
+        "nll_nats_per_token": 0.0018434286131081478,
+        "contribution_nats_per_full_token": 0.0011029862085834498
+      },
+      "numeric": {
+        "loss_sum": 2909.2025532429834,
+        "count": 1736,
+        "nll_nats_per_token": 1.6758079223749904,
+        "contribution_nats_per_full_token": 0.6731148896906486
+      },
+      "mixed": {
+        "loss_sum": 0.0,
+        "count": 0,
+        "nll_nats_per_token": null,
+        "contribution_nats_per_full_token": 0.0
+      },
+      "full": {
+        "loss_sum": 2913.969659636481,
+        "count": 4322,
+        "nll_nats_per_token": 0.6742178758992321,
+        "contribution_nats_per_full_token": 0.6742178758992321
+      },
+      "reference_supervised_nll": {
+        "loss_sum": 2913.969654083252,
+        "count": 4322,
+        "nll_nats_per_token": 0.6742178746143572
+      },
+      "accounting": {
+        "diagnostic_sum_minus_reference_fp32_sum": 5.553229129873216e-06,
+        "category_count_equals_full": true,
+        "checkpoint_selection": "unchanged legacy.supervised_nll full-answer value only"
+      }
+    }
+  }
+]

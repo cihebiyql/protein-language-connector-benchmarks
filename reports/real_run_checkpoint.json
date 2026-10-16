@@ -1,0 +1,49 @@
+{
+  "user_objective": "Train L30-J0 and L15-J14 on the unchanged Benz split under matched budgets; compare ESM2+MLP; actually evaluate T2 off/mismatched and T3 paired direction against experiments.",
+  "workspace": "PROJECT_ROOT/",
+  "run_root": "results/real_run_20261015",
+  "runtime": "wsl.exe -d Ubuntu-22.04 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+  "active_t1_pid": 89257,
+  "active_t1_exec_session": 87153,
+  "controller_pid": 93513,
+  "controller_exec_session": 82413,
+  "controller": "scripts/run_remaining_real.py",
+  "live_status": "results/real_run_20261015/suite_status.json",
+  "sequence": [
+    "L30-J0 T1 seeds17,42,2026: active external process, controller waits for all three result.json",
+    "L15-J14 T1 seeds17,42,2026: controller runs sequentially with microbatch8",
+    "L30-J0 T3 seeds17,42,2026: controller runs sequentially with microbatch8/evalbatch4",
+    "L15-J14 T3 seeds17,42,2026: same",
+    "strict final comparison and reports/real_training_results.md generation"
+  ],
+  "budgets": {
+    "T1": "30 epochs, effective batch64, 900 steps, fixed seeds17/42/2026, lr3e-4 AdamW wd.01, earliest highest validation MRR, no early stop",
+    "T3": "30 epochs, 60 steps, 34 D2 training pairs per epoch with equal34 D1 replay =2040 presentations; earliest highest D2 validation balanced accuracy; seed/order/flip/replay identical across methods"
+  },
+  "important_data": {
+    "Benz": "unchanged1914train393validation387test; samples sha57038156925fb5d772824716eef68cf6ce55d288175913e5d86a095007c9e8da",
+    "D2": "QC59 =34train16val9test, same original group/split; weak screening-count directions, endpoint p-values do not authenticate specific pair significance",
+    "D2_clean": "5 of9 test pairs have no detected prior T1 training exposure",
+    "G1": "17 measurable KD directions,12 parents; source-consistent sensitivity subset14 rows10 parents; never trained or validation-selected",
+    "T3_manifest_sha256": "14719bd73cc19d10495941448123c2f1f75fd9ab0d55121b140eb99a65e3b0f5",
+    "T3_target_catalog": "canonical34 identities including distinct KPNA pockets; opaque aliases shared by MLP/bridge, no target biology names in prompts"
+  },
+  "already_complete": [
+    "T1 matched MLP all3seeds, correct mean Recall3 .77174849 and MRR .67653530, off and10donor mismatch",
+    "T3 finalQC MLP all3seeds, G1_17 BA .592949 and sourceconsistent14 BA .590909; scores/CI in t3_mlp_summary.json",
+    "L30-J0 T1 seed17 all900steps: test Recall3 .758828596 MRR .712826800, off .023255814/.074239628, mismatch .107665805/.134360626",
+    "T3 data independently reviewed, source conflicts and original65 lowcoverage snapshot preserved",
+    "270 CPU sampling-order hashes match Torch2.13cpu and2.12.1GPU environments",
+    "CPU regression tests for bridge readout, training schedule, metrics, T3 QC, snapshots, paired swaps and summary logic passed"
+  ],
+  "remaining_work": [],
+  "claim_limits": [
+    "T1 closed34catalog single-token alias ranking via frozen LM head; no claim of JSON generation or mechanistic language accuracy",
+    "Bridge full-vocabulary CE vs MLP candidate CE; same sample/step budgets, different parameter counts and compute",
+    "L30-J0 vsL15-J14 jointly changes read/write layers; cannot attribute gain uniquely to internal injection",
+    "Bootstrap groups235 forT1, parent groups forG1; average10donor draws within sample and3seeds within sample before bootstrap; report seed SD separately",
+    "T3 D2 weakscreen labels and very small independent panels limit generalization conclusions"
+  ],
+  "status": "complete",
+  "final_report": "reports/real_training_assessment.md"
+}

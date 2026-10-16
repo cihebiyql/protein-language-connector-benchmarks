@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "status": "implementation_review_passed_runtime_qualification_pending",
+  "implementation_gate_passed": true,
+  "blocking_findings": [],
+  "reviewed_utc": "2026-10-16T07:28:40.637555+00:00",
+  "source_sha256": {
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "scripts/matched_budget_20261016/batched_generation_v3.py": "c98cc308708acd9c34813ac352055ceee1c30ca4506aba6c46d3c5223500f934",
+    "scripts/matched_budget_20261016/run_trial_batched_v3.py": "98e61cce159477cbf19fccb0bf16dc5372317d277b309b407463ebe57e6f809c",
+    "scripts/matched_budget_20261016/execute_suite_batched_v3.py": "ec4f44214b0bb53b476a9bea13fa426683f8c454cf971ab2fb6a98200b7bb827",
+    "scripts/matched_budget_20261016/summarize_batched_v3.py": "a6a6335acd5d1b20481dc4b6994396a64f837c9bbfcf5ee07bb2b9bac4cf8ea7",
+    "scripts/matched_budget_20261016/prepare_batched_admission_v3.py": "9b6f6ad903247ca534ba9beb5a9467166020860854eaff2e01be9d81faf4fa05",
+    "scripts/matched_budget_20261016/admit_suite_batched_v3.py": "0d12e65d4744270d7dbabd74c93a1153128205b514ae6193049cf5e09e7265bc",
+    "tests/test_matched_budget_batched_v3.py": "6edf4fcea433c5b9a81b9627fca69df64b120dc94ffb8a0f36724e836b27fa61",
+    "tests/test_matched_budget_batched_v3_supervision.py": "9dddc1b4635ca9bc43b197d6546b5e1d52c6a2d0bf3ce15dc0f836a3dda4d4b0",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "reports/benchmark_clarity_20261016/engineering_addendum_v3.json": "a913d591185ddfdaa06cabed6e04815ef56a9dc9010c59de1cb77d1c7f4cfaac"
+  },
+  "scope": "Narrow V2-to-V3 source diff and independent V3-only CPU tests; no GPU, downloaded-backbone forward or new test score read; prior V1/V2 reviews and code/results preserved",
+  "owner_final_freeze_confirmation": "Parent confirmed corrected controller ec4f4421 final; runner98e61cce/batchgenc98cc308/summarya6a6335a unchanged",
+  "GPU_execution_approved_by_reviewer": false,
+  "scientific_protocol_sha256_unchanged": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "training_function_verbatim_V1": {
+    "equal": true,
+    "sha256": "4b8de2de27384c49b1303598aeb14b9668fa63fa78c7cc57e6747c7a757468f1"
+  },
+  "CPU_evidence": {
+    "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s tests -p 'test_matched_budget_batched_v3*.py' -v",
+    "independent_tests": 32,
+    "seconds": 3.487,
+    "exit_code": 0,
+    "result": "OK no skips",
+    "scope": "12 V3 runner/batch tests plus20 V3 supervision; original94 not redundantly rerun by reviewer",
+    "timing_note": "Run before final P2 administrative version-string correction. Corrected final source SHA/version literal independently inspected; parent running complete126 suite with final files",
+    "parent_full126_receipt": "Parent collecting actual full stdout/hash receipt; not fabricated here"
+  },
+  "findings": [
+    {
+      "id": "V3_dataset_version_metadata",
+      "severity": "P2",
+      "status": "closed",
+      "original_candidate_controller_sha256": "89ce5bfcaf5ee4142cac1dd201fca0af4d40d541b18014e81d3f7d5756f8a253",
+      "problem": "Copy label accidentally renamed the frozen A1 v2 dataset to a1_locked_v3 while physical rows/data remained v2",
+      "fix": "Final controller ec4f4421 restores both Immutable A1 v2 name and a1_locked_v2 version; no data, code training, metric or protocol change",
+      "verification": "Exact final SHA and literals inspected; owner added physical-contract name/version assertion to20-test V3 supervision suite"
+    }
+  ],
+  "closed_checks": [
+    "Only new runtime engineering B2, no B4/backend/dtype search. Addendum identifies V2 failed TRAIN candidate and final-candidate stop policy",
+    "All36 use uniform original-order contiguous B2, final batch1or2; V1/V2 output channels never fill V3 answers",
+    "Qualification compares B1 all4 rows against B2_all_four two batches; same reader tensors before/after; exact firstEOS tokens/raw decoded text/strict parse; no test rows",
+    "Supervisor qualified_four_train_rows rejects two-row prior B2_first_two qualification, duplicate/missing identifiers, changed reader state or any mismatch; six cases precede full trial queue",
+    "Any failed canary/trial produces terminal archive then stops queue; no automatic retry or alternate batch/backend selected",
+    "Greedy24/no cache, strict original parser, original prompt/answer IDs/EOS, full failure denominators and nullfullMAE preserved",
+    "Original V1 training function byte-identical; initialization464001 parameters/message16x128/float32 neutral fit/seeds/36order/epochs1548/validation selection and deadline unchanged",
+    "Reuse original first2 fully completed accepted V1 training states with no new optimizer; source checkpoint/history and full standard archive hashes retained; remaining34 train freshly under same budget",
+    "Summary keeps source training budget distinct from new optimization, uses immutable original raw prediction audit and paired statistics; k/3 null on incomplete seeds",
+    "Actual physical batch query/message/EOS/padding/whole-batch time semantics inherited from reviewedV2; no fabricated row latency",
+    "New source/admission helpers append only V3/addendum pins to immutable cache; parent admission requires exact2 complete V1 states,126-test physicalreceipt,1398-oldasset snapshot and strict runtime gates",
+    "Corrected standard contract still identifies actual frozen a1_locked_v2 data; intended_level independent_inference/epochs0 for reuse and freshtraining for remainingcases"
+  ],
+  "runtime_gates_remaining": [
+    "Parent final126 complete CPU stdout/hash receipt with final source pins",
+    "New immutable V3 admission manifest, old assets intact, fresh exact-task resource probe and real standard contracts",
+    "All six real full-four-row TRAIN-only GPU B1/B2 equivalence, numerical, memory and throughput qualifications",
+    "If any V3 qualification fails, stop; preserve all evidence, do not search another batch/backend or relax equivalence; retain original23:20 deadline"
+  ],
+  "scientific_limits": [
+    "TRAIN equality covers measured inputs/states only, not guarantee of batch-shape-invariant logits on every test row",
+    "Fixed max24 and per-forward message are matched; actual EOS reads/padding/FLOPs can vary and must remain reported",
+    "V1 test was previously observed; new comparison remains subsequent predeclared evaluation on same benchmark",
+    "No explicit type/slot embedding; balanced8+8 is allocation, not demonstrated peptide-target type alignment; frozen prompt type0/1 wording does not restore old type IDs",
+    "Reused2 states are not additional training replicates; complete36 consists of2 earlier complete states plus34 new states"
+  ]
+}

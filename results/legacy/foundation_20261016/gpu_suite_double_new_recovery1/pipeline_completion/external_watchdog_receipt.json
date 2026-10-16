@@ -1,0 +1,43 @@
+{
+  "watchdog_pid": 221980,
+  "watchdog_pgid": 221980,
+  "controller": {
+    "pid": 221913,
+    "state": "S",
+    "ppid": 221911,
+    "pgid": 221913,
+    "start_ticks": 9278145,
+    "command": [
+      "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+      "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complete_remaining.py"
+    ]
+  },
+  "started_utc": "2026-10-16T02:16:28.619191+00:00",
+  "absolute_stage_deadline_utc": "2026-10-16T02:32:32.279805+00:00",
+  "known_owned_children": {
+    "221981": {
+      "pid": 221981,
+      "state": "D",
+      "ppid": 221913,
+      "pgid": 221981,
+      "start_ticks": 9279896,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complete_remaining.py",
+        "--worker",
+        "--job-dir",
+        "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_job"
+      ],
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_job/running-process.json"
+    }
+  },
+  "events": [],
+  "policy": "Verify exact receipt PID/PGID, command, allowed project/output paths and process start ticks; never signal unrelated processes.",
+  "last_heartbeat_utc": "2026-10-16T02:23:11.401662+00:00",
+  "termination_trigger": "controller_exit_or_death",
+  "controller_alive_at_trigger": false,
+  "ended_utc": "2026-10-16T02:23:13.411321+00:00",
+  "terminal_owned_children": {
+    "221981": null
+  }
+}

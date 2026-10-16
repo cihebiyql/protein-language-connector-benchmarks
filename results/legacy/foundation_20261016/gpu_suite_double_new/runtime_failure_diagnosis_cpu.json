@@ -1,0 +1,118 @@
+{
+  "scope": "CPU-only deterministic shape and resource evidence; no retry",
+  "CUDA_used": false,
+  "model_weights_loaded": false,
+  "failed_epoch": 1,
+  "last_completed_step": 27,
+  "failed_step": 28,
+  "training_order": "Random(seed17 + epoch1).shuffle immutable source train indices",
+  "failed_batch": [
+    {
+      "sample_id": "ppikb:PPIRE00953",
+      "peptide_residues": 14,
+      "target_residues": 346,
+      "prompt_tokens": 228,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    },
+    {
+      "sample_id": "ppikb:PPIRE15128",
+      "peptide_residues": 18,
+      "target_residues": 149,
+      "prompt_tokens": 232,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 208
+    },
+    {
+      "sample_id": "ppikb:PPIRE09980",
+      "peptide_residues": 11,
+      "target_residues": 1824,
+      "prompt_tokens": 227,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    },
+    {
+      "sample_id": "ppikb:PPIRE17087",
+      "peptide_residues": 19,
+      "target_residues": 150,
+      "prompt_tokens": 229,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    }
+  ],
+  "previous_successful_batch": [
+    {
+      "sample_id": "ppikb:PPIRE15100",
+      "peptide_residues": 10,
+      "target_residues": 638,
+      "prompt_tokens": 228,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    },
+    {
+      "sample_id": "ppikb:PPIRE17592",
+      "peptide_residues": 42,
+      "target_residues": 1133,
+      "prompt_tokens": 229,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    },
+    {
+      "sample_id": "ppikb:PPIRE16992",
+      "peptide_residues": 12,
+      "target_residues": 324,
+      "prompt_tokens": 229,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    },
+    {
+      "sample_id": "ppikb:PPIRE06403",
+      "peptide_residues": 6,
+      "target_residues": 1064,
+      "prompt_tokens": 229,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 208
+    }
+  ],
+  "canary_batch": [
+    {
+      "sample_id": "ppikb:PPIRE09493",
+      "peptide_residues": 10,
+      "target_residues": 3419,
+      "prompt_tokens": 232,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 224
+    },
+    {
+      "sample_id": "ppikb:PPIRE19444",
+      "peptide_residues": 5,
+      "target_residues": 3419,
+      "prompt_tokens": 230,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 208
+    },
+    {
+      "sample_id": "ppikb:PPIRE09154",
+      "peptide_residues": 10,
+      "target_residues": 3010,
+      "prompt_tokens": 227,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    },
+    {
+      "sample_id": "ppikb:PPIRE09482",
+      "peptide_residues": 10,
+      "target_residues": 3010,
+      "prompt_tokens": 227,
+      "answer_tokens_with_eos": 10,
+      "allowed_context_characters": 201
+    }
+  ],
+  "max_registered_supervised_text_tokens": 245,
+  "registered_position_budget": 275,
+  "canary_peak_allocated_bytes": 7651176960,
+  "canary_peak_reserved_bytes": 8722055168,
+  "failure_peak_GPU_memory": null,
+  "failure_peak_GPU_memory_reason": "No terminal GPU peak metrics were written on the exception; CPU RSS receipts do not prove GPU OOM or a cuBLAS root cause.",
+  "conclusion": "Confirmed failure is a bf16 CUDA GEMM error during backward, not a JSON/gold/parser error. Exact GPU cause remains unverified; no environment reset or blind rerun performed."
+}

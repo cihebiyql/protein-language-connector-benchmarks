@@ -1,0 +1,42 @@
+{
+  "role": "foundation_runner",
+  "goal": "Finish all recovery1 GPU jobs sequentially, audit and archive; verify every controller/worker/watchdog absent and fresh GPU idle before parent releases C1/C2",
+  "active_tool_session": 57917,
+  "controller_pid": 208826,
+  "watchdog_pid": 208829,
+  "stage_deadline_cst": "2026-10-16T10:32:32.279805+08:00",
+  "original_goal_start_cst": "2026-10-16T07:18:00+08:00",
+  "original_goal_deadline_cst": "2026-10-16T17:18:00+08:00",
+  "known_target_suite": "../gpu_suite/post_run_archive.json",
+  "known_target_complete": true,
+  "known_target_test_mae": {
+    "input_mlp": 1.9962375221398578,
+    "qformer_style": 1.442674172563715,
+    "internal_cross_attention": 2.1613332667319782,
+    "constant": 1.9656087454219924
+  },
+  "known_target_base03": {
+    "source_predictor_all152_mae": 1.4686985760783524,
+    "generated_valid": 91,
+    "generated_total": 152,
+    "generated_valid_only_mae": 5.922364502805869
+  },
+  "preserved_failed_attempt": "../gpu_suite_double_new",
+  "failure": "CUBLAS_STATUS_INTERNAL_ERROR after27 updates; exact batch28 and prefix28 diagnostics pass with CUDA_LAUNCH_BLOCKING=1, cause unverified, no OOM claim",
+  "recovery_runtime": "same batch4/seed17/3epochs/full2063-431-442/data/prompt/24tokens; process-local CUDA_LAUNCH_BLOCKING=1; prior source files/contracts/configs immutable",
+  "completed_recovery_models": {
+    "input_mlp": {
+      "exit_code": 0,
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "test_total": 442,
+      "correct_valid": 442,
+      "correct_mae": 1.9056241964989176,
+      "off_valid": 70
+    }
+  },
+  "current_phase_at_checkpoint": "Qformer test correct generation done; OFF generation running normally (PID211408). Then internal attention, constant, BASE03 queued.",
+  "parent_reporting_preference": "Report full job completion/failure/resource-gate changes, not ordinary training steps",
+  "next_audit": "Run ../gpu_suite/verify_full_runs.py --suite THIS_ROOT --config ../../../configs/foundation_gpu_double_new_recovery1_20261016.json after terminal; use absolute paths",
+  "important_scope": "One seed and three epochs, not full-paper or matched30epoch superiority. Internal full-residue KV vs16prefix is not insertion-only ablation. Source predictor and raw BASE03 generation must remain separate channels."
+}

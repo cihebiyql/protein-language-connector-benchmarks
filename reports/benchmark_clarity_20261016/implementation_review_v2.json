@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "implementation_review_passed_runtime_qualification_pending",
+  "reviewed_utc": "2026-10-16T07:13:11.516676+00:00",
+  "implementation_gate_passed": true,
+  "blocking_findings": [],
+  "GPU_execution_approved_by_reviewer": false,
+  "source_sha256": {
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "scripts/matched_budget_20261016/run_trial_batched.py": "d06956ee5d28c329b73031b043adb456cee3f8036409de2a55b70b9ddcdedc62",
+    "scripts/matched_budget_20261016/batched_generation.py": "4f1e8b185a90359d409aad4e05163f7630ad779c20c2813f9480cc056687c1f8",
+    "scripts/matched_budget_20261016/execute_suite_batched.py": "a5236400bbc350aa6328f45540dfe0699591fcba0e1ae680e67c012b758bcfac",
+    "scripts/matched_budget_20261016/summarize.py": "695b6f876cc8d6da1773cbf70f69fbe4afe995ef4221a8cb2f5ea6895ea9b1c5",
+    "scripts/matched_budget_20261016/summarize_batched.py": "954c1e66779d54b6cabd25fa88e4580c85c9f9a3165f1b244dc3282ba66bf7cb",
+    "scripts/matched_budget_20261016/prepare_batched_admission.py": "175fc68a903ed3a3623896b346221e41367f102cec19b80ae639ca8117d64b94",
+    "tests/test_matched_budget_batched.py": "af10ee55bba60ce1fe712d080cb424ecc2b93ae29e0f13066ff9fe631843a82b",
+    "tests/test_matched_budget_batched_supervision.py": "152cb66d46a8dd8134eb1bdf1fecf920103294c000ae1df1d227a8df4cdd6bf0",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "reports/benchmark_clarity_20261016/engineering_addendum_v2.json": "7e225bb39e301329e5574ed4e04bbf0c9b86ec46ac3e09fc4ea4eeafb36fa24e"
+  },
+  "owner_freeze_confirmation": "Parent confirmed final owner freeze ofd06956ee runner and4f1e8b batch generation before report publication; no further source edits",
+  "scope": "V2 inference throughput/reuse revision only; no GPU, downloaded backbone forward, new test scores, downloads or dependency installation; V1 review/source/results untouched",
+  "scientific_protocol_sha256_unchanged": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "training_function_byte_comparison": {
+    "equal": true,
+    "sha256": "4b8de2de27384c49b1303598aeb14b9668fa63fa78c7cc57e6747c7a757468f1",
+    "method": "AST locate function, compare original UTF8 source spans including whitespace; not just AST equivalence"
+  },
+  "evidence": {
+    "independent_CPU_unified_tests": {
+      "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s tests -p 'test_matched_budget*.py' -v",
+      "tests": 91,
+      "seconds": 4.001,
+      "exit_code": 0,
+      "result": "OK no skips",
+      "timing_note": "Executed before final3 fixtures were appended; final3 statically reviewed separately; do not represent91 as all final tests"
+    },
+    "independent_supervision_subset": {
+      "tests": 14,
+      "seconds": 0.608,
+      "result": "OK incl real standard validator physical inference-reuse contract and actual CPU process terminal archive",
+      "not_additive_to_unified_count": true
+    },
+    "independent_actual_tiny_Qwen_mixed_EOS_probe": {
+      "CPU_only": true,
+      "actual_original_greedy_and_actual_reader_forward": true,
+      "scripted_logits_only": "Real tiny Qwen forward ran, logits were overwritten only to force distinct EOS termination schedules",
+      "cases": [
+        {
+          "pad_id": 0,
+          "eos_id": 47,
+          "raw_tensor_shape": [
+            3,
+            24
+          ],
+          "first_EOS_lengths": [
+            3,
+            5,
+            null
+          ],
+          "padding_tail_counts": [
+            21,
+            19,
+            0
+          ],
+          "physical_padded_queries": 1116,
+          "active_mask_queries": 663,
+          "ledger_verified": true
+        },
+        {
+          "pad_id": 47,
+          "eos_id": 47,
+          "raw_tensor_shape": [
+            3,
+            24
+          ],
+          "first_EOS_lengths": [
+            3,
+            5,
+            null
+          ],
+          "padding_tail_counts": [
+            21,
+            19,
+            0
+          ],
+          "physical_padded_queries": 1116,
+          "active_mask_queries": 663,
+          "ledger_verified": true
+        }
+      ],
+      "exit_code": 0,
+      "scope": "Mechanics only; no real data or model score"
+    },
+    "final_added_fixtures_static_review": [
+      "Actual tiny Qwen oneTRAINupdate+B1/B4/B2 qualification",
+      "Evaluation reuse invokes zero optimizer updates and preserves checkpoint/history",
+      "V2 summary full raw audit integration rejects deleted row and counts reused source once"
+    ],
+    "parent_final_CPU_tests": {
+      "source": "Parent direct trusted message",
+      "tests": 94,
+      "seconds": 4.463,
+      "exit_code": 0,
+      "result": "OK no GPU/new-test-score inspection",
+      "receipt_path": null,
+      "receipt_status": "Parent writing physical full stdout/hash receipt; parent should link exact path in execution admission before GPU"
+    }
+  },
+  "closed_checks": [
+    "V2 uniform contiguous original-order B4 evaluation, last batch1to4; no per-model or per-case batch choice",
+    "Old24-token no-cache deterministic greedy unchanged; full raw tensors, firstEOS canonical spans and padding tail retained; scoring uses original raw decode/strict parser",
+    "Physical BxL queries include alreadyEOS rows; actual forwards/message bytes/whole batch time recorded without artificial row latency division",
+    "Six prespecified TRAIN-only canaries compare same reader state B1/B4/B2 through firstEOS IDs, text and parse; mismatch archived and blocks queue",
+    "All scientific training/optimizer/validation selection code is V1 verbatim; old data/prompts/labels/scoring and3seed36order unchanged",
+    "V1 source reuse admits only complete accepted1548step3epoch source, same exact case/data/init/projection/message/neutral, earliest fullvalidation-selected checkpoint/history and frozen evidence hashes",
+    "Reused evaluation has zero new optimizer steps and no additional training; original checkpoint/history copied unchanged; V1 evaluation retained as separate version, never substituted into V2",
+    "Actual standard inference-only contract intended_level independent_inference, epochs0 and explicit training provenance validated via physical CPU fixture; failed attempt archives terminal ownedPGID absence",
+    "V2 summary reuses immutable original strict raw-output reconstruction/statistics and adds source-vs-new budget checks; partial seeds remain k/3 null",
+    "New admission manifest appends V2 source/addendum pins to immutable parent manifest without recomputing message/init; same strict numerical policy and original23:20 deadline retained"
+  ],
+  "limitations": [
+    "Parent must finish final physical test receipt, new manifest/source pins, old-asset protection, fresh resource probe and real standard contracts before runtime admission",
+    "Actual TRAIN-only GPU B1/B4/B2 numerical/memory/throughput qualification remains required; CPU tests do not establish GPU readiness",
+    "Strict determinism does not guarantee batch-shape-invariant logits; equality on fixed TRAIN canaries does not prove B1/B4 equality on all test inputs. All36 new comparisons nevertheless use uniform V2",
+    "Fixed max24 is matched; realized EOS forwards/padding and actual FLOPs may differ. Logical message bytes are not physical network bytes",
+    "No new test metrics were read in this review. Reused models are not independent additional training replicates",
+    "No explicit type/slot embedding remains:8+8 allocation does not itself label peptide/target, and frozen prompt originaltype0/1 wording does not restore originaltypeIDs",
+    "This same frozen benchmark test was previously observed; subsequent predeclared comparisons are not untouched confirmatory evaluation"
+  ]
+}

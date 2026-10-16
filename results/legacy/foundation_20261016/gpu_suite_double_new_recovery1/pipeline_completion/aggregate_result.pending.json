@@ -1,0 +1,75 @@
+{
+  "status": "complete",
+  "method": "BASE03",
+  "scenario": "new_peptide_new_target",
+  "seed": 17,
+  "scope": "full431/442 frozen inference reconciled from preserved partial plus strictly disjoint complement",
+  "subset_scope": false,
+  "selected_architecture": "MEANPOOL",
+  "metrics": {
+    "validation": {
+      "n_total": 431,
+      "n_valid": 339,
+      "n_failed": 92,
+      "parse_valid_rate": 0.7865429234338747,
+      "failure_counts": {
+        "invalid_json_or_nonfinite": 92
+      },
+      "source_predictor_mae_same_all_examples": 1.602326020227852,
+      "source_predictor_mae_same_valid_examples": 1.5595481665350581,
+      "generated_pKD_mae_valid_only": 4.992587529681867,
+      "parsed_estimate_preservation_mae_valid_only": 4.345056096093038,
+      "parsed_estimate_preservation_max_error_valid_only": 6.724598000008463,
+      "full_sample_generated_mae": null,
+      "failure_policy": "no imputation, clipping, repair, or gold substitution",
+      "native_uncertainty_available": false
+    },
+    "test": {
+      "n_total": 442,
+      "n_valid": 336,
+      "n_failed": 106,
+      "parse_valid_rate": 0.7601809954751131,
+      "failure_counts": {
+        "invalid_json_or_nonfinite": 106
+      },
+      "source_predictor_mae_same_all_examples": 1.4210855003430791,
+      "source_predictor_mae_same_valid_examples": 1.3490666775960958,
+      "generated_pKD_mae_valid_only": 4.638924016351397,
+      "parsed_estimate_preservation_mae_valid_only": 4.110546028164414,
+      "parsed_estimate_preservation_max_error_valid_only": 7.992225646972656,
+      "full_sample_generated_mae": null,
+      "failure_policy": "no imputation, clipping, repair, or gold substitution",
+      "native_uncertainty_available": false
+    }
+  },
+  "execution_mode": "original_partial_plus_disjoint_complement",
+  "original_single_job_completed": false,
+  "cost": {
+    "elapsed_seconds": 1563.9700750170014,
+    "scope": "sum of both actual worker durations; setup/wait gap separately retained in receipts",
+    "optimizer_steps": 0,
+    "lm_trainable_parameters": 0,
+    "predictor_trainable_parameters": 0
+  },
+  "attempt_receipts": [
+    "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_pipeline_BASE03_seed17/execution-receipt.json",
+    "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complement_job/execution-receipt.json"
+  ],
+  "configuration": {
+    "method": "BASE03",
+    "max_new_tokens": 24,
+    "selection": "lowest stored full-validation MAE; BASE01 fixed tie-breaker"
+  },
+  "plan_sha256": "553feeb0efab933392cab4809716c47bbb052424f36976a8843e256cfb8f95ad",
+  "row_lineage_sha256": "23acd23adbd233d491f5788a8eaa19bdc8d43d55d76e2c52198745228f192f78",
+  "prediction_sha256": {
+    "validation": "6b33c55f4f82d6f7a09ea8ab7cba61fe711a3480ae628799add67edf5504a7f9",
+    "test": "2abca0b9f29d48e31de34a3c90da11b184daa13f8f5f6f18be4235e056e53499"
+  },
+  "original_registration_sha256": "ea13cabade75240ea8f4c70b8d83c258e87d35f1e40f1ce6dcc19c52f5c273d5",
+  "completed_invalid_answers_retried": 0,
+  "input_pins_unchanged": true,
+  "formal_multitask_connector_result": false,
+  "B2_composition_claim": false,
+  "synthetic_results_counted": false
+}

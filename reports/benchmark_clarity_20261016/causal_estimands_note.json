@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T11:24:08.158958+00:00",
+  "reviewer": "matched_protocol_review",
+  "status": "estimand_clarified_no_protocol_or_evaluation_change",
+  "scope": "Static read-only frozen matched A1 V1 protocol/source and listed historical reports only; no active case, result/score recomputation, checkpoint load, model forward, fit, GPU or new evaluation",
+  "scientific_protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "reviewed_source_sha256": {
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "scripts/matched_budget_20261016/connectors.py": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+    "scripts/matched_budget_20261016/prepare_cache.py": "63e9094a4f9c4f6ec07f5b7b8e2e92423807ab4e03b57275caaded08636ff07b",
+    "scripts/foundation_20261016/run_connectors.py": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+    "reports/benchmark_clarity_20261016/README.md": "7c962ef400dd123208274ca3aef507b997ec6d9ad8b44efb0ac9982810a05107",
+    "reports/benchmark_clarity_20261016/interpretation_plan.md": "3951ff2088bc99944221e68b48ff8ad76868e01eef1cd2ae17f48b76d9457137",
+    "reports/benchmark_clarity_20261016/protocol_review.md": "0f680fb028e4a9f9d53bc79a325133c70f8dfbc372f046ff19d999c895574086",
+    "reports/benchmark_clarity_20261016/interim_mechanism_8cases.md": "d3dd7c91f4e189381c4c00d51c006d4bd572ae5e018ded861290431a2263563c",
+    "reports/benchmark_clarity_20261016/numeric_reference_audit.md": "c17d31564eb092f8d245b18b3ecb7e544604da5c8f9ad1b0391236633d0a77c5"
+  },
+  "notation": {
+    "m_i": "Fixed sender per-example residual message",
+    "m_bar": "Per-scenario TRAIN message tensor slotwise mean, not pKD label mean",
+    "c_i": "Unchanged allowed chemistry/assay prompt context",
+    "theta_R": "Reader independently trained and validation-selected with real message throughout",
+    "theta_N": "Reader independently trained and validation-selected with neutral TRAIN mean throughout",
+    "L": "Original full locked-test autonomous pKD MAE with unchanged greedy/parser; undefined if any output invalid",
+    "end_to_end_treatment": "Whole training+selection+evaluation information-availability treatment; does not mean sender or frozen LM weights trained"
+  },
+  "source_facts": [
+    {
+      "id": "F1",
+      "classification": "source_fact",
+      "claim": "message_input is fixed when MessageStore is built; neutral supplies fixed per-scenario TRAIN mean and real supplies each row message",
+      "evidence": [
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 127,
+          "end_line": 159,
+          "excerpt": "        if message_input not in ('real', 'neutral') or sender_mode not in ('balanced', 'global16'):\n            raise ValueError('Unregistered content or fixed pooling mode')\n        self.scenario, self.sender_mode, self.message_input = scenario, sender_mode, message_input\n        item = self.manifest['datasets'][scenario]['layouts'][sender_mode]\n        self.payload_path = ROOT / item['path']\n        if file_sha(self.payload_path) != item['sha256']:\n            raise ValueError('Cached messages changed')\n        payload = torch.load(self.payload_path, map_location='cpu', weights_only=True)\n        ids, splits = payload['sample_ids'], payload['splits']\n        self.messages, self.neutral = payload['messages'], payload['neutral']\n        if (payload.get('scenario') != scenario or payload.get('sender_mode') != sender_mode\n                or len(ids) != len(set(ids)) or len(splits) != len(ids)\n                or self.messages.shape != (len(ids), 16, 128)\n                or self.messages.dtype != torch.float32 or self.messages.requires_grad\n                or self.neutral.shape != (16, 128) or self.neutral.dtype != torch.float32\n                or not torch.isfinite(self.messages).all() or not torch.isfinite(self.neutral).all()):\n            raise ValueError('Malformed fixed-message payload')\n        self.indices = {key: index for index, key in enumerate(ids)}\n        self.splits = dict(zip(ids, splits))\n        train = [i for i, split in enumerate(splits) if split == 'train']\n        if (not train or payload['neutral_fit_train_sample_ids'] != [ids[i] for i in train]\n                or payload.get('neutral_fit_uses_labels') is not False\n                or not torch.equal(self.neutral, self.messages[train].mean(0))\n                or tensor_sha(self.neutral) != item['neutral_sha256']):\n            raise ValueError('Neutral message is not the exact scenario TRAIN-only mean')\n        self.samples_sha256 = payload['samples_sha256']\n\n    def batch(self, rows):\n        if any(row['sample_id'] not in self.indices or self.splits[row['sample_id']] != row['split'] for row in rows):\n            raise ValueError('Row identity/split differs from fixed-message manifest')\n        if self.message_input == 'neutral':\n            return self.neutral.unsqueeze(0).expand(len(rows), -1, -1).clone()\n        return self.messages[[self.indices[row['sample_id']] for row in rows]]"
+        },
+        {
+          "path": "scripts/matched_budget_20261016/prepare_cache.py",
+          "sha256": "63e9094a4f9c4f6ec07f5b7b8e2e92423807ab4e03b57275caaded08636ff07b",
+          "start_line": 51,
+          "end_line": 76,
+          "excerpt": "def build_messages(rows, store, sender, sender_mode):\n    \"\"\"Pure input-only extraction, preserving physical source row order.\"\"\"\n    messages, train_indices = [], []\n    checked = {}\n    for index, row in enumerate(rows):\n        value = sender.encode(store.residues(row['peptide_sequence']).float(),\n                              store.residues(row['target_sequence']).float(), sender_mode=sender_mode)\n        if value.shape != (16, 128) or not torch.isfinite(value).all():\n            raise ValueError('Fixed sender must emit finite float32 [16,128] messages')\n        messages.append(value.detach().cpu().float())\n        if row['split'] == 'train':\n            train_indices.append(index)\n        checked.update(getattr(store, 'checked_proteins', {}))\n        # A bound on resident source features; the immutable on-disk cache stays intact.\n        memory = getattr(store, 'memory', {})\n        if sum(x.numel() * x.element_size() for x in memory.values()) > 256 * 1024**2:\n            memory.clear()\n    if not train_indices or len({r['sample_id'] for r in rows}) != len(rows):\n        raise ValueError('Nonempty TRAIN and unique source sample IDs required')\n    from matched_budget_20261016.fixed_message import neutral_message\n    values = torch.stack(messages)\n    neutral = neutral_message(values[train_indices])\n    return {'schema_version': 1, 'sample_ids': [r['sample_id'] for r in rows],\n            'splits': [r['split'] for r in rows], 'messages': values, 'neutral': neutral,\n            'neutral_fit_train_sample_ids': [rows[i]['sample_id'] for i in train_indices],\n            'neutral_fit_uses_labels': False, 'sender_mode': sender_mode}, checked"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "classification": "source_fact",
+      "claim": "Same store supplies training, validation, C1 and autonomous generation in each independent run; each content condition has its own optimizer trajectory and validation-selected reader",
+      "evidence": [
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 299,
+          "end_line": 327,
+          "excerpt": "def train_and_evaluate(model, tokenizer, splits, store, args, registration, log, check=lambda: None):\n    \"\"\"Injectable training core; CPU fixtures are declared outside real contracts.\"\"\"\n    parameters = [p for p in model.parameters() if p.requires_grad]\n    if not parameters:\n        raise ValueError('Empty reader optimizer')\n    legacy.assert_frozen(model.base_lm)\n    optimizer = torch.optim.AdamW(parameters, lr=3e-4, weight_decay=.01)\n    best, best_epoch, steps, history = math.inf, None, 0, []\n    checkpoint = args.output / 'best_reader.pt'\n    started = time.perf_counter()\n    phase_diagnostics = []\n    for epoch in range(1, 4):\n        model.train()\n        model.diagnostics(reset=True)\n        order = list(range(len(splits['train'])))\n        random.Random(args.seed + epoch).shuffle(order)\n        train_sum, train_tokens = 0., 0\n        for start in range(0, len(order), 4):\n            check()\n            selected = [splits['train'][i] for i in order[start:start + 4]]\n            batch = collate(selected, tokenizer, store, args.device)\n            optimizer.zero_grad(set_to_none=True)\n            summed, count = legacy.supervised_nll(model(**batch), batch['labels'])\n            (summed / count).backward()\n            gradients = [p.grad for p in parameters if p.grad is not None]\n            if not gradients or any(not torch.isfinite(g).all() for g in gradients):\n                raise ValueError('Missing or nonfinite reader gradients')\n            norm = torch.nn.utils.clip_grad_norm_(parameters, 1., error_if_nonfinite=True)\n            legacy.assert_frozen(model.base_lm)"
+        },
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 345,
+          "end_line": 387,
+          "excerpt": "        train_diagnostic = model.diagnostics(reset=True)\n        token_diagnostic = {}\n        score = validation_nll(model, splits['validation'], tokenizer, store, args.device, 4, check,\n                               diagnostic_sink=token_diagnostic)\n        validation_diagnostic = model.diagnostics(reset=True)\n        if not math.isfinite(score):\n            raise ValueError('Nonfinite full validation NLL')\n        if score < best:\n            best, best_epoch = score, epoch\n            legacy.save_checkpoint(checkpoint, {'reader_state': model.reader_state(), 'best_epoch': epoch,\n                'validation_answer_token_nll': best, 'registration': registration,\n                'normalization': 'none; unchanged two-decimal text serialization; original pKD scoring'})\n        item = {'epoch': epoch, 'train_answer_token_nll': train_sum / train_tokens,\n                'validation_answer_token_nll': score, 'best_epoch': best_epoch, 'optimizer_steps': steps,\n                'train_reader_diagnostics': train_diagnostic, 'validation_reader_diagnostics': validation_diagnostic,\n                'validation_token_nll_breakdown': token_diagnostic}\n        history.append(item)\n        phase_diagnostics.append({'epoch': epoch, 'train': train_diagnostic, 'validation': validation_diagnostic})\n        legacy.write_json(args.output / 'history.json', history)\n        log({'event': 'epoch_complete', **item})\n    saved = torch.load(checkpoint, weights_only=True, map_location='cpu')\n    model.load_reader_state(saved['reader_state'])\n    legacy.assert_frozen(model.base_lm)\n    legacy.write_json(args.output / 'selection_before_test.json', {'best_epoch': best_epoch,\n        'validation_answer_token_nll': best, 'checkpoint_sha256': file_sha(checkpoint),\n        'all_training_epochs_completed': 3, 'optimizer_steps': steps,\n        'selection': 'minimum full validation answer-token NLL; earliest tie',\n        'test_labels_used_for_selection': False})\n    model.diagnostics(reset=True)\n    c1 = test_c1_diagnostics(model, splits['test'], tokenizer, store, args, check)\n    c1_reader_diagnostics = model.diagnostics(reset=True)\n    with (args.output / 'test_predictions_correct.jsonl').open('x', encoding='utf-8') as handle:\n        predictions = generated_predictions(model, splits['test'], tokenizer, store, args, handle, check)\n    metrics = legacy.generation_metrics(splits['test'], predictions)\n    inference_diagnostics = model.diagnostics(reset=True)\n    return {'status': 'complete', 'actual_epochs': 3, 'optimizer_steps': steps, 'best_epoch': best_epoch,\n            'best_validation_answer_token_nll': best,\n            'selection': 'minimum full validation answer-token NLL; earliest tie',\n            'checkpoint_path': str(checkpoint), 'checkpoint_sha256': file_sha(checkpoint),\n            'test_generation': {'correct': metrics}, 'test_evaluation_passes': 1,\n            'test_evaluation_passes_meaning': 'Autonomous correct-generation pass only; C1 teacher-forcing is a separate two-forward diagnostic',\n            'test_generation_passes': 1, 'test_teacher_forced_C1_passes': {'correct': 1, 'off': 1},\n            'C1': c1, 'C1_reader_diagnostics': c1_reader_diagnostics,"
+        },
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 539,
+          "end_line": 540,
+          "excerpt": "            store = MessageStore(args.cache_manifest, args.cache_manifest_sha256,\n                                 args.scenario, args.sender_mode, args.message_input)"
+        },
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 568,
+          "end_line": 574,
+          "excerpt": "                raise ValueError('Shared untrained reader initialization changed')\n            initial_payload = torch.load(initial_path, weights_only=True, map_location='cpu')\n            if (initial_payload['seed'] != args.seed or initial_payload['gate_init'] != args.gate_init\n                    or initial_payload.get('untrained') is not True or initial_payload.get('source_labels_used') is not False):\n                raise ValueError('Initialization provenance is not fresh untrained state')\n            model.load_reader_state(initial_payload['reader_state'])\n            numerical_receipt = verify_model_numerics(model)"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "classification": "source_fact",
+      "claim": "Formal matched V1 test plan registers one correct autonomous generation plus correct/off teacher-forced C1; no same-real-checkpoint TRAIN-mean replacement pass",
+      "evidence": [
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 274,
+          "end_line": 296,
+          "excerpt": "def generated_predictions(model, rows, tokenizer, store, args, handle, check=lambda: None):\n    model.eval()\n    records = []\n    for row in rows:\n        check()\n        batch = collate([row], tokenizer, store, args.device, supervised=False)\n        started = time.perf_counter()\n        with torch.no_grad():\n            tokens = model.greedy_generate(**batch, max_new_tokens=24,\n                eos_token_id=tokenizer.eos_token_id, pad_token_id=tokenizer.pad_token_id,\n                message_mode='correct')\n        ids = tokens[0].cpu().tolist()\n        text = tokenizer.decode(ids, skip_special_tokens=True)\n        record = {'sample_id': row['sample_id'], 'split': row['split'], 'raw_text': text,\n                  'parse': legacy.parse_answer(text), 'gold_pkd': float(row['pkd']),\n                  'raw_generated_token_ids': ids, 'generated_token_count': len(ids),\n                  'prompt_token_count': int(batch['attention_mask'].sum()),\n                  'elapsed_seconds': time.perf_counter() - started,\n                  'channel': 'generation', 'message_input': args.message_input}\n        records.append(record)\n        handle.write(json.dumps(record, ensure_ascii=False, allow_nan=False) + '\\n')\n        handle.flush()\n    return records"
+        },
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 384,
+          "end_line": 386,
+          "excerpt": "            'test_generation': {'correct': metrics}, 'test_evaluation_passes': 1,\n            'test_evaluation_passes_meaning': 'Autonomous correct-generation pass only; C1 teacher-forcing is a separate two-forward diagnostic',\n            'test_generation_passes': 1, 'test_teacher_forced_C1_passes': {'correct': 1, 'off': 1},"
+        },
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 595,
+          "end_line": 597,
+          "excerpt": "                'test_evaluation_plan': {'autonomous_correct_generation_passes': 1,\n                                         'teacher_forced_C1_passes': {'correct': 1, 'off': 1},\n                                         'test_used_for_checkpoint_selection': False},"
+        },
+        {
+          "path": "configs/matched_budget_20261016.frozen.json",
+          "sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+          "start_line": 26,
+          "end_line": 39,
+          "excerpt": "    \"primary_depth_content\": {\"scenario_count\":2,\"seeds\":[17,42,2026],\"locations\":[\"early\",\"mid\"],\"content\":[\"real\",\"neutral\"],\"pool\":\"balanced\",\"gate_alpha\":0.0,\"runs\":24},\n    \"gate_initialization_extension\": {\"scenario_count\":2,\"seeds\":[17,42,2026],\"locations\":[\"mid\"],\"content\":[\"real\"],\"pool\":\"balanced\",\"gate_alpha\":3.0,\"additional_runs\":6,\"control_reused\":\"primary mid real alpha0\"},\n    \"pool_allocation_extension\": {\"scenario_count\":2,\"seeds\":[17,42,2026],\"locations\":[\"mid\"],\"content\":[\"real\"],\"pool\":\"global16\",\"gate_alpha\":0.0,\"additional_runs\":6,\"control_reused\":\"primary mid real balanced\"},\n    \"total_new_training_runs\":36\n  },\n  \"ordered_trial_rule\": \"primary:seed17,42,2026 then known,double then early,mid then real,neutral; gate extension:seed then scenario; pool extension:seed then scenario\",\n  \"content_vs_inference_mode\": \"CLI message-input real|neutral is the content axis; both activate the branch with model message_mode=correct. model message_mode=off is the separate frozen-LM inference reference, not a content training condition.\",\n  \"endpoint_contrast_orientation\": \"positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid\",\n  \"paired_contrasts_per_scenario\": [\n    {\"name\":\"depth_real\",\"formula\":\"MAE(early,real)-MAE(mid,real)\"},\n    {\"name\":\"depth_neutral\",\"formula\":\"MAE(early,neutral)-MAE(mid,neutral)\"},\n    {\"name\":\"content_early\",\"formula\":\"MAE(early,neutral)-MAE(early,real)\"},\n    {\"name\":\"content_mid\",\"formula\":\"MAE(mid,neutral)-MAE(mid,real)\"},\n    {\"name\":\"depth_content_difference_in_differences\",\"formula\":\"depth_real-depth_neutral\"},"
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "classification": "source_fact",
+      "claim": "C1 holds model and memory batch fixed, switches branch correct/off, averages per-row full-answer-token NLL differences; donor quantities return undefined",
+      "evidence": [
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 225,
+          "end_line": 241,
+          "excerpt": "    records, breakdowns = [], {'correct': [], 'off': []}\n    with (args.output / 'test_C1_answer_nll.jsonl').open('x', encoding='utf-8') as handle:\n        with torch.no_grad():\n            for start in range(0, len(rows), 4):\n                check()\n                selected = rows[start:start + 4]\n                batch = collate(selected, tokenizer, store, args.device)\n                labels = batch.pop('labels')\n                categories = batch_token_categories(tokenizer, [legacy.answer_text(r) for r in selected],\n                    batch['input_ids'], labels, batch['attention_mask'])\n                values = {}\n                for mode in ('correct', 'off'):\n                    output = model(**batch, message_mode=mode)\n                    means, counts = frozen_c1_answer_nll(output, labels)\n                    diagnostic = token_nll_breakdown(output, labels, categories)\n                    values[mode] = {'nll': means.tolist(),\n                                    'counts': counts.tolist(),"
+        },
+        {
+          "path": "scripts/matched_budget_20261016/run_trial.py",
+          "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+          "start_line": 254,
+          "end_line": 271,
+          "excerpt": "    means = {key: math.fsum(r[key] for r in records) / len(records)\n             for key in ('correct_original_gold_mean_token_nll', 'off_original_gold_mean_token_nll')}\n    gain = math.fsum(r['off_original_gold_mean_token_nll'] - r['correct_original_gold_mean_token_nll'] for r in records) / len(records)\n    decomposition = {name: math.fsum(\n        r['token_breakdown']['off'][name]['contribution_nats_per_full_token']\n        - r['token_breakdown']['correct'][name]['contribution_nats_per_full_token'] for r in records) / len(records)\n        for name in TOKEN_BUCKETS[:3]}\n    decomposition.update({'sum_categories': sum(decomposition.values()), 'original_G': gain})\n    decomposition['reduction_rounding_residual'] = gain - decomposition['sum_categories']\n    return {'n_test': len(records), 'n_matched': 0, 'G_all_test': gain,\n            'P_H_status': 'undefined_zero_independent_donors', 'algebra_matched_mean': None,\n            'means_all_test': means, 'units': 'nats_per_answer_token',\n            'score_definition': 'Original per-sample mean answer-token NLL, then mean across test rows; G=off NLL-correct NLL',\n            'token_breakdown': {mode: aggregate_token_breakdowns(values) for mode, values in breakdowns.items()},\n            'G_decomposition': decomposition,\n            'decomposition_denominator': 'Each category loss contribution divides by that sample full-answer token count, then averages rows; category means themselves are not additive',\n            'scope': 'Best-checkpoint teacher-forced computational sensitivity, separate from autonomous generation and biological causality',\n            'selection_or_primary_score_changed': False}"
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "classification": "source_fact",
+      "claim": "off bypasses entire reader hook and runs frozen base; not zero-memory or TRAIN-mean substitution; alpha*0 only retains zero graph",
+      "evidence": [
+        {
+          "path": "scripts/matched_budget_20261016/connectors.py",
+          "sha256": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+          "start_line": 230,
+          "end_line": 257,
+          "excerpt": "    def forward(self, input_ids, attention_mask, memory, memory_mask,\n                memory_type_ids=None, labels=None, message_mode=\"correct\"):\n        if message_mode not in (\"correct\", \"off\"):\n            raise ValueError(\"message_mode must be correct or off\")\n        text_mask, source_mask = self._validate(input_ids, attention_mask, memory,\n                                               memory_mask, memory_type_ids, labels)\n        self.base_lm.eval()\n        kwargs = {\"input_ids\": input_ids, \"attention_mask\": text_mask.long(),\n                  \"position_ids\": (text_mask.long().cumsum(-1) - 1).clamp_min(0),\n                  \"use_cache\": False, \"return_dict\": True}\n        if message_mode == \"correct\":\n            with self._hook(memory, source_mask, text_mask):\n                output = self.base_lm(**kwargs)\n        else:\n            output = self.base_lm(**kwargs)\n        logits = output.logits\n        if not torch.isfinite(logits).all():\n            raise ValueError(\"Language model produced nonfinite logits\")\n        if message_mode == \"off\":\n            logits = logits + self.reader.alpha.to(logits.dtype) * 0\n        loss = None\n        if labels is not None:\n            shifted = labels[:, 1:].masked_fill(~text_mask[:, 1:], -100)\n            if not torch.any(shifted != -100):\n                raise ValueError(\"labels require an active causal target after first token\")\n            loss = F.cross_entropy(logits[:, :-1].float().reshape(-1, logits.shape[-1]),\n                                   shifted.reshape(-1), ignore_index=-100)\n        return CausalLMOutputWithPast(loss=loss, logits=logits)"
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "classification": "source_fact",
+      "claim": "Reader has biased learned query/output projections and MultiheadAttention, as constructed and called",
+      "evidence": [
+        {
+          "path": "scripts/matched_budget_20261016/connectors.py",
+          "sha256": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+          "start_line": 24,
+          "end_line": 43,
+          "excerpt": "        self.hidden_dim, self.memory_dim = hidden_dim, memory_dim\n        self.query_norm = nn.LayerNorm(hidden_dim, dtype=torch.float32)\n        self.query_projection = nn.Linear(hidden_dim, memory_dim, dtype=torch.float32)\n        self.cross_attention = nn.MultiheadAttention(memory_dim, 4, dropout=0,\n                                                    batch_first=True, dtype=torch.float32)\n        self.output_projection = nn.Linear(memory_dim, hidden_dim, dtype=torch.float32)\n        self.alpha = nn.Parameter(torch.tensor(0. if gate_init == \"zero\" else 3., dtype=torch.float32))\n\n    def _read(self, hidden, memory, memory_mask, need_weights=False):\n        with torch.autocast(device_type=hidden.device.type, enabled=False):\n            query = self.query_projection(self.query_norm(hidden.float()))\n            message, weights = self.cross_attention(query, memory, memory,\n                key_padding_mask=~memory_mask.bool(), need_weights=need_weights,\n                average_attn_weights=False)\n            return self.output_projection(message), weights\n\n    def forward(self, hidden, memory, memory_mask):\n        raw_delta, _ = self._read(hidden, memory, memory_mask, need_weights=False)\n        self._raw_delta_sq_by_position = raw_delta.detach().float().square().sum(-1)\n        return raw_delta * self.alpha.tanh()"
+        }
+      ]
+    },
+    {
+      "id": "F7",
+      "classification": "source_fact",
+      "claim": "Frozen protocol names real/neutral as content axis and correct/off as separate inference axis; original paired MAE contrast unchanged",
+      "evidence": [
+        {
+          "path": "configs/matched_budget_20261016.frozen.json",
+          "sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+          "start_line": 32,
+          "end_line": 44,
+          "excerpt": "  \"content_vs_inference_mode\": \"CLI message-input real|neutral is the content axis; both activate the branch with model message_mode=correct. model message_mode=off is the separate frozen-LM inference reference, not a content training condition.\",\n  \"endpoint_contrast_orientation\": \"positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid\",\n  \"paired_contrasts_per_scenario\": [\n    {\"name\":\"depth_real\",\"formula\":\"MAE(early,real)-MAE(mid,real)\"},\n    {\"name\":\"depth_neutral\",\"formula\":\"MAE(early,neutral)-MAE(mid,neutral)\"},\n    {\"name\":\"content_early\",\"formula\":\"MAE(early,neutral)-MAE(early,real)\"},\n    {\"name\":\"content_mid\",\"formula\":\"MAE(mid,neutral)-MAE(mid,real)\"},\n    {\"name\":\"depth_content_difference_in_differences\",\"formula\":\"depth_real-depth_neutral\"},\n    {\"name\":\"gate_zero_initialization\",\"formula\":\"MAE(mid,real,balanced,alpha3)-MAE(mid,real,balanced,alpha0)\"},\n    {\"name\":\"balanced_pool_allocation\",\"formula\":\"MAE(mid,real,global16,alpha0)-MAE(mid,real,balanced,alpha0)\"}\n  ],\n  \"missing_seed_rule\": \"A3-seed mean/SD or contrast is emitted only with all3 valid complete seed values; otherwise emit null with k/3 and missing/failed/invalid cases. No averaging only successful seeds as a3-seed finding. Coverage per seed is always shown.\",\n  \"endpoints\": {\"primary\":[\"strict JSON parse coverage and failures\",\"full-population pKD MAE only when all answers valid\"],\"conditional\":[\"valid-only MAE with explicit denominator\",\"original target-macro MAE with correct naming\"],\"mechanism\":[\"unchanged full answer C1 NLL difference\",\"gate trajectory and delta-to-hidden norm ratio on TRAIN/VALIDATION\",\"format/numeric answer-token NLL as additional diagnostic only\"],\"statistics\":[\"all seeds and fixed paired contrasts by-seed differences\",\"seed mean and sample SD only with3/3, separate from frozen-test group uncertainty\",\"unchanged source/family-component bootstrap2000 seed2026\",\"no best-seed selection or metric/threshold/group changes\"]},"
+        }
+      ]
+    }
+  ],
+  "syntheses": [
+    {
+      "classification": "synthesis",
+      "id": "S1",
+      "formula": "L(theta_N,m_bar)-L(theta_R,{m_i})",
+      "name": "Existing content total-system effect",
+      "interpretation": "Includes learning trajectory, validation selection and evaluation response to message condition; not fixed-checkpoint per-example inference dependence",
+      "source_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F7"
+      ]
+    },
+    {
+      "classification": "synthesis",
+      "id": "S2",
+      "formula": "L(theta_R,m_bar)-L(theta_R,{m_i})",
+      "name": "Fixed-real-reader mean-substitution effect",
+      "status": "not_registered_not_measured_in_audited_formal_matched_V1_test_pipeline",
+      "not_filled_from": "L(theta_N,m_bar)",
+      "source_fact_ids": [
+        "F1",
+        "F3"
+      ]
+    },
+    {
+      "classification": "synthesis",
+      "id": "S3",
+      "formula": "mean_i[mean_answer_token_NLL(theta,branch_off,c_i,gold_i)-mean_answer_token_NLL(theta,branch_on,m_i_star,c_i,gold_i)]",
+      "name": "Existing fixed-checkpoint C1 branch effect",
+      "m_i_star": "Original model condition: real m_i or neutral m_bar",
+      "units": "nats_per_answer_token",
+      "interpretation": "Teacher-forced whole-branch computational sensitivity; neutral can have nonzero G; neither individual molecule-content attribution nor biological causality",
+      "source_fact_ids": [
+        "F4",
+        "F5",
+        "F6"
+      ]
+    },
+    {
+      "classification": "synthesis",
+      "id": "S4",
+      "claim": "Existing content-gain language is bounded to retrained-system total effect; paired initial state and seed do not hold final reader fixed. DiD uses four trained systems and does not identify missing same-theta intervention.",
+      "existing_report_sources": [
+        {
+          "path": "reports/benchmark_clarity_20261016/protocol_review.md",
+          "line": 37
+        },
+        {
+          "path": "reports/benchmark_clarity_20261016/interpretation_plan.md",
+          "line": 23
+        },
+        {
+          "path": "reports/benchmark_clarity_20261016/interim_mechanism_8cases.md",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "classification": "synthesis",
+      "id": "S5",
+      "claim": "Because the branch contains biases, zero memory can still produce nonzero residual in a learned state; it is not generally equivalent to off. No new zero-memory experiment was run.",
+      "source_fact_ids": [
+        "F5",
+        "F6"
+      ]
+    }
+  ],
+  "unknowns": [
+    {
+      "classification": "unknown",
+      "id": "U1",
+      "quantity": "Same theta_R on formal locked test with TRAIN mean replacement",
+      "status": "missing in reviewed registration/source/reports; no new pass executed or score invented",
+      "scope_limit": "Not a filesystem-wide assertion about every historical exploration"
+    },
+    {
+      "classification": "unknown",
+      "id": "U2",
+      "quantity": "Molecularly correct matching, per-row binding mechanism or biological causal information use",
+      "status": "Not identified by content total effect, C1 or even a future mean-substitution sensitivity result"
+    },
+    {
+      "classification": "unknown",
+      "id": "U3",
+      "quantity": "Strict independently matched donor P/H",
+      "status": "undefined_zero_independent_donors; mean replacement does not constitute a legal matched donor"
+    }
+  ],
+  "future_mean_intervention_boundary": "If separately preregistered later, it would test computational dependence on a specific OOD replacement, including changed message variance/norm/format priors; not proof of correct biological mechanism. Not authorized or run by this note.",
+  "checks": [
+    {
+      "name": "Frozen scientific identity",
+      "passed": true
+    },
+    {
+      "name": "Only declared matched V1 inference modes correct/off",
+      "passed": true
+    },
+    {
+      "name": "Autonomous generation invokes correct only",
+      "passed": true
+    },
+    {
+      "name": "Generation plan remains one pass",
+      "passed": true
+    },
+    {
+      "name": "Neutral content selection is a store condition",
+      "passed": true
+    },
+    {
+      "name": "C1 uses same batch for both branch modes",
+      "passed": true
+    },
+    {
+      "name": "TRAIN mean excludes labels by preparation provenance",
+      "passed": true
+    }
+  ],
+  "preservation": {
+    "all_existing_values_contrasts_standards_unchanged": true,
+    "old_files_modified": false,
+    "new_evaluation_started": false,
+    "active_case_read": false,
+    "model_or_GPU_used": false
+  },
+  "writes": [
+    "reports/benchmark_clarity_20261016/causal_estimands_note.md",
+    "reports/benchmark_clarity_20261016/causal_estimands_note.json"
+  ],
+  "report_sha256": "e63d064eb1e24e119be64e516fba51c1399e8004fad2e5956935473c98b1e63b",
+  "reviewed_inputs_unchanged_at_delivery": true
+}

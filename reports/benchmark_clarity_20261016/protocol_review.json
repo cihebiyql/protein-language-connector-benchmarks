@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T13:49:45.9568784+08:00",
+  "reviewer": "matched_protocol_review",
+  "review_scope": "Independent read-only scientific protocol and static interface review; no GPU, training, model inference, tests or old artifact edits",
+  "status": "protocol_review_closed_pending_implementation_and_runtime_qualification",
+  "reviewed_protocol_sha256": "4be8860bdfc0855470121b82f8b5bf4dd4e7f25c14a6c3499c73697632e17280",
+  "reviewed_files_sha256": {
+    "reports/benchmark_clarity_20261016/README.md": "12370d55143cf043bc601d1e95f79e5104dd5375e4615ce8c7de27e3fdac48ba",
+    "reports/benchmark_clarity_20261016/contract_audit.md": "f73908ed38b473349430876b9f84d60a99e96b875bdbd1fe5aea86273fb0fb6a",
+    "reports/benchmark_clarity_20261016/budget_audit.md": "9c9e119b77426e24f79ca3ddd417e12c84e593cf5b4662ff9e3c3bfac98d496d",
+    "reports/benchmark_clarity_20261016/literature_evidence.md": "ab47f6ca21eeed914df569418b6e36b3c59f2a45cfc6430a1d3a5e76f8dd3ef8",
+    "reports/benchmark_clarity_20261016/literature_evidence.json": "f4baa4c94da389a668f149aa64c1565dc7683f17649aeb704d42def91d3019d6",
+    "configs/matched_budget_20261016.protocol.json": "4be8860bdfc0855470121b82f8b5bf4dd4e7f25c14a6c3499c73697632e17280",
+    "scripts/matched_budget_20261016/fixed_message.py": "08a354a7f9fdb1f23864ab14468d7e17edc8886e866fba4f338a564b63413a3b",
+    "scripts/matched_budget_20261016/connectors.py": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+    "scripts/matched_budget_20261016/prepare_cache.py": "4cc79a5f3c3ffa576bbc99889837cc021be14dc5b2fb9856948fa876d82bc519",
+    "scripts/foundation_20261016/run_connectors.py": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+    "scripts/foundation_20261016/connectors.py": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318",
+    "tests/test_matched_budget_core.py": "0d49914b0626cd4cfc7186c2343321704a89681f2611cf12d94f00c0b6bc9b3a"
+  },
+  "new_training_runs_expected": 36,
+  "scientific_primary_task": "A1 broad reference-target pKD generation, scenario-specific",
+  "checks": {
+    "reader_parameter_arithmetic": 464001,
+    "reader_formula": "3072+196736+66048+198144+1",
+    "sender_trainable_parameters": 0,
+    "message_shape": [
+      16,
+      128
+    ],
+    "message_dtype": "float32",
+    "per_object_per_forward_logical_payload_bytes": 8192,
+    "cross_scenario_trained_state_sharing_allowed": false,
+    "cross_scenario_aggregated_independent_replication_allowed": false,
+    "seeds": [
+      17,
+      42,
+      2026
+    ],
+    "gate_zero": 0,
+    "gate_near_unit_alpha": 3,
+    "gate_near_unit_tanh": 0.9950547536867305,
+    "gate_near_unit_derivative": 0.009866037165440211,
+    "near_unit_is_ungated": false,
+    "strict_donor_statistics_defined": false,
+    "old_test_previously_observed": true
+  },
+  "required_closures": [
+    {
+      "id": "R1",
+      "required": "Use 2026-10-16T13:20:00+08:00 through 23:20:00 everywhere; preserve old foundation 07:18-17:18; no trial timeout extends goal deadline",
+      "topic": "earliest associated scope clock"
+    },
+    {
+      "id": "R2",
+      "required": "Separate effective valid positions from B*Lmax physical padded query work; record whole-batch forwards and per-row EOS lengths; retained finished rows still compute",
+      "topic": "actual communication and EOS accounting"
+    },
+    {
+      "id": "R3",
+      "required": "Freeze paired per-scenario depth/content contrasts, gate and pool extensions; report k/3 when failures or timeouts occur; do not silently drop seeds or tune on tests",
+      "topic": "fixed contrasts and missing-run statistics"
+    },
+    {
+      "id": "R4",
+      "required": "Mark learned-codec/noise/warmup/ungated alternatives as historical suggestions; bind final protocol and exact case order before new test inference",
+      "topic": "single executable protocol"
+    }
+  ],
+  "interpretation_limits": [
+    "464001 is identical-structure trainable tensor elements, not equal identifiable degrees of freedom",
+    "Neutral has no per-example residual-message identity or length but retains TRAIN input-distribution prior and allowed prompt fields",
+    "Real-neutral also changes input variance and norm; no post-test rescaling",
+    "Early is dynamic residual reader, not historical MLP or true soft prefix",
+    "Depth effect includes hidden-query representation and remaining forward/backward path",
+    "Alpha3 is near-unit trainable gate with small derivative, not no gate",
+    "Same 8192-byte per-call source payload does not imply same FLOPs, actual transport, or realized EOS total traffic",
+    "Three seeds are preliminary stability evidence; group bootstrap is conditional on checkpoint and test sample grouping",
+    "Original independently verified experiment counts and donor gold remain unknown or zero as documented"
+  ],
+  "execution_gate_evidence_not_provided_by_this_review": [
+    "Frozen exact expanded36-case schedule and final input/code/init pins",
+    "Immutable old asset manifest check",
+    "CPU correctness and negative tests",
+    "Standard contract and fresh resource gate",
+    "Supervised TRAIN-only real forward-backward canaries",
+    "Global23:20 cutoff enforcement",
+    "Per-run process exit and result acceptance"
+  ],
+  "prohibited_changes": [
+    "Frozen test/data/group/metric changes",
+    "Old result or failure record overwrite",
+    "Cross-scenario trained state reuse",
+    "Best seed selection",
+    "Full MAE from only parseable subset",
+    "Ungated claim for alpha3",
+    "New SOTA matrix or warmup expansion as prerequisite"
+  ],
+  "writes": [
+    "reports/benchmark_clarity_20261016/protocol_review.md",
+    "reports/benchmark_clarity_20261016/protocol_review.json"
+  ],
+  "report_sha256": "0f680fb028e4a9f9d53bc79a325133c70f8dfbc372f046ff19d999c895574086",
+  "closure_review": {
+    "closed_at": "2026-10-16T13:58:12.5034515+08:00",
+    "protocol_sha256": "92c88e0001365968a74074080979ed49395f666199a454e2cecbd38a6fea1e02",
+    "readme_sha256": "c2375f6c09e300755fbb0fc08001ede3e0ae6650bc01e223517270fd890c4629",
+    "prepare_cache_sha256": "118fe82c079b84b6df820e37cfc98451089bc2d612c29499cf27835d22d2f97b",
+    "closed_ids": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "evidence": [
+      "Protocol and prepare_cache scope use13:20:00-23:20:00, old07:18-17:18 preserved",
+      "Protocol distinguishes valid/padded queries, residual writes and whole-batch EOS realized consumption",
+      "Seven fixed signed contrasts, ordered case rule and3/3-only aggregate mean/SD or contrast",
+      "Final fixed-sender36-case specification explicitly supersedes historical candidates"
+    ],
+    "clarification": "Individual-seed contrasts remain reportable;3/3-only rule applies to across-seed summaries",
+    "runtime_execution_approved": false,
+    "pending": [
+      "Freeze exact expanded case manifest and all final code/cache/init pins",
+      "CPU correctness/negative/serialization and source/asset immutability evidence",
+      "Fresh resource and valid execution contract gate",
+      "TRAIN-only supervised real forward-backward canaries",
+      "Enforce total23:20 deadline independent of per-trial timeout",
+      "Actual run acceptance and process-exit receipts"
+    ]
+  },
+  "naming_clarification_review": {
+    "checked_at": "2026-10-16T14:00:48.3467613+08:00",
+    "previous_closed_protocol_sha256": "92c88e0001365968a74074080979ed49395f666199a454e2cecbd38a6fea1e02",
+    "protocol_sha256": "beddcefa709e7e22bfced947453d4d5f359c6fa7792de5f721a21989c4066608",
+    "checked_fields": [
+      "ordered_trial_rule",
+      "content_vs_inference_mode"
+    ],
+    "ordered_trial_rule": "primary:seed17,42,2026 then known,double then early,mid then real,neutral; gate extension:seed then scenario; pool extension:seed then scenario",
+    "content_vs_inference_mode": "CLI message-input real|neutral is the content axis; both activate the branch with model message_mode=correct. model message_mode=off is the separate frozen-LM inference reference, not a content training condition.",
+    "change_scope": "Naming clarification only: real/neutral content versus correct/off inference; no scientific matrix, data, metric or budget change; original closure preserved"
+  },
+  "current_reviewed_protocol_sha256": "54445ef93ae577fef5136010d6cf4977eb0cb8fa6529793625af551c00d0d571",
+  "numerical_policy_review": {
+    "checked_at": "2026-10-16T14:07:13.4660837+08:00",
+    "previous_reviewed_protocol_sha256": "beddcefa709e7e22bfced947453d4d5f359c6fa7792de5f721a21989c4066608",
+    "protocol_sha256": "54445ef93ae577fef5136010d6cf4977eb0cb8fa6529793625af551c00d0d571",
+    "checked_fields": [
+      "numerical_policy",
+      "ordered_trial_rule",
+      "content_vs_inference_mode"
+    ],
+    "numerical_policy": {
+      "base_dtype": "bfloat16",
+      "reader_and_message_dtype": "float32",
+      "reader_autocast": false,
+      "CUDA_LAUNCH_BLOCKING": "1",
+      "TORCH_SHOW_CPP_STACKTRACES": "1",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "float32_matmul_precision": "highest",
+      "cuda_matmul_allow_tf32": false,
+      "cudnn_allow_tf32": false,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "deterministic_algorithms": true,
+      "deterministic_warn_only": false,
+      "qualification": "Strict numerical policy is tested on TRAIN-only canaries before any full trial. Unsupported deterministic kernels stop qualification and require a documented prospective engineering revision; no runtime or model change selected from test results. Exact paired initialization is enforced separately."
+    },
+    "ordered_trial_rule": "primary:seed17,42,2026 then known,double then early,mid then real,neutral; gate extension:seed then scenario; pool extension:seed then scenario",
+    "content_vs_inference_mode": "CLI message-input real|neutral is the content axis; both activate the branch with model message_mode=correct. model message_mode=off is the separate frozen-LM inference reference, not a content training condition.",
+    "status": "Prospective common numerical policy accepted at protocol level; implementation flags and TRAIN-only CUDA qualification remain pending",
+    "interpretation": "Supports within-environment repeatability, does not guarantee bitwise identity across hardware/software",
+    "runtime_execution_approved": false,
+    "required_runtime_evidence": [
+      "Environment values present before CUDA initialization",
+      "Actual dtype/autocast/matmul/TF32/cuDNN/determinism flags recorded",
+      "TRAIN-only strict deterministic forward-backward canary passes or qualification stops",
+      "Any engineering revision prospectively repinned without test-based selection"
+    ]
+  }
+}

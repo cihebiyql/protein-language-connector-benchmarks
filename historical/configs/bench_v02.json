@@ -1,0 +1,375 @@
+{
+  "benchmark": "PepBridge-Bench",
+  "version": "0.2",
+  "status": "panel_baselines_completed_unified_training_not_ready",
+  "source_conversation": "sources/conversation_update_20261015.md",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "foundation_models": {
+    "protein": "facebook/esm2_t30_150M_UR50D",
+    "language": "Qwen/Qwen2.5-1.5B-Instruct",
+    "frozen": true,
+    "protein_layers": [
+      15,
+      30
+    ],
+    "internal_receiver_after_block": 14
+  },
+  "primary_panels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2",
+    "C1",
+    "C2"
+  ],
+  "cross_cutting_panels": [
+    "C3",
+    "COST"
+  ],
+  "panels": {
+    "A1": {
+      "name": "experimental_affinity",
+      "primary_source": "PPIKB research-source KD",
+      "external_sources": [
+        "Kliche2024",
+        "PEPBI"
+      ],
+      "primary_metrics": [
+        "pkd_mae",
+        "within_target_condition_spearman",
+        "experimental_pair_direction",
+        "target_macro_mae"
+      ],
+      "scenarios": [
+        "new_peptide_known_target",
+        "new_peptide_new_target"
+      ],
+      "source_records": "data/processed/bench_v02/a1_broad_candidates.jsonl",
+      "strict_pair_records": "data/processed/bench_v02/a1_strict_pairs.jsonl",
+      "require_real_target_sequence": true,
+      "measurement_endpoint": "KD",
+      "allow_censored_as_exact": false,
+      "peptide_length_range": [
+        5,
+        50
+      ],
+      "allow_patents_in_primary": false,
+      "strict_pairs_require": [
+        "verified_construct",
+        "comparable_experimental_conditions"
+      ],
+      "locked_panels_root": "data/processed/bench_v02/a1_locked_v2",
+      "superseded_panels_root": "data/processed/bench_v02/a1_locked",
+      "external_coverage_supplement": "data/processed/bench_v02/a1_locked_v2/coverage_supplement.json"
+    },
+    "A2": {
+      "name": "retention_time",
+      "source_project": "PXD005573",
+      "target_project": "PXD064311",
+      "target_condition": "experiment_2_march_basic_pH9",
+      "primary_metrics": [
+        "condition_specific_mae",
+        "condition_specific_spearman",
+        "annotation_budget_learning_curve"
+      ],
+      "source_records": "data/processed/bench_v02/a2_source_candidates.jsonl",
+      "target_records": "data/processed/bench_v02/a2_target_march.jsonl",
+      "scenarios": [
+        "condition_transfer_allow_source_overlap",
+        "condition_and_new_sequence_transfer"
+      ],
+      "target_label_budgets": [
+        32,
+        128,
+        512,
+        2048
+      ],
+      "all_target_labels_count_toward_budget": [
+        "fit",
+        "calibration",
+        "validation",
+        "tuning"
+      ],
+      "fixed_target_test_required": true,
+      "preserve_modifications": true,
+      "pool_different_conditions": false,
+      "deeplc_paper_revision": "v3.1.13",
+      "public_current_system_panel_separate": true
+    },
+    "B1": {
+      "name": "unseen_function_description",
+      "source_records": "data/processed/bench_v02/b1_homology_locked/b1_samples.jsonl",
+      "class_manifest": "data/processed/bench_v02/b1_homology_locked/b1_manifest.json",
+      "biological_scope": "verified_human_and_model_eukaryote_species",
+      "human_sensitivity_manifest": "data/processed/bench_v02/b1_manifest.json",
+      "minimum_independent_regions_per_class": 10,
+      "primary_metrics": [
+        "class_macro_mrr",
+        "class_macro_recall_at_1",
+        "class_macro_recall_at_3"
+      ],
+      "secondary_metrics": [
+        "sample_mrr",
+        "known_positive_recall_at_1",
+        "known_positive_recall_at_3"
+      ],
+      "main_candidate_descriptions": "data/processed/bench_v02/b1_homology_locked/b1_candidates_main.jsonl",
+      "candidate_class_map": "data/processed/bench_v02/b1_homology_locked/b1_classes_main.jsonl",
+      "remove_explicit_sequence_rules_in_main": true,
+      "full_regex_panel_separate": true,
+      "molecule_scope": "local_functional_region_in_parent_protein",
+      "unannotated_is_negative": false,
+      "external_coverage_supplement": "data/processed/bench_v02/b1_external_followup/coverage_supplement.json"
+    },
+    "B2": {
+      "name": "molecular_fact_background_composition",
+      "evidence_registry": "data/processed/bench_v02/b2_evidence_registry.jsonl",
+      "primary_metrics": [
+        "joint_correctness",
+        "required_fact_coverage",
+        "contradiction_rate",
+        "unsupported_inference_rate",
+        "oracle_fact_conditional_accuracy"
+      ],
+      "primary_background": "explicit_allowed_class_level_facts",
+      "holdout": "relation_question_combinations",
+      "require_reviewed_experimental_answer": true,
+      "allow_synthetic_logic_as_experiment": false,
+      "required_comparators": [
+        "BASE-03",
+        "ORACLE-01",
+        "RULE-01"
+      ]
+    },
+    "C1": {
+      "name": "message_interventions",
+      "conditions": [
+        "correct",
+        "off",
+        "target_matched_mismatch",
+        "independently_trained_constant",
+        "paired_swap"
+      ],
+      "donor_requirements": [
+        "same_locked_split",
+        "same_target_when_target_present",
+        "same_task_and_experimental_context",
+        "same_allowed_background",
+        "similar_length_and_chemical_state",
+        "different_independent_group"
+      ],
+      "max_donors": 10,
+      "donor_seed": 42,
+      "repeated_donors_are_independent_samples": false,
+      "optimize_mismatch_damage": false,
+      "primary_metrics": [
+        "correct_minus_off",
+        "correct_minus_matched_mismatch",
+        "correct_minus_trained_constant",
+        "swap_consistency"
+      ]
+    },
+    "C2": {
+      "name": "representation_and_local_evidence",
+      "probe_positions": [
+        "raw_esm",
+        "connector_output",
+        "receiver_pre_answer"
+      ],
+      "probe_controls": [
+        "same_capacity",
+        "same_dimension_budget",
+        "same_pooling",
+        "same_supervised_split",
+        "composition_length_target_control",
+        "control_labels"
+      ],
+      "answer_tokens_in_probe_state": false,
+      "primary_metrics": [
+        "usable_information_beyond_control",
+        "targeted_intervention_success",
+        "unrelated_fact_retention",
+        "sufficiency",
+        "comprehensiveness",
+        "evidence_precision_at_k"
+      ],
+      "evidence_levels_separate": [
+        "experimental_structure_contact",
+        "experimental_functional_perturbation",
+        "curated_motif_annotation",
+        "predicted_structure"
+      ],
+      "untested_residue_is_negative": false,
+      "random_region_length_matched_control": true
+    },
+    "C3": {
+      "name": "atomic_explanation_facts",
+      "primary_metrics": [
+        "supported_precision",
+        "required_fact_coverage",
+        "contradiction_rate",
+        "unsupported_rate"
+      ],
+      "review_target_independent_cases": 200,
+      "minimum_independent_reviewers": 2,
+      "blind_model_identity": true,
+      "require_adjudication_of_disagreement": true,
+      "empty_answer_coverage": 0,
+      "empty_answer_supported_precision": null
+    },
+    "COST": {
+      "metrics": [
+        "trainable_and_total_parameters",
+        "training_gpu_seconds",
+        "peak_allocated_and_reserved_memory",
+        "inference_latency_and_throughput",
+        "annotation_budget",
+        "backbone_readaptation_cost"
+      ],
+      "single_composite_score": false
+    }
+  },
+  "controlled_baselines": {
+    "BASE-00": {
+      "name": "sequence_knn_physchem_train_only_motif",
+      "implementation": "trained_A1_composition_chemistry_ridge_knn_and_constant"
+    },
+    "BASE-01": {
+      "name": "residue_attention_pooling_conditioned_predictor",
+      "implementation": "trained_A1_v2_3seeds_two_scenarios_and_meanpool_comparator"
+    },
+    "BASE-02": {
+      "name": "sequence_text_discriminative_protnote_style",
+      "implementation": "trained_B1_3seeds_and_meanalign_comparator"
+    },
+    "BASE-03": {
+      "name": "best_predictor_rich_structured_facts_to_same_llm",
+      "training_predictions": "out_of_fold",
+      "implementation": "required_not_implemented"
+    },
+    "BASE-04": {
+      "name": "standard_residue_input_projection_same_llm",
+      "implementation": "legacy_single_task_only"
+    },
+    "BASE-05": {
+      "name": "qformer_input_prott3_style",
+      "implementation": "required_not_implemented"
+    },
+    "BASE-06": {
+      "name": "ordinary_gated_internal_cross_attention",
+      "implementation": "required_not_implemented"
+    }
+  },
+  "candidate_ladder": {
+    "M0": {
+      "name": "legacy_residue_mlp_injection",
+      "status": "historical_baseline_only"
+    },
+    "M1": {
+      "name": "side_memory_cross_attention",
+      "status": "design_not_trained"
+    },
+    "M2": {
+      "name": "two_layer_query_conditioned_routing",
+      "status": "design_not_trained"
+    },
+    "M3": {
+      "name": "aligned_pair_common_key_signed_difference_value",
+      "status": "design_not_trained",
+      "aligned_equal_length_only": true
+    },
+    "M4": {
+      "name": "fact_normalization_and_pair_swap_consistency",
+      "status": "design_not_trained"
+    }
+  },
+  "diagnostic_comparators": [
+    "ORACLE-01",
+    "RULE-01",
+    "independently_trained_constant_message"
+  ],
+  "equivalent_architecture_runs": [
+    "M1 and BASE-06 share one result if their architecture/training are identical",
+    "M0 and BASE-04 are aliases only when read/write positions and training are identical"
+  ],
+  "published_systems_separate": [
+    "OPUS-PLLM",
+    "ProtT3",
+    "ProtNote",
+    "DeepLC-v3.1.13",
+    "DeepLC-current-disclosed-exposure",
+    "PepInter"
+  ],
+  "training": {
+    "phases": [
+      "external_and_class_locks",
+      "alignment_training_only",
+      "balanced_multitask_training",
+      "budgeted_adaptation",
+      "locked_evaluation"
+    ],
+    "single_source_multitask_connector_checkpoint_per_seed": true,
+    "task_specific_checkpoint_cherry_picking": false,
+    "task_balanced_sampling": true,
+    "loss_field_normalization": true,
+    "fit_numeric_scalers_on_train_only": true,
+    "validation_only_hyperparameters_and_early_stop": true,
+    "batch_and_learning_rate": "registered_in_frozen_run_manifest_before_training",
+    "all_baselines_receive_same_allowed_inputs": true,
+    "pair_difference_features_available_to_predictor_controls": true,
+    "independent_panel_baselines": {
+      "enabled": true,
+      "scope": "panel_specific_predictor",
+      "wait_for_all_panels": false,
+      "required_gate": "physical_panel_lock_and_recomputed_split_integrity",
+      "partial_external_coverage": "frozen_restricted_scope_must_be_disclosed",
+      "unified_connector_claim": false,
+      "seeds": [
+        17,
+        42,
+        2026
+      ],
+      "epochs": 30,
+      "batch_size": 64,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0003,
+      "weight_decay": 0.01,
+      "selection": "earliest_best_validation_metric",
+      "a1_validation_metric": "pKD_MAE_min",
+      "b1_validation_metric": "class_macro_MRR_max",
+      "early_stopping": false,
+      "protein_encoding": "frozen_ESM2_150M_layer30_nonoverlapping_1022_residue_chunks_all_residues",
+      "text_encoding": "frozen_Qwen2.5_1.5B_description_only_masked_mean",
+      "test_tuning": false
+    }
+  },
+  "channels": [
+    "generation",
+    "readout_head",
+    "predictor",
+    "oracle_pipeline"
+  ],
+  "legacy_alias_logits_count_as_generation": false,
+  "statistics": {
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 2026,
+    "resample": "independent_family_or_experiment_groups",
+    "seed_variability_separate": true
+  },
+  "legacy": {
+    "role": "exploratory_v01_only",
+    "trained_runs": 18,
+    "results": "results/real_run_20261015/final_comparison.json",
+    "old_t1": "auxiliary_alignment_and_known_positive_retrieval",
+    "old_t2": "legacy_C1_without_new_target_matched_contract",
+    "old_t3": "external_A1_and_C2_inputs_only_for_fresh_v02_checkpoints",
+    "existing_checkpoints_seen_Kliche_training": true,
+    "overwrite_previous_results": false
+  },
+  "latest_panel_results": "results/bench_v02/panel_baselines_20261015_v2/comparison.json",
+  "latest_panel_report": "reports/bench_v02_panel_results.md"
+}

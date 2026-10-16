@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "jobs": [
+    {
+      "name": "windows_existing",
+      "command": [
+        "LOCAL_HOME/AppData\\Local\\hermes\\hermes-agent\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_v02*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.177626499993494,
+      "log": "PROJECT_ROOT/results\\foundation_20261016\\tests_20261016_083914\\windows_existing.log",
+      "log_sha256": "767d1739af6e1097ccd602bca1f4e49b0c58c34d6623445f9496f735d424b19a",
+      "passed": true,
+      "tests_discovered": 106
+    },
+    {
+      "name": "wsl_existing_torch",
+      "command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu-22.04",
+        "--",
+        "bash",
+        "-lc",
+        "cd 'PROJECT_ROOT/' && OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 CUDA_VISIBLE_DEVICES='' timeout 300 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s tests -p 'test_v02_panel*.py' -v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.8370926000061445,
+      "log": "PROJECT_ROOT/results\\foundation_20261016\\tests_20261016_083914\\wsl_existing_torch.log",
+      "log_sha256": "73ed73fa9252edcb36858d0ed52232f9f4b2c60a8887b62d8e0b209e14a75938",
+      "passed": true,
+      "tests_discovered": 16
+    },
+    {
+      "name": "wsl_foundation",
+      "command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu-22.04",
+        "--",
+        "bash",
+        "-lc",
+        "cd 'PROJECT_ROOT/' && OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 CUDA_VISIBLE_DEVICES='' timeout 300 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s tests -p 'test_foundation*.py' -v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.780633000002126,
+      "log": "PROJECT_ROOT/results\\foundation_20261016\\tests_20261016_083914\\wsl_foundation.log",
+      "log_sha256": "961e1f1258f6eee362cf4f8df004ac19a333789edc795ca0959b9e70b9545d8a",
+      "passed": true,
+      "tests_discovered": 67
+    }
+  ]
+}

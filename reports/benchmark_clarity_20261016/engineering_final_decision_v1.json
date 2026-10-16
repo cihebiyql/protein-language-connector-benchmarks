@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T15:36:20.0313668+08:00",
+  "reviewer": "matched_protocol_review",
+  "status": "final_engineering_choice_restore_exact_V1",
+  "decision": "Stop batch/backend/numerical-policy candidate search; continue original exact V1 per-row benchmark within same deadline",
+  "scientific_protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "scientific_protocol_unchanged": true,
+  "V3_evidence": {
+    "suite_state_path": "results/matched_budget_20261016/suite_batched_v3_20261016_1530/suite_state.json",
+    "suite_state_sha256": "64d252a1e5dc22059057362671763fb45c8f8d6a7b89f40b76e1c20a2d25a63d",
+    "suite_status": "failed_or_partial",
+    "controller_exception": {
+      "type": "RuntimeError",
+      "message": "Trial/canary failed; preserved terminal archive; queued jobs stopped, no automatic retry"
+    },
+    "job_count": 3,
+    "jobs": [
+      {
+        "case": {
+          "scenario": "new_peptide_known_target",
+          "seed": 17,
+          "placement": "early",
+          "message_input": "real",
+          "sender_mode": "balanced",
+          "gate_init": "zero",
+          "phase": "canary"
+        },
+        "accepted": true,
+        "test_rows_used": 0,
+        "reader_state_unchanged": true,
+        "mismatch_comparisons": [],
+        "mismatch_fields": [],
+        "exit_code": 0,
+        "process_group_absent": true,
+        "qualification_path": "results/matched_budget_20261016/suite_batched_v3_20261016_1530/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/batch_invariance_qualification.json",
+        "qualification_sha256": "6191d15ea7c04a30a62f4d528fda3bf355c5a6bb4b843d73f8e7007671758928"
+      },
+      {
+        "case": {
+          "scenario": "new_peptide_known_target",
+          "seed": 17,
+          "placement": "mid",
+          "message_input": "real",
+          "sender_mode": "balanced",
+          "gate_init": "zero",
+          "phase": "canary"
+        },
+        "accepted": true,
+        "test_rows_used": 0,
+        "reader_state_unchanged": true,
+        "mismatch_comparisons": [],
+        "mismatch_fields": [],
+        "exit_code": 0,
+        "process_group_absent": true,
+        "qualification_path": "results/matched_budget_20261016/suite_batched_v3_20261016_1530/canary_new_peptide_known_target_17_mid_real_balanced_zero/artifacts/batch_invariance_qualification.json",
+        "qualification_sha256": "6191d15ea7c04a30a62f4d528fda3bf355c5a6bb4b843d73f8e7007671758928"
+      },
+      {
+        "case": {
+          "scenario": "new_peptide_known_target",
+          "seed": 17,
+          "placement": "mid",
+          "message_input": "real",
+          "sender_mode": "balanced",
+          "gate_init": "near_unit",
+          "phase": "canary"
+        },
+        "accepted": false,
+        "test_rows_used": 0,
+        "reader_state_unchanged": true,
+        "mismatch_comparisons": [
+          "B2_all_four"
+        ],
+        "mismatch_fields": [
+          "canonical_generated_token_ids",
+          "raw_text"
+        ],
+        "exit_code": 1,
+        "process_group_absent": true,
+        "qualification_path": "results/matched_budget_20261016/suite_batched_v3_20261016_1530/canary_new_peptide_known_target_17_mid_real_balanced_near_unit/artifacts/batch_invariance_qualification.json",
+        "qualification_sha256": "6ef257143a80327035fb246bd1b41dab0bc4ef3a4c746739d7057c06d4194efb"
+      }
+    ],
+    "aggregate_qualification_passed": false
+  },
+  "V1_evidence": {
+    "suite_state_path": "results/matched_budget_20261016/suite_20261016_1426/suite_state.json",
+    "suite_state_sha256": "fa26f70bef7d942420c75f4bdc439bc8823a1f4980625abcb5986b94ed8bea9e",
+    "passed_historical_canaries": 6,
+    "completed_trials": 2,
+    "remaining_unique_training_cases": 34,
+    "prior_third_trial": "Stopped before spawn, not a completed training",
+    "original_scores_or_predictions_not_read": true
+  },
+  "restoration_boundaries": [
+    "All36 scientific configurations unchanged; original2complete remain sameV1 channel",
+    "Exact old V1 worker/perrow inference, same source/numericalflags/model/cache/environment by binding checks",
+    "Historical six TRAIN canaries may be reused only under identical pins; not labelled new canaries",
+    "Every newjob still has fresh resource probe, actual standard contract, supervision and independent result/exit receipts",
+    "No V2/V3 test output fill-in, no percase version choice, no added replicate count",
+    "All V2/V3 failures/raw outputs/source/contracts preserved"
+  ],
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T13:20:00+08:00",
+    "effective_deadline_at": "2026-10-16T23:20:00+08:00",
+    "reset_allowed": false,
+    "V2_V3_time_counts_toward_original_window": true,
+    "old_foundation_contract_not_resumed": true
+  },
+  "incomplete_policy": "At deadline preserve all partials, missing cases and seeds; report k/3 and null aggregates if not3/3 complete valid; no successful-seed-only mean, test/group/metric change or seed deletion",
+  "runtime_pin_rechecks_completed_by_this_document": false,
+  "reviewer_actions": {
+    "new_test_scores_or_predictions_read": false,
+    "GPU_calls": 0,
+    "training_performed": false,
+    "source_edits": false,
+    "prior_reports_or_failures_edits": false
+  },
+  "report_sha256": "863d9e1473eddca12096fe69af30b07a9efe50f35ac8271114150e16a31f629d"
+}

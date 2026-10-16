@@ -1,0 +1,2680 @@
+{
+  "benchmark_version": "0.2",
+  "panel_id": "A1",
+  "baseline_id": "BASE-00",
+  "channel": "predictor",
+  "role": "controlled_predictor",
+  "execution_receipt": {
+    "panel_id": "A1",
+    "scope": "panel_specific_predictor",
+    "status": "frozen_restricted_scope",
+    "benchmark_lock_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+    "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+    "split_counts": {
+      "train": 2063,
+      "test": 442,
+      "validation": 431
+    },
+    "disjointness": [
+      {
+        "field": "peptide_sequence",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "groups.peptide_family",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "groups.source_doi",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      },
+      {
+        "field": "groups.target_family",
+        "missing": 0,
+        "overlapping_groups": 0,
+        "examples": {},
+        "verified": true
+      }
+    ],
+    "external_isolation_verified": false,
+    "limitations": [
+      "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+      "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+      "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+      "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+      "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+      "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+    ],
+    "unified_multitask_connector_claim": false
+  },
+  "models": {
+    "train_mean": {
+      "selected_parameter": null,
+      "validation_trials": [
+        {
+          "parameter": null,
+          "validation_mae": 1.6110667885025292
+        }
+      ],
+      "test": {
+        "n": 442,
+        "mae": 1.4462827692449542,
+        "spearman": null,
+        "n_groups": 140,
+        "group_macro_mae": 1.6100759914744434,
+        "groups": [
+          {
+            "group_id": "tf:d83a9a8ba2e9d88ebf60aaf7f186a6bec5baac5340478a25b25a6f6b2cadd878",
+            "n": 5,
+            "mae": 0.8435481152885455,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:655b0e233155e540ef48affcb42464bb12cc38b193cd9ef302606592bd7f7b73",
+            "n": 6,
+            "mae": 1.6634848543613947,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a53e8a74135682d1c131daa260cc73f46cf39f5b4a1762d2f27bfaba833ece18",
+            "n": 4,
+            "mae": 0.13421222355020168,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:bd8e45b1aef9315c01c2eb13419bf370f4ed06c8b8e7d209cbb101abec31b070",
+            "n": 4,
+            "mae": 0.8214641578663087,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:e47d3b27e5738add629a88ec0e3ca211b320d79195c44480c59268a3e91d60c4",
+            "n": 2,
+            "mae": 3.5019924464315384,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:5ff58c58f0a099e51fb3cc870bfffb30f7aad341180c662fda8d246b14a755f7",
+            "n": 3,
+            "mae": 2.3849932686804345,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:39cb21a14c8faf7b5d1773d5e578bd35440348e7c17e87152cd6c10a92f7e985",
+            "n": 1,
+            "mae": 2.7761588039521055,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8d5931178af016b7914566577f5b490174948917324c7a6db74dca9e3dcaf94c",
+            "n": 1,
+            "mae": 1.3585397699453505,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:73fd41f5dad0efa842440a2f531f14a563b89d97338c0524e29116e6f13315dd",
+            "n": 11,
+            "mae": 1.5779799429959311,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:e19d744d038c01b8cc22bd7b2f0f42db427460e1ae0c3c033bfda05a992057ff",
+            "n": 3,
+            "mae": 0.5601985796665403,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9cc5a6e66df7116aba00d1c43e1ab9e5743dc92978ee435f06c82766080dd8f3",
+            "n": 1,
+            "mae": 2.5937524811196884,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7a7861a2f4b766593b1279e96658b1cfebf667cefb0b147deb97b23636a7fea4",
+            "n": 4,
+            "mae": 2.5773495303937395,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:71479efebdc02be6a578696475922dca6fda2bf394a9db489a4957e6c05ec3b6",
+            "n": 4,
+            "mae": 0.7364265540253494,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d5e1e101edb8e81ca39900444877a2dcc9e6080adffde94a47d58b0ee6f6c811",
+            "n": 6,
+            "mae": 1.2267830355836895,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:907190d6984113e380f933f5c52ca845921e460b09488f750311d99f1f6e9279",
+            "n": 7,
+            "mae": 0.6748856885351671,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9d6ddb14d57b4928c7f03be948a131de842eda0614bccf1bfc98e6e0b1f4d5df",
+            "n": 1,
+            "mae": 0.2538044194253377,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3e25ec144f4795b1d6dfa9bafbee067a2e4a5d02a2f02e3f2e0b5381c595f629",
+            "n": 4,
+            "mae": 1.9178829389972698,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:990d3c514d9e51934b66b973524f4157d6e6ba42f2f60470f81d41b7c8705504",
+            "n": 3,
+            "mae": 0.2389042172486334,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:14dbf9627717fe4d45d5ceb37a1a4b43c26c0640762cc7dd1d277f076aa7d738",
+            "n": 12,
+            "mae": 0.9552588652394123,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c6b4928573497204a5104940f82e3e6b8ecbf3fad21b58884ecc9aa19ed75bcd",
+            "n": 2,
+            "mae": 1.2505825427284147,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:e6a24c903c1ef211037c64a6835a8a484f48b17be1cae50d6998913f21acf7d4",
+            "n": 1,
+            "mae": 1.445165584910681,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2d278f86b8a3b1243572d560dda296c5bd3a7eb90e202f35173a32a169a2fe64",
+            "n": 3,
+            "mae": 1.9762721751354742,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c8a55ab4ace70bef1a5d7170aeaeea94e33692e24f918904f12e93a62c2846f7",
+            "n": 1,
+            "mae": 1.0989024594395946,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6ca8b89b8a573a51d1631cbbe600f08b2d015df3e398adf1b2bca7441801edad",
+            "n": 2,
+            "mae": 2.2644102133879995,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2d0a1e51ee3c726aa5f46609580a570c5c6be7f1ff70d1d1667b361a477a087b",
+            "n": 2,
+            "mae": 2.5393858814096824,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2f0d3e8db03b3f71ad9b90a65bfc9a62160332c9ebae2badf94067184d8f8945",
+            "n": 14,
+            "mae": 1.612149945646038,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:e3ee1debd824d0bf66e328728a7470ef914d7f59ae2eb518f89359d8a502d4c3",
+            "n": 2,
+            "mae": 1.2505825427284147,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:46f00db07b4490c273ee4b26b5062acc3b6cbe47f5e3efe33536cbf4f466d0ea",
+            "n": 2,
+            "mae": 1.0277665432234588,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c394cd014bdeba1d46fb09b8e7d23656d343e6674e20d92f1bb7bb1e2d9032cd",
+            "n": 3,
+            "mae": 2.4933451042578163,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:688c7ad1812cb8f7adb7c5cf3199c66f17f86b04644f051d2c89e49161f52734",
+            "n": 1,
+            "mae": 0.7461955805746623,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2c32767d7229a50549bc1ce5bda7891931c405d7b9b3f92cb9caea81702f36ab",
+            "n": 1,
+            "mae": 0.7467199413282319,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0a3974cac64781ca2e03db3142fd5bcbc88c74a0858649337a21cea974410276",
+            "n": 4,
+            "mae": 1.424758465612897,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:75f00efe46b76f5ba5702b3097ac9ab4df81cdd6aba29bb1ed826ec227372e8a",
+            "n": 5,
+            "mae": 1.042243742734211,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b606c098eae182300f53c1c144db0b2dcc69e268edb382758e324acb4ebe6ea2",
+            "n": 2,
+            "mae": 0.39397913055590195,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7cf059ef52d297f5ac0d0598b2ae44752ec2a52e01ca6d9d8a892ed3d0dcc424",
+            "n": 1,
+            "mae": 2.1783628500172503,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0c7c30ee0fceed0250ec583a7900c75ef198edfa208b7b7a4e2ac06978b9e2d0",
+            "n": 13,
+            "mae": 1.1901451975567305,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:03561bfd871eab65be8ade422127637ffaccd6782609385921d68221679741c2",
+            "n": 8,
+            "mae": 1.1650947869078316,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d54292201c131b0c1cd28328e1e16e053f50db8922b6b1e5762ce61bd61f455c",
+            "n": 1,
+            "mae": 1.6492855675666056,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3b2b69fed0c36508bc49125acfe873df76e21f21fc636d4b8c5631c6f86520d7",
+            "n": 2,
+            "mae": 1.5838695923454575,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8c5c02b6c6bd0cdb6b124ca9561d55619f482939dde04393d0be45aa27513322",
+            "n": 3,
+            "mae": 1.5671139763374107,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9947d2c5b5ddc2893700fa695c8c05d8b1cd28213fdf19298eb174d8e85d3013",
+            "n": 2,
+            "mae": 1.7036314893446873,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:115c25fe50be706d85ec9231d65b74ebaf3ed82a3faba2fb9216d5714d941a67",
+            "n": 8,
+            "mae": 1.8616856124812249,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2979187579e51a917785b9edb5b1432c7624a7b2501e6d2374f787c21e57f6c4",
+            "n": 9,
+            "mae": 3.0605205957578807,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9a06387610edd099466d614941c42a433f444feb6a8f25375bb0b6ad8ec9c6f4",
+            "n": 2,
+            "mae": 1.1020599913279625,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:18ee36b6131a51c05bc87babe513d043cabf4f739e0abf54966242a0470d4b9c",
+            "n": 2,
+            "mae": 1.227462388595029,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3d813e99129c46f538a5a3802982e8b21072c01c640279a4635ad1378fa21d69",
+            "n": 2,
+            "mae": 0.5395906230238126,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:31d1c12c4007b059f95e49f1b77b579ad0fe5de652f83c05985ff867ec987c22",
+            "n": 11,
+            "mae": 0.31726964391001433,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:50d35dc554d3538bc4e0d1b240d835298f63a9469094433d8fb2b73afe7d2a4d",
+            "n": 6,
+            "mae": 0.5700582671062526,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:342bb71ef707fdc2781d7a2190560e0f01d7688ff44f7538b1535d38a572dccb",
+            "n": 2,
+            "mae": 1.5871219143911222,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:49075dc76c899fcf68c089671190edbe8bcb4eec37cd0b3ddff294ff2f999476",
+            "n": 1,
+            "mae": 1.0989024594395946,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b88510cec6dd93d129d0e357a3520f202273db7057daab4796e090c09445e074",
+            "n": 1,
+            "mae": 2.825901187375857,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0cac3c129340b8427a846a8b9c30ea2334a613a62a8ef1495a9ff94c1358e97b",
+            "n": 3,
+            "mae": 0.3589585393568185,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9265821f0d82233702b2254c74ea00df4c78549cf4b96ca2a751cd8f6fff8484",
+            "n": 1,
+            "mae": 0.35853976994535053,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:06fd91812e67b4880f26ad8e817707233bd4ae087b96e4a2a5a820ed6fcf8803",
+            "n": 2,
+            "mae": 1.8146895830389012,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6b8ff8f7b25c2a43cbdf1f4115c08e8dd7d66db8dbe55a45a1743c10c2d1e370",
+            "n": 5,
+            "mae": 0.6878983888207753,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:098f8e95556545c4417a8526c58549235f89930e00529d662ba941c1c2e8a9dd",
+            "n": 1,
+            "mae": 2.0777131603696564,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:60afed7f40c1afd018eeac09cbb81ea5eb253b2661abf531fef13841ccbb33f6",
+            "n": 1,
+            "mae": 2.6548576635215184,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:922a43fe8e3d6b63d8a72f0dc8ddcf8c883981276e6348218464071138b573ca",
+            "n": 1,
+            "mae": 3.545626413302495,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d7d4206f3396b2adfc36ab30202fe76ce36509ff8923b60fa4ed9775007576c8",
+            "n": 1,
+            "mae": 0.9010975405604054,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ebd6aeb019f346337b1e65cceae8144b40b7f749bbb699ea2df3f889b776a371",
+            "n": 2,
+            "mae": 1.7720340221751378,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:90397a156f87a91b9bb1e01e97437e9f353b3b37025d48c3c0efdf77fe4ccaf8",
+            "n": 11,
+            "mae": 1.160818310398196,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:01dbbed6a2dd146835f42d645c6151771adc0f38b062b116b1969ce3262bd6b8",
+            "n": 2,
+            "mae": 1.399932455103576,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b3a45124a0d4a00c61f03bae1ab6f63f86f7595652901643ea41d3b055f5bd4c",
+            "n": 3,
+            "mae": 1.1479741698794121,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:42353e7358c520438331fbd40886a43cd2a375d29227d3f89c81d55458aebee3",
+            "n": 1,
+            "mae": 1.7409676124391407,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ff9b3e809fc425a0058de6457c1e1f46e00da73b380fca7758ebf315e7f93eaa",
+            "n": 1,
+            "mae": 1.6086677166583416,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:18b2e1bd67944403199de773a28ab247325c484b0c3b6f8bf6678a615ec509b1",
+            "n": 2,
+            "mae": 2.410266758419139,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a2a625c2ddbdbf826d7dff0c4248b871a0d5ed3323f7b46a27597d37fc7ee17e",
+            "n": 5,
+            "mae": 2.545378496725246,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:357e5907a2b8b7b3769a7f4200af624d6e717071f7cb7f406d4136dbcb5b1054",
+            "n": 1,
+            "mae": 6.600067544896424,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7737196139dd6aa2c13074d9d476fdbc90f1e040d5bca8af87e0ba31d9d200de",
+            "n": 1,
+            "mae": 1.9784654458445616,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:082ef6cfa8a9d5c17782cc036623a4c0ece915fc6a420e54678ff55dab70b98e",
+            "n": 12,
+            "mae": 1.1873137348630436,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ba7f73ab9a6a9a8884a3fdb5c49a983fa005905c88a188728e529b302d359974",
+            "n": 3,
+            "mae": 1.0896380686886797,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:848e1c837f05f81497688db39709751dda67d0c3c1044aad526d4341d64e5f6e",
+            "n": 1,
+            "mae": 0.5803885195617076,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fd548cf534d2ac141a0039cec8a88cbebd1ea1383518ef117560075b1eecf77f",
+            "n": 4,
+            "mae": 0.38704615263627695,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:63bb8d6716719d1c41474e5bd578613104d9b18fbf24b59867d74bb249919d88",
+            "n": 1,
+            "mae": 2.6792487909440488,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b9bfd4382923121582e5faf61b59ea782f7ab784a07a24eebc0f67bec87bd14e",
+            "n": 1,
+            "mae": 0.8041875275523491,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:93fb47bbeca6be18bc40dfe8c9fdbadf8aa34f0dc50dd7286e8211fb659bb402",
+            "n": 10,
+            "mae": 2.26227633037784,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:82ec05b1efebbb57e2fa85b1df3929956cbcfb81c8156a44d6f202872bbb0000",
+            "n": 3,
+            "mae": 1.5828767574436382,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:34bf1a7990186d378cf05069f551f756964ddf282506d83c8bf1d32ada38c9d1",
+            "n": 3,
+            "mae": 3.4923878142589717,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7438d5f596e09668e019d00ecbe3e690adcecf0e07ff60f647a1faa38070bce4",
+            "n": 2,
+            "mae": 1.6665574017493032,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8323c5642e8f0c512a3cb88fea06aa798f8c7b911033757067df511e0c5ead9d",
+            "n": 1,
+            "mae": 3.6603601106534835,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:5b04100b083a61fabdaa2744391a66d8e1372ae0145ae13cf647264e11f332b4",
+            "n": 1,
+            "mae": 1.7461955805746623,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:55b273c89ffd2bdeb391378e900d7b2e8635e2488b804eb91c37ce9f1d65244e",
+            "n": 1,
+            "mae": 0.38539737990719125,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:440dade45ec6a6f91bd1554ef5a9b5ea1b65ffcb927cb48129528162aee10602",
+            "n": 3,
+            "mae": 0.16836926342088443,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1b49a8461b13721a5b7ef951466d2a3f0d93817f46fe8d7c993988576267e94b",
+            "n": 2,
+            "mae": 4.831889406411527,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:562562e7f9ae9e5c9484eeac2cf9b44ef429832c8e1e34d41086b86e91eef13e",
+            "n": 2,
+            "mae": 1.4654340038600084,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fb5839c7b36f2577798b21e0e83f56ebe8ce0b8f072b5303ce54409574135472",
+            "n": 1,
+            "mae": 4.285989102796739,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b1b17c7fca3cbab15bc66b90bd4c07f73617cb5a03db105b0a38084fe7bca48b",
+            "n": 1,
+            "mae": 0.45359319996328207,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a47ce06b0e72ab131c9d5f2bcabb717c5ec2edb149d9a38e57886a9ccc550195",
+            "n": 6,
+            "mae": 2.8358232852022973,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:743dfb160d4b7856ee26709f504124776e33430b198b76600ff83e1d02dab843",
+            "n": 4,
+            "mae": 1.4994174572715853,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ce2327255dd514b0cb7f89f4cc4d60928af1a2111860979b919d44a408827971",
+            "n": 1,
+            "mae": 0.5031575318883679,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:40544c6fee0f15b6fe78d6ab7e5e27d8080224fe28dc0d6ca6f2e9a790dd24d4",
+            "n": 9,
+            "mae": 1.2521447944648556,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c0f5745899a44e73098e606f4e09050e0b63f9b4f00cab49981806296b53d591",
+            "n": 4,
+            "mae": 0.5655023636295553,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a89581e8cce5f7c8b66944b957a465b055062319020e8d26fb14dd953cda4e42",
+            "n": 2,
+            "mae": 2.811886825575735,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d8bfec6fc942ed699776a631422de0eb895853d5b7e23b9f9f14fe5af9d983d2",
+            "n": 1,
+            "mae": 0.023355498047063605,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:cb0e185620247c7c93effb248b353790c9998bcb9e7c491a201905c6968dc97e",
+            "n": 1,
+            "mae": 1.0989024594395946,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6c880cb70d1e9c61ef878746fe73df759a2de78ffc774ce93ecef67ae6644abc",
+            "n": 1,
+            "mae": 2.2813087822720113,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:df821f0f6063d4807dda21f9cc3f00c1bd9e0e77ea0efaf942f3bc7725d0f9b0",
+            "n": 6,
+            "mae": 1.5208663368699435,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:99631896f58c6d35e83118066b3e810c32befa1ed65d9584c4f767db186c8410",
+            "n": 2,
+            "mae": 1.1243209631021465,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ab20a5b7af519a1d9d2ffea0f1a05f1e86d05a71d38fbea9074db95168d3f7bb",
+            "n": 2,
+            "mae": 0.6881131744242648,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7021075c68c610826a87b2da37f0fdc1493045d176d47e91ab6763f473d39134",
+            "n": 1,
+            "mae": 2.7871485983838404,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8a7573ba66d9b3284203b369c41a27c08ba54e62ad5359346d8f7dd55fa82f1d",
+            "n": 1,
+            "mae": 3.195812472447651,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:f7199e5cea406b1fefe24956bad473a6368394d1e2c01f7561eddd025ff73ecd",
+            "n": 2,
+            "mae": 2.640580750672785,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:49b10f8fd57a2ed2f2e76c3856e369c92350a1dc26f71cb358ee52c452b43b34",
+            "n": 11,
+            "mae": 1.034029188183841,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6b571651dbf59bcdd9745df2289e67193a7251e2ba4ac3b0798681ccfd927228",
+            "n": 2,
+            "mae": 0.5534984246598205,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:dc49f6a6b5b5ed37382017f9d93b2ce8722ba2f539a53b3fe92d9d643dc1bf0a",
+            "n": 2,
+            "mae": 1.455464594861588,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b5cee28fcb9fa63efbe49ab70e6e75513ff71fa589af13c13b9ca0ea8ec9fc60",
+            "n": 2,
+            "mae": 1.7088095170033772,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c59f28ede70b0cc0868a665f675bfd7b5ca7a16852b1d31853cd73f7330aa271",
+            "n": 4,
+            "mae": 1.872913930416016,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fe033121c7d779e0682f10287fd21b025ad2528d8a3a0003ae739daafdd7b5d7",
+            "n": 2,
+            "mae": 0.9495525470644335,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d257a99e5c82398e642ef1770bd63a6a39db0a934aca6d0ab33c13c44698939c",
+            "n": 1,
+            "mae": 1.600067544896424,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6eb756706b1a73df4b1c21a0429c59bf60233edddeaa786d494f2aebb6e17c2d",
+            "n": 7,
+            "mae": 0.3364605265785772,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:db904fb6bea3d836fa9c2d870a738e324e79a98b89b69b5f2492e9772b7efbb7",
+            "n": 1,
+            "mae": 0.3959475622404991,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fa6b703d464af0d2eab3518a2d4c38b6745a8739aca8abd8ebe912c1adfec1d1",
+            "n": 3,
+            "mae": 1.4245212352461039,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c81b4e9e806e0ace9f779e65477e6c988dea6cad5eecfbcb35f2364c5fc884dd",
+            "n": 1,
+            "mae": 1.8934274226987036,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7cb72a678b6c16de1fb012ba9aeba9d935e2f7823511856bd262db0e5406e3ea",
+            "n": 3,
+            "mae": 0.6264550112708381,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:e2e37cb8956473db663196cc55b7336f68505552863364417d19cdb9aa1e0b78",
+            "n": 2,
+            "mae": 4.6365599172103895,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0cd5faa00a6bbb7e2a04da177c2039449ca3e6ae2f0db7e0b9c82233333a1edd",
+            "n": 6,
+            "mae": 0.8993258229706429,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9761efde76e17c33ced5a4486adcf38fc099ca741370e9c5915ea642f8916164",
+            "n": 1,
+            "mae": 1.7978724637756134,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b9903a5a1165dba0a6666fe4bc05f4a8084b04e1ef1160e76679f5bbc53fbc0d",
+            "n": 1,
+            "mae": 0.5543100543357493,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:70cc98d857f632d6eb2e780375cba1b18fb51c1512733ef281dd76120a6ccfed",
+            "n": 2,
+            "mae": 2.5771887996160867,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0e11854976a2c0f98c04d17e68f0563dde851bf0eca20914dd5eeca9694627c0",
+            "n": 2,
+            "mae": 0.34398731001727745,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:5285d9c76bfe355d73ae538a1279f843613a34a94ce6688d858d11a30ba4e373",
+            "n": 1,
+            "mae": 1.399932455103576,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:00595c9e11b7ae258ae1832c870c6118ce40e259f5526208e80480d276d71492",
+            "n": 2,
+            "mae": 3.448387461607604,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:4db9817b1188bd9ac5e083ea215442dbe7c8d1a9551b7ea85eb2ff1fcd177b78",
+            "n": 7,
+            "mae": 2.0176149796592404,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d9e46483ab37a7bbfcd1cb7a574ec80dbaa9477fd414189d3c03bc4d70b998b1",
+            "n": 6,
+            "mae": 1.2875913732215105,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ec5b130d483abe185f4f95efb3d5b7734d0c2d9d698f3fd604e5b75c1a83b9bc",
+            "n": 2,
+            "mae": 1.3603418320797633,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:65cc17de418acc867175980c8da90d6423b160db93a9f8b72bfe25e4759e96ac",
+            "n": 1,
+            "mae": 2.545019432795721,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:340a9f7097a348c23cd22cc625ab46d80b6da733742bac8aa9457ef771df97f4",
+            "n": 1,
+            "mae": 1.256917654849481,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3981c340ddc28c3b089ef3640869566fd847f9a88449c096d8b2fa1170ff86b0",
+            "n": 1,
+            "mae": 1.9424902257186303,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b34bc0e350e2cd8436e1be5007d0d5b5990f5e632a3235401c8cd4371e7ffa04",
+            "n": 1,
+            "mae": 1.9010975405604054,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:4c7e4c736be54da59d92abd056a264e2d097ab97496ebcf1c986bf19653554ec",
+            "n": 2,
+            "mae": 0.627898432928438,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a4a7ce5705e57bc436d688a461b493e497b07aa81515c02b44d6965d0cc3833f",
+            "n": 1,
+            "mae": 1.9617953809140167,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7dc673f4a551f7c2afcd2a3d487706bfc9899177a5519b641b6aeba20add119b",
+            "n": 3,
+            "mae": 0.5067519709376782,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:61a625c86b64022209c6871c9fe04a355a39bd1ae10deeb1f0f50fff94825715",
+            "n": 6,
+            "mae": 0.5708509157778666,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:55b82e53537da21182b9e0ef8f0a31cbd8b5bf5d824193554b93a3bf4d4cee20",
+            "n": 1,
+            "mae": 1.3746265898388055,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:218137d448247adb6d5719cfe93e51d237d6b472687905bbab6ce6310eb11043",
+            "n": 2,
+            "mae": 2.3222644363710447,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:12195f9bc5a4cd76a45a13cfe8dc6fad8e984526f6811b81b7b358f5ae3fedb8",
+            "n": 2,
+            "mae": 1.8193982623679883,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a0de947ecdd261382230c02c419a7279d64fdc5e04cb7babc81666157a8bf553",
+            "n": 1,
+            "mae": 0.9043881175571276,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:890e39a7896d5b3d795db5c2ca1065c681445ac966d2698a84770508d85955fa",
+            "n": 1,
+            "mae": 1.881418515225688,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:798ffb12d25945c3154272e6acbef5e20bf0c1238476eff0792dcd3dace80afc",
+            "n": 7,
+            "mae": 1.1857026306341167,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a13d0144edbeeb5fe3e3d63ed62d94f322c007a6915b0560b05daf1aee7f69d0",
+            "n": 1,
+            "mae": 4.7761588039521055,
+            "spearman": null
+          }
+        ]
+      }
+    },
+    "composition_chemistry_ridge": {
+      "selected_parameter": 1000.0,
+      "validation_trials": [
+        {
+          "parameter": 0.1,
+          "validation_mae": 1.8552211278279425
+        },
+        {
+          "parameter": 1.0,
+          "validation_mae": 1.854837658989386
+        },
+        {
+          "parameter": 10.0,
+          "validation_mae": 1.851060019522907
+        },
+        {
+          "parameter": 100.0,
+          "validation_mae": 1.8179942308981627
+        },
+        {
+          "parameter": 1000.0,
+          "validation_mae": 1.6890483426589844
+        }
+      ],
+      "test": {
+        "n": 442,
+        "mae": 1.5522326388805492,
+        "spearman": 0.08169100737279687,
+        "n_groups": 140,
+        "group_macro_mae": 1.752731692418311,
+        "groups": [
+          {
+            "group_id": "tf:d83a9a8ba2e9d88ebf60aaf7f186a6bec5baac5340478a25b25a6f6b2cadd878",
+            "n": 5,
+            "mae": 1.6307688343630944,
+            "spearman": -0.09999999999999998
+          },
+          {
+            "group_id": "tf:655b0e233155e540ef48affcb42464bb12cc38b193cd9ef302606592bd7f7b73",
+            "n": 6,
+            "mae": 2.4322056033501656,
+            "spearman": -0.5636018619766345
+          },
+          {
+            "group_id": "tf:a53e8a74135682d1c131daa260cc73f46cf39f5b4a1762d2f27bfaba833ece18",
+            "n": 4,
+            "mae": 1.946932921574136,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:bd8e45b1aef9315c01c2eb13419bf370f4ed06c8b8e7d209cbb101abec31b070",
+            "n": 4,
+            "mae": 0.6293330722291399,
+            "spearman": -1.0
+          },
+          {
+            "group_id": "tf:e47d3b27e5738add629a88ec0e3ca211b320d79195c44480c59268a3e91d60c4",
+            "n": 2,
+            "mae": 3.392996723698573,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:5ff58c58f0a099e51fb3cc870bfffb30f7aad341180c662fda8d246b14a755f7",
+            "n": 3,
+            "mae": 2.6800900361441093,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:39cb21a14c8faf7b5d1773d5e578bd35440348e7c17e87152cd6c10a92f7e985",
+            "n": 1,
+            "mae": 1.9237343125154522,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8d5931178af016b7914566577f5b490174948917324c7a6db74dca9e3dcaf94c",
+            "n": 1,
+            "mae": 0.1896007369415864,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:73fd41f5dad0efa842440a2f531f14a563b89d97338c0524e29116e6f13315dd",
+            "n": 11,
+            "mae": 1.217112103866761,
+            "spearman": 0.5011402523360258
+          },
+          {
+            "group_id": "tf:e19d744d038c01b8cc22bd7b2f0f42db427460e1ae0c3c033bfda05a992057ff",
+            "n": 3,
+            "mae": 1.047710330599206,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:9cc5a6e66df7116aba00d1c43e1ab9e5743dc92978ee435f06c82766080dd8f3",
+            "n": 1,
+            "mae": 2.733735542819474,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7a7861a2f4b766593b1279e96658b1cfebf667cefb0b147deb97b23636a7fea4",
+            "n": 4,
+            "mae": 2.329432510924286,
+            "spearman": 0.9486832980505138
+          },
+          {
+            "group_id": "tf:71479efebdc02be6a578696475922dca6fda2bf394a9db489a4957e6c05ec3b6",
+            "n": 4,
+            "mae": 1.4099134446982675,
+            "spearman": -0.31622776601683794
+          },
+          {
+            "group_id": "tf:d5e1e101edb8e81ca39900444877a2dcc9e6080adffde94a47d58b0ee6f6c811",
+            "n": 6,
+            "mae": 1.049150186427531,
+            "spearman": 0.029424494316824982
+          },
+          {
+            "group_id": "tf:907190d6984113e380f933f5c52ca845921e460b09488f750311d99f1f6e9279",
+            "n": 7,
+            "mae": 0.7207955253648056,
+            "spearman": 0.21428571428571425
+          },
+          {
+            "group_id": "tf:9d6ddb14d57b4928c7f03be948a131de842eda0614bccf1bfc98e6e0b1f4d5df",
+            "n": 1,
+            "mae": 0.39468170466484587,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3e25ec144f4795b1d6dfa9bafbee067a2e4a5d02a2f02e3f2e0b5381c595f629",
+            "n": 4,
+            "mae": 1.915825438146475,
+            "spearman": 0.2581988897471611
+          },
+          {
+            "group_id": "tf:990d3c514d9e51934b66b973524f4157d6e6ba42f2f60470f81d41b7c8705504",
+            "n": 3,
+            "mae": 0.3422516102602409,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:14dbf9627717fe4d45d5ceb37a1a4b43c26c0640762cc7dd1d277f076aa7d738",
+            "n": 12,
+            "mae": 0.8543895848366595,
+            "spearman": -0.12889410126519393
+          },
+          {
+            "group_id": "tf:c6b4928573497204a5104940f82e3e6b8ecbf3fad21b58884ecc9aa19ed75bcd",
+            "n": 2,
+            "mae": 0.8044888681757585,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:e6a24c903c1ef211037c64a6835a8a484f48b17be1cae50d6998913f21acf7d4",
+            "n": 1,
+            "mae": 1.0925328258406317,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2d278f86b8a3b1243572d560dda296c5bd3a7eb90e202f35173a32a169a2fe64",
+            "n": 3,
+            "mae": 1.7637813326322886,
+            "spearman": 0.0
+          },
+          {
+            "group_id": "tf:c8a55ab4ace70bef1a5d7170aeaeea94e33692e24f918904f12e93a62c2846f7",
+            "n": 1,
+            "mae": 1.5292497716081677,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6ca8b89b8a573a51d1631cbbe600f08b2d015df3e398adf1b2bca7441801edad",
+            "n": 2,
+            "mae": 2.1032440213855277,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:2d0a1e51ee3c726aa5f46609580a570c5c6be7f1ff70d1d1667b361a477a087b",
+            "n": 2,
+            "mae": 1.9439614324048962,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:2f0d3e8db03b3f71ad9b90a65bfc9a62160332c9ebae2badf94067184d8f8945",
+            "n": 14,
+            "mae": 1.21033179560666,
+            "spearman": 0.6556355290335611
+          },
+          {
+            "group_id": "tf:e3ee1debd824d0bf66e328728a7470ef914d7f59ae2eb518f89359d8a502d4c3",
+            "n": 2,
+            "mae": 0.8509308359888506,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:46f00db07b4490c273ee4b26b5062acc3b6cbe47f5e3efe33536cbf4f466d0ea",
+            "n": 2,
+            "mae": 1.0305531623457194,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c394cd014bdeba1d46fb09b8e7d23656d343e6674e20d92f1bb7bb1e2d9032cd",
+            "n": 3,
+            "mae": 1.5668358093802777,
+            "spearman": 0.4999999999999999
+          },
+          {
+            "group_id": "tf:688c7ad1812cb8f7adb7c5cf3199c66f17f86b04644f051d2c89e49161f52734",
+            "n": 1,
+            "mae": 0.3901566724651069,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2c32767d7229a50549bc1ce5bda7891931c405d7b9b3f92cb9caea81702f36ab",
+            "n": 1,
+            "mae": 0.952822342993608,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0a3974cac64781ca2e03db3142fd5bcbc88c74a0858649337a21cea974410276",
+            "n": 4,
+            "mae": 3.7033707238468843,
+            "spearman": -0.8944271909999159
+          },
+          {
+            "group_id": "tf:75f00efe46b76f5ba5702b3097ac9ab4df81cdd6aba29bb1ed826ec227372e8a",
+            "n": 5,
+            "mae": 0.8555838026472395,
+            "spearman": 0.6324555320336759
+          },
+          {
+            "group_id": "tf:b606c098eae182300f53c1c144db0b2dcc69e268edb382758e324acb4ebe6ea2",
+            "n": 2,
+            "mae": 0.2791084086664428,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7cf059ef52d297f5ac0d0598b2ae44752ec2a52e01ca6d9d8a892ed3d0dcc424",
+            "n": 1,
+            "mae": 1.760108114331314,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0c7c30ee0fceed0250ec583a7900c75ef198edfa208b7b7a4e2ac06978b9e2d0",
+            "n": 13,
+            "mae": 0.589445331343424,
+            "spearman": -0.25105799008991003
+          },
+          {
+            "group_id": "tf:03561bfd871eab65be8ade422127637ffaccd6782609385921d68221679741c2",
+            "n": 8,
+            "mae": 1.593076446863766,
+            "spearman": -0.7730206825239258
+          },
+          {
+            "group_id": "tf:d54292201c131b0c1cd28328e1e16e053f50db8922b6b1e5762ce61bd61f455c",
+            "n": 1,
+            "mae": 1.1091855307497123,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3b2b69fed0c36508bc49125acfe873df76e21f21fc636d4b8c5631c6f86520d7",
+            "n": 2,
+            "mae": 1.339001320085031,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:8c5c02b6c6bd0cdb6b124ca9561d55619f482939dde04393d0be45aa27513322",
+            "n": 3,
+            "mae": 1.5416207963063024,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:9947d2c5b5ddc2893700fa695c8c05d8b1cd28213fdf19298eb174d8e85d3013",
+            "n": 2,
+            "mae": 1.3337080159163677,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:115c25fe50be706d85ec9231d65b74ebaf3ed82a3faba2fb9216d5714d941a67",
+            "n": 8,
+            "mae": 1.5167147469460494,
+            "spearman": -0.17964393928698882
+          },
+          {
+            "group_id": "tf:2979187579e51a917785b9edb5b1432c7624a7b2501e6d2374f787c21e57f6c4",
+            "n": 9,
+            "mae": 2.7725322013237683,
+            "spearman": 0.47699162299076214
+          },
+          {
+            "group_id": "tf:9a06387610edd099466d614941c42a433f444feb6a8f25375bb0b6ad8ec9c6f4",
+            "n": 2,
+            "mae": 1.332111624904753,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:18ee36b6131a51c05bc87babe513d043cabf4f739e0abf54966242a0470d4b9c",
+            "n": 2,
+            "mae": 0.4031904514053579,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:3d813e99129c46f538a5a3802982e8b21072c01c640279a4635ad1378fa21d69",
+            "n": 2,
+            "mae": 0.6729279990523689,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:31d1c12c4007b059f95e49f1b77b579ad0fe5de652f83c05985ff867ec987c22",
+            "n": 11,
+            "mae": 0.2753450136470825,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:50d35dc554d3538bc4e0d1b240d835298f63a9469094433d8fb2b73afe7d2a4d",
+            "n": 6,
+            "mae": 0.6226732149720987,
+            "spearman": -0.14285714285714285
+          },
+          {
+            "group_id": "tf:342bb71ef707fdc2781d7a2190560e0f01d7688ff44f7538b1535d38a572dccb",
+            "n": 2,
+            "mae": 1.3570337897845564,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:49075dc76c899fcf68c089671190edbe8bcb4eec37cd0b3ddff294ff2f999476",
+            "n": 1,
+            "mae": 1.4769674119955187,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b88510cec6dd93d129d0e357a3520f202273db7057daab4796e090c09445e074",
+            "n": 1,
+            "mae": 3.4861927648471696,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0cac3c129340b8427a846a8b9c30ea2334a613a62a8ef1495a9ff94c1358e97b",
+            "n": 3,
+            "mae": 0.3032650430253237,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9265821f0d82233702b2254c74ea00df4c78549cf4b96ca2a751cd8f6fff8484",
+            "n": 1,
+            "mae": 3.065438415830447,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:06fd91812e67b4880f26ad8e817707233bd4ae087b96e4a2a5a820ed6fcf8803",
+            "n": 2,
+            "mae": 1.732721913050987,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:6b8ff8f7b25c2a43cbdf1f4115c08e8dd7d66db8dbe55a45a1743c10c2d1e370",
+            "n": 5,
+            "mae": 1.2658755769180927,
+            "spearman": 0.09999999999999998
+          },
+          {
+            "group_id": "tf:098f8e95556545c4417a8526c58549235f89930e00529d662ba941c1c2e8a9dd",
+            "n": 1,
+            "mae": 2.1700492164160536,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:60afed7f40c1afd018eeac09cbb81ea5eb253b2661abf531fef13841ccbb33f6",
+            "n": 1,
+            "mae": 5.272026832162457,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:922a43fe8e3d6b63d8a72f0dc8ddcf8c883981276e6348218464071138b573ca",
+            "n": 1,
+            "mae": 5.1842023307573575,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d7d4206f3396b2adfc36ab30202fe76ce36509ff8923b60fa4ed9775007576c8",
+            "n": 1,
+            "mae": 1.1969955070140474,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ebd6aeb019f346337b1e65cceae8144b40b7f749bbb699ea2df3f889b776a371",
+            "n": 2,
+            "mae": 2.0371079392428273,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:90397a156f87a91b9bb1e01e97437e9f353b3b37025d48c3c0efdf77fe4ccaf8",
+            "n": 11,
+            "mae": 1.172768827164463,
+            "spearman": -0.21818181818181817
+          },
+          {
+            "group_id": "tf:01dbbed6a2dd146835f42d645c6151771adc0f38b062b116b1969ce3262bd6b8",
+            "n": 2,
+            "mae": 1.8219931828966285,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b3a45124a0d4a00c61f03bae1ab6f63f86f7595652901643ea41d3b055f5bd4c",
+            "n": 3,
+            "mae": 1.5883555155084668,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:42353e7358c520438331fbd40886a43cd2a375d29227d3f89c81d55458aebee3",
+            "n": 1,
+            "mae": 2.540964761037076,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ff9b3e809fc425a0058de6457c1e1f46e00da73b380fca7758ebf315e7f93eaa",
+            "n": 1,
+            "mae": 1.8117961616330613,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:18b2e1bd67944403199de773a28ab247325c484b0c3b6f8bf6678a615ec509b1",
+            "n": 2,
+            "mae": 1.937631951061639,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:a2a625c2ddbdbf826d7dff0c4248b871a0d5ed3323f7b46a27597d37fc7ee17e",
+            "n": 5,
+            "mae": 2.561493365493436,
+            "spearman": -0.33541019662496846
+          },
+          {
+            "group_id": "tf:357e5907a2b8b7b3769a7f4200af624d6e717071f7cb7f406d4136dbcb5b1054",
+            "n": 1,
+            "mae": 7.121862977606849,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7737196139dd6aa2c13074d9d476fdbc90f1e040d5bca8af87e0ba31d9d200de",
+            "n": 1,
+            "mae": 1.8819912655556723,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:082ef6cfa8a9d5c17782cc036623a4c0ece915fc6a420e54678ff55dab70b98e",
+            "n": 12,
+            "mae": 0.770630941174001,
+            "spearman": 0.5017574746630903
+          },
+          {
+            "group_id": "tf:ba7f73ab9a6a9a8884a3fdb5c49a983fa005905c88a188728e529b302d359974",
+            "n": 3,
+            "mae": 0.6399137701713022,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:848e1c837f05f81497688db39709751dda67d0c3c1044aad526d4341d64e5f6e",
+            "n": 1,
+            "mae": 0.777886471915477,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fd548cf534d2ac141a0039cec8a88cbebd1ea1383518ef117560075b1eecf77f",
+            "n": 4,
+            "mae": 0.6096014586159271,
+            "spearman": 0.5999999999999999
+          },
+          {
+            "group_id": "tf:63bb8d6716719d1c41474e5bd578613104d9b18fbf24b59867d74bb249919d88",
+            "n": 1,
+            "mae": 2.7000324088746175,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b9bfd4382923121582e5faf61b59ea782f7ab784a07a24eebc0f67bec87bd14e",
+            "n": 1,
+            "mae": 0.7243900425560739,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:93fb47bbeca6be18bc40dfe8c9fdbadf8aa34f0dc50dd7286e8211fb659bb402",
+            "n": 10,
+            "mae": 2.4977269024328987,
+            "spearman": -0.07808688094430302
+          },
+          {
+            "group_id": "tf:82ec05b1efebbb57e2fa85b1df3929956cbcfb81c8156a44d6f202872bbb0000",
+            "n": 3,
+            "mae": 1.8989867574276875,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:34bf1a7990186d378cf05069f551f756964ddf282506d83c8bf1d32ada38c9d1",
+            "n": 3,
+            "mae": 3.4755394312708714,
+            "spearman": 0.4999999999999999
+          },
+          {
+            "group_id": "tf:7438d5f596e09668e019d00ecbe3e690adcecf0e07ff60f647a1faa38070bce4",
+            "n": 2,
+            "mae": 1.1004458747393189,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8323c5642e8f0c512a3cb88fea06aa798f8c7b911033757067df511e0c5ead9d",
+            "n": 1,
+            "mae": 4.135890292293002,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:5b04100b083a61fabdaa2744391a66d8e1372ae0145ae13cf647264e11f332b4",
+            "n": 1,
+            "mae": 2.0363843936369053,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:55b273c89ffd2bdeb391378e900d7b2e8635e2488b804eb91c37ce9f1d65244e",
+            "n": 1,
+            "mae": 0.19766447991224556,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:440dade45ec6a6f91bd1554ef5a9b5ea1b65ffcb927cb48129528162aee10602",
+            "n": 3,
+            "mae": 0.34614000426778,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1b49a8461b13721a5b7ef951466d2a3f0d93817f46fe8d7c993988576267e94b",
+            "n": 2,
+            "mae": 4.448664942937143,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:562562e7f9ae9e5c9484eeac2cf9b44ef429832c8e1e34d41086b86e91eef13e",
+            "n": 2,
+            "mae": 1.8450485224020081,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fb5839c7b36f2577798b21e0e83f56ebe8ce0b8f072b5303ce54409574135472",
+            "n": 1,
+            "mae": 3.9417852365368944,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b1b17c7fca3cbab15bc66b90bd4c07f73617cb5a03db105b0a38084fe7bca48b",
+            "n": 1,
+            "mae": 0.11096963770327317,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a47ce06b0e72ab131c9d5f2bcabb717c5ec2edb149d9a38e57886a9ccc550195",
+            "n": 6,
+            "mae": 2.3839770517135186,
+            "spearman": 0.23904572186687872
+          },
+          {
+            "group_id": "tf:743dfb160d4b7856ee26709f504124776e33430b198b76600ff83e1d02dab843",
+            "n": 4,
+            "mae": 1.594550083677001,
+            "spearman": -0.3999999999999999
+          },
+          {
+            "group_id": "tf:ce2327255dd514b0cb7f89f4cc4d60928af1a2111860979b919d44a408827971",
+            "n": 1,
+            "mae": 1.6018812954525723,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:40544c6fee0f15b6fe78d6ab7e5e27d8080224fe28dc0d6ca6f2e9a790dd24d4",
+            "n": 9,
+            "mae": 1.1173205803590964,
+            "spearman": -0.3116912322922415
+          },
+          {
+            "group_id": "tf:c0f5745899a44e73098e606f4e09050e0b63f9b4f00cab49981806296b53d591",
+            "n": 4,
+            "mae": 1.948657097063671,
+            "spearman": 0.7999999999999998
+          },
+          {
+            "group_id": "tf:a89581e8cce5f7c8b66944b957a465b055062319020e8d26fb14dd953cda4e42",
+            "n": 2,
+            "mae": 2.6227455236595025,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d8bfec6fc942ed699776a631422de0eb895853d5b7e23b9f9f14fe5af9d983d2",
+            "n": 1,
+            "mae": 0.040524824349922106,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:cb0e185620247c7c93effb248b353790c9998bcb9e7c491a201905c6968dc97e",
+            "n": 1,
+            "mae": 0.9543468661904395,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6c880cb70d1e9c61ef878746fe73df759a2de78ffc774ce93ecef67ae6644abc",
+            "n": 1,
+            "mae": 2.486333816225151,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:df821f0f6063d4807dda21f9cc3f00c1bd9e0e77ea0efaf942f3bc7725d0f9b0",
+            "n": 6,
+            "mae": 1.7768835980671938,
+            "spearman": 0.6761234037828132
+          },
+          {
+            "group_id": "tf:99631896f58c6d35e83118066b3e810c32befa1ed65d9584c4f767db186c8410",
+            "n": 2,
+            "mae": 1.1243209631021465,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ab20a5b7af519a1d9d2ffea0f1a05f1e86d05a71d38fbea9074db95168d3f7bb",
+            "n": 2,
+            "mae": 0.802023100115929,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7021075c68c610826a87b2da37f0fdc1493045d176d47e91ab6763f473d39134",
+            "n": 1,
+            "mae": 2.807585034706065,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8a7573ba66d9b3284203b369c41a27c08ba54e62ad5359346d8f7dd55fa82f1d",
+            "n": 1,
+            "mae": 2.7045793541688257,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:f7199e5cea406b1fefe24956bad473a6368394d1e2c01f7561eddd025ff73ecd",
+            "n": 2,
+            "mae": 2.9917116086543785,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:49b10f8fd57a2ed2f2e76c3856e369c92350a1dc26f71cb358ee52c452b43b34",
+            "n": 11,
+            "mae": 0.8787059315589335,
+            "spearman": -0.20909090909090908
+          },
+          {
+            "group_id": "tf:6b571651dbf59bcdd9745df2289e67193a7251e2ba4ac3b0798681ccfd927228",
+            "n": 2,
+            "mae": 0.9053664588122703,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:dc49f6a6b5b5ed37382017f9d93b2ce8722ba2f539a53b3fe92d9d643dc1bf0a",
+            "n": 2,
+            "mae": 2.165230302901207,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b5cee28fcb9fa63efbe49ab70e6e75513ff71fa589af13c13b9ca0ea8ec9fc60",
+            "n": 2,
+            "mae": 2.1324525955155247,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c59f28ede70b0cc0868a665f675bfd7b5ca7a16852b1d31853cd73f7330aa271",
+            "n": 4,
+            "mae": 3.0309681068741288,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fe033121c7d779e0682f10287fd21b025ad2528d8a3a0003ae739daafdd7b5d7",
+            "n": 2,
+            "mae": 0.7232107272270984,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:d257a99e5c82398e642ef1770bd63a6a39db0a934aca6d0ab33c13c44698939c",
+            "n": 1,
+            "mae": 0.42127877310620976,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6eb756706b1a73df4b1c21a0429c59bf60233edddeaa786d494f2aebb6e17c2d",
+            "n": 7,
+            "mae": 1.3586662070465387,
+            "spearman": 0.12613124477737825
+          },
+          {
+            "group_id": "tf:db904fb6bea3d836fa9c2d870a738e324e79a98b89b69b5f2492e9772b7efbb7",
+            "n": 1,
+            "mae": 0.23083853497899387,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fa6b703d464af0d2eab3518a2d4c38b6745a8739aca8abd8ebe912c1adfec1d1",
+            "n": 3,
+            "mae": 1.7028744908924438,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:c81b4e9e806e0ace9f779e65477e6c988dea6cad5eecfbcb35f2364c5fc884dd",
+            "n": 1,
+            "mae": 1.8710234044028322,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7cb72a678b6c16de1fb012ba9aeba9d935e2f7823511856bd262db0e5406e3ea",
+            "n": 3,
+            "mae": 0.8353544155077314,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:e2e37cb8956473db663196cc55b7336f68505552863364417d19cdb9aa1e0b78",
+            "n": 2,
+            "mae": 3.6785532891587485,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0cd5faa00a6bbb7e2a04da177c2039449ca3e6ae2f0db7e0b9c82233333a1edd",
+            "n": 6,
+            "mae": 1.873596512066084,
+            "spearman": 0.29277002188455997
+          },
+          {
+            "group_id": "tf:9761efde76e17c33ced5a4486adcf38fc099ca741370e9c5915ea642f8916164",
+            "n": 1,
+            "mae": 1.0182693253143826,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b9903a5a1165dba0a6666fe4bc05f4a8084b04e1ef1160e76679f5bbc53fbc0d",
+            "n": 1,
+            "mae": 0.6163737510611877,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:70cc98d857f632d6eb2e780375cba1b18fb51c1512733ef281dd76120a6ccfed",
+            "n": 2,
+            "mae": 2.209999653378705,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:0e11854976a2c0f98c04d17e68f0563dde851bf0eca20914dd5eeca9694627c0",
+            "n": 2,
+            "mae": 0.5751227838318571,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:5285d9c76bfe355d73ae538a1279f843613a34a94ce6688d858d11a30ba4e373",
+            "n": 1,
+            "mae": 0.7408416456357818,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:00595c9e11b7ae258ae1832c870c6118ce40e259f5526208e80480d276d71492",
+            "n": 2,
+            "mae": 3.440142137234309,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:4db9817b1188bd9ac5e083ea215442dbe7c8d1a9551b7ea85eb2ff1fcd177b78",
+            "n": 7,
+            "mae": 3.7437355818683544,
+            "spearman": -0.03571428571428571
+          },
+          {
+            "group_id": "tf:d9e46483ab37a7bbfcd1cb7a574ec80dbaa9477fd414189d3c03bc4d70b998b1",
+            "n": 6,
+            "mae": 1.1695930808377186,
+            "spearman": 0.3188740696088466
+          },
+          {
+            "group_id": "tf:ec5b130d483abe185f4f95efb3d5b7734d0c2d9d698f3fd604e5b75c1a83b9bc",
+            "n": 2,
+            "mae": 1.5581145185652479,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:65cc17de418acc867175980c8da90d6423b160db93a9f8b72bfe25e4759e96ac",
+            "n": 1,
+            "mae": 2.4177468585422996,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:340a9f7097a348c23cd22cc625ab46d80b6da733742bac8aa9457ef771df97f4",
+            "n": 1,
+            "mae": 1.059585169512589,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3981c340ddc28c3b089ef3640869566fd847f9a88449c096d8b2fa1170ff86b0",
+            "n": 1,
+            "mae": 1.1028282623537486,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b34bc0e350e2cd8436e1be5007d0d5b5990f5e632a3235401c8cd4371e7ffa04",
+            "n": 1,
+            "mae": 1.8462605128674117,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:4c7e4c736be54da59d92abd056a264e2d097ab97496ebcf1c986bf19653554ec",
+            "n": 2,
+            "mae": 0.5405600913592767,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a4a7ce5705e57bc436d688a461b493e497b07aa81515c02b44d6965d0cc3833f",
+            "n": 1,
+            "mae": 3.536616467160917,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7dc673f4a551f7c2afcd2a3d487706bfc9899177a5519b641b6aeba20add119b",
+            "n": 3,
+            "mae": 0.554699581966832,
+            "spearman": 0.8660254037844387
+          },
+          {
+            "group_id": "tf:61a625c86b64022209c6871c9fe04a355a39bd1ae10deeb1f0f50fff94825715",
+            "n": 6,
+            "mae": 0.9663009221781959,
+            "spearman": -0.37142857142857144
+          },
+          {
+            "group_id": "tf:55b82e53537da21182b9e0ef8f0a31cbd8b5bf5d824193554b93a3bf4d4cee20",
+            "n": 1,
+            "mae": 1.8395577682321989,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:218137d448247adb6d5719cfe93e51d237d6b472687905bbab6ce6310eb11043",
+            "n": 2,
+            "mae": 1.847798218262119,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:12195f9bc5a4cd76a45a13cfe8dc6fad8e984526f6811b81b7b358f5ae3fedb8",
+            "n": 2,
+            "mae": 1.476778985158671,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:a0de947ecdd261382230c02c419a7279d64fdc5e04cb7babc81666157a8bf553",
+            "n": 1,
+            "mae": 1.5324269258240166,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:890e39a7896d5b3d795db5c2ca1065c681445ac966d2698a84770508d85955fa",
+            "n": 1,
+            "mae": 6.633423783129814,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:798ffb12d25945c3154272e6acbef5e20bf0c1238476eff0792dcd3dace80afc",
+            "n": 7,
+            "mae": 1.5262865724887933,
+            "spearman": 0.7499999999999999
+          },
+          {
+            "group_id": "tf:a13d0144edbeeb5fe3e3d63ed62d94f322c007a6915b0560b05daf1aee7f69d0",
+            "n": 1,
+            "mae": 5.640124639115156,
+            "spearman": null
+          }
+        ]
+      }
+    },
+    "composition_chemistry_knn": {
+      "selected_parameter": 25,
+      "validation_trials": [
+        {
+          "parameter": 1,
+          "validation_mae": 2.1506975705259905
+        },
+        {
+          "parameter": 3,
+          "validation_mae": 1.9362736502317754
+        },
+        {
+          "parameter": 5,
+          "validation_mae": 1.864883380905409
+        },
+        {
+          "parameter": 10,
+          "validation_mae": 1.7944122705972918
+        },
+        {
+          "parameter": 25,
+          "validation_mae": 1.720413870513354
+        }
+      ],
+      "test": {
+        "n": 442,
+        "mae": 1.592355486770503,
+        "spearman": 0.0056238038371459525,
+        "n_groups": 140,
+        "group_macro_mae": 1.7913517293981243,
+        "groups": [
+          {
+            "group_id": "tf:d83a9a8ba2e9d88ebf60aaf7f186a6bec5baac5340478a25b25a6f6b2cadd878",
+            "n": 5,
+            "mae": 1.3508810194298495,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:655b0e233155e540ef48affcb42464bb12cc38b193cd9ef302606592bd7f7b73",
+            "n": 6,
+            "mae": 1.2199865594510098,
+            "spearman": 0.0
+          },
+          {
+            "group_id": "tf:a53e8a74135682d1c131daa260cc73f46cf39f5b4a1762d2f27bfaba833ece18",
+            "n": 4,
+            "mae": 1.5769441515907867,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:bd8e45b1aef9315c01c2eb13419bf370f4ed06c8b8e7d209cbb101abec31b070",
+            "n": 4,
+            "mae": 0.8579633910040863,
+            "spearman": -1.0
+          },
+          {
+            "group_id": "tf:e47d3b27e5738add629a88ec0e3ca211b320d79195c44480c59268a3e91d60c4",
+            "n": 2,
+            "mae": 4.9377377402184965,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:5ff58c58f0a099e51fb3cc870bfffb30f7aad341180c662fda8d246b14a755f7",
+            "n": 3,
+            "mae": 2.8454175975159415,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:39cb21a14c8faf7b5d1773d5e578bd35440348e7c17e87152cd6c10a92f7e985",
+            "n": 1,
+            "mae": 2.301547382071064,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8d5931178af016b7914566577f5b490174948917324c7a6db74dca9e3dcaf94c",
+            "n": 1,
+            "mae": 1.6252627378184776,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:73fd41f5dad0efa842440a2f531f14a563b89d97338c0524e29116e6f13315dd",
+            "n": 11,
+            "mae": 2.158350331040388,
+            "spearman": 0.4100238428203847
+          },
+          {
+            "group_id": "tf:e19d744d038c01b8cc22bd7b2f0f42db427460e1ae0c3c033bfda05a992057ff",
+            "n": 3,
+            "mae": 0.6644413275267688,
+            "spearman": 0.4999999999999999
+          },
+          {
+            "group_id": "tf:9cc5a6e66df7116aba00d1c43e1ab9e5743dc92978ee435f06c82766080dd8f3",
+            "n": 1,
+            "mae": 4.710808717559054,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7a7861a2f4b766593b1279e96658b1cfebf667cefb0b147deb97b23636a7fea4",
+            "n": 4,
+            "mae": 2.4254994381722748,
+            "spearman": -0.10540925533894598
+          },
+          {
+            "group_id": "tf:71479efebdc02be6a578696475922dca6fda2bf394a9db489a4957e6c05ec3b6",
+            "n": 4,
+            "mae": 0.49035212136465156,
+            "spearman": 0.31622776601683794
+          },
+          {
+            "group_id": "tf:d5e1e101edb8e81ca39900444877a2dcc9e6080adffde94a47d58b0ee6f6c811",
+            "n": 6,
+            "mae": 0.6924712147706638,
+            "spearman": -0.029424494316824982
+          },
+          {
+            "group_id": "tf:907190d6984113e380f933f5c52ca845921e460b09488f750311d99f1f6e9279",
+            "n": 7,
+            "mae": 1.036860014621896,
+            "spearman": 0.03571428571428571
+          },
+          {
+            "group_id": "tf:9d6ddb14d57b4928c7f03be948a131de842eda0614bccf1bfc98e6e0b1f4d5df",
+            "n": 1,
+            "mae": 2.6126982314237877,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3e25ec144f4795b1d6dfa9bafbee067a2e4a5d02a2f02e3f2e0b5381c595f629",
+            "n": 4,
+            "mae": 2.3319208362876225,
+            "spearman": -0.2581988897471611
+          },
+          {
+            "group_id": "tf:990d3c514d9e51934b66b973524f4157d6e6ba42f2f60470f81d41b7c8705504",
+            "n": 3,
+            "mae": 0.525589112154018,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:14dbf9627717fe4d45d5ceb37a1a4b43c26c0640762cc7dd1d277f076aa7d738",
+            "n": 12,
+            "mae": 0.9669166258566079,
+            "spearman": -0.25778820253038787
+          },
+          {
+            "group_id": "tf:c6b4928573497204a5104940f82e3e6b8ecbf3fad21b58884ecc9aa19ed75bcd",
+            "n": 2,
+            "mae": 1.1598127964372602,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:e6a24c903c1ef211037c64a6835a8a484f48b17be1cae50d6998913f21acf7d4",
+            "n": 1,
+            "mae": 2.8957655134208995,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2d278f86b8a3b1243572d560dda296c5bd3a7eb90e202f35173a32a169a2fe64",
+            "n": 3,
+            "mae": 1.3913047325839558,
+            "spearman": 0.0
+          },
+          {
+            "group_id": "tf:c8a55ab4ace70bef1a5d7170aeaeea94e33692e24f918904f12e93a62c2846f7",
+            "n": 1,
+            "mae": 1.3752944657356085,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6ca8b89b8a573a51d1631cbbe600f08b2d015df3e398adf1b2bca7441801edad",
+            "n": 2,
+            "mae": 2.2705145637907598,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:2d0a1e51ee3c726aa5f46609580a570c5c6be7f1ff70d1d1667b361a477a087b",
+            "n": 2,
+            "mae": 2.2180916113609146,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:2f0d3e8db03b3f71ad9b90a65bfc9a62160332c9ebae2badf94067184d8f8945",
+            "n": 14,
+            "mae": 1.8262470771414896,
+            "spearman": -0.42163766345255954
+          },
+          {
+            "group_id": "tf:e3ee1debd824d0bf66e328728a7470ef914d7f59ae2eb518f89359d8a502d4c3",
+            "n": 2,
+            "mae": 1.1001766437070586,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:46f00db07b4490c273ee4b26b5062acc3b6cbe47f5e3efe33536cbf4f466d0ea",
+            "n": 2,
+            "mae": 0.4505992933975005,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c394cd014bdeba1d46fb09b8e7d23656d343e6674e20d92f1bb7bb1e2d9032cd",
+            "n": 3,
+            "mae": 1.2738975742855612,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:688c7ad1812cb8f7adb7c5cf3199c66f17f86b04644f051d2c89e49161f52734",
+            "n": 1,
+            "mae": 0.652670603538918,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:2c32767d7229a50549bc1ce5bda7891931c405d7b9b3f92cb9caea81702f36ab",
+            "n": 1,
+            "mae": 0.011787317144919207,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0a3974cac64781ca2e03db3142fd5bcbc88c74a0858649337a21cea974410276",
+            "n": 4,
+            "mae": 1.869171803155625,
+            "spearman": -0.8944271909999159
+          },
+          {
+            "group_id": "tf:75f00efe46b76f5ba5702b3097ac9ab4df81cdd6aba29bb1ed826ec227372e8a",
+            "n": 5,
+            "mae": 1.0531813418342362,
+            "spearman": 0.6324555320336759
+          },
+          {
+            "group_id": "tf:b606c098eae182300f53c1c144db0b2dcc69e268edb382758e324acb4ebe6ea2",
+            "n": 2,
+            "mae": 0.14322250424128136,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7cf059ef52d297f5ac0d0598b2ae44752ec2a52e01ca6d9d8a892ed3d0dcc424",
+            "n": 1,
+            "mae": 1.0224980532291603,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0c7c30ee0fceed0250ec583a7900c75ef198edfa208b7b7a4e2ac06978b9e2d0",
+            "n": 13,
+            "mae": 0.9930508666291534,
+            "spearman": 0.047422064794760785
+          },
+          {
+            "group_id": "tf:03561bfd871eab65be8ade422127637ffaccd6782609385921d68221679741c2",
+            "n": 8,
+            "mae": 1.1363687121133452,
+            "spearman": 0.7730206825239258
+          },
+          {
+            "group_id": "tf:d54292201c131b0c1cd28328e1e16e053f50db8922b6b1e5762ce61bd61f455c",
+            "n": 1,
+            "mae": 1.6792754016293423,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3b2b69fed0c36508bc49125acfe873df76e21f21fc636d4b8c5631c6f86520d7",
+            "n": 2,
+            "mae": 1.5636904907016498,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:8c5c02b6c6bd0cdb6b124ca9561d55619f482939dde04393d0be45aa27513322",
+            "n": 3,
+            "mae": 2.622060921945726,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:9947d2c5b5ddc2893700fa695c8c05d8b1cd28213fdf19298eb174d8e85d3013",
+            "n": 2,
+            "mae": 1.4813543087013465,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:115c25fe50be706d85ec9231d65b74ebaf3ed82a3faba2fb9216d5714d941a67",
+            "n": 8,
+            "mae": 2.100825377279877,
+            "spearman": 0.05988131309566294
+          },
+          {
+            "group_id": "tf:2979187579e51a917785b9edb5b1432c7624a7b2501e6d2374f787c21e57f6c4",
+            "n": 9,
+            "mae": 2.9680614840447266,
+            "spearman": 0.10878756313824399
+          },
+          {
+            "group_id": "tf:9a06387610edd099466d614941c42a433f444feb6a8f25375bb0b6ad8ec9c6f4",
+            "n": 2,
+            "mae": 1.401970767842867,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:18ee36b6131a51c05bc87babe513d043cabf4f739e0abf54966242a0470d4b9c",
+            "n": 2,
+            "mae": 0.18638136667725336,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:3d813e99129c46f538a5a3802982e8b21072c01c640279a4635ad1378fa21d69",
+            "n": 2,
+            "mae": 1.0580792594575543,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:31d1c12c4007b059f95e49f1b77b579ad0fe5de652f83c05985ff867ec987c22",
+            "n": 11,
+            "mae": 0.4297014145827979,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:50d35dc554d3538bc4e0d1b240d835298f63a9469094433d8fb2b73afe7d2a4d",
+            "n": 6,
+            "mae": 1.3221194738884254,
+            "spearman": -0.42857142857142855
+          },
+          {
+            "group_id": "tf:342bb71ef707fdc2781d7a2190560e0f01d7688ff44f7538b1535d38a572dccb",
+            "n": 2,
+            "mae": 1.2699913885223006,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:49075dc76c899fcf68c089671190edbe8bcb4eec37cd0b3ddff294ff2f999476",
+            "n": 1,
+            "mae": 0.7995664896058559,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b88510cec6dd93d129d0e357a3520f202273db7057daab4796e090c09445e074",
+            "n": 1,
+            "mae": 3.148914692122597,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0cac3c129340b8427a846a8b9c30ea2334a613a62a8ef1495a9ff94c1358e97b",
+            "n": 3,
+            "mae": 0.6971566170495063,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:9265821f0d82233702b2254c74ea00df4c78549cf4b96ca2a751cd8f6fff8484",
+            "n": 1,
+            "mae": 1.3954612636456503,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:06fd91812e67b4880f26ad8e817707233bd4ae087b96e4a2a5a820ed6fcf8803",
+            "n": 2,
+            "mae": 2.1117813553119884,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:6b8ff8f7b25c2a43cbdf1f4115c08e8dd7d66db8dbe55a45a1743c10c2d1e370",
+            "n": 5,
+            "mae": 0.570965647719758,
+            "spearman": -0.6999999999999998
+          },
+          {
+            "group_id": "tf:098f8e95556545c4417a8526c58549235f89930e00529d662ba941c1c2e8a9dd",
+            "n": 1,
+            "mae": 1.8908580406990918,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:60afed7f40c1afd018eeac09cbb81ea5eb253b2661abf531fef13841ccbb33f6",
+            "n": 1,
+            "mae": 3.8549083810483706,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:922a43fe8e3d6b63d8a72f0dc8ddcf8c883981276e6348218464071138b573ca",
+            "n": 1,
+            "mae": 3.425896343111914,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d7d4206f3396b2adfc36ab30202fe76ce36509ff8923b60fa4ed9775007576c8",
+            "n": 1,
+            "mae": 0.8782304367186549,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ebd6aeb019f346337b1e65cceae8144b40b7f749bbb699ea2df3f889b776a371",
+            "n": 2,
+            "mae": 2.568363123875437,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:90397a156f87a91b9bb1e01e97437e9f353b3b37025d48c3c0efdf77fe4ccaf8",
+            "n": 11,
+            "mae": 1.368293031186129,
+            "spearman": 0.11818181818181818
+          },
+          {
+            "group_id": "tf:01dbbed6a2dd146835f42d645c6151771adc0f38b062b116b1969ce3262bd6b8",
+            "n": 2,
+            "mae": 1.6104320887939867,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b3a45124a0d4a00c61f03bae1ab6f63f86f7595652901643ea41d3b055f5bd4c",
+            "n": 3,
+            "mae": 1.0131214268360864,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:42353e7358c520438331fbd40886a43cd2a375d29227d3f89c81d55458aebee3",
+            "n": 1,
+            "mae": 3.950558372715735,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ff9b3e809fc425a0058de6457c1e1f46e00da73b380fca7758ebf315e7f93eaa",
+            "n": 1,
+            "mae": 2.3911429348665565,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:18b2e1bd67944403199de773a28ab247325c484b0c3b6f8bf6678a615ec509b1",
+            "n": 2,
+            "mae": 2.3692812438806445,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:a2a625c2ddbdbf826d7dff0c4248b871a0d5ed3323f7b46a27597d37fc7ee17e",
+            "n": 5,
+            "mae": 2.673738381311275,
+            "spearman": -0.22360679774997896
+          },
+          {
+            "group_id": "tf:357e5907a2b8b7b3769a7f4200af624d6e717071f7cb7f406d4136dbcb5b1054",
+            "n": 1,
+            "mae": 6.512505495751629,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7737196139dd6aa2c13074d9d476fdbc90f1e040d5bca8af87e0ba31d9d200de",
+            "n": 1,
+            "mae": 2.0257217811261996,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:082ef6cfa8a9d5c17782cc036623a4c0ece915fc6a420e54678ff55dab70b98e",
+            "n": 12,
+            "mae": 1.6791143539682356,
+            "spearman": 0.20000123115941362
+          },
+          {
+            "group_id": "tf:ba7f73ab9a6a9a8884a3fdb5c49a983fa005905c88a188728e529b302d359974",
+            "n": 3,
+            "mae": 0.9142014751143464,
+            "spearman": 0.4999999999999999
+          },
+          {
+            "group_id": "tf:848e1c837f05f81497688db39709751dda67d0c3c1044aad526d4341d64e5f6e",
+            "n": 1,
+            "mae": 1.266043292957673,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fd548cf534d2ac141a0039cec8a88cbebd1ea1383518ef117560075b1eecf77f",
+            "n": 4,
+            "mae": 0.7571558631084028,
+            "spearman": 0.3999999999999999
+          },
+          {
+            "group_id": "tf:63bb8d6716719d1c41474e5bd578613104d9b18fbf24b59867d74bb249919d88",
+            "n": 1,
+            "mae": 3.401519680820153,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b9bfd4382923121582e5faf61b59ea782f7ab784a07a24eebc0f67bec87bd14e",
+            "n": 1,
+            "mae": 1.009542424285856,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:93fb47bbeca6be18bc40dfe8c9fdbadf8aa34f0dc50dd7286e8211fb659bb402",
+            "n": 10,
+            "mae": 2.57985001656274,
+            "spearman": -0.07808688094430302
+          },
+          {
+            "group_id": "tf:82ec05b1efebbb57e2fa85b1df3929956cbcfb81c8156a44d6f202872bbb0000",
+            "n": 3,
+            "mae": 0.7816679046061843,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:34bf1a7990186d378cf05069f551f756964ddf282506d83c8bf1d32ada38c9d1",
+            "n": 3,
+            "mae": 3.585716529908628,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:7438d5f596e09668e019d00ecbe3e690adcecf0e07ff60f647a1faa38070bce4",
+            "n": 2,
+            "mae": 1.2037085082501493,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8323c5642e8f0c512a3cb88fea06aa798f8c7b911033757067df511e0c5ead9d",
+            "n": 1,
+            "mae": 5.238581830089294,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:5b04100b083a61fabdaa2744391a66d8e1372ae0145ae13cf647264e11f332b4",
+            "n": 1,
+            "mae": 2.163559826857348,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:55b273c89ffd2bdeb391378e900d7b2e8635e2488b804eb91c37ce9f1d65244e",
+            "n": 1,
+            "mae": 1.0491902453792763,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:440dade45ec6a6f91bd1554ef5a9b5ea1b65ffcb927cb48129528162aee10602",
+            "n": 3,
+            "mae": 1.3150414543131985,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:1b49a8461b13721a5b7ef951466d2a3f0d93817f46fe8d7c993988576267e94b",
+            "n": 2,
+            "mae": 4.841787224832195,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:562562e7f9ae9e5c9484eeac2cf9b44ef429832c8e1e34d41086b86e91eef13e",
+            "n": 2,
+            "mae": 0.984245705738306,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fb5839c7b36f2577798b21e0e83f56ebe8ce0b8f072b5303ce54409574135472",
+            "n": 1,
+            "mae": 4.235108548399946,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b1b17c7fca3cbab15bc66b90bd4c07f73617cb5a03db105b0a38084fe7bca48b",
+            "n": 1,
+            "mae": 1.2858103183191867,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a47ce06b0e72ab131c9d5f2bcabb717c5ec2edb149d9a38e57886a9ccc550195",
+            "n": 6,
+            "mae": 2.5653219185882925,
+            "spearman": 0.11952286093343936
+          },
+          {
+            "group_id": "tf:743dfb160d4b7856ee26709f504124776e33430b198b76600ff83e1d02dab843",
+            "n": 4,
+            "mae": 1.2103593788584366,
+            "spearman": 0.7999999999999998
+          },
+          {
+            "group_id": "tf:ce2327255dd514b0cb7f89f4cc4d60928af1a2111860979b919d44a408827971",
+            "n": 1,
+            "mae": 1.545699761870214,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:40544c6fee0f15b6fe78d6ab7e5e27d8080224fe28dc0d6ca6f2e9a790dd24d4",
+            "n": 9,
+            "mae": 1.6296139616346323,
+            "spearman": 0.709963362443439
+          },
+          {
+            "group_id": "tf:c0f5745899a44e73098e606f4e09050e0b63f9b4f00cab49981806296b53d591",
+            "n": 4,
+            "mae": 0.595459739758762,
+            "spearman": 0.3999999999999999
+          },
+          {
+            "group_id": "tf:a89581e8cce5f7c8b66944b957a465b055062319020e8d26fb14dd953cda4e42",
+            "n": 2,
+            "mae": 2.348243250709026,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:d8bfec6fc942ed699776a631422de0eb895853d5b7e23b9f9f14fe5af9d983d2",
+            "n": 1,
+            "mae": 0.5941569239929674,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:cb0e185620247c7c93effb248b353790c9998bcb9e7c491a201905c6968dc97e",
+            "n": 1,
+            "mae": 1.658718851165224,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6c880cb70d1e9c61ef878746fe73df759a2de78ffc774ce93ecef67ae6644abc",
+            "n": 1,
+            "mae": 3.517415927440219,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:df821f0f6063d4807dda21f9cc3f00c1bd9e0e77ea0efaf942f3bc7725d0f9b0",
+            "n": 6,
+            "mae": 1.0685848824152877,
+            "spearman": -0.06761234037828132
+          },
+          {
+            "group_id": "tf:99631896f58c6d35e83118066b3e810c32befa1ed65d9584c4f767db186c8410",
+            "n": 2,
+            "mae": 1.1243209631021465,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:ab20a5b7af519a1d9d2ffea0f1a05f1e86d05a71d38fbea9074db95168d3f7bb",
+            "n": 2,
+            "mae": 0.08804562952784067,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7021075c68c610826a87b2da37f0fdc1493045d176d47e91ab6763f473d39134",
+            "n": 1,
+            "mae": 3.7069555740174307,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:8a7573ba66d9b3284203b369c41a27c08ba54e62ad5359346d8f7dd55fa82f1d",
+            "n": 1,
+            "mae": 3.8359350663378144,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:f7199e5cea406b1fefe24956bad473a6368394d1e2c01f7561eddd025ff73ecd",
+            "n": 2,
+            "mae": 2.9759879923481565,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:49b10f8fd57a2ed2f2e76c3856e369c92350a1dc26f71cb358ee52c452b43b34",
+            "n": 11,
+            "mae": 1.0874091358970641,
+            "spearman": -0.509090909090909
+          },
+          {
+            "group_id": "tf:6b571651dbf59bcdd9745df2289e67193a7251e2ba4ac3b0798681ccfd927228",
+            "n": 2,
+            "mae": 0.2635543297414191,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:dc49f6a6b5b5ed37382017f9d93b2ce8722ba2f539a53b3fe92d9d643dc1bf0a",
+            "n": 2,
+            "mae": 0.893572431842752,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b5cee28fcb9fa63efbe49ab70e6e75513ff71fa589af13c13b9ca0ea8ec9fc60",
+            "n": 2,
+            "mae": 1.3379201126780866,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:c59f28ede70b0cc0868a665f675bfd7b5ca7a16852b1d31853cd73f7330aa271",
+            "n": 4,
+            "mae": 2.1897642110814672,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fe033121c7d779e0682f10287fd21b025ad2528d8a3a0003ae739daafdd7b5d7",
+            "n": 2,
+            "mae": 0.8193444761946465,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:d257a99e5c82398e642ef1770bd63a6a39db0a934aca6d0ab33c13c44698939c",
+            "n": 1,
+            "mae": 0.9383599308494839,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:6eb756706b1a73df4b1c21a0429c59bf60233edddeaa786d494f2aebb6e17c2d",
+            "n": 7,
+            "mae": 0.867264876504552,
+            "spearman": 0.036037498507822355
+          },
+          {
+            "group_id": "tf:db904fb6bea3d836fa9c2d870a738e324e79a98b89b69b5f2492e9772b7efbb7",
+            "n": 1,
+            "mae": 0.5955070463516314,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:fa6b703d464af0d2eab3518a2d4c38b6745a8739aca8abd8ebe912c1adfec1d1",
+            "n": 3,
+            "mae": 2.0076322384277447,
+            "spearman": -0.4999999999999999
+          },
+          {
+            "group_id": "tf:c81b4e9e806e0ace9f779e65477e6c988dea6cad5eecfbcb35f2364c5fc884dd",
+            "n": 1,
+            "mae": 2.103389872235242,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7cb72a678b6c16de1fb012ba9aeba9d935e2f7823511856bd262db0e5406e3ea",
+            "n": 3,
+            "mae": 0.3365434416221502,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:e2e37cb8956473db663196cc55b7336f68505552863364417d19cdb9aa1e0b78",
+            "n": 2,
+            "mae": 3.790318831327548,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:0cd5faa00a6bbb7e2a04da177c2039449ca3e6ae2f0db7e0b9c82233333a1edd",
+            "n": 6,
+            "mae": 1.6373489603884854,
+            "spearman": 0.29277002188455997
+          },
+          {
+            "group_id": "tf:9761efde76e17c33ced5a4486adcf38fc099ca741370e9c5915ea642f8916164",
+            "n": 1,
+            "mae": 1.18058804966026,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b9903a5a1165dba0a6666fe4bc05f4a8084b04e1ef1160e76679f5bbc53fbc0d",
+            "n": 1,
+            "mae": 1.2819559339290256,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:70cc98d857f632d6eb2e780375cba1b18fb51c1512733ef281dd76120a6ccfed",
+            "n": 2,
+            "mae": 1.5873239397739014,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:0e11854976a2c0f98c04d17e68f0563dde851bf0eca20914dd5eeca9694627c0",
+            "n": 2,
+            "mae": 1.0889932017842514,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:5285d9c76bfe355d73ae538a1279f843613a34a94ce6688d858d11a30ba4e373",
+            "n": 1,
+            "mae": 0.138440519211267,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:00595c9e11b7ae258ae1832c870c6118ce40e259f5526208e80480d276d71492",
+            "n": 2,
+            "mae": 3.2564401602582267,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:4db9817b1188bd9ac5e083ea215442dbe7c8d1a9551b7ea85eb2ff1fcd177b78",
+            "n": 7,
+            "mae": 2.084445581090431,
+            "spearman": 0.14285714285714285
+          },
+          {
+            "group_id": "tf:d9e46483ab37a7bbfcd1cb7a574ec80dbaa9477fd414189d3c03bc4d70b998b1",
+            "n": 6,
+            "mae": 1.4834430709466446,
+            "spearman": -0.5797710356524485
+          },
+          {
+            "group_id": "tf:ec5b130d483abe185f4f95efb3d5b7734d0c2d9d698f3fd604e5b75c1a83b9bc",
+            "n": 2,
+            "mae": 1.0889997889746663,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:65cc17de418acc867175980c8da90d6423b160db93a9f8b72bfe25e4759e96ac",
+            "n": 1,
+            "mae": 2.0321984508221975,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:340a9f7097a348c23cd22cc625ab46d80b6da733742bac8aa9457ef771df97f4",
+            "n": 1,
+            "mae": 1.261063359559345,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:3981c340ddc28c3b089ef3640869566fd847f9a88449c096d8b2fa1170ff86b0",
+            "n": 1,
+            "mae": 1.5764833704204864,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:b34bc0e350e2cd8436e1be5007d0d5b5990f5e632a3235401c8cd4371e7ffa04",
+            "n": 1,
+            "mae": 3.0601113779937696,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:4c7e4c736be54da59d92abd056a264e2d097ab97496ebcf1c986bf19653554ec",
+            "n": 2,
+            "mae": 2.2815952000305617,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:a4a7ce5705e57bc436d688a461b493e497b07aa81515c02b44d6965d0cc3833f",
+            "n": 1,
+            "mae": 2.4617209031595775,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:7dc673f4a551f7c2afcd2a3d487706bfc9899177a5519b641b6aeba20add119b",
+            "n": 3,
+            "mae": 1.0956300396044467,
+            "spearman": -0.8660254037844387
+          },
+          {
+            "group_id": "tf:61a625c86b64022209c6871c9fe04a355a39bd1ae10deeb1f0f50fff94825715",
+            "n": 6,
+            "mae": 0.538007523324199,
+            "spearman": -0.4857142857142857
+          },
+          {
+            "group_id": "tf:55b82e53537da21182b9e0ef8f0a31cbd8b5bf5d824193554b93a3bf4d4cee20",
+            "n": 1,
+            "mae": 1.8038075442117005,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:218137d448247adb6d5719cfe93e51d237d6b472687905bbab6ce6310eb11043",
+            "n": 2,
+            "mae": 2.1573576467806235,
+            "spearman": -0.9999999999999998
+          },
+          {
+            "group_id": "tf:12195f9bc5a4cd76a45a13cfe8dc6fad8e984526f6811b81b7b358f5ae3fedb8",
+            "n": 2,
+            "mae": 1.7669866140612873,
+            "spearman": 0.9999999999999998
+          },
+          {
+            "group_id": "tf:a0de947ecdd261382230c02c419a7279d64fdc5e04cb7babc81666157a8bf553",
+            "n": 1,
+            "mae": 0.31084933128591263,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:890e39a7896d5b3d795db5c2ca1065c681445ac966d2698a84770508d85955fa",
+            "n": 1,
+            "mae": 2.700591918780768,
+            "spearman": null
+          },
+          {
+            "group_id": "tf:798ffb12d25945c3154272e6acbef5e20bf0c1238476eff0792dcd3dace80afc",
+            "n": 7,
+            "mae": 1.525669638448468,
+            "spearman": 0.21428571428571425
+          },
+          {
+            "group_id": "tf:a13d0144edbeeb5fe3e3d63ed62d94f322c007a6915b0560b05daf1aee7f69d0",
+            "n": 1,
+            "mae": 5.8862312049295245,
+            "spearman": null
+          }
+        ]
+      }
+    }
+  },
+  "selection": "validation_MAE_only_no_test_refit",
+  "seeds": "deterministic_no_stochastic_training",
+  "full_target_sequence_composition": true,
+  "within_condition_pair_metrics": null,
+  "strict_comparable_pairs_available": false,
+  "elapsed_seconds": 1.106260000000475,
+  "script_sha256": "237446d0366be8e82dc4cb84b02c30f34cea07921c50311429ae2d73cbd83e5c",
+  "artifact_sha256": {
+    "composition_chemistry_knn.state.npz": "0e27aba14202ea329aa8422fa556b5021bbce56781e1775e103a384b6cba641e",
+    "composition_chemistry_ridge.state.npz": "5bb1c577ef165e7f0ba5eb60049b4572a132b09393afa4a643a2acb2a31cba9d",
+    "test_predictions.jsonl": "9571848846066b8c887f88ca0a2d20179b085280c1124159a2f1bbc8c8c5b0d1",
+    "train_mean.state.npz": "006f4554451f0c1f9d7cf026d53fee43650c3cc202ba4494c7fc70469bc230d0"
+  }
+}

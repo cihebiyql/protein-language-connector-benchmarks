@@ -1,0 +1,142 @@
+{
+  "scope": "engineering_canary_only_not_biological_accuracy",
+  "seed": 17,
+  "synthetic_sequences": [
+    "ACDEFGHIKLMNPQRSACDEFGHIKLMNPQRSACDEFGHIKLMNPQRSACDEFGHIKLMNPQRS",
+    "SRQPNMLKIHGFEDCASRQPNMLKIHGFEDCASRQPNMLKIHGFEDCASRQPNMLKIHGFEDCA"
+  ],
+  "batch_size": 2,
+  "padded_sequence_length": 512,
+  "nonpadding_length": 109,
+  "real_residues": 64,
+  "steps_per_interface": 2,
+  "precision": "BF16 base models / FP32 adapter",
+  "python": "3.10.12",
+  "torch": "2.12.1+cu130",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA GeForce RTX 5080",
+  "interfaces": [
+    {
+      "esm_layer": 15,
+      "qwen_after_layer": 0,
+      "losses": [
+        0.024653643369674683,
+        0.06868071854114532
+      ],
+      "gradient_norms": [
+        2.091212034225464,
+        21.37897491455078
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 6.71875,
+      "reordered_residue_max_logit_delta": 1.75,
+      "seconds": 0.8427395220023755,
+      "peak_allocated_mib": 7514.35986328125,
+      "peak_reserved_mib": 8354.0
+    },
+    {
+      "esm_layer": 15,
+      "qwen_after_layer": 7,
+      "losses": [
+        0.0011303240898996592,
+        0.00017539149848744273
+      ],
+      "gradient_norms": [
+        0.028393501415848732,
+        0.0033545929472893476
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 5.9921875,
+      "reordered_residue_max_logit_delta": 1.25,
+      "seconds": 0.3555689109998639,
+      "peak_allocated_mib": 6952.47705078125,
+      "peak_reserved_mib": 7218.0
+    },
+    {
+      "esm_layer": 15,
+      "qwen_after_layer": 14,
+      "losses": [
+        0.0016986337723210454,
+        0.00041162813431583345
+      ],
+      "gradient_norms": [
+        0.02536555379629135,
+        0.011378058232367039
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 5.859375,
+      "reordered_residue_max_logit_delta": 1.9296875,
+      "seconds": 0.33209179700133973,
+      "peak_allocated_mib": 6399.84423828125,
+      "peak_reserved_mib": 6666.0
+    },
+    {
+      "esm_layer": 30,
+      "qwen_after_layer": 0,
+      "losses": [
+        0.019061706960201263,
+        0.2680048942565918
+      ],
+      "gradient_norms": [
+        2.6509435176849365,
+        216.7679443359375
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 7.0625,
+      "reordered_residue_max_logit_delta": 1.875,
+      "seconds": 0.3826387560002331,
+      "peak_allocated_mib": 7505.60986328125,
+      "peak_reserved_mib": 7786.0
+    },
+    {
+      "esm_layer": 30,
+      "qwen_after_layer": 7,
+      "losses": [
+        0.0010600710520520806,
+        0.00016085129755083472
+      ],
+      "gradient_norms": [
+        0.021271679550409317,
+        0.002352053765207529
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 5.8125,
+      "reordered_residue_max_logit_delta": 3.125,
+      "seconds": 0.3647882600016601,
+      "peak_allocated_mib": 6952.47705078125,
+      "peak_reserved_mib": 7218.0
+    },
+    {
+      "esm_layer": 30,
+      "qwen_after_layer": 14,
+      "losses": [
+        0.0018273071618750691,
+        0.0006053159013390541
+      ],
+      "gradient_norms": [
+        0.019246675074100494,
+        0.007927005179226398
+      ],
+      "adapter_parameters": 563201,
+      "adapter_weight_changed": true,
+      "base_models_frozen": true,
+      "message_off_max_logit_delta": 2.953125,
+      "reordered_residue_max_logit_delta": 1.875,
+      "seconds": 0.3088641380018089,
+      "peak_allocated_mib": 6399.84423828125,
+      "peak_reserved_mib": 6666.0
+    }
+  ],
+  "script_sha256": "6bf820e98023ebb669d3105765d0d231817348725ca24be12f25d3ec1414b06c",
+  "bridge_sha256": "65c1fb3041c8226bdb219d22833705758fb5ba0ecf56b5fad99bf653db2b149d"
+}

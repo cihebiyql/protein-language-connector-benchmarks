@@ -1,0 +1,49 @@
+{
+  "status": "preregistered_before_A1_v2_training",
+  "reason": "Official PEPBI329-row source recovery expands external target-family isolation under unchanged original thresholds; no test-guided split or architecture change",
+  "old_split": "data/processed/bench_v02/a1_locked",
+  "new_split": "data\\processed\\bench_v02\\a1_locked_v2",
+  "output": "results\\bench_v02\\panel_baselines_20261015_v2",
+  "old_source_snapshot": "results\\bench_v02\\panel_baselines_20261015\\deprecated_a1_split_v1\\train_panel_baselines_v1.py",
+  "old_source_sha256": "7e1749489301d7b3fc198cc6d38b6f471df9f54df04d25faaeb10e1959bbd73d",
+  "current_source_sha256": "c215d72317400eb2a315d8b2149dde7b1cd46df9f62e58fb66274c188d2721c9",
+  "code_change": "CLI --a1-root parameter and corresponding dataset-path resolution only; every non-main function/class AST exactly identical",
+  "non_main_definition_ast_sha256": {
+    "write_json": "3006cbb8ea738d901fe323312bf52439b890a1ebd3345214716d6963d3dfe8db",
+    "masked_mean": "ef7548ee6edc6f442175f6e02f9a9b0c8e126246786ee769cd416d0cae5e8236",
+    "_finite": "5c658c74a2115a27ed58953c433886e414a17ff61a1309675365b8cc7221d24c",
+    "ContextEncoder": "e1f9016708011e28697adce3af80d68324d5a343323305a78cd776dcec79a778",
+    "FeatureStore": "f3baf76bee55a9a1e2b4bc0e9fefed293ae4a639c52b67b9fab94e0be3b596c0",
+    "A1Predictor": "5339ac431efb3ec0df951da47a1eb66e44f9b1854366002637255f490ac8021e",
+    "B1Aligner": "29d373fa72d6e859bec127066abe90d2ec8e9831e115e503f505fbf4f5176b06",
+    "deduplicate_b1": "68a8401bc30cd3a8e6684b9dc4ad50b5dd26ca183992fa5cdc8a2004f85b294a",
+    "multi_positive_loss": "a41f4fbc517006d2e0e2642b2c7eec81452ef62d56a08fa38ef48a7e2976c055",
+    "a1_metrics": "e49261c303902f36a3e9dea249ce197b4c2fcb848cbafaf55e419fda1cbae865",
+    "b1_metrics": "d8ccd688b6cca4ade5f4b1ebc3f7a36058e50c5e38f9529cc9a60d82edbc9665",
+    "_batches": "a6839a1b20fcd70a3ebb4df52503970ae89a6981a2ec2c01814570ebb89621b3",
+    "train_run": "69f74d3611eb12664ad1a5ba86fd348aece2075af9aaf8f8276b05f1c5cdfd11"
+  },
+  "all_training_algorithm_definitions_exactly_identical": true,
+  "budget": {
+    "epochs": 30,
+    "effective_batch_size": 64,
+    "micro_batch_size": 8,
+    "seeds": [
+      17,
+      42,
+      2026
+    ],
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01
+  },
+  "data_pins": {
+    "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_known_target\\benchmark_lock.json": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249",
+    "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_known_target\\samples.jsonl": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+    "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_known_target\\test_gold.jsonl": "6f50e85443d1056ef35d509b5229dfb0bc364e266da2aebfa3fa78dcdb07c07b",
+    "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_new_target\\benchmark_lock.json": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+    "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_new_target\\samples.jsonl": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+    "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_new_target\\test_gold.jsonl": "388e50ac4776bd122dc3fb60a688ee715173a8703c890ac7d0ad38eaab82065f"
+  },
+  "test_gold_byte_identical_to_v1": true
+}

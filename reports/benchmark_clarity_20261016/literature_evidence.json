@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T05:27:21.904545+00:00",
+  "purpose": "文献依据和基准控制澄清；没有新训练或新测试结果",
+  "write_scope": [
+    "reports/benchmark_clarity_20261016/literature_evidence.md",
+    "reports/benchmark_clarity_20261016/literature_evidence.json"
+  ],
+  "query_receipts": [
+    {
+      "query": "Flamingo",
+      "mode": "keyword",
+      "scope": "all",
+      "limit": 5,
+      "task_generation_started": false,
+      "warnings": [],
+      "translation_status": "missing"
+    },
+    {
+      "query": "BLIP-2",
+      "mode": "keyword",
+      "scope": "all",
+      "limit": 1,
+      "task_generation_started": false,
+      "warnings": [],
+      "translation_status": "missing"
+    },
+    {
+      "query": "ProtT3",
+      "mode": "keyword",
+      "scope": "all",
+      "limit": 1,
+      "task_generation_started": false,
+      "warnings": [],
+      "translation_status": "missing"
+    },
+    {
+      "query": "ProtST",
+      "mode": "keyword",
+      "scope": "all",
+      "limit": 1,
+      "task_generation_started": false,
+      "warnings": [],
+      "translation_status": "missing"
+    },
+    {
+      "query": "Conditional probing",
+      "mode": "keyword",
+      "scope": "all",
+      "limit": 1,
+      "task_generation_started": false,
+      "warnings": [
+        "有界候选；当前数量不代表全库精确匹配量；候选上限提示"
+      ],
+      "translation_status": "missing"
+    },
+    {
+      "query": "Designing and Interpreting Probes",
+      "mode": "keyword",
+      "scope": "all",
+      "limit": 1,
+      "task_generation_started": false,
+      "warnings": [
+        "有界候选；当前数量不代表全库精确匹配量；候选上限提示"
+      ],
+      "translation_status": "missing"
+    }
+  ],
+  "evidence_cards": [
+    {
+      "id": "flamingo",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "year": 2022,
+      "doi": null,
+      "official_url": "https://arxiv.org/abs/2204.14198",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\communication\\pdfs\\flamingo-lossless.pdf",
+      "pdf_sha256": "5b96767ada8d76ad160c3087d80975b8af8e60b46786b10248c6b96b0c4699ba",
+      "pdf_physical_pages_1based": [
+        5,
+        8
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件",
+      "workbench_paper_id": "82bd6c92-626a-5974-aa44-6e2b4ed2b9ec",
+      "author_fact": [
+        "Perceiver Resampler将变长视觉特征变成64个latent。",
+        "新增跨注意力／dense残差使用零初始化tanh门控，初始模型等同冻结LM。",
+        "Table3分别报告门控、resampler、插层频率消融；不同频率的参数与时耗不同。"
+      ],
+      "project_hypothesis": [
+        "当前无门控内部delta可能扰动冻结Qwen隐藏分布。",
+        "固定瓶颈可能改善计算与优化；是否对pKD有效需要对照。"
+      ],
+      "proposed_control": [
+        "共同K,d,dtype；记录源读取和消息重用次数。",
+        "固定插层，对比zero gate、nonzero gate、无gate，匹配活跃参数和更新。"
+      ],
+      "non_equivalent_components": [
+        "原视觉输入／Chinchilla／海量混合语料与当前蛋白-条件pKD任务不同。",
+        "多层原设计不能直接解释单层内部连接器优势。"
+      ],
+      "preregister_endpoint": [
+        "冻结pKD MAE与全样本有效率；配对种子差。",
+        "训练/验证NLL、梯度、delta/hidden范数比和gate轨迹仅作机制端点。"
+      ],
+      "author_code": [],
+      "status": "source_checked; project hypotheses not experimentally verified"
+    },
+    {
+      "id": "blip2",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "year": 2023,
+      "doi": null,
+      "official_url": "https://proceedings.mlr.press/v202/li23q.html",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\communication\\pdfs\\blip2.pdf",
+      "pdf_sha256": "d59913d16edf1dc7e661ca3510c6efaa2b001146840d2e464a7fde980d088dd2",
+      "pdf_physical_pages_1based": [
+        3,
+        4,
+        6,
+        7
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件",
+      "workbench_paper_id": "31fc5f3a-5935-5644-a9bc-7c960d47f638",
+      "author_fact": [
+        "Q-Former使用32个768维查询。",
+        "先联合ITC/ITM/grounded generation，再接冻结LLM进行生成训练。",
+        "Fig5报告无表示学习阶段的零样本VQA下降。"
+      ],
+      "project_hypothesis": [
+        "仅短数值JSON生成可能优先学习格式；任务表示warmup需要独立验证。"
+      ],
+      "proposed_control": [
+        "直接CE与train-only任务表示warmup+CE比较，阶段步数和辅助头均计入预算。"
+      ],
+      "non_equivalent_components": [
+        "原BERT初始化、图文规模与三项目标不等于当前最小Qformer。",
+        "pKD回归warmup为本课题迁移，不是作者验证过的原损失。"
+      ],
+      "preregister_endpoint": [
+        "原生成有效率与pKD MAE；B外条件可读出性和数值token NLL作辅助。"
+      ],
+      "author_code": [
+        {
+          "url": "https://github.com/salesforce/LAVIS/blob/05cb670f47296522e24e7727e366b4a997d28582/lavis/models/blip2_models/blip2_qformer.py#L268",
+          "commit": "05cb670f47296522e24e7727e366b4a997d28582",
+          "local_file": "PROJECT_ROOT/repos\\continuation_20261016\\salesforce__LAVIS\\lavis\\models\\blip2_models\\blip2_qformer.py",
+          "lines": [
+            268,
+            274
+          ],
+          "mechanism": "loss_itc + loss_itm + loss_lm"
+        }
+      ],
+      "status": "source_checked; project hypotheses not experimentally verified"
+    },
+    {
+      "id": "prott3",
+      "title": "ProtT3: Protein-to-Text Generation for Text-based Protein Understanding",
+      "year": 2024,
+      "doi": "10.18653/v1/2024.acl-long.324",
+      "official_url": "https://aclanthology.org/2024.acl-long.324/",
+      "local_pdf": "PROJECT_ROOT/papers\\methods\\ProtT3_ACL2024.pdf",
+      "pdf_sha256": "ffa65fc93979bcaf3cff2c60eaa4b832dff9492508f3493112755c3ca97038a1",
+      "pdf_physical_pages_1based": [
+        2,
+        4,
+        5,
+        6,
+        14,
+        16
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件",
+      "workbench_paper_id": "b48b33bf-2cb7-5042-a6b3-bdb60c012efc",
+      "author_fact": [
+        "第一阶段蛋白文本contrasting/matching/captioning，第二阶段查询前缀+Galactica LoRA。",
+        "Table4及Appendix C.2有MLP和移除stage1对照。",
+        "Appendix B讨论数值问题与部分QA数据偏差；作者README示例ESM150M/8queries。"
+      ],
+      "project_hypothesis": [
+        "可借鉴先形成任务相关消息再供LM读取的阶段分工。"
+      ],
+      "proposed_control": [
+        "双冻结设定的train-only辅助表示学习；同预算直接生成与warmup比较。",
+        "数值预测、语言呈现、消息作用三条通道分别评价。"
+      ],
+      "non_equivalent_components": [
+        "当前Qwen全冻结，无原Galactica LoRA及三项stage1任务。",
+        "外部SwissProt/ProteinKG数据尚需独立暴露审计，当前保持隔离。"
+      ],
+      "preregister_endpoint": [
+        "原pKD误差与有效率；内容token/格式token NLL分开、参数/步数完整账本。"
+      ],
+      "author_code": [
+        {
+          "url": "https://github.com/acharkq/ProtT3",
+          "local_file": "PROJECT_ROOT/repos\\ProtT3\\README.md",
+          "mechanism": "stage1/stage2; num_query_token8; plm_name esm2_t30_150M; llm_tune mid_lora"
+        }
+      ],
+      "status": "source_checked; project hypotheses not experimentally verified"
+    },
+    {
+      "id": "protst",
+      "title": "ProtST: Multi-Modality Learning of Protein Sequences and Biomedical Texts",
+      "year": 2023,
+      "doi": null,
+      "official_url": "https://proceedings.mlr.press/v202/xu23t.html",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\molecular\\pdfs\\ProtST.pdf",
+      "pdf_sha256": "db7f7d620f05ed08e0b4b53f4f52a24eed535eed7a825ed4e1c48dbf34610633",
+      "pdf_physical_pages_1based": [
+        3,
+        4
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件",
+      "workbench_paper_id": "e93e7f76-e9e5-56fd-a3a0-fba16b67b992",
+      "author_fact": [
+        "三项预训练为单模态mask、多模态表示对齐、多模态mask。",
+        "PLM更新，biomedical LM冻结；InfoNCE用于全局序列文本对齐。"
+      ],
+      "project_hypothesis": [
+        "表示对齐可列为单独因素，但双冻结连接器的效果仍需实测。"
+      ],
+      "proposed_control": [
+        "保持原ESM缓存，仅消融连接器任务学习；换PLM另开底座合同。"
+      ],
+      "non_equivalent_components": [
+        "不能声称复现ProtST的PLM表示增强，因为本轮PLM冻结。"
+      ],
+      "preregister_endpoint": [
+        "固定缓存的条件探针与原任务端点；不以结构信息或对齐损失代替pKD泛化。"
+      ],
+      "author_code": [
+        {
+          "url": "https://github.com/DeepGraphLearning/ProtST",
+          "commit": "db53a76ed2430eb66dd9c8134ace99fd60980fb3",
+          "local_file": "PROJECT_ROOT/repos\\continuation_20261016\\DeepGraphLearning__ProtST\\README.md"
+        }
+      ],
+      "status": "source_checked; project hypotheses not experimentally verified"
+    },
+    {
+      "id": "conditional_probing",
+      "title": "Conditional probing: measuring usable information beyond a baseline",
+      "year": 2021,
+      "doi": "10.18653/v1/2021.emnlp-main.122",
+      "official_url": "https://aclanthology.org/2021.emnlp-main.122/",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\evaluation\\conditional-probing.pdf",
+      "pdf_sha256": "0d44d3b5c26ab2dbbffbc506e6d2535520bf46af79d061807fbfd7550f0545d1",
+      "pdf_physical_pages_1based": [
+        2,
+        3
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件",
+      "workbench_paper_id": "65630d27-e870-5072-a56a-f1e914c3362d",
+      "author_fact": [
+        "同一探针族比较[B;R]与[B;0]。",
+        "对数损失下讨论条件V-information；函数族决定可使用性。"
+      ],
+      "project_hypothesis": [
+        "mean+128维线性摘要可能丢失消息中其他可读信息。"
+      ],
+      "proposed_control": [
+        "固定B/输入维数/训练选择，增加预注册小MLP容量档及常数/随机控制。"
+      ],
+      "non_equivalent_components": [
+        "回归MSE差为pKD平方，不是bits、总互信息或生物因果作用。"
+      ],
+      "preregister_endpoint": [
+        "冻结划分的DeltaMSE及分组区间；按种子报告；探针选择只用train/dev。"
+      ],
+      "author_code": [],
+      "status": "source_checked; project hypotheses not experimentally verified"
+    },
+    {
+      "id": "control_tasks",
+      "title": "Designing and Interpreting Probes with Control Tasks",
+      "year": 2019,
+      "doi": "10.18653/v1/D19-1275",
+      "official_url": "https://aclanthology.org/D19-1275/",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\evaluation\\control-probes.pdf",
+      "pdf_sha256": "557f5d7dc18b17d641c9e54c91c0071b00612f9ec051fc788bcc7117f4d194d0",
+      "pdf_physical_pages_1based": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件",
+      "workbench_paper_id": "5a412f5a-29c7-54ba-a22c-fb9a9567543a",
+      "author_fact": [
+        "词类型随机标签控制探针的身份记忆；任务性能与control表现结合解释。"
+      ],
+      "project_hypothesis": [
+        "当前探针容量可能影响读出评价，应单列随机身份任务。"
+      ],
+      "proposed_control": [
+        "同分子身份一致的随机标签，各容量档相同预算；列出严格留出中的身份覆盖。"
+      ],
+      "non_equivalent_components": [
+        "词性分类selectivity不自动等同回归误差信息量。",
+        "严格家族留出可能使随机身份任务接近偶然，必须按实际覆盖解释。"
+      ],
+      "preregister_endpoint": [
+        "真实性能、随机控制性能、容量曲线与分组区间分别报告。"
+      ],
+      "author_code": [],
+      "status": "source_checked; project hypotheses not experimentally verified"
+    },
+    {
+      "id": "esm2",
+      "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+      "year": 2023,
+      "doi": "10.1126/science.ade2574",
+      "official_url": "https://github.com/facebookresearch/esm",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\bibliography\\pdfs\\ESM2.pdf",
+      "pdf_sha256": "951003574aafbd1a93b0baf5a6b7ef1fd540af8db3fce6fa42f350c4413c3061",
+      "pdf_physical_pages_1based": [
+        3,
+        4
+      ],
+      "local_version": "bioRxiv 2022-10-31; preprint DOI10.1101/2022.07.20.500902",
+      "workbench_paper_id": null,
+      "author_fact": [
+        "接触图与结构读出用于研究模型规模和表示关系。",
+        "作者源码区分逐token、均值和结构输出。"
+      ],
+      "project_hypothesis": [
+        "应先确认固定缓存能支持本任务的额外读出，再定位连接器损失。"
+      ],
+      "proposed_control": [
+        "固定原ESM缓存并报告raw/message/receiver三档条件探针。"
+      ],
+      "non_equivalent_components": [
+        "结构任务的表示证据不能保证条件依赖pKD。",
+        "本地版本是2022-10-31预印本，不能将页码写成Science正式排版页。"
+      ],
+      "preregister_endpoint": [
+        "相同缓存上的受控任务端点；换更大PLM/层属于单独底座实验。"
+      ],
+      "author_code": [],
+      "status": "source_checked; project hypotheses not experimentally verified"
+    }
+  ],
+  "candidate_count": 3,
+  "candidate_status": "hypotheses; selection based on mechanism and original papers, not test-score optimization",
+  "candidates": [
+    {
+      "id": "CANDIDATE1",
+      "name": "共享固定瓶颈与分类型配额",
+      "basis": [
+        "flamingo",
+        "blip2"
+      ],
+      "project_extension": "类型平衡、共享发送器与接收位置因果对照",
+      "priority": 1
+    },
+    {
+      "id": "CANDIDATE2",
+      "name": "身份保持门控内部注入",
+      "basis": [
+        "flamingo"
+      ],
+      "project_extension": "冻结Qwen上的zero/nonzero/no gate matched ablation",
+      "priority": 2
+    },
+    {
+      "id": "CANDIDATE3",
+      "name": "train-only任务表示warmup",
+      "basis": [
+        "blip2",
+        "prott3",
+        "protst"
+      ],
+      "project_extension": "pKD辅助回归头并非原文原损失；额外步骤和参数全额计账",
+      "priority": 3
+    }
+  ],
+  "benchmark_invariants": [
+    "已有测试集与所有旧结果不变",
+    "旧提示词/解码/解析器/失败计数不调优",
+    "参数预算计活跃发送器+接收器+辅助头+gate",
+    "一次载荷与反复读取/计算量分别记账",
+    "配对种子、更新数、数据顺序、验证预算冻结",
+    "严格匹配donor为零时对应干预统计未定义",
+    "旧测试已公开，后续按同一冻结基准的受控验证报告"
+  ],
+  "source_versions": {
+    "current_connector_code_sha256": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318",
+    "historical_results_report_sha256_at_read": "6e58924e04853a0b9bf41231f3f9feaafbffd8f72a682f2cb04f6f233377a396"
+  },
+  "verification": {
+    "all_local_pdf_paths_exist": true,
+    "all_referenced_pdf_sha_calculated": true,
+    "official_primary_pages_browsed": true,
+    "flamingo_online_pdf_fetch": "web tool content-length limit; original local PDF SHA matches workbench",
+    "new_gpu_jobs": 0,
+    "old_data_or_code_modified": false
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T14:56:51.5383848+08:00",
+  "status": "prospective_uniform_batch4_implementation_pending_qualification",
+  "purpose": "Reduce inference wall time within the existing deadline; no performance-based model or criterion selection",
+  "scientific_protocol": "configs/matched_budget_20261016.frozen.json",
+  "scientific_protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "scientific_protocol_changed": false,
+  "trigger_evidence": {
+    "first_V1_full_trial_receipt": "results/matched_budget_20261016/suite_20261016_1426/trial_new_peptide_known_target_17_early_real_balanced_zero/execution-receipt.json",
+    "observed_elapsed_seconds": 729.5172388999927,
+    "other_observations": "Per-row test generation throughput, training step counts and remaining time only; no new test scores inspected by parent for this decision",
+    "reason": "Full36 plus preparation and serialization overhead risks exceeding the fixed absolute deadline"
+  },
+  "unchanged": [
+    "All frozen data, test membership, gold, prompts and answer serialization",
+    "Three seeds,36 configurations, ordering, source message and parameter budgets",
+    "All training, optimizer updates, validation criterion and best-checkpoint selection",
+    "Strict numerical policy,24-token greedy limit, no KV cache, parser and metrics",
+    "Failure denominators, full-MAE null rule, paired contrasts and3/3 aggregation"
+  ],
+  "engineering_version": {
+    "generation_batch_size": 4,
+    "grouping": "Original frozen sample order in contiguous batches; last batch1to4; identical groups across models",
+    "all_models_use_same_version": true,
+    "old_implementation_and_outputs_preserved": true,
+    "casewise_version_selection_or_best_score_selection": false,
+    "raw_outputs": "Keep complete returned token slots, first-EOS lengths, pad-tail lengths and original decoded text/parse",
+    "time_accounting": "Whole-batch duration; no fabricated per-row duration split",
+    "communication": "Record actual batch forwards, padded/valid queries and message bytes, including rows that reached EOS before batch completion",
+    "remaining_budget_difference": "Realized calls vary with EOS; per-forward message and common24-forward maximum remain fixed, without dummy calls"
+  },
+  "qualification": {
+    "inputs": "TRAIN only, predetermined short/medium/long/longest prompts with sample-ID tie break",
+    "comparisons": "Same reader state: B1 versus B4 and B2 tail batch; compare each row through first EOS, decoded text and strict parse",
+    "CPU_cases": "Mixed EOS, pad equal/different from EOS, no EOS24-step limit, canonical/raw length and communication ledger",
+    "mismatch_action": "Archive qualification failure; do not choose execution version using test outputs",
+    "scope": "Strict determinism does not ensure batch-shape-invariant logits; equality on TRAIN canaries does not prove equality on every test input"
+  },
+  "training_reuse": {
+    "allowed_only_if": "Full V1 training accepted, exact case/data/initialization and selected checkpoint/history SHA verified;1548 updates and3epochs complete",
+    "new_optimizer_steps_when_reused": 0,
+    "counting": "A reused trained model is one configuration and seed, not another training replicate",
+    "evaluation": "All configurations receive the uniform V2 evaluation; V1 per-row evaluation remains a separately labelled channel, never used to fill or improve V2 answers"
+  },
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T13:20:00+08:00",
+    "effective_deadline_at": "2026-10-16T23:20:00+08:00",
+    "window_reset": false,
+    "incomplete_policy": "Preserve partials and report k/3; no successful-seed-only average"
+  },
+  "required_before_execution": [
+    "New V2 source hashes, cache admission manifest and actual standard contracts",
+    "Independent implementation review and CPU negative/serialization tests",
+    "Exact owned V1 process cleanup and fresh resource gate",
+    "Actual TRAIN-only GPU batch equivalence, memory and throughput qualification"
+  ]
+}

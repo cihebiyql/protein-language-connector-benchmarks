@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "status": "execution_completed_but_formal_acceptance_rejected_quarantine_required",
+  "reviewed_utc": "2026-10-16T15:11:22.171326+00:00",
+  "review_checks_completed": true,
+  "formal_scientific_acceptance": false,
+  "formal_pool_result_eligible": false,
+  "do_not_count_as_accepted_pool_seed": true,
+  "blocking_findings": [
+    {
+      "source": "original result-validation.json",
+      "field": "result.execution.started_at",
+      "message": "contract timeout exceeds the execution window at actual start",
+      "original_valid_for_acceptance": false
+    }
+  ],
+  "original_self_label_is_not_acceptance": {
+    "result_record_lifecycle_status": "succeeded",
+    "result_record_review_status": "accepted",
+    "actual_scientific_artifact_status": "complete",
+    "original_validator_valid": false,
+    "original_validator_valid_for_acceptance": false,
+    "rule": "Original validator rejection overrides the record self-label; exit0 and complete artifacts cannot confer formal acceptance."
+  },
+  "original_validation_errors": [
+    {
+      "field": "result.execution.started_at",
+      "message": "contract timeout exceeds the execution window at actual start"
+    }
+  ],
+  "original_execution_blockers": [
+    "timeout exceeds remaining execution window at validation time"
+  ],
+  "actual_preserved_execution": {
+    "case": {
+      "scenario": "new_peptide_known_target",
+      "seed": 17,
+      "placement": "mid",
+      "message_input": "real",
+      "sender_mode": "global16",
+      "gate_init": "zero",
+      "phase": "trial"
+    },
+    "worker_pid": 312725,
+    "worker_pgid": 312725,
+    "worker_exit_code": 0,
+    "owned_PGID_absence_in_original_terminal_receipt": true,
+    "actual_epochs": 3,
+    "continuous_updates": 1548,
+    "updates_per_epoch": [
+      516,
+      516,
+      516
+    ],
+    "best_epoch_original_validation_earliest_min": 1,
+    "test_not_used_for_selection": true,
+    "preserved_selected_reader_sha256": "1af83e3bd5228ef8ae7302e6fab6e5052803e8d70fff6172f5073b4500c63f40",
+    "nominal_reader_parameters": 464001,
+    "sender_trainable_parameters": 0,
+    "per_object_per_forward_logical_message_bytes": 8192,
+    "new_strict_predictions": 152,
+    "strictly_valid": 152,
+    "parse_failures": 0,
+    "raw_prediction_MAE_Spearman_arithmetic_consistent": true,
+    "raw_C1_rows": 152,
+    "C1_row_and_category_arithmetic_consistent": true,
+    "generation_calls_queries_payload_edges_and_residual_bytes_recomputed": true,
+    "score_values_deliberately_omitted": true
+  },
+  "timing_literal_arithmetic": {
+    "absolute_original_deadline": "2026-10-16T23:20:00+08:00",
+    "actual_started_UTC": "2026-10-16T14:57:26.488676+00:00",
+    "actual_ended_UTC": "2026-10-16T15:07:43.927652+00:00",
+    "declared_timeout_seconds": 1360,
+    "remaining_at_original_record_actual_start_seconds": 1353.511324,
+    "declared_timeout_minus_remaining_seconds": 6.488675999999941,
+    "actual_receipt_monotonic_elapsed_seconds": 554.0669691000076,
+    "actual_UTC_endpoint_span_seconds": 617.438976,
+    "UTC_minus_monotonic_seconds": 63.37200689999247,
+    "actual_observed_duration_below_declared_timeout_and_end_before_deadline": true,
+    "interpretation": "Formal promised timeout exceeds the remaining permitted window at recorded start. Actual early finish does not repair that contract condition. This is not evidence of an actual worker timeout or model/numerical failure. Detailed timeout-construction/root-cause and outer controller/guard process audit assigned separately."
+  },
+  "actual_resource_receipts": {
+    "sampled_peak_whole_PGID_RSS_bytes": 6418243584,
+    "Torch_peak_allocated_bytes": 6345562112,
+    "Torch_peak_reserved_bytes": 12004098048,
+    "within_observed_resource_caps": true,
+    "limits": "SampledRSS and allocator stats are not complete instantaneous total-device usage"
+  },
+  "scientific_disposition": {
+    "prior_accepted_fixed_snapshot_cases": 30,
+    "accepted_pool_extension_seeds_from_this_attempt": 0,
+    "formal_pool_three_seed_mean": null,
+    "formal_pool_three_seed_SD": null,
+    "plan_count_retained": 36,
+    "current_attempt": "Executed full training/inference but rejected at standard acceptance; isolated preserved evidence, not an accepted result or a partial training",
+    "remaining_five": "Parent/controller audit reports not started; this narrow reviewer did not inspect those paths",
+    "no_repair_or_rerun": "Do not alter original contract/result/validator/score rule, backdate start, enlarge deadline, retry or fill formal pool means from these preserved predictions."
+  },
+  "evidence_sha256": {
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\case.json": "b39e66475f9d204dc0dda714d4777e60b7091902ef5e126291e5d3405b81e039",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\contract-validation.json": "02fa4ac22eb9432db8dc26a152c2f94cb38dbba1ccc468cf8846361b73df41ed",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\execution-receipt.json": "560d42e59234a6cac421404f632b207b40feceb9f0aef4902b128691fd6b1011",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\numerical_policy_actual.json": "4646cc28146b897ce9d19bc3663672ad9a0d31020ce7aa8516f8f4732eb30687",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\resource_probe.json": "250664baefda6e69014bf1af5c59acc71d827e68ac81a5d0b3e3daac61f1fd31",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\resource_usage.jsonl": "dbe86d91538090d30e4204355961f59ed0c737ada9ddb5c2101da7603bf90cf2",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\result-record.json": "cf5fc5132c35244ddd1ed0ac16264a662e1878a23b4ede48ee0fd079b5308c7b",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\result-validation.json": "4186e89bd71d8126b8809ae252f0abe522f4700e9f352b917defbebd880b5e53",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\running-process.json": "d671448fe2c82c54e0d7cd1f7f12224a1570413e91c023e7ccfcd42c70691639",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\stdout.log": "1b9c9b179b86f8d7712fbf6672484f9ba969c52600dcdf4b2b4aaa041a670c38",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\task-contract.json": "d683e99baf3c1b6c27aedd73ee90a0daceae000a4b29be558fdea3cb81ed76d6",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\best_reader.pt": "1af83e3bd5228ef8ae7302e6fab6e5052803e8d70fff6172f5073b4500c63f40",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\history.json": "9836600d1e710d2cb7b60b572ef3956914471a705e3f31d311f2033f96d61171",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\latest_partial_reader.pt": "230efd9267f485ca907fa400c535e153f38a073b01095b8c37821289f2cde1a6",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\process.json": "5c217db6da06e7870cf57521186e250c08f38146d154cf7698b210b8c7fa80f4",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\result.json": "7166d8756be43e047ce3567a4f143e25c623818968a50bcc55f88f263167bd5f",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\run.jsonl": "1b9c9b179b86f8d7712fbf6672484f9ba969c52600dcdf4b2b4aaa041a670c38",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\run_preregistration.json": "e92d067a38c47961c53546dbd3336aa55c8b47ccf6f3c7d38925e8a8c0dfb837",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\selection_before_test.json": "876923df5540c9d1dc88037a022e856a7391806574ae353af195a896f58d6282",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\test_C1_answer_nll.jsonl": "2e1283f5b088184ef42d228ee35fa31ec5b7059552bb4e51477a7579c0f0b272",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\test_input_snapshot.jsonl": "ea1cba1614b0ca9badb46ce8d66e6ef01261eb29ffafa78f802ed5d1fbb65b54",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\test_predictions_correct.jsonl": "31be267f4265ee21d0b73f9c32099b66fa492cd07e3ee3987103440427dbce2d",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\train_input_snapshot.jsonl": "5de6ae47ac1b36808de5bc18fe3ca8ee92b9ed69542ecd382524de0047cbc40d",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_global16_zero\\artifacts\\validation_input_snapshot.jsonl": "ef5a56873f26a8be25f74d6dc77613a09ac7009d7edba8a80532783265ddffe2"
+  },
+  "scope": "Only this terminal planned31 case and its original administrative/scientific artifacts. No active/other pool paths, no outer-process operations, no source or old report modifications.",
+  "actions": {
+    "GPU_operations": 0,
+    "model_forwards": 0,
+    "model_weight_loads": 0,
+    "new_fits": 0,
+    "bootstrap_runs": 0,
+    "source_result_contract_process_modifications": 0,
+    "only_new_files": [
+      "pool_attempt_execution_review.json",
+      "pool_attempt_execution_review.md"
+    ]
+  },
+  "final_snapshot_check": {
+    "JSON_sha256": "2e72addb16ad461d017a08fc372a1f3696948048c3be97f516403628ed1773c4",
+    "MD_sha256": "fc8171d330ee1e45a3cdf28e4a1174985958ac50d915918a7005ff953dd1e75b",
+    "manifest_sha256": "e69b984491be428c65862f0819d0a0168bdb821cc1464ac08cf103dc4678d145",
+    "all36_original_plan_positions_preserved": true,
+    "status_counts": {
+      "complete": 30,
+      "invalid_or_incomplete": 1,
+      "missing": 5
+    },
+    "formal_accepted_cases": 30,
+    "original_completed_source_cases": 2,
+    "new_accepted_completed_training_cases": 28,
+    "formal_strict_predictions": 8910,
+    "formal_valid": 8910,
+    "formal_failed": 0,
+    "all30_result_files_physically_SHA_equal_prior30": true,
+    "all30_metrics_and_source_origins_unchanged": true,
+    "rejected_attempt_status": "invalid_or_incomplete",
+    "rejected_attempt_metrics": null,
+    "formal_pool_coverage_per_scenario": "0/3",
+    "formal_pool_mean_SD": null,
+    "five_missing_semantics": "Raw summary status preserved as missing. Parent/controller audit reports these5 never started; missing alone is not used here to infer their execution history."
+  },
+  "outer_terminal_record_crosscheck": {
+    "suite_state_status": "failed_or_partial",
+    "suite_state_exception": {
+      "type": "RuntimeError",
+      "message": "Terminal archive validation failed: [{\"field\": \"result.execution.started_at\", \"message\": \"contract timeout exceeds the execution window at actual start\"}]"
+    },
+    "suite_state_ended_utc": "2026-10-16T15:07:56.498885+00:00",
+    "suite_state_jobs_in_success_list": 28,
+    "interpretation": "31st attempted artifact exists but archive validator raised before insertion into controller completed-jobs list; preserve all records.",
+    "UTC_guard_signal_sent": false,
+    "UTC_guard_termination_reason": null,
+    "UTC_guard_ended_utc": "2026-10-16T15:07:56.994546+00:00",
+    "controller_OS_PID_from_guard_record": 263028,
+    "actual_worker_OS_PID_PGID": 312725,
+    "controller_exec_session_ID": 25342,
+    "guard_exec_session_ID": 26213,
+    "session_ID_is_not_OS_PID": true,
+    "outer_exit_codes": "Parent tool reports controller session25342 exit1 and guard session26213 normal exit; these session exit codes are not re-executed or independently fetched by this narrow audit. Saved suite/guard terminal records independently crosschecked.",
+    "current_process_table_not_inspected": true
+  },
+  "protected_old_assets_record": {
+    "unchanged": true,
+    "files_checked": 1398,
+    "record_sha256": "bed539e9f70b0902c34457d2b8729580b809f54004b3fdd3d8e3f47c98c3d202",
+    "scope": "Existing final-check record crosschecked; no duplicate1398-file rehash in this narrow task"
+  },
+  "final_additional_evidence_sha256": {
+    "reports\\benchmark_clarity_20261016\\final_snapshot_20261016_231042\\matched_summary.json": "2e72addb16ad461d017a08fc372a1f3696948048c3be97f516403628ed1773c4",
+    "reports\\benchmark_clarity_20261016\\final_snapshot_20261016_231042\\matched_summary.md": "fc8171d330ee1e45a3cdf28e4a1174985958ac50d915918a7005ff953dd1e75b",
+    "reports\\benchmark_clarity_20261016\\final_snapshot_20261016_231042\\snapshot_manifest.json": "e69b984491be428c65862f0819d0a0168bdb821cc1464ac08cf103dc4678d145",
+    "results\\matched_budget_20261016\\remaining_v1_20261016_1546\\suite_state.json": "9ceb74db449e2a70d38fa23ebb85f53add4a370fbd1b3200e3bea157de65b131",
+    "reports\\benchmark_clarity_20261016\\UTC_runtime_guard_terminal.json": "7cc543c1ca2b4a99f2ecb29bdbb7acbf5444c85cb82644a36ac196528c3b007f",
+    "reports\\benchmark_clarity_20261016\\UTC_runtime_supplement.json": "6d46c15c5ae3ce18a41323d8ab26f2fcaefbf31d253ae2f62297f442027db28a",
+    "reports\\benchmark_clarity_20261016\\old_assets_final_check.json": "bed539e9f70b0902c34457d2b8729580b809f54004b3fdd3d8e3f47c98c3d202"
+  },
+  "completed_utc": "2026-10-16T15:13:07.858327+00:00"
+}

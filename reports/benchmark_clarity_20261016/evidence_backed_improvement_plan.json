@@ -1,0 +1,714 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T11:39:47.348444+00:00",
+  "purpose": "evidence-backed prospective plan only; not current36 revision",
+  "input_sha256": {
+    "literature_evidence.json": "f4baa4c94da389a668f149aa64c1565dc7683f17649aeb704d42def91d3019d6",
+    "residual_scale_literature.json": "5c5e10e3e9f5e630721b2301fd37c0bda384aefd1c1d0db19fbf116bb1e920e2",
+    "residual_code_evidence.json": "ac3421aedc7044869095a533ab9354c3e4708551b0f67a7b17f48f899c3460f3",
+    "causal_estimands_note.md": "e63d064eb1e24e119be64e516fba51c1399e8004fad2e5956935473c98b1e63b",
+    "causal_estimands_note.json": "dec545570fc8ee56a8ac3dfbceeb4f9c9bf0bd4fe88ca7745f8cabb551f20365",
+    "interim_mechanism_16cases.json": "a13f37caa5e66dbee4d01e1fd5a0d97476ea6f5ac3a586912604f5a5c1f3dc7f",
+    "interim_16cases_20261016_1929/matched_summary.json": "c1b83473fac8bd12eca2380790a4cfac9d9106fd75b1b7548c70392b0cf300fe"
+  },
+  "scientific_protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "source_scope": "nine previously checked primary PDFs, author static code evidence, fixed1929snapshot and estimands note; no active2026cases read",
+  "frozen_evidence": {
+    "seed_coverage": "2/3 for primary contrasts",
+    "three_seed_mean": null,
+    "three_seed_SD": null,
+    "retained_direction_reversals": [
+      {
+        "scenario": "new_peptide_new_target",
+        "contrast": "depth_real",
+        "seed17": -0.06936645930336155,
+        "seed42": 0.3457093283445276
+      },
+      {
+        "scenario": "new_peptide_known_target",
+        "contrast": "content_mid",
+        "seed17": 0.21009473914528387,
+        "seed42": -0.35678988683890145
+      }
+    ]
+  },
+  "plans": [
+    {
+      "id": "G",
+      "name": "zero gate versus near-unit gate",
+      "status": "already preregistered in current36; extension not completed in frozen16 snapshot",
+      "original_facts": [
+        {
+          "paper": "flamingo",
+          "pages": [
+            5,
+            8
+          ],
+          "fact": "zero-initialized tanh-gated residual and ablation"
+        },
+        {
+          "paper": "rezero",
+          "pages": [
+            1,
+            2
+          ],
+          "fact": "direct scalar alpha0, not tanh"
+        }
+      ],
+      "transfer_combination": "same frozen Qwen, same Reader, alpha0 versus alpha3 only",
+      "mechanism_hypothesis": "identity-preserving initialization benefits optimization within fixed budget",
+      "falsifiable_matched_control": "original gate_zero_initialization contrast per scenario/seed, unchanged endpoints/coverage; trajectories auxiliary only",
+      "trainable_parameters_both": 464001,
+      "sender_trainable_parameters": 0,
+      "communication": "16x128 float32,8192 logical bytes per object perforward",
+      "compute": "same predeclared updates/read schedule; actual EOS totals, time and memory reported",
+      "current_evidence": "all16 core cases alpha0; no alpha3 scientific result in this input",
+      "limits": [
+        "alpha3 remains a gate, not ungated",
+        "zero task gradients do not imply no AdamW weight decay on all branch parameters"
+      ]
+    },
+    {
+      "id": "P",
+      "name": "balanced8+8 versus global16 pooling",
+      "status": "already preregistered in current36; extension not completed in frozen16 snapshot",
+      "original_facts": [
+        {
+          "paper": "flamingo",
+          "pages": [
+            5
+          ],
+          "fact": "fixed64 learned resampler latents"
+        },
+        {
+          "paper": "blip2",
+          "pages": [
+            3
+          ],
+          "fact": "32x768 learned query bottleneck with alignment objectives"
+        }
+      ],
+      "transfer_combination": "fixed per-residue norm, pooling, random640to128 projection, per-slot norm; vary quota only",
+      "mechanism_hypothesis": "separate molecule quotas reduce long-target domination under this particular compression",
+      "falsifiable_matched_control": "original balanced_pool_allocation contrast; same mid/real/alpha0 Reader, seeds, initialization, updates and endpoints",
+      "trainable_parameters_both": 464001,
+      "sender_trainable_parameters": 0,
+      "communication": "same16x128float32/8192logical bytes",
+      "compute": "pooling preprocessing/cache costs recorded separately",
+      "current_evidence": "all16 balanced; no global16 outcome in frozen snapshot",
+      "limits": [
+        "8+8 is allocation not type alignment; no slot/type embedding",
+        "fixed random sender is not learned author resampler"
+      ]
+    },
+    {
+      "id": "S",
+      "name": "S1 TRAIN prompt-only fixed scale and S2 branch-output non-affine LN",
+      "status": "future, unexecuted; excluded from current36",
+      "original_facts": [
+        {
+          "paper": "normformer",
+          "pages": [
+            3,
+            6,
+            7,
+            8
+          ],
+          "fact": "attention output branch LN, gradient mismatch analysis; optional skip scaling not uniformly helpful"
+        },
+        {
+          "paper": "rezero",
+          "pages": [
+            1,
+            2
+          ],
+          "fact": "zero residual initialization"
+        },
+        {
+          "paper": "flamingo",
+          "pages": [
+            5
+          ],
+          "fact": "zero tanh gate preserves pretrained LM output at initialization"
+        }
+      ],
+      "transfer_combination": "scale/norm only the new Reader output branch before gate/add, preserve frozen backbone normalization",
+      "calibration": "fixed TRAIN prompt IDs, no gold suffix and no label use; untrained Reader and branch-off frozen-base h; same padding/initialization/statistic rules; reject invalid denominators, never use val/test fallback",
+      "formulas": {
+        "r": "sqrt(mean over valid TRAIN prompt positions of squared L2 norm)",
+        "S1": "s=r(h)/r(u); h_new=h+tanh(alpha)*s*u; alpha0=0",
+        "S2": "v=LN_affineFalse(u), c=r(h)/r(v); h_new=h+tanh(alpha)*c*v; alpha0=0"
+      },
+      "content_calibration_rule": "per predeclared placement/seed/content with corresponding real or neutral messages; calibrating separately enters the whole-system treatment",
+      "zero_base_property": "finite calibration and alpha0 make added branch0; LN(h+delta) is excluded because it changes base even at zero gate",
+      "mechanism_hypothesis": "initial relative-amplitude units and output normalization shape affect optimization; not equal semantic impact or matched Jacobian",
+      "falsifiable_matched_control": "future unscaled/S1/S2 factorial with same real/neutral controls, initialization, steps, validation selection and endpoints; S1/S2 same calibration data/underlying forwards; ratio matching alone is not success",
+      "trainable_parameters_S1": 464001,
+      "trainable_parameters_S2_affineFalse": 464001,
+      "optional_affine_LN_extra_parameters": 3072,
+      "optional_affine_total": 467073,
+      "communication": "same16x128float32/8192logical bytes, frozen scalar buffers counted separately",
+      "compute": [
+        "TRAIN prompt-only calibration prepass and statistics/cache",
+        "per-position scaling O(BLH)",
+        "S2 LN O(BLH), saved activations/backward costs",
+        "shared calibration cache actual cost charged, not free compute"
+      ],
+      "current_evidence": "no calibration or modified model executed; existing val norms include gold and are ineligible for this calibration",
+      "limits": [
+        "changes alpha gradient and effective optimizer parameterization",
+        "initial norm agreement does not guarantee later ratio agreement or task gain",
+        "cast BF16 pre-add delta is not actual h_after-h_before"
+      ]
+    },
+    {
+      "id": "W",
+      "name": "TRAIN reader representation warmup versus interleaved auxiliary/CE updates",
+      "status": "future, unexecuted; excluded from current36",
+      "original_facts": [
+        {
+          "paper": "blip2",
+          "pages": [
+            3,
+            6,
+            7
+          ],
+          "fact": "representation then generation learning; no-stage1 ablation"
+        },
+        {
+          "paper": "prott3",
+          "pages": [
+            2,
+            4,
+            5,
+            6,
+            16
+          ],
+          "fact": "protein-text objectives then Galactica LoRA generation; stage ablations"
+        }
+      ],
+      "transfer_combination": "frozen sender remains fixed; train Reader and real auxiliary head using prompt-only frozen-base query plus fixed message",
+      "forward_definition": "h_prompt at predeclared last valid prompt position from branch-off frozen Qwen, no gold answer suffix; u=Reader_ungated(h_prompt,z) in1536dims; scalar head=wTu+b",
+      "loss_definition": "MSE against TRAIN scalar from same two-decimal training-answer serialization; labels used as supervision only; primary test still original unrounded labels",
+      "zero_gate_gradient_rule": "head reads ungated u, not tanh(alpha0)*u; auxiliary loss can reach Reader nongate parameters; no aux alpha dependence",
+      "head": {
+        "shape": "Linear1536to1 with bias",
+        "extra_trainable_parameters": 1537,
+        "reader_parameters": 464001,
+        "union_trainable_parameters": 465538,
+        "inference_reader_parameters_after_head_removed": 464001,
+        "count_semantics": "requires-grad elements; actual auxiliary head used in both arms; discarding at inference does not erase training budget"
+      },
+      "falsifiable_matched_control": {
+        "A": "T_aux auxiliary updates followed by T_CE original CE updates",
+        "B": "sameT_aux andT_CE in prospectively fixed interleaving",
+        "matched": [
+          "Reader/head seed and initial tensors",
+          "same active head in both arms",
+          "per-loss TRAIN sample IDs/order/exposures and gradient accumulation",
+          "same lambda, optimizer groups, scheduler and validation call budget",
+          "unchanged primary scoring/strict parser/coverage"
+        ],
+        "only_changed": "stage order; optimizer-state evolution with order is part of treatment",
+        "no_dummy_parameter_control": "CE-only with unused head is not a parameter-matched control; any CE-only reference separately reports464001/noaux exposure"
+      },
+      "future_protocol_choices_pending": [
+        "T_aux",
+        "T_CE",
+        "lambda",
+        "interleaving schedule",
+        "TRAIN-only optional standardization",
+        "validation times/checkpoint candidates"
+      ],
+      "selection_boundary": "choose/freeze future protocol from theory and TRAIN/val before any new test inference; not based on current test outcomes",
+      "communication": "same source message dimensions per read; aux last-prompt query and CE full query schedule counted separately",
+      "compute": [
+        "prompt-only base forward or explicitly costed immutable h cache",
+        "aux message reads,1537-parameter head ops/backward",
+        "same aux/CE update counts and sample/label exposure across A/B",
+        "total extra compute recorded if adding aux on top of oldCE budget"
+      ],
+      "mechanism_hypothesis": "task-supervised reader representation learning may help generation, and temporal order may matter",
+      "current_evidence": "no warmup/head training executed; assigning loss to frozen sender alone would not teach it",
+      "limits": [
+        "new pKD MSE is project transfer, not original BLIP2/ProtT3 objective",
+        "original ProtT3 LoRA/backbone/trainingdata not reproduced",
+        "auxloss decline is not held-out task success",
+        "no guarantee of score improvement"
+      ]
+    }
+  ],
+  "primary_paper_references": [
+    {
+      "id": "flamingo",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "year": 2022,
+      "doi": null,
+      "official_url": "https://arxiv.org/abs/2204.14198",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\communication\\pdfs\\flamingo-lossless.pdf",
+      "pdf_sha256": "5b96767ada8d76ad160c3087d80975b8af8e60b46786b10248c6b96b0c4699ba",
+      "pdf_physical_pages_1based": [
+        5,
+        8
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "blip2",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "year": 2023,
+      "doi": null,
+      "official_url": "https://proceedings.mlr.press/v202/li23q.html",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\communication\\pdfs\\blip2.pdf",
+      "pdf_sha256": "d59913d16edf1dc7e661ca3510c6efaa2b001146840d2e464a7fde980d088dd2",
+      "pdf_physical_pages_1based": [
+        3,
+        4,
+        6,
+        7
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "prott3",
+      "title": "ProtT3: Protein-to-Text Generation for Text-based Protein Understanding",
+      "year": 2024,
+      "doi": "10.18653/v1/2024.acl-long.324",
+      "official_url": "https://aclanthology.org/2024.acl-long.324/",
+      "local_pdf": "PROJECT_ROOT/papers\\methods\\ProtT3_ACL2024.pdf",
+      "pdf_sha256": "ffa65fc93979bcaf3cff2c60eaa4b832dff9492508f3493112755c3ca97038a1",
+      "pdf_physical_pages_1based": [
+        2,
+        4,
+        5,
+        6,
+        14,
+        16
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "protst",
+      "title": "ProtST: Multi-Modality Learning of Protein Sequences and Biomedical Texts",
+      "year": 2023,
+      "doi": null,
+      "official_url": "https://proceedings.mlr.press/v202/xu23t.html",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\molecular\\pdfs\\ProtST.pdf",
+      "pdf_sha256": "db7f7d620f05ed08e0b4b53f4f52a24eed535eed7a825ed4e1c48dbf34610633",
+      "pdf_physical_pages_1based": [
+        3,
+        4
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "conditional_probing",
+      "title": "Conditional probing: measuring usable information beyond a baseline",
+      "year": 2021,
+      "doi": "10.18653/v1/2021.emnlp-main.122",
+      "official_url": "https://aclanthology.org/2021.emnlp-main.122/",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\evaluation\\conditional-probing.pdf",
+      "pdf_sha256": "0d44d3b5c26ab2dbbffbc506e6d2535520bf46af79d061807fbfd7550f0545d1",
+      "pdf_physical_pages_1based": [
+        2,
+        3
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "control_tasks",
+      "title": "Designing and Interpreting Probes with Control Tasks",
+      "year": 2019,
+      "doi": "10.18653/v1/D19-1275",
+      "official_url": "https://aclanthology.org/D19-1275/",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\evaluation\\control-probes.pdf",
+      "pdf_sha256": "557f5d7dc18b17d641c9e54c91c0071b00612f9ec051fc788bcc7117f4d194d0",
+      "pdf_physical_pages_1based": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "esm2",
+      "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+      "year": 2023,
+      "doi": "10.1126/science.ade2574",
+      "official_url": "https://github.com/facebookresearch/esm",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\bibliography\\pdfs\\ESM2.pdf",
+      "pdf_sha256": "951003574aafbd1a93b0baf5a6b7ef1fd540af8db3fce6fa42f350c4413c3061",
+      "pdf_physical_pages_1based": [
+        3,
+        4
+      ],
+      "local_version": "bioRxiv 2022-10-31; preprint DOI10.1101/2022.07.20.500902"
+    },
+    {
+      "id": "normformer",
+      "title": "NormFormer: Improved Transformer Pretraining with Extra Normalization",
+      "official_url": "https://arxiv.org/abs/2110.09456v2",
+      "official_pdf_url": "https://arxiv.org/pdf/2110.09456v2",
+      "local_pdf": "PROJECT_ROOT/papers\\benchmark_clarity_20261016\\residual_scale\\NormFormer_2110.09456v2.pdf",
+      "pdf_sha256": "c3bd7416cf2e37290a3a0ac807f193c344a905605afb86aad9bef3fd14bfc502",
+      "local_version": "2110.09456v2; Under review as a conference paper at ICLR 2022",
+      "method_evidence": [
+        {
+          "pages_1based": [
+            2
+          ],
+          "section": "2.1",
+          "fact": "HeadScale multiplies each attention head by learned gamma_i initialized1"
+        },
+        {
+          "pages_1based": [
+            3
+          ],
+          "section": "2.1",
+          "equation_number": "unnumbered displayed equations",
+          "formula": "NormScaledMHA(x)=x+LN(HeadScaleMHA(LN(x),LN(x),LN(x)))",
+          "additional_formula": "NormFFN(x)=x+LN(GELU(LN(x)W1+b1))W2+b2"
+        },
+        {
+          "pages_1based": [
+            3,
+            4,
+            5
+          ],
+          "section": "2.2 and Table2",
+          "author_configuration": "1.3B CLM LR6e-4; baseline286K and NormFormer275K updates in compute-matched table; baseline300B-token setup, NormFormer equal GPU time; extra operations mean2-6% fewer steps/tokens"
+        },
+        {
+          "pages_1based": [
+            6,
+            7
+          ],
+          "section": "4.1",
+          "fact": "Per-layer gradient norms become more balanced; not a study of frozen protein connectors"
+        },
+        {
+          "pages_1based": [
+            4,
+            8
+          ],
+          "section": "2.2/4.2",
+          "negative_evidence": "Optional learned skip/residual scaling initialized1 does not help at1.3B and above; it is not used for their1.3B/2.7B CLM results"
+        }
+      ]
+    },
+    {
+      "id": "rezero",
+      "title": "ReZero is All You Need: Fast Convergence at Large Depth",
+      "official_url": "https://arxiv.org/abs/2003.04887v2",
+      "official_pdf_url": "https://arxiv.org/pdf/2003.04887v2",
+      "local_pdf": "PROJECT_ROOT/papers\\benchmark_clarity_20261016\\residual_scale\\ReZero_2003.04887v2.pdf",
+      "pdf_sha256": "54eea1741fad2e7a20e52f55c64b34977f1206c5e3c8e14804ea5385c299c070",
+      "local_version": "2003.04887v2; Preprint. Under review.",
+      "method_evidence": [
+        {
+          "pages_1based": [
+            1,
+            2
+          ],
+          "section": "1 and Table1",
+          "equation_number": "1",
+          "formula": "x_(i+1)=x_i+alpha_i F(x_i), alpha_i initialized0",
+          "fact": "Identity initial residual block; F-parameter gradients initially vanish and alpha starts learning"
+        },
+        {
+          "pages_1based": [
+            7,
+            8
+          ],
+          "section": "6.2/Table3",
+          "author_result": "12-layer enwiki8 target1.2BPB: zero-alpha8800 vs warmup baseline13690 iterations; table speedup1.56x, not56% fewer updates"
+        },
+        {
+          "pages_1based": [
+            12
+          ],
+          "section": "AppendixB",
+          "author_configuration": "12layers, hidden/embed512,2heads,context512,batch1080,attention/FFNdropout0.2,GELU,LAMB fixedLR0.016,no LR schedule; baseline post-norm uses100warmup steps as described section6.2"
+        }
+      ]
+    }
+  ],
+  "author_code_static_evidence": {
+    "evidence_report_sha256": "ac3421aedc7044869095a533ab9354c3e4708551b0f67a7b17f48f899c3460f3",
+    "commits": [
+      {
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "paper_experiment_commit_verified": false
+      },
+      {
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "paper_experiment_commit_verified": false
+      }
+    ],
+    "verified_existing_evidence_file_checks": [
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "examples/normformer/README.md",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/README.md",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/README.md",
+        "file_sha256": "3e24210c180e2a9d9cfb22369f77c8439c553ee984584b9c19d90fbda96e95f9",
+        "archive_member_sha256": "3e24210c180e2a9d9cfb22369f77c8439c553ee984584b9c19d90fbda96e95f9",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          2,
+          12,
+          20,
+          23,
+          29,
+          50
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/README.md"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "examples/normformer/train_lm.sh",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/train_lm.sh",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/train_lm.sh",
+        "file_sha256": "2813d74b232dad1030966ef2338141ed1d8ecf7f107739a4e217a817b9689475",
+        "archive_member_sha256": "2813d74b232dad1030966ef2338141ed1d8ecf7f107739a4e217a817b9689475",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          10,
+          11,
+          13,
+          19,
+          20,
+          24,
+          27,
+          33,
+          35,
+          56,
+          63
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/train_lm.sh"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/modules/transformer_layer.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/transformer_layer.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/transformer_layer.py",
+        "file_sha256": "3bc2d9b22997d4961349d80a517f242235d1128e78ac30c45f07aabf0f64058d",
+        "archive_member_sha256": "3bc2d9b22997d4961349d80a517f242235d1128e78ac30c45f07aabf0f64058d",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          277,
+          285,
+          310,
+          315,
+          451,
+          460,
+          465,
+          468,
+          506,
+          508,
+          512,
+          514
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/transformer_layer.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/modules/multihead_attention.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/multihead_attention.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/multihead_attention.py",
+        "file_sha256": "0dde50b837751582b66d5f51cfdfe0f0d62ae0c57afc0ba9fabd2439c1da83be",
+        "archive_member_sha256": "0dde50b837751582b66d5f51cfdfe0f0d62ae0c57afc0ba9fabd2439c1da83be",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          539,
+          551,
+          773
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/multihead_attention.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/modules/layer_norm.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/layer_norm.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/layer_norm.py",
+        "file_sha256": "25aa47361d2d89cdc9ae5f3c8766ba96e8e4d20bcdaecf00b71958db923fd4e9",
+        "archive_member_sha256": "25aa47361d2d89cdc9ae5f3c8766ba96e8e4d20bcdaecf00b71958db923fd4e9",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          29
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/layer_norm.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/models/transformer_lm.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/models/transformer_lm.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/models/transformer_lm.py",
+        "file_sha256": "21f2a6296174004c1f5898dd331fa9ecfd522f4f21fa0a45171b2a9a3b258b22",
+        "archive_member_sha256": "21f2a6296174004c1f5898dd331fa9ecfd522f4f21fa0a45171b2a9a3b258b22",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          376,
+          390
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/models/transformer_lm.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "fairseq/optim/adam.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/optim/adam.py",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/optim/adam.py",
+        "file_sha256": "42496814f276444dfcb534d7ebdf2b0c6098543a70bdfcee898b28cfc4678c90",
+        "archive_member_sha256": "42496814f276444dfcb534d7ebdf2b0c6098543a70bdfcee898b28cfc4678c90",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          45,
+          48,
+          229
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/optim/adam.py"
+      },
+      {
+        "repo_key": "normformer_fairseq",
+        "repo": "facebookresearch/fairseq",
+        "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+        "relative_path": "LICENSE",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/LICENSE",
+        "zip_member": "fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/LICENSE",
+        "file_sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+        "archive_member_sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          1
+        ],
+        "pinned_online_url": "https://github.com/facebookresearch/fairseq/blob/3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/LICENSE"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "README.md",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/README.md",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/README.md",
+        "file_sha256": "b766654a4144964fc3f52943db637788047f0a6c027f4d1fef7c7c29fa56e501",
+        "archive_member_sha256": "b766654a4144964fc3f52943db637788047f0a6c027f4d1fef7c7c29fa56e501",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          3,
+          5,
+          54,
+          60
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/README.md"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "rezero/transformer/rztx.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py",
+        "file_sha256": "eb0e1cb7fa4aa2d345b59944b597225708cb5e10144a99b75c2047e5f12c447b",
+        "archive_member_sha256": "eb0e1cb7fa4aa2d345b59944b597225708cb5e10144a99b75c2047e5f12c447b",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          37,
+          47,
+          71,
+          74,
+          79,
+          80,
+          103,
+          115,
+          137,
+          139,
+          140,
+          142,
+          145,
+          148
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "requirements.txt",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/requirements.txt",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/requirements.txt",
+        "file_sha256": "7da07370040c5eb199192e85dc54467427ead13dc00a95337c8f699595ef92f4",
+        "archive_member_sha256": "7da07370040c5eb199192e85dc54467427ead13dc00a95337c8f699595ef92f4",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          1
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/requirements.txt"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "setup.py",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/setup.py",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/setup.py",
+        "file_sha256": "1b02ac50908a5ae45d0415ed947052b70a12296a4f7d5ef8d9bd81f04b9c4315",
+        "archive_member_sha256": "1b02ac50908a5ae45d0415ed947052b70a12296a4f7d5ef8d9bd81f04b9c4315",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          6,
+          13
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/setup.py"
+      },
+      {
+        "repo_key": "rezero",
+        "repo": "majumderb/rezero",
+        "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+        "relative_path": "LICENSE",
+        "local_path": "repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/LICENSE",
+        "zip_member": "rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/LICENSE",
+        "file_sha256": "73dce5e91e19a640abc22befc3bd6f3b2118cfc59a513d58c92dfc743cc4995b",
+        "archive_member_sha256": "73dce5e91e19a640abc22befc3bd6f3b2118cfc59a513d58c92dfc743cc4995b",
+        "identical_zip_to_disk": true,
+        "evidence_lines": [
+          1
+        ],
+        "pinned_online_url": "https://github.com/majumderb/rezero/blob/e2c94a825c5564217e8cf4d75a28d59cab1d7029/LICENSE"
+      }
+    ],
+    "third_party_code_executed_for_plan": false
+  },
+  "causal_estimands": {
+    "current_content": "L(theta_N,TRAIN_mean_message)-L(theta_R,row_message), independently trained/selected systems",
+    "fixed_theta_mean_replacement": "evaluation gap only; not registered/measured here",
+    "C1_off": "branch absent, not mean replacement or zero-memory operation",
+    "biological_donor": "mean replacement not legitimate biological donor and cannot fill currentP/H"
+  },
+  "governance": {
+    "current36_matrix_source_data_selector_timeout_metrics_thresholds_unchanged": true,
+    "current_extension_status_bound_to16case_snapshot": true,
+    "future_plans_not_executed": true,
+    "test_aware_design_boundary": "existing benchmark already observed; no untouched confirmatory-test claim; future details frozen usingTRAIN/val before future test inference",
+    "no_global_first_claim": true,
+    "no_score_improvement_promise": true,
+    "no_new_download_forward_fit_calibration_GPU": true,
+    "only_new_two_report_files_written": true
+  }
+}

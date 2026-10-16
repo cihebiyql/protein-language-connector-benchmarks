@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T14:14:59.2047853+08:00",
+  "reviewer": "matched_protocol_review",
+  "status": "scientific_specification_frozen_runtime_qualification_pending",
+  "reviewed_specification": {
+    "path": "configs/matched_budget_20261016.protocol.json",
+    "sha256": "54445ef93ae577fef5136010d6cf4977eb0cb8fa6529793625af551c00d0d571",
+    "status": "specified_pending_review_closure_and_runtime_qualification"
+  },
+  "frozen_specification": {
+    "path": "configs/matched_budget_20261016.frozen.json",
+    "sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "status": "frozen_for_execution"
+  },
+  "comparison": {
+    "method": "Parse both JSON objects; remove status; recursively serialize entire remaining objects with depth80; require case-sensitive equality; require exact independently calculated file SHAs",
+    "equal_except_status": true,
+    "only_semantic_difference": "status",
+    "no_data_metric_matrix_budget_timing_numerical_change": true
+  },
+  "prior_reviews": {
+    "naming_and_numerical_policy": "reviewed",
+    "sha256": "9e06fac0fc78bba582806abeee280bfa5d436f0107119a6caec0690b7abcc77d",
+    "review": "reports/benchmark_clarity_20261016/protocol_review.json",
+    "R1_R4": "closed"
+  },
+  "preservation_snapshot": {
+    "path": "reports/benchmark_clarity_20261016/locked_asset_snapshot.json",
+    "sha256": "cb3d6748d5392e01b8c00ed8d598bad7455c446515223e85e72f28a031d31a77",
+    "file_count": 1398,
+    "bytes": 556650105,
+    "declared_totals_equal_manifest_entries": true,
+    "actual_old_asset_rehash_performed_in_this_acceptance": false,
+    "meaning": "Existing immutable-asset manifest reference; runtime must verify against actual old assets"
+  },
+  "authorization_scope": "Normative specification freeze only; not GPU, canary or full-training release",
+  "gpu_execution_approved": false,
+  "training_executed_by_reviewer": false,
+  "gpu_calls_by_reviewer": 0,
+  "remaining_execution_gates": [
+    "Final prepared cache and source/init/prompt/parser/data pins match frozen protocol",
+    "Immutable old assets checked against locked_asset_snapshot",
+    "Independent final implementation review and CPU positive/negative/serialization tests",
+    "Fresh resource probe and valid standard execution contract",
+    "Common numerical flags and pre-CUDA environment actually recorded",
+    "Supervised TRAIN-only real deterministic forward-backward canary qualification",
+    "Global23:20 deadline and cleanup independent of individual trial limits"
+  ],
+  "prohibited_after_freeze": [
+    "Test-driven hyperparameter or parser/metric changes",
+    "Old data/results overwrite",
+    "Cross-scenario trained-state transfer",
+    "Silent source/protocol revision or deadline reset"
+  ]
+}

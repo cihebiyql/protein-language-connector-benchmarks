@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "implementation_review_passed_runtime_admission_pending",
+  "reviewed_utc": "2026-10-16T07:44:35.598424+00:00",
+  "implementation_gate_passed": true,
+  "blocking_findings": [],
+  "source_sha256": {
+    "scripts/matched_budget_20261016/execute_remaining_v1.py": "e1a886a2c8c33ae445d60883fbfc6811efd99c237e0456b3d0ec45b4b46d339b",
+    "scripts/matched_budget_20261016/summarize_remaining_v1.py": "96dddafd1205b76dd1281cc5ce1a78ac9c201cfe6f85593e4051a2a64e50c929",
+    "scripts/matched_budget_20261016/execute_suite.py": "6044a3217916129341ed71e6dd36020047807d1a41433d11429266b3e7352080",
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "scripts/matched_budget_20261016/execute_suite_batched.py": "a5236400bbc350aa6328f45540dfe0699591fcba0e1ae680e67c012b758bcfac",
+    "scripts/matched_budget_20261016/summarize.py": "695b6f876cc8d6da1773cbf70f69fbe4afe995ef4221a8cb2f5ea6895ea9b1c5",
+    "tests/test_matched_budget_remaining_v1.py": "5d31599ce4b100bf9a72b5387462944777c36688e6885a2ba0d6d8b936c26c75",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "reports/benchmark_clarity_20261016/engineering_final_decision_v1.json": "5fd053f295cf268572725e02891ad056d2a9227071f77bfa48153b2c1f39692b"
+  },
+  "owner_final_source_confirmation": "Parent directly confirmed final e1a886a2 controller,96dddafd summary,5d31599c tests; no further writes",
+  "original_prefix_raw_audit": {
+    "status": "original_V1_prefix_raw_audit_passed",
+    "reviewed_utc": "2026-10-16T07:38:22.821918+00:00",
+    "source_cases": [
+      {
+        "case_id": "trial_new_peptide_known_target_17_early_real_balanced_zero",
+        "rows_checked": 152,
+        "complete_order_ID_split_gold_reconciled": true,
+        "strict_frozen_parser_replayed_on_every_raw_text": true,
+        "all_original_metric_fields_recomputed_match": true,
+        "denominator_valid_plus_failed_equals_full": true,
+        "source_selection": "fixed firsttwo matrix positions; acceptance independent of metric values",
+        "source_result_sha256": "f4175767ec66e8e1b3b908c0b607115670383e382f627dbd82a2ef8b0dd808cb",
+        "source_predictions_sha256": "1cdee60b72029d2216887f9a79a47bfdecf55db23c194bbdddf04a0966c07512",
+        "frozen_samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+        "frozen_parser_module_sha256": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+        "score_values_deliberately_omitted": true
+      },
+      {
+        "case_id": "trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+        "rows_checked": 152,
+        "complete_order_ID_split_gold_reconciled": true,
+        "strict_frozen_parser_replayed_on_every_raw_text": true,
+        "all_original_metric_fields_recomputed_match": true,
+        "denominator_valid_plus_failed_equals_full": true,
+        "source_selection": "fixed firsttwo matrix positions; acceptance independent of metric values",
+        "source_result_sha256": "0994456bac7222a97057bf621c60d39b0794ee681a7cce07ffcb6dbbb18cc9a0",
+        "source_predictions_sha256": "e265a98c871b09a3087ec4d6b62bb143dd633808bd69fdfdb8da0f3d89a162db",
+        "frozen_samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+        "frozen_parser_module_sha256": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+        "score_values_deliberately_omitted": true
+      }
+    ],
+    "GPU_calls": 0,
+    "model_forward_calls": 0,
+    "no_source_or_result_mutation": true,
+    "numeric_scores_not_reported_or_selected": true
+  },
+  "scope": "Exact original V1 batch1 continuation only; no model candidate, metric, split, source-score choice, GPU/model forward or old result/source modification",
+  "unchanged_functions_vs_original_V1_supervisor": {
+    "worker": true,
+    "runtime_environment": true,
+    "apply_numerical_policy": true,
+    "supervise": true,
+    "cleanup": true,
+    "live_probe": true,
+    "trial_matrix": true,
+    "canary_matrix": true
+  },
+  "scientific_protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "original_worker_sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+  "independent_CPU_tests": {
+    "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s tests -p 'test_matched_budget_remaining_v1.py' -v",
+    "final_frozen_tests": 11,
+    "test_seconds": 0.609,
+    "exit_code": 0,
+    "result": "OK no skips",
+    "first_attempt_preserved": {
+      "tests": 11,
+      "passed": 10,
+      "errors": 1,
+      "error": "Real standard archive code[0] SHA mismatch during concurrent owner code edit; controller changed78c9d53e to e1a886a2",
+      "interpretation": "Administrative CPU fixture caught source drift, not scientific/GPU execution failure",
+      "resolution": "Owner froze final sources, independent11-test rerun passed without source changes"
+    }
+  },
+  "findings": [
+    {
+      "id": "qualification_current_environment_binding",
+      "severity": "P2",
+      "status": "closed",
+      "problem": "Earlier candidate hashed historical qualification records but did not compare current pip freeze/environment with original qualification environment or interpret numeric-policy receipt",
+      "fix": "New suite captures current pip freeze, requires exact digest and sys.prefix equality to all6 original contracts before reusing qualifications; original numeric flags/pre-model environment must match frozen protocol, else archive admission failure without model spawn",
+      "verification": "Final source inspected; changed env/historical numeric flag negative tests pass"
+    }
+  ],
+  "closed_checks": [
+    "Fixed first2 matrix source cases admitted only by full original successful1548step3epoch standard archive/case/init/message/earliest-validation-checkpoint completeness; no source metric-value ranking",
+    "Original exact run_trial.py worker entry and strict numeric setup unchanged; batch1 greedy24/no cache/parser/loss/validation and all36 original order retained",
+    "Only34 remaining fixed cases generate new training; original2 source records retain their actual sourcePID and are never copied or labelled as new execution",
+    "Original6 passed TRAIN canaries reused only with exact worker/cache/dataset/init/model physical archive and current environment/numerical flags; new_execution_performedFalse/new_pidNone explicitly documented",
+    "Each newjob still requires fresh resource probe, genuine frozen standard contract and unchanged PGID timeout/RSS/signal/finally terminal cleanup; stop on failure, no blind retry",
+    "Administrative frozenV2 helper only validates originalV1 source archive, does not execute V2 candidate or admit V2/V3 predictions",
+    "summary uses read-only temporary links to original2 jobs and new34 jobs, frozen rawtext strict parser/all metrics and same seed/paired/group statistics; temporary paths rewritten to actual physical jobs",
+    "Source2 actual full152-row raw prediction audit each passed all ID/order/split/gold/parser/metric reconstruction checks, including failures retained in full denominator; hashes bound and scorevalues omitted",
+    "V2/V3 failed qualifications/source/contracts/raw outputs remain preserved and excluded from evaluation channel",
+    "Same firstclock13:20 and absolute23:20 deadline; no new batch/backend/dtype candidate, no partial-seed-only averages or frozen-test changes"
+  ],
+  "runtime_admission_remaining": [
+    "Parent complete137 CPU stdout/hash receipt for final frozen source files",
+    "Current pip freeze exact match to original6 qualification contracts and numeric-policy receipts before reuse",
+    "New immutable source/cache admission manifest pinning administrative helper plus original supervisor/summary and continuation code/final decision",
+    "Fresh exact-task resource/old-asset gates and real standard contracts for each new job",
+    "Original same23:20 deadline; preserve incomplete cases with k/3 and null aggregate as required"
+  ],
+  "parent_full_suite": {
+    "expected_tests": 137,
+    "status": "Parent executing/capturing actual final receipt; not invented by independent reviewer"
+  },
+  "reviewer_actions": {
+    "GPU_calls": 0,
+    "downloaded_model_forward_calls": 0,
+    "source_edits": 0,
+    "original_result_edits": 0,
+    "source_selection_by_metric_value": false,
+    "score_values_disclosed": false,
+    "metrics_reading_scope": "Mechanically recompute equality under expressly authorized original-source CPU audit; no scores used in source selection or model choice"
+  }
+}

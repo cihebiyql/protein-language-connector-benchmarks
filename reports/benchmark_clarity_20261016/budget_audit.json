@@ -1,0 +1,1081 @@
+{
+  "audit_version": 1,
+  "created_utc": "2026-10-16T05:25:49.434813+00:00",
+  "scope": "read_only_architecture_and_receipt_audit; no training or GPU access; only these two reports written",
+  "source_sha256": {
+    "scripts/foundation_20261016/connectors.py": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318",
+    "scripts/foundation_20261016/run_connectors.py": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+    "scripts/bench_v02/train_panel_baselines.py": "c215d72317400eb2a315d8b2149dde7b1cd46df9f62e58fb66274c188d2721c9",
+    "scripts/bench_v02/cache_panel_features.py": "2f9c865c7e358fb56b53a8018f57b96efc42baa38c722e40a5ff3e5d466a6cef",
+    "models/Qwen--Qwen2.5-1.5B-Instruct/config.json": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670"
+  },
+  "backbone": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "attention_dropout": 0.0,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "hidden_act": "silu",
+    "hidden_size": 1536,
+    "initializer_range": 0.02,
+    "intermediate_size": 8960,
+    "max_position_embeddings": 32768,
+    "max_window_layers": 21,
+    "model_type": "qwen2",
+    "num_attention_heads": 12,
+    "num_hidden_layers": 28,
+    "num_key_value_heads": 2,
+    "rms_norm_eps": 1e-06,
+    "rope_theta": 1000000.0,
+    "sliding_window": 32768,
+    "tie_word_embeddings": true,
+    "torch_dtype": "bfloat16",
+    "transformers_version": "4.43.1",
+    "use_cache": true,
+    "use_sliding_window": false,
+    "vocab_size": 151936
+  },
+  "all_8_parameter_tensors_cpu_numel_dtype_verified": true,
+  "runs": [
+    {
+      "result_path": "results/foundation_20261016/gpu_suite/train_constant_seed17/artifacts/result.json",
+      "result_sha256": "45841a1c6da6f491f1a01b504d829574dc5e02bb3e48ea3fccd30a78f0163421",
+      "checkpoint_sha256": "67cbb0ca284d895114d7ed99ccc487f94d6b63351f2cfdfa7c7b713e20cdd419",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_known_target",
+        "method": "constant",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_constant_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "constant",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": null,
+        "trainable_parameters": 24576,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "constant_tokens": 24576
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 98304,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 3,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.6582621814927465,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.6927088960868887,
+          "validation_answer_token_nll": 0.6631639741214257,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6705877418652861,
+          "validation_answer_token_nll": 0.665995545325678,
+          "best_epoch": 1,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.6641873086812714,
+          "validation_answer_token_nll": 0.6582621814927465,
+          "best_epoch": 3,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 275
+    },
+    {
+      "result_path": "results/foundation_20261016/gpu_suite/train_input_mlp_seed17/artifacts/result.json",
+      "result_sha256": "6769a52a944ecb46ae1a127de406eabd8f95753a2d576a2a40a6107ce4db0ec2",
+      "checkpoint_sha256": "45799107ea10e9793f8e6f7066a38d6a4e10e73c4cb951bdf354f5ef0674d1bc",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_known_target",
+        "method": "input_mlp",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_input_mlp_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "input_mlp",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": null,
+        "trainable_parameters": 282752,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "type_embedding.weight": 1280,
+          "source_norm.weight": 640,
+          "source_norm.bias": 640,
+          "projection.0.weight": 81920,
+          "projection.0.bias": 128,
+          "projection.2.weight": 196608,
+          "projection.2.bias": 1536
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 1131008,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 3,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.6629639164595925,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.8638460629329924,
+          "validation_answer_token_nll": 0.6725337575034654,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6736404644773027,
+          "validation_answer_token_nll": 0.6728737971800514,
+          "best_epoch": 1,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.6683229224553406,
+          "validation_answer_token_nll": 0.6629639164595925,
+          "best_epoch": 3,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 275
+    },
+    {
+      "result_path": "results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/artifacts/result.json",
+      "result_sha256": "30952fa2106fcee6955361682758913854b8fff7b7c9b16ff6e3beebd973ff6a",
+      "checkpoint_sha256": "f5239b6c06198c85b27746decb94242c35bd6dade08811646bd39450b6804725",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_known_target",
+        "method": "internal_cross_attention",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "internal_cross_attention",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "trainable_parameters": 548608,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "type_embedding.weight": 1280,
+          "source_norm.weight": 640,
+          "source_norm.bias": 640,
+          "source_projection.weight": 81920,
+          "source_projection.bias": 128,
+          "cross_attention.in_proj_weight": 49152,
+          "cross_attention.in_proj_bias": 384,
+          "cross_attention.out_proj.weight": 16384,
+          "cross_attention.out_proj.bias": 128,
+          "output_projection.weight": 196608,
+          "output_projection.bias": 1536,
+          "query_norm.weight": 1536,
+          "query_norm.bias": 1536,
+          "query_projection.weight": 196608,
+          "query_projection.bias": 128
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 2194432,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 3,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.6593492924154088,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.6730713296579399,
+          "validation_answer_token_nll": 0.6603976897363514,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6639926619483331,
+          "validation_answer_token_nll": 0.6614069870586382,
+          "best_epoch": 1,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.6602070841324619,
+          "validation_answer_token_nll": 0.6593492924154088,
+          "best_epoch": 3,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 259
+    },
+    {
+      "result_path": "results/foundation_20261016/gpu_suite/train_qformer_style_seed17/artifacts/result.json",
+      "result_sha256": "2bbb7e6c572b3ebbe8d0ec3c03dcb5d9d8f591862d2e4f8ebe77aed74815e7b5",
+      "checkpoint_sha256": "84251ca0c0ee9fcb8545bf28cf3a4d774d0d89bd1713e7fdc100645cf8017fb9",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_known_target",
+        "method": "qformer_style",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_qformer_style_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "qformer_style",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": null,
+        "trainable_parameters": 350848,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "queries": 2048,
+          "type_embedding.weight": 1280,
+          "source_norm.weight": 640,
+          "source_norm.bias": 640,
+          "source_projection.weight": 81920,
+          "source_projection.bias": 128,
+          "cross_attention.in_proj_weight": 49152,
+          "cross_attention.in_proj_bias": 384,
+          "cross_attention.out_proj.weight": 16384,
+          "cross_attention.out_proj.bias": 128,
+          "output_projection.weight": 196608,
+          "output_projection.bias": 1536
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 1403392,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 3,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.6543198798806549,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.6998424986577968,
+          "validation_answer_token_nll": 0.6599074103733377,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6687580793511747,
+          "validation_answer_token_nll": 0.662186829432754,
+          "best_epoch": 1,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.6620377446370398,
+          "validation_answer_token_nll": 0.6543198798806549,
+          "best_epoch": 3,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 275
+    },
+    {
+      "result_path": "results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_constant_seed17/artifacts/result.json",
+      "result_sha256": "a888c49b5f42482d7e1b65a9972caaa80b9dfe8c9015f608420d116d57e2cc26",
+      "checkpoint_sha256": "4a56642ab278b0b2935e90fb71c51245ac68c20f05599d108687add61838e8b9",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_new_target",
+        "method": "constant",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_constant_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "constant",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": null,
+        "trainable_parameters": 24576,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "constant_tokens": 24576
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 98304,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 3,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.6699028760953283,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.6969347382034594,
+          "validation_answer_token_nll": 0.6699653574296138,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6727754484410211,
+          "validation_answer_token_nll": 0.6731213984915306,
+          "best_epoch": 1,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.668911435567657,
+          "validation_answer_token_nll": 0.6699028760953283,
+          "best_epoch": 3,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 275
+    },
+    {
+      "result_path": "results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_input_mlp_seed17/artifacts/result.json",
+      "result_sha256": "96deaf4efe62d9adcb544ebc6bf3434e0f6487fc741ad5b4bba2f4b732eed61f",
+      "checkpoint_sha256": "d9b101b1f86550d8504b3b61cde4b6d1d14eb0087d766c451a4b859b059a841f",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_new_target",
+        "method": "input_mlp",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_input_mlp_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "input_mlp",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": null,
+        "trainable_parameters": 282752,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "type_embedding.weight": 1280,
+          "source_norm.weight": 640,
+          "source_norm.bias": 640,
+          "projection.0.weight": 81920,
+          "projection.0.bias": 128,
+          "projection.2.weight": 196608,
+          "projection.2.bias": 1536
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 1131008,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 3,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.6717143021265372,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.7191209703608901,
+          "validation_answer_token_nll": 0.6780889370771317,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6748698502634868,
+          "validation_answer_token_nll": 0.67296051085409,
+          "best_epoch": 2,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.6698288030102258,
+          "validation_answer_token_nll": 0.6717143021265372,
+          "best_epoch": 3,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 275
+    },
+    {
+      "result_path": "results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_internal_cross_attention_seed17/artifacts/result.json",
+      "result_sha256": "35233d0c3696187973527bafeddc0350c62d24dc908cee13099f792d40aea487",
+      "checkpoint_sha256": "f343c2488b11716c02b27693ce9b5b4b1f978d7533fae53eef8ff75cb3422ec8",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_new_target",
+        "method": "internal_cross_attention",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_internal_cross_attention_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "internal_cross_attention",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "trainable_parameters": 548608,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "type_embedding.weight": 1280,
+          "source_norm.weight": 640,
+          "source_norm.bias": 640,
+          "source_projection.weight": 81920,
+          "source_projection.bias": 128,
+          "cross_attention.in_proj_weight": 49152,
+          "cross_attention.in_proj_bias": 384,
+          "cross_attention.out_proj.weight": 16384,
+          "cross_attention.out_proj.bias": 128,
+          "output_projection.weight": 196608,
+          "output_projection.bias": 1536,
+          "query_norm.weight": 1536,
+          "query_norm.bias": 1536,
+          "query_projection.weight": 196608,
+          "query_projection.bias": 128
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 2194432,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 2,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.669393597681839,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.677044656756861,
+          "validation_answer_token_nll": 0.6695890444288205,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6671535071655085,
+          "validation_answer_token_nll": 0.669393597681839,
+          "best_epoch": 2,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.663883824993273,
+          "validation_answer_token_nll": 0.6723672093643407,
+          "best_epoch": 2,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 259
+    },
+    {
+      "result_path": "results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_qformer_style_seed17/artifacts/result.json",
+      "result_sha256": "5d65bf9559f6a1eb98c94e5c427546ca39259344cfcce1df689182073a0b2411",
+      "checkpoint_sha256": "cc5d70a1d3ab0ecc2399a283d8e5a7f1c9963a79896ad09e35e7d342ab3505c3",
+      "configuration": {
+        "data_root": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2",
+        "scenario": "new_peptide_new_target",
+        "method": "qformer_style",
+        "output": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/recovery1_double_new_train_qformer_style_seed17/artifacts",
+        "cache": "PROJECT_ROOT/data/cache/bench_v02/panel_features_20261015",
+        "seed": 17,
+        "epochs": 3,
+        "train_limit": null,
+        "validation_limit": null,
+        "test_limit": null,
+        "device": "cuda",
+        "batch_size": 4,
+        "max_new_tokens": 24,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.01,
+        "max_grad_norm": 1.0,
+        "threads": 2,
+        "checkpoint_every_steps": 100,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": 14,
+        "message_modes": [
+          "correct",
+          "off"
+        ]
+      },
+      "capacity": {
+        "method": "qformer_style",
+        "source_dim": 640,
+        "memory_dim": 128,
+        "num_memory_tokens": 16,
+        "insertion_layer": null,
+        "trainable_parameters": 350848,
+        "frozen_parameters": 1543714304,
+        "trainable_by_name": {
+          "queries": 2048,
+          "type_embedding.weight": 1280,
+          "source_norm.weight": 640,
+          "source_norm.bias": 640,
+          "source_projection.weight": 81920,
+          "source_projection.bias": 128,
+          "cross_attention.in_proj_weight": 49152,
+          "cross_attention.in_proj_bias": 384,
+          "cross_attention.out_proj.weight": 16384,
+          "cross_attention.out_proj.bias": 128,
+          "output_projection.weight": 196608,
+          "output_projection.bias": 1536
+        },
+        "off_control": "remove_intervention"
+      },
+      "checkpoint_dtype": "torch.float32; actual CPU tensor load and every tensor numel checked",
+      "trainable_weight_bytes": 1403392,
+      "optimizer_step_events_verified": 1548,
+      "actual_epochs": 3,
+      "best_epoch": 2,
+      "selection": "lowest validation answer-token NLL; earliest tie",
+      "best_validation_answer_token_nll": 0.6705841843809369,
+      "history": [
+        {
+          "epoch": 1,
+          "train_answer_token_nll": 0.6999574059973281,
+          "validation_answer_token_nll": 0.6763328356303754,
+          "best_epoch": 1,
+          "optimizer_steps": 516
+        },
+        {
+          "epoch": 2,
+          "train_answer_token_nll": 0.6715536254082826,
+          "validation_answer_token_nll": 0.6705841843809369,
+          "best_epoch": 2,
+          "optimizer_steps": 1032
+        },
+        {
+          "epoch": 3,
+          "train_answer_token_nll": 0.6666053264416447,
+          "validation_answer_token_nll": 0.6737950328101389,
+          "best_epoch": 2,
+          "optimizer_steps": 1548
+        }
+      ],
+      "max_supervised_text_tokens": 245,
+      "conservative_position_budget": 275
+    }
+  ],
+  "length_and_pool_audit": {
+    "new_peptide_known_target": {
+      "samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+      "statistics": {
+        "train": {
+          "n_rows": 2062,
+          "statistics": {
+            "peptide_residues": {
+              "min": 5,
+              "median": 13.0,
+              "max": 49,
+              "mean": 16.1537342386033
+            },
+            "target_residues": {
+              "min": 19,
+              "median": 384.0,
+              "max": 3419,
+              "mean": 554.9529582929194
+            },
+            "total_memory_keys": {
+              "min": 29,
+              "median": 397.0,
+              "max": 3429,
+              "mean": 571.1066925315228
+            },
+            "peptide_residue_fraction": {
+              "min": 0.0014602803738317756,
+              "median": 0.030710172744721688,
+              "max": 0.52,
+              "mean": 0.0507724783315913
+            },
+            "effective_adaptive_pool_peptide_fraction": {
+              "min": 0.0014602803738317756,
+              "median": 0.030303030303030304,
+              "max": 0.515625,
+              "mean": 0.05058397824299048
+            },
+            "pool_slots_with_any_peptide": {
+              "min": 1,
+              "median": 1.0,
+              "max": 9,
+              "mean": 1.3986420950533462
+            },
+            "pool_slots_all_peptide": {
+              "min": 0,
+              "median": 0.0,
+              "max": 8,
+              "mean": 0.4015518913676043
+            }
+          }
+        },
+        "validation": {
+          "n_rows": 147,
+          "statistics": {
+            "peptide_residues": {
+              "min": 6,
+              "median": 14,
+              "max": 49,
+              "mean": 16.040816326530614
+            },
+            "target_residues": {
+              "min": 99,
+              "median": 490,
+              "max": 2647,
+              "mean": 596.9455782312925
+            },
+            "total_memory_keys": {
+              "min": 120,
+              "median": 503,
+              "max": 2661,
+              "mean": 612.9863945578231
+            },
+            "peptide_residue_fraction": {
+              "min": 0.004758128469468675,
+              "median": 0.029940119760479042,
+              "max": 0.175,
+              "mean": 0.044691544186196606
+            },
+            "effective_adaptive_pool_peptide_fraction": {
+              "min": 0.004746835443037975,
+              "median": 0.02976190476190476,
+              "max": 0.17307692307692307,
+              "mean": 0.044390474466679
+            },
+            "pool_slots_with_any_peptide": {
+              "min": 1,
+              "median": 1,
+              "max": 3,
+              "mean": 1.272108843537415
+            },
+            "pool_slots_all_peptide": {
+              "min": 0,
+              "median": 0,
+              "max": 2,
+              "mean": 0.3129251700680272
+            }
+          }
+        },
+        "test": {
+          "n_rows": 152,
+          "statistics": {
+            "peptide_residues": {
+              "min": 5,
+              "median": 15.0,
+              "max": 48,
+              "mean": 15.513157894736842
+            },
+            "target_residues": {
+              "min": 86,
+              "median": 697.5,
+              "max": 2541,
+              "mean": 738.1776315789474
+            },
+            "total_memory_keys": {
+              "min": 97,
+              "median": 719.0,
+              "max": 2559,
+              "mean": 753.6907894736842
+            },
+            "peptide_residue_fraction": {
+              "min": 0.003208985158443642,
+              "median": 0.01853997682502897,
+              "max": 0.24347826086956523,
+              "mean": 0.03786088938903199
+            },
+            "effective_adaptive_pool_peptide_fraction": {
+              "min": 0.003205128205128205,
+              "median": 0.018518518518518517,
+              "max": 0.2421875,
+              "mean": 0.03763157096070654
+            },
+            "pool_slots_with_any_peptide": {
+              "min": 1,
+              "median": 1.0,
+              "max": 4,
+              "mean": 1.256578947368421
+            },
+            "pool_slots_all_peptide": {
+              "min": 0,
+              "median": 0.0,
+              "max": 3,
+              "mean": 0.27631578947368424
+            }
+          }
+        }
+      }
+    },
+    "new_peptide_new_target": {
+      "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+      "statistics": {
+        "train": {
+          "n_rows": 2063,
+          "statistics": {
+            "peptide_residues": {
+              "min": 5,
+              "median": 13,
+              "max": 49,
+              "mean": 16.279689772176443
+            },
+            "target_residues": {
+              "min": 19,
+              "median": 393,
+              "max": 3419,
+              "mean": 563.6320891904993
+            },
+            "total_memory_keys": {
+              "min": 29,
+              "median": 403,
+              "max": 3429,
+              "mean": 579.9117789626757
+            },
+            "peptide_residue_fraction": {
+              "min": 0.0014602803738317756,
+              "median": 0.03067484662576687,
+              "max": 0.52,
+              "mean": 0.049432465462931105
+            },
+            "effective_adaptive_pool_peptide_fraction": {
+              "min": 0.0014602803738317756,
+              "median": 0.03,
+              "max": 0.515625,
+              "mean": 0.049213970529553674
+            },
+            "pool_slots_with_any_peptide": {
+              "min": 1,
+              "median": 1,
+              "max": 9,
+              "mean": 1.3776054289869122
+            },
+            "pool_slots_all_peptide": {
+              "min": 0,
+              "median": 0,
+              "max": 8,
+              "mean": 0.3848763936015511
+            }
+          }
+        },
+        "validation": {
+          "n_rows": 431,
+          "statistics": {
+            "peptide_residues": {
+              "min": 5,
+              "median": 13,
+              "max": 48,
+              "mean": 15.60324825986079
+            },
+            "target_residues": {
+              "min": 66,
+              "median": 377,
+              "max": 2813,
+              "mean": 498.14849187935033
+            },
+            "total_memory_keys": {
+              "min": 89,
+              "median": 399,
+              "max": 2820,
+              "mean": 513.7517401392112
+            },
+            "peptide_residue_fraction": {
+              "min": 0.0024822695035460994,
+              "median": 0.03745318352059925,
+              "max": 0.29545454545454547,
+              "mean": 0.05414962487248479
+            },
+            "effective_adaptive_pool_peptide_fraction": {
+              "min": 0.0024717514124293787,
+              "median": 0.03676470588235294,
+              "max": 0.2916666666666667,
+              "mean": 0.05400529682759907
+            },
+            "pool_slots_with_any_peptide": {
+              "min": 1,
+              "median": 1,
+              "max": 5,
+              "mean": 1.4338747099767981
+            },
+            "pool_slots_all_peptide": {
+              "min": 0,
+              "median": 0,
+              "max": 4,
+              "mean": 0.43387470997679817
+            }
+          }
+        },
+        "test": {
+          "n_rows": 442,
+          "statistics": {
+            "peptide_residues": {
+              "min": 5,
+              "median": 12.0,
+              "max": 42,
+              "mean": 15.004524886877828
+            },
+            "target_residues": {
+              "min": 76,
+              "median": 541.0,
+              "max": 3046,
+              "mean": 719.1108597285067
+            },
+            "total_memory_keys": {
+              "min": 82,
+              "median": 551.0,
+              "max": 3068,
+              "mean": 734.1153846153846
+            },
+            "peptide_residue_fraction": {
+              "min": 0.002300966405890474,
+              "median": 0.023310023310023312,
+              "max": 0.22388059701492538,
+              "mean": 0.03366878543988533
+            },
+            "effective_adaptive_pool_peptide_fraction": {
+              "min": 0.002297794117647059,
+              "median": 0.023148148148148147,
+              "max": 0.2222222222222222,
+              "mean": 0.033385478076366035
+            },
+            "pool_slots_with_any_peptide": {
+              "min": 1,
+              "median": 1.0,
+              "max": 4,
+              "mean": 1.160633484162896
+            },
+            "pool_slots_all_peptide": {
+              "min": 0,
+              "median": 0.0,
+              "max": 3,
+              "mean": 0.16063348416289594
+            }
+          }
+        }
+      }
+    }
+  },
+  "notation": {
+    "N": "valid peptide residues P + valid full-reference-target residues T",
+    "L": "valid text positions in one forward; includes gold answer positions during teacher forcing; prompt-only plus emitted previous tokens during generation",
+    "K": 16,
+    "d": 128,
+    "H": 1536,
+    "batches": "storage/compute often follows padded B*Nmax and B*Lmax, not sum of valid sizes",
+    "dtype": "source/cache float16 -> collated float32; trainable connector float32; backbone and injected prefix/delta bfloat16"
+  },
+  "communication_formulas": {
+    "source_to_connector_bytes_per_sample": "4*N*640 = 2560*N, excluding long type IDs (8*N) and mask (1*N)",
+    "input_mlp_pooled_fp32_bytes": "16*640*4 = 40960",
+    "prefix_final_bf16_bytes": "16*1536*2 = 49152",
+    "qformer_or_internal_projected_source_fp32_bytes": "N*128*4 = 512*N; MHA internally creates K,V separately => 1024*N bytes",
+    "qformer_attention_edges": "4*16*N before prefix enters LM",
+    "internal_attention_edges": "4*L*N at exactly one reader layer",
+    "internal_written_delta_bf16_bytes": "L*1536*2 = 3072*L, one injection after decoder block14",
+    "prefix_logical_extra_gqa_kv_bytes_per_layer": "16 * 2(K,V) * 2(KVheads) * 128(head_dim) * 2(bf16) = 16384; all28layers=458752; no cache materialization claim",
+    "generation_no_cache_query_sum": "g*L_prompt + g*(g-1)/2 (active sample; batch padding/finished rows add physical work); source codec/reader recomputed every forward"
+  },
+  "matched_reader_proposal": {
+    "status": "proposed_only; not executed; no performance prediction",
+    "K": 16,
+    "d": 128,
+    "H": 1536,
+    "shared_codec_parameters_if_trainable": 152704,
+    "shared_reader_parameters": 464001,
+    "joint_trainable_total": 616705,
+    "reader_decomposition": {
+      "query_layernorm": 3072,
+      "query_linear": 196736,
+      "mha": 66048,
+      "output_linear": 198144,
+      "scalar_gate": 1
+    },
+    "primary_comparison": [
+      "reader_after_embedding",
+      "same_reader_after_decoder14"
+    ],
+    "secondary_comparison": [
+      "true_prefix_from_same_reader_fixed_query_buffer",
+      "reader_after_decoder14"
+    ],
+    "strict_shared_message_requirement": "freeze exactly the same codec state and tensors across placement conditions; independently trained copies share capacity/init but not actual message",
+    "content_conditions": [
+      "real_balanced_8_peptide_8_target",
+      "content_neutral_same_architecture",
+      "fresh_train_noise_and_preregistered_heldout_noise_same_architecture"
+    ],
+    "unmatched_prefix_internal_quantities": [
+      "fixed16 versus L queries",
+      "extra16 LM positions and shifted text RoPE positions",
+      "28 versus14 subsequent LM blocks",
+      "one49,152-byte prefix write versus L dynamic3072-byte writes",
+      "recurrent self-attention versus one external read"
+    ]
+  },
+  "proposed_parameter_count_cpu_fixture": {
+    "status": "passed",
+    "codec": 152704,
+    "reader": 464001,
+    "joint": 616705,
+    "large_model_loaded": false,
+    "optimizer_steps": 0,
+    "threads": 2
+  },
+  "source_hashes_unchanged_at_end": true
+}

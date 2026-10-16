@@ -1,0 +1,727 @@
+{
+  "benchmark": "PepBridge-Bench",
+  "version": "0.2",
+  "protocol_sha256": "1508e488e64a48f17fd03eeb9ec2640b3cc3968a535384a3b3498ce477aa7214",
+  "status": "independent_panel_baselines_enabled_unified_training_not_ready",
+  "panels": {
+    "A1": {
+      "path": "data/processed/bench_v02/a1_broad_candidates.jsonl",
+      "sha256": "f00978cde9a5de956cf7b04430e2532c3b4726388171cd9c70c31fda6a13ad6b",
+      "rows": 5122,
+      "row_contract_valid": 5122,
+      "status": "row_audited_not_globally_locked",
+      "row_issues": {},
+      "strict_comparable_pairs": 0,
+      "source_audit": "data/processed/bench_v02/a1_preparation_summary.json",
+      "formal_training_ready": false,
+      "blockers": [
+        "unified_multitask_cross_panel_supervision_audit_not_frozen",
+        "target_construct_and_condition_comparability_incomplete",
+        "PepInter_original_experiment_and_peptide_parent_lineage_provenance_incomplete"
+      ],
+      "external_coverage_supplement": {
+        "status": "evidence_registered",
+        "path": "data/processed/bench_v02/a1_locked_v2/coverage_supplement.json",
+        "sha256": "1494d18d089253afcae54459ce6c67e1b4937a9c42792e284b8815cf8fd8eba0",
+        "scenarios": {
+          "new_peptide_known_target": {
+            "pepbi_rows": 329,
+            "unique_peptides": 84,
+            "unique_actual_targets": 58,
+            "unique_original_itc_dois": 22,
+            "new_external_excluded_rows": 3,
+            "split_counts": {
+              "train": 2062,
+              "test": 152,
+              "validation": 147
+            },
+            "checks": {
+              "peptide_family_disjoint": true,
+              "source_disjoint": true,
+              "target_family_disjoint": false,
+              "duplicate_measurement_disjoint": true,
+              "exact_target_seen_in_train": true,
+              "external_isolation_verified": false,
+              "pepbi_complete_inventory_audited": true,
+              "pepbi_actual_source_and_sequence_family_isolation_verified": true
+            }
+          },
+          "new_peptide_new_target": {
+            "pepbi_rows": 329,
+            "unique_peptides": 84,
+            "unique_actual_targets": 58,
+            "unique_original_itc_dois": 22,
+            "new_external_excluded_rows": 14,
+            "split_counts": {
+              "train": 2063,
+              "test": 442,
+              "validation": 431
+            },
+            "checks": {
+              "peptide_family_disjoint": true,
+              "source_disjoint": true,
+              "target_family_disjoint": true,
+              "duplicate_measurement_disjoint": true,
+              "exact_target_seen_in_train": false,
+              "external_isolation_verified": false,
+              "pepbi_complete_inventory_audited": true,
+              "pepbi_actual_source_and_sequence_family_isolation_verified": true
+            }
+          }
+        }
+      },
+      "independent_baseline_execution": {
+        "scope": "panel_specific_predictor",
+        "wait_for_other_panels": false,
+        "baseline_training_ready": true,
+        "scenarios": [
+          {
+            "lock_path": "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_known_target\\benchmark_lock.json",
+            "baseline_training_ready": true,
+            "panel_id": "A1",
+            "scope": "panel_specific_predictor",
+            "status": "frozen_restricted_scope",
+            "benchmark_lock_sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249",
+            "samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+            "split_counts": {
+              "train": 2062,
+              "test": 152,
+              "validation": 147
+            },
+            "disjointness": [
+              {
+                "field": "peptide_sequence",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.peptide_family",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.source_doi",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "group_id",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              }
+            ],
+            "external_isolation_verified": false,
+            "limitations": [
+              "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+              "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+              "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+              "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+              "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+              "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+            ],
+            "unified_multitask_connector_claim": false
+          },
+          {
+            "lock_path": "data\\processed\\bench_v02\\a1_locked_v2\\new_peptide_new_target\\benchmark_lock.json",
+            "baseline_training_ready": true,
+            "panel_id": "A1",
+            "scope": "panel_specific_predictor",
+            "status": "frozen_restricted_scope",
+            "benchmark_lock_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+            "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+            "split_counts": {
+              "train": 2063,
+              "test": 442,
+              "validation": 431
+            },
+            "disjointness": [
+              {
+                "field": "peptide_sequence",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.peptide_family",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.source_doi",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "group_id",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.target_family",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              }
+            ],
+            "external_isolation_verified": false,
+            "limitations": [
+              "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+              "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+              "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+              "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+              "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+              "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+            ],
+            "unified_multitask_connector_claim": false
+          }
+        ],
+        "unified_multitask_connector_claim": false
+      }
+    },
+    "A2": {
+      "path": "data/processed/bench_v02/a2_target_march.jsonl",
+      "sha256": "49d8845f88bbe8f4ce2fcb46935cab9ea20b9d7f88d9746a006d01261df379b2",
+      "rows": 7070,
+      "row_contract_valid": 7070,
+      "status": "row_audited_not_globally_locked",
+      "row_issues": {},
+      "source_candidate_rows": 113215,
+      "source_verified_measurement_rows": 113215,
+      "source_audit": "data/processed/bench_v02/a2_audit.json",
+      "formal_training_ready": false,
+      "blockers": [
+        "exact_2026_source_snapshot_unverified",
+        "upstream_lossy_deamidation_identity_unresolved",
+        "global_source_target_new_sequence_split_not_frozen"
+      ],
+      "budgets": "data/processed/bench_v02/a2_target_budgets.json",
+      "source_scale_reconciliation": {
+        "status": "iRT_scale_and_original_one_hot_PTMs_reconciled_exact_2026_snapshot_still_blocked",
+        "original_iRT_labels_exactly_equal": 113215,
+        "label_value_changes": 0,
+        "rt_unit": "iRT",
+        "missing_N_acetyl_restored_rows": 221,
+        "native_D_E_or_upstream_deamidation_uncertain_rows": 98192,
+        "chemical_identity_resolved_rows": 15023,
+        "exact_2026_source_version_verified": false,
+        "cross_condition_training_ready": false,
+        "min_shift_performed": false
+      },
+      "source_chemically_resolved_rows": 15023
+    },
+    "B1": {
+      "path": "data/processed/bench_v02/b1_homology_locked/b1_samples.jsonl",
+      "sha256": "8ec8591fe51ea001683da01c0b91a3b3f226e9772097bbc5c2f16b8151424d8d",
+      "rows": 588,
+      "row_contract_valid": 588,
+      "status": "row_audited_not_globally_locked",
+      "row_issues": {},
+      "classes": 31,
+      "split_rows": {
+        "test": 76,
+        "train": 378,
+        "validation": 134
+      },
+      "split_classes": {
+        "test": 2,
+        "train": 22,
+        "validation": 7
+      },
+      "snapshot": null,
+      "formal_training_ready": false,
+      "blockers": [
+        "unified_multitask_cross_panel_supervision_audit_not_frozen"
+      ],
+      "scope_limits": [
+        "two_unseen_test_classes"
+      ],
+      "scope": "verified_human_and_model_eukaryote_species",
+      "external_coverage_supplement": {
+        "status": "verified",
+        "path": "data/processed/bench_v02/b1_external_followup/coverage_supplement.json",
+        "sha256": "a9499cae345f140827f10117ffa0a76d8e5f4b19e55d2dcd002e8c6d32c9836c",
+        "external_isolation_verified_for_declared_sources": true,
+        "coverage": {
+          "required_parent_accessions": 1654,
+          "previously_resolved_parent_accessions": 1647,
+          "new_archive_parent_accessions": 7,
+          "resolved_parent_accessions": 1654,
+          "unresolved_parent_accessions": 0,
+          "external_context_associations_initial": 2821,
+          "previously_resolved_context_associations": 2780,
+          "new_verified_context_associations": 33,
+          "rejected_spurious_legacy_parent_associations": 8,
+          "unresolved_context_associations": 0,
+          "valid_external_context_associations": 2813,
+          "new_context_sequence_versions_aligned": 36,
+          "historical_parent_sequence_versions_aligned": 27,
+          "latest_seven_archive_sequences_are_included_in_27_version_sensitivity": true
+        },
+        "original_training_receipt_retained": true
+      },
+      "human_sensitivity": {
+        "rows": 567,
+        "classes": 34,
+        "split_rows": {
+          "test": 34,
+          "train": 522,
+          "validation": 11
+        }
+      },
+      "independent_baseline_execution": {
+        "scope": "panel_specific_predictor",
+        "wait_for_other_panels": false,
+        "baseline_training_ready": true,
+        "scenarios": [
+          {
+            "lock_path": "data\\processed\\bench_v02\\b1_homology_locked\\benchmark_lock.json",
+            "baseline_training_ready": true,
+            "panel_id": "B1",
+            "scope": "panel_specific_predictor",
+            "status": "frozen_restricted_scope",
+            "benchmark_lock_sha256": "5b8ffbe6a148bf3569c552402e900d33de70877546c6aba0a82ba958c76ddef8",
+            "samples_sha256": "8ec8591fe51ea001683da01c0b91a3b3f226e9772097bbc5c2f16b8151424d8d",
+            "split_counts": {
+              "train": 378,
+              "validation": 134,
+              "test": 76
+            },
+            "disjointness": [
+              {
+                "field": "segment_sequence",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.parent_homology",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.peptide_family",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "groups.publication",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              },
+              {
+                "field": "class_id",
+                "missing": 0,
+                "overlapping_groups": 0,
+                "examples": {},
+                "verified": true
+              }
+            ],
+            "external_isolation_verified": false,
+            "limitations": [
+              "Only two unseen test classes survive the conservative independence gate; report class-limited results.",
+              "Seven external parent sequences and 41 external variant/sequence context mappings are unresolved; isolation is restricted to resolved references.",
+              "Homology is an operational sequence threshold, not a guarantee against every remote evolutionary relationship.",
+              "Descriptions were reviewed by the coding agent against downloaded ELM records; no human review is claimed.",
+              "This lock supports panel-specific predictor evaluation, not a unified multitask connector claim."
+            ],
+            "unified_multitask_connector_claim": false
+          }
+        ],
+        "unified_multitask_connector_claim": false
+      }
+    },
+    "B2": {
+      "evidence_cards": 4277,
+      "reviewed_qa": 0,
+      "formal_training_ready": false,
+      "blockers": [
+        "reviewed_experimental_answers_and_heldout_relation_combinations_missing"
+      ]
+    },
+    "C1": {
+      "formal_training_ready": false,
+      "blockers": [
+        "requires_locked_A_B_test_sets",
+        "independently_trained_constant_control_not_available"
+      ]
+    },
+    "C2": {
+      "formal_training_ready": false,
+      "blockers": [
+        "matched_pre_answer_probe_and_causal_extraction_not_implemented",
+        "experimental_contacts_or_perturbation_gold_not_reviewed"
+      ]
+    },
+    "C3": {
+      "formal_training_ready": false,
+      "review_target": 200,
+      "reviewed_cases": 0,
+      "blockers": [
+        "two_blinded_reviewers_and_adjudicated_atomic_fact_gold_pending"
+      ]
+    }
+  },
+  "source_manifests": {
+    "affinity_sources.json": "ce1d3118311f270954bb2fff49661a13cfbd5abbeafbd0d69c0fc2ecae989921",
+    "rt_sources.json": "a9171b4e4dd07f9de5f2637efb734a3ff9b2b6c53104c91cd9336d7ddf03dde9",
+    "elm_sources.json": "90b3bb69d88970777a200876e608d9cd49f34e430923ad85a03a1e818c21c9a2"
+  },
+  "baseline_implementation": {
+    "BASE-00": {
+      "name": "sequence_knn_physchem_train_only_motif",
+      "implementation": "trained_A1_composition_chemistry_ridge_knn_and_constant"
+    },
+    "BASE-01": {
+      "name": "residue_attention_pooling_conditioned_predictor",
+      "implementation": "trained_A1_v2_3seeds_two_scenarios_and_meanpool_comparator"
+    },
+    "BASE-02": {
+      "name": "sequence_text_discriminative_protnote_style",
+      "implementation": "trained_B1_3seeds_and_meanalign_comparator"
+    },
+    "BASE-03": {
+      "name": "best_predictor_rich_structured_facts_to_same_llm",
+      "training_predictions": "out_of_fold",
+      "implementation": "required_not_implemented"
+    },
+    "BASE-04": {
+      "name": "standard_residue_input_projection_same_llm",
+      "implementation": "legacy_single_task_only"
+    },
+    "BASE-05": {
+      "name": "qformer_input_prott3_style",
+      "implementation": "required_not_implemented"
+    },
+    "BASE-06": {
+      "name": "ordinary_gated_internal_cross_attention",
+      "implementation": "required_not_implemented"
+    }
+  },
+  "phase0_lock": {
+    "status": "not_frozen",
+    "external_experiments_excluded": false,
+    "homology_split_verified": false,
+    "class_holdout_verified": false,
+    "ready_panels": []
+  },
+  "legacy": {
+    "trained_runs": 18,
+    "status": "preserved_exploratory_v01",
+    "checked_artifacts": 21,
+    "all_unchanged": true,
+    "artifacts": [
+      {
+        "path": "results/real_run_20261015/final_comparison.json",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/g1_all_quantitative_rows.csv",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/g1_case_sources.json",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/mlp_seed17.checkpoint.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/mlp_seed2026.checkpoint.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/mlp_seed42.checkpoint.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/t3_mlp_seed17.checkpoint.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/t3_mlp_seed2026.checkpoint.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/t3_mlp_seed42.checkpoint.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/L15-J14_seed17/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/L15-J14_seed2026/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/L15-J14_seed42/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/L30-J0_seed17/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/L30-J0_seed2026/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_run_20261015/L30-J0_seed42/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_t3_20261015/L15-J14_seed17/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_t3_20261015/L15-J14_seed2026/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_t3_20261015/L15-J14_seed42/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_t3_20261015/L30-J0_seed17/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_t3_20261015/L30-J0_seed2026/best.pt",
+        "unchanged": true
+      },
+      {
+        "path": "results/real_t3_20261015/L30-J0_seed42/best.pt",
+        "unchanged": true
+      }
+    ]
+  },
+  "scores": {
+    "completed_independent_baselines": [
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_double_new_BASE00\\results.json",
+        "sha256": "d2db4063cbd17afac07cb584a1ae8f3bff2651f3ad70040da6a4abd5b0bc3eee",
+        "panel_id": "A1",
+        "baseline_id": "BASE-00",
+        "fitted_models": 3,
+        "scope": "frozen_restricted_scope",
+        "stochastic_training": false
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_known_BASE00\\results.json",
+        "sha256": "c7bf61d92609cc527614806e8d014e7b18b08e7f5aae98d3ec160c982296c8eb",
+        "panel_id": "A1",
+        "baseline_id": "BASE-00",
+        "fitted_models": 3,
+        "scope": "frozen_restricted_scope",
+        "stochastic_training": false
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015\\B1_unseen_classes_BASE02_seed17\\result.json",
+        "sha256": "407eb4b434e95ef94fd591e0f534f9592ae4409fbdc88a1f68c8959f609a5222",
+        "panel_id": "B1",
+        "baseline_id": "BASE02",
+        "seed": 17,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "43e06c492ea45f7589cd76301e8ede06eda53d0f428e76aab037fde05736878b"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015\\B1_unseen_classes_BASE02_seed2026\\result.json",
+        "sha256": "23a12dbaa76e9469ad784ef7445ff2656d67f41245a680b3a9d269af28365c25",
+        "panel_id": "B1",
+        "baseline_id": "BASE02",
+        "seed": 2026,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "d3c2f951b64cb86d6913f6bafdaed177680208b72c0128915f6498e343ba8647"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015\\B1_unseen_classes_BASE02_seed42\\result.json",
+        "sha256": "2e7cabc83aeda6ef1cfea3b640483b31ce405328e8460ea56f08364c7f64d2f2",
+        "panel_id": "B1",
+        "baseline_id": "BASE02",
+        "seed": 42,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "665911c8f9e0f2f48c251ba64c0a09b7241a7eadb2f5904bdcedac94b1435f07"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015\\B1_unseen_classes_MEANALIGN_seed17\\result.json",
+        "sha256": "289234827485b13d077b5d232373294072009c17a3f7063da5ace6579bee31ff",
+        "panel_id": "B1",
+        "baseline_id": "MEANALIGN",
+        "seed": 17,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "48241cfcad23ee29c3cde55173d2f059c5d331799bf278ac6ecdfd472e80ac12"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015\\B1_unseen_classes_MEANALIGN_seed2026\\result.json",
+        "sha256": "c1239e6ae360e293a51dfd17df621b501d1267f681b53802b570da6ea9ba8580",
+        "panel_id": "B1",
+        "baseline_id": "MEANALIGN",
+        "seed": 2026,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "fdf582fabee5a73f0b05200b385fef749e1f02b3287f4f74e8aea9a5f911f3b3"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015\\B1_unseen_classes_MEANALIGN_seed42\\result.json",
+        "sha256": "9c562a6f78f19720b12162f05919e339f756903426605cbcff9b2cfe80a1998d",
+        "panel_id": "B1",
+        "baseline_id": "MEANALIGN",
+        "seed": 42,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "b2934d74d5a99922a7a5e161ac67a3d06d577bf9847ecc1b5c5dbc2f7d92b072"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_known_target_BASE01_seed17\\result.json",
+        "sha256": "58258e0c8885af4e746d78a74ff5acabec6f3d19fa2445bea23ceb81124fc3b4",
+        "panel_id": "A1",
+        "baseline_id": "BASE01",
+        "seed": 17,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "62ab9b316da2889f0c35752ce4eb8bf90a45f4cd07d77272f6b0d44810843af6"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_known_target_BASE01_seed2026\\result.json",
+        "sha256": "3754945a47b71cfe944d463c1c0c0d6f9c00d27aed073adc76c62b60bfbfe399",
+        "panel_id": "A1",
+        "baseline_id": "BASE01",
+        "seed": 2026,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "55c1a1148c9ce91df63e457560f4e7e26bde4aa1dde947534bea4f9597aff05c"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_known_target_BASE01_seed42\\result.json",
+        "sha256": "16968189783f3d2dd13f2997fbec9636f9ad2ea9adecf474290924e3bfe45e82",
+        "panel_id": "A1",
+        "baseline_id": "BASE01",
+        "seed": 42,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "baa98515923b3f2a2d10a417eaecfcabf0a0c25981c3807e8bd4d49b1d0695a2"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_known_target_MEANPOOL_seed17\\result.json",
+        "sha256": "77c2f4ced3ee44cf7d6e7c08df4f93b267893c72dc3cac0212e2dddc84cb61fe",
+        "panel_id": "A1",
+        "baseline_id": "MEANPOOL",
+        "seed": 17,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "a598437ddbc2c22b342f723f714449aa38332fa06ce70982388c99519547ce7d"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_known_target_MEANPOOL_seed2026\\result.json",
+        "sha256": "51842a72713d565100afc7a78d22781a2d0cae6521753f6c7e9f9618372661d4",
+        "panel_id": "A1",
+        "baseline_id": "MEANPOOL",
+        "seed": 2026,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "ffe8d8bbc534a1428f865acbad2c344bb8af9d737d8c5d7bf96216f881630c7a"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_known_target_MEANPOOL_seed42\\result.json",
+        "sha256": "d7070facc860d8eb3da9df911517fbeed6836acdc26e92d47476e243dc0ea4a4",
+        "panel_id": "A1",
+        "baseline_id": "MEANPOOL",
+        "seed": 42,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "5cc21636c0a47af1bf6bd311cee80a6a7bbec011de5a38faac7cf08919d23a63"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_new_target_BASE01_seed17\\result.json",
+        "sha256": "ea8b3eaed338759fc5c5fc523a22c4abd38b6bc2a6b4cac65245fd80f7af1b7d",
+        "panel_id": "A1",
+        "baseline_id": "BASE01",
+        "seed": 17,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "5a8e0cac1a6589e79ee9c34a29c44944e18014d010d9a123d4cb66bf89eae0b2"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_new_target_BASE01_seed2026\\result.json",
+        "sha256": "3df21fdd8db80c8478f8a1a4cd278f0078caa7581f4b7a7d5196c8759fcfe36b",
+        "panel_id": "A1",
+        "baseline_id": "BASE01",
+        "seed": 2026,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "b88a980cd1f29b6e14a9d0b8bcb117b3e9c1cc805a79eacb101b1ec3f96e3867"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_new_target_BASE01_seed42\\result.json",
+        "sha256": "c43be43f725b3cfac7a86801fb173711da804c9783b5a56ba791a3a2a067873c",
+        "panel_id": "A1",
+        "baseline_id": "BASE01",
+        "seed": 42,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "2cf60e09047502a15b850de43b13eb58c902069dfac87a67bdfdbd71638ce019"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_new_target_MEANPOOL_seed17\\result.json",
+        "sha256": "b4d0383e726a36051a3d64eefabe541f3a286c9aa70e85200dfb790a19e312a0",
+        "panel_id": "A1",
+        "baseline_id": "MEANPOOL",
+        "seed": 17,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "5566444935c93698be361e9515178fd56dbeee3406d6a8d2863fe0d40973c2fa"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_new_target_MEANPOOL_seed2026\\result.json",
+        "sha256": "4512050b0c2b2a3cc1e011a50731f31ff32291383c082069c8e21aba23ff1c54",
+        "panel_id": "A1",
+        "baseline_id": "MEANPOOL",
+        "seed": 2026,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "ba232f7b94f2a7847bb0ae72d5e046d7972050ee8e7cc14e88ff1195a389038c"
+      },
+      {
+        "path": "results\\bench_v02\\panel_baselines_20261015_v2\\A1_new_peptide_new_target_MEANPOOL_seed42\\result.json",
+        "sha256": "be0ed6490c856141450b7803a1d069bce71214e91112392a0da9674ace2f5318",
+        "panel_id": "A1",
+        "baseline_id": "MEANPOOL",
+        "seed": 42,
+        "fitted_models": 1,
+        "stochastic_training": true,
+        "checkpoint_sha256": "fdee18a3b51f909e15e646768dbf3ef06185d5e6a4818c7ea93ee34be8dee62e"
+      }
+    ],
+    "unified_multitask_connector": null
+  },
+  "new_model_training_performed": true,
+  "unified_connector_training_performed": false
+}

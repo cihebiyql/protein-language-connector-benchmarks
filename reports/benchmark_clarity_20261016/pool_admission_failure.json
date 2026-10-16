@@ -1,0 +1,547 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-16T15:13:00.735892+00:00",
+  "scope": "Read-only CPU stdlib diagnosis; no GPU/model forward/trial/download/retry/controller or validator edits",
+  "conclusion": "Case31 physically completed but failed standard admission acceptance; exclude its metrics. Original first30 remain accepted; five unstarted. No window reset.",
+  "failed_case": {
+    "index": 31,
+    "case_id": "trial_new_peptide_known_target_17_mid_real_global16_zero",
+    "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero",
+    "literal_artifact_status": "complete",
+    "actual_epochs": 3,
+    "optimizer_steps": 1548,
+    "raw_prediction_rows": 152,
+    "raw_ids_unique": true,
+    "raw_full_fixed_test_ids_in_order": true,
+    "test_scores_examined": false,
+    "preflight_valid_for_execution": true,
+    "preflight_errors": [],
+    "post_valid_for_acceptance": false,
+    "post_errors": [
+      {
+        "field": "result.execution.started_at",
+        "message": "contract timeout exceeds the execution window at actual start"
+      }
+    ],
+    "post_blockers": [
+      "timeout exceeds remaining execution window at validation time"
+    ],
+    "literal_record_lifecycle_status": "succeeded",
+    "literal_record_review_status": "accepted",
+    "authoritative_admission_status": "invalid_or_incomplete",
+    "in_suite_state_jobs": false
+  },
+  "timing": {
+    "created_at": "2026-10-16T14:57:09.512041+00:00",
+    "frozen_at": "2026-10-16T14:57:09.512041+00:00",
+    "probe_at": "2026-10-16T14:57:09.500971+00:00",
+    "timeout_seconds": 1360,
+    "recorded_actual_start": "2026-10-16T14:57:26.488676+00:00",
+    "recorded_actual_end": "2026-10-16T15:07:43.927652+00:00",
+    "deadline": "2026-10-16T23:20:00+08:00",
+    "first_substantive_started_at": "2026-10-16T13:20:00+08:00",
+    "retry_resets_clock": false,
+    "freeze_to_start_seconds": 16.976635,
+    "start_plus_frozen_timeout": "2026-10-16T15:20:06.488676+00:00",
+    "start_budget_exceeds_deadline_seconds": 6.488676,
+    "actual_end_before_deadline_seconds": 736.072348,
+    "recorded_monotonic_elapsed_seconds": 554.0669691000076,
+    "UTC_elapsed_seconds": 617.438976,
+    "clock_observation": "UTC duration and recorded monotonic duration differ; cause not established. No timestamps adjusted. The decisive start-plus-timeout inequality follows original UTC receipt/contract fields directly."
+  },
+  "root_cause": {
+    "classification": "time-of-check-to-start gap with fixed10s prelaunch allowance",
+    "facts": [
+      "Controller computes frozen timeout from remaining deadline minus10 seconds before build_contract and physical --check-files validation.",
+      "Contract/model hashing and file validation occur before supervise records start. No fresh admissibility check after validation and immediately before scientific launch.",
+      "Validator archive error is start+contract_timeout>absolute_deadline, even though actual exit was before deadline.",
+      "Post-run remaining-window blocker alone is not the decisive archive error; the explicit result.execution.started_at validation error makes valid_for_acceptance false.",
+      "archive writes review.accepted and result-record before validating it; validation failure raises before appending this job to suite_state.jobs."
+    ],
+    "code_refs": {
+      "timeout": "scripts/matched_budget_20261016/execute_remaining_v1.py:606",
+      "build": "scripts/matched_budget_20261016/execute_remaining_v1.py:613",
+      "preflight": "scripts/matched_budget_20261016/execute_remaining_v1.py:615",
+      "launch": "scripts/matched_budget_20261016/execute_remaining_v1.py:629",
+      "accepted_before_validation": "scripts/matched_budget_20261016/execute_remaining_v1.py:497",
+      "actual_start_rule": "LOCAL_WORKBENCH_ROOT/复现/规范/validate_reproduction.py:329"
+    }
+  },
+  "accepted_status": {
+    "first30_all_stored_valid_for_acceptance_true": true,
+    "n_accepted": 30,
+    "n_invalid": 1,
+    "n_missing": 5,
+    "first30_all_exit0_and_groups_absent": true,
+    "source_count": 2,
+    "accepted_new_continuation_count": 28,
+    "suite_status": "failed_or_partial",
+    "suite_ended_utc": "2026-10-16T15:07:56.498885+00:00",
+    "case_ledger": [
+      {
+        "index": 1,
+        "case_id": "trial_new_peptide_known_target_17_early_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/suite_20261016_1426/trial_new_peptide_known_target_17_early_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "440c9cab030e1fdbc512cc5a3e3b38d6cd83a1d9a220ee94e0349cfa5c7e9c0a",
+        "errors": []
+      },
+      {
+        "index": 2,
+        "case_id": "trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/suite_20261016_1426/trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "4d20071d9301f0a35572a822e79c81509a7772f3d45be0f1dbef5d48b00a3cfe",
+        "errors": []
+      },
+      {
+        "index": 3,
+        "case_id": "trial_new_peptide_known_target_17_mid_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "4095164c7a7ecc27b7f1ab74969e304121a59f9fc77903b71a8a665255543390",
+        "errors": []
+      },
+      {
+        "index": 4,
+        "case_id": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "edf59915e682b42ea58739fb00dda267dc0ae45a2613938d4281e24741d2ab6b",
+        "errors": []
+      },
+      {
+        "index": 5,
+        "case_id": "trial_new_peptide_new_target_17_early_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_17_early_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "e2b1b9d467c452376729fab0d87ff05cd96fc8ff7e38e6a63e0b24d45f7df4f7",
+        "errors": []
+      },
+      {
+        "index": 6,
+        "case_id": "trial_new_peptide_new_target_17_early_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_17_early_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "b33882445fa847605a82db8061258b65befcf60f18ec13dc5181bff40efaef02",
+        "errors": []
+      },
+      {
+        "index": 7,
+        "case_id": "trial_new_peptide_new_target_17_mid_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_17_mid_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "04a77b058ed67c50157763817f58aae1707631a52abe84c5bb11d2aa36ff603e",
+        "errors": []
+      },
+      {
+        "index": 8,
+        "case_id": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_17_mid_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "d50b6e15a19de925a72e7849d79565066d6c161190f02e1682fc8b26cbe5d0b2",
+        "errors": []
+      },
+      {
+        "index": 9,
+        "case_id": "trial_new_peptide_known_target_42_early_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_42_early_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "b416a7baa9ad6397b846914e2ebc547ce8aef4e663a2270572e472461cded511",
+        "errors": []
+      },
+      {
+        "index": 10,
+        "case_id": "trial_new_peptide_known_target_42_early_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_42_early_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "572c376b7fc7d7c23f8ace0676a378a25dc667ebd5d5ec81e460ec34cdb7e40a",
+        "errors": []
+      },
+      {
+        "index": 11,
+        "case_id": "trial_new_peptide_known_target_42_mid_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_42_mid_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "7e791b297875a4f3823abf8af7690064109a02c102e881ec44269e6870c9965f",
+        "errors": []
+      },
+      {
+        "index": 12,
+        "case_id": "trial_new_peptide_known_target_42_mid_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_42_mid_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "b4937ff9dc4ba4f3fda6c10f8cda2886611cbc5f593d10972228fa483c011fdf",
+        "errors": []
+      },
+      {
+        "index": 13,
+        "case_id": "trial_new_peptide_new_target_42_early_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_42_early_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "c293867a74b98b5c022e84db22861c57c4cebde0c1f89d666ed14fc936da4a0e",
+        "errors": []
+      },
+      {
+        "index": 14,
+        "case_id": "trial_new_peptide_new_target_42_early_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_42_early_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "6cf0f227a971682cb4a6cefd880bbb231c6ea826ffad8281002bfccf92188dc4",
+        "errors": []
+      },
+      {
+        "index": 15,
+        "case_id": "trial_new_peptide_new_target_42_mid_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_42_mid_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "ad92c106d9467e5fcfd975ce0e1ba565df28fc5f30ddee1d51c6392fe0f2aec1",
+        "errors": []
+      },
+      {
+        "index": 16,
+        "case_id": "trial_new_peptide_new_target_42_mid_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_42_mid_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "2405ad0fea0522d6068a2577e4540bfcc4697911d40a22821da3846261ddee78",
+        "errors": []
+      },
+      {
+        "index": 17,
+        "case_id": "trial_new_peptide_known_target_2026_early_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_early_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "66238f9cbacab76cc47eba3828894acc91237fcddf3fb605135f9cae1857a5fc",
+        "errors": []
+      },
+      {
+        "index": 18,
+        "case_id": "trial_new_peptide_known_target_2026_early_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_early_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "0b5082c9a3f061a62af062f60922be26c1785e87581a07dd86af14f6dbabbf67",
+        "errors": []
+      },
+      {
+        "index": 19,
+        "case_id": "trial_new_peptide_known_target_2026_mid_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "bac279476aee947eb323602a6db01daaf80fd6d321bc67a015c8955761069354",
+        "errors": []
+      },
+      {
+        "index": 20,
+        "case_id": "trial_new_peptide_known_target_2026_mid_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "f7006af2fdb63bb350376bd52433232e169f1101f094f5a22bb417379c075d41",
+        "errors": []
+      },
+      {
+        "index": 21,
+        "case_id": "trial_new_peptide_new_target_2026_early_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_2026_early_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "f7e4cbd8be73c5e7ebc61edb6d4eea5efe41509e5d5d4e9d0af5c5cee4bc9891",
+        "errors": []
+      },
+      {
+        "index": 22,
+        "case_id": "trial_new_peptide_new_target_2026_early_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_2026_early_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "e0d69855f11567c7224d65425aaddca6536da047253759b6f585581aadb43bbf",
+        "errors": []
+      },
+      {
+        "index": 23,
+        "case_id": "trial_new_peptide_new_target_2026_mid_real_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_2026_mid_real_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "e361313f90cba0eca54fc55faba6bbb9d8fe7d818ab616f65d9fa5927aa6d50b",
+        "errors": []
+      },
+      {
+        "index": 24,
+        "case_id": "trial_new_peptide_new_target_2026_mid_neutral_balanced_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_2026_mid_neutral_balanced_zero",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "09f4436653719ddbc26ed76d28167f61f75232de0120e0e923bbe6495c7abcd2",
+        "errors": []
+      },
+      {
+        "index": 25,
+        "case_id": "trial_new_peptide_known_target_17_mid_real_balanced_near_unit",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_balanced_near_unit",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "b00552239e71a9db4c1bd1e63aa70f046a0d5335e519edbe0fe94560279ebf86",
+        "errors": []
+      },
+      {
+        "index": 26,
+        "case_id": "trial_new_peptide_new_target_17_mid_real_balanced_near_unit",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_17_mid_real_balanced_near_unit",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "8a56fe4af1f258cdee387c715e080c5df26e07dc3e038ab10721ee84dcbe9329",
+        "errors": []
+      },
+      {
+        "index": 27,
+        "case_id": "trial_new_peptide_known_target_42_mid_real_balanced_near_unit",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_42_mid_real_balanced_near_unit",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "3666a70229253690949c9260d264924686e44f644e18563dbd01f7c285a4b0ae",
+        "errors": []
+      },
+      {
+        "index": 28,
+        "case_id": "trial_new_peptide_new_target_42_mid_real_balanced_near_unit",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_42_mid_real_balanced_near_unit",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "31b52f18816ec87d5beae72ca68237bba146d0297f8f5d9945b06e9d7609d7de",
+        "errors": []
+      },
+      {
+        "index": 29,
+        "case_id": "trial_new_peptide_known_target_2026_mid_real_balanced_near_unit",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_balanced_near_unit",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "e3418974e710fd31beb900b94d65d630ba692db4386afac4374d4b07c4c54ce0",
+        "errors": []
+      },
+      {
+        "index": 30,
+        "case_id": "trial_new_peptide_new_target_2026_mid_real_balanced_near_unit",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_2026_mid_real_balanced_near_unit",
+        "valid_for_acceptance": true,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "863d436fd040a68be6703c0ad63dc94a2741a2236db7c6ba271e5151fe52fb44",
+        "errors": []
+      },
+      {
+        "index": 31,
+        "case_id": "trial_new_peptide_known_target_17_mid_real_global16_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero",
+        "valid_for_acceptance": false,
+        "exit_code": 0,
+        "process_group_absent": true,
+        "validation_sha256": "4186e89bd71d8126b8809ae252f0abe522f4700e9f352b917defbebd880b5e53",
+        "errors": [
+          {
+            "field": "result.execution.started_at",
+            "message": "contract timeout exceeds the execution window at actual start"
+          }
+        ]
+      },
+      {
+        "index": 32,
+        "case_id": "trial_new_peptide_new_target_17_mid_real_global16_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_17_mid_real_global16_zero",
+        "status": "not_started_no_archive",
+        "valid_for_acceptance": null
+      },
+      {
+        "index": 33,
+        "case_id": "trial_new_peptide_known_target_42_mid_real_global16_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_42_mid_real_global16_zero",
+        "status": "not_started_no_archive",
+        "valid_for_acceptance": null
+      },
+      {
+        "index": 34,
+        "case_id": "trial_new_peptide_new_target_42_mid_real_global16_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_42_mid_real_global16_zero",
+        "status": "not_started_no_archive",
+        "valid_for_acceptance": null
+      },
+      {
+        "index": 35,
+        "case_id": "trial_new_peptide_known_target_2026_mid_real_global16_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_global16_zero",
+        "status": "not_started_no_archive",
+        "valid_for_acceptance": null
+      },
+      {
+        "index": 36,
+        "case_id": "trial_new_peptide_new_target_2026_mid_real_global16_zero",
+        "job": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_new_target_2026_mid_real_global16_zero",
+        "status": "not_started_no_archive",
+        "valid_for_acceptance": null
+      }
+    ],
+    "note": "Stored standard acceptance files checked read-only; no validator/check-files or numerical score recomputation launched by this diagnostic."
+  },
+  "process_state": {
+    "observed_utc": "2026-10-16T15:13:00.735990+00:00",
+    "proc_checks": [
+      {
+        "pid_or_parent_reported_handle": 263028,
+        "exists": false,
+        "cmdline": null
+      },
+      {
+        "pid_or_parent_reported_handle": 312725,
+        "exists": false,
+        "cmdline": null
+      },
+      {
+        "pid_or_parent_reported_handle": 25342,
+        "exists": false,
+        "cmdline": null
+      },
+      {
+        "pid_or_parent_reported_handle": 26213,
+        "exists": false,
+        "cmdline": null
+      }
+    ],
+    "matching_live_controller_worker_guard_signatures": [],
+    "controller_actual_Linux_pid": 263028,
+    "last_worker_actual_Linux_pid": 312725,
+    "parent_reported_session_handles": [
+      25342,
+      26213
+    ],
+    "guard_terminal_receipt": {
+      "started_utc": "2026-10-16T08:01:45.580066+00:00",
+      "controller_pid": 263028,
+      "command": [
+        "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+        "PROJECT_ROOT/scripts/matched_budget_20261016/execute_remaining_v1.py",
+        "--protocol",
+        "PROJECT_ROOT/configs/matched_budget_20261016.frozen.json",
+        "--protocol-sha256",
+        "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+        "--cache-manifest",
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_admission_manifest.json",
+        "--cache-manifest-sha256",
+        "dbc0fd9ce870369c512d770e3494db19c2c563d85475a149bf0a67399fd28045",
+        "--source-suite",
+        "PROJECT_ROOT/results/matched_budget_20261016/suite_20261016_1426",
+        "--qualification-source-suite",
+        "PROJECT_ROOT/results/matched_budget_20261016/suite_20261016_1426",
+        "--output",
+        "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546",
+        "--release-reference",
+        "reports/benchmark_clarity_20261016/parent_GPU_release_remaining_v1.json"
+      ],
+      "effective_deadline_at": "2026-10-16T23:20:00+08:00",
+      "scope": "UTC upper bounds only; no model, test score, parser, seed or source changes",
+      "signal_sent": false,
+      "termination_reason": null,
+      "ended_utc": "2026-10-16T15:07:56.994546+00:00"
+    },
+    "guard_signal_sent": false,
+    "limitation": "Guard terminal receipt does not store its own Linux PID. Its ended receipt and absence of matching command signatures are the independent evidence; session handles are not assumed to be Linux PIDs.",
+    "signals_sent_by_this_diagnostic": false
+  },
+  "summary_check": {
+    "wrapper_delegates_to_frozen_original": true,
+    "wrapper_ref": "scripts/matched_budget_20261016/summarize_remaining_v1.py:46",
+    "admission_gate_ref": "scripts/matched_budget_20261016/summarize.py:234",
+    "requires_valid_for_acceptance_true": true,
+    "failed_case_could_be_included_by_artifact_complete_alone": false,
+    "parent_frozen_snapshot": "PROJECT_ROOT/reports/benchmark_clarity_20261016/final_snapshot_20261016_231042",
+    "snapshot_json_sha256": "2e72addb16ad461d017a08fc372a1f3696948048c3be97f516403628ed1773c4",
+    "snapshot_md_sha256": "fc8171d330ee1e45a3cdf28e4a1174985958ac50d915918a7005ff953dd1e75b",
+    "snapshot_counts": {
+      "n_complete": 30,
+      "n_original_completed_source_cases": 2,
+      "n_new_completed_training_cases": 28
+    },
+    "snapshot_case31_status": "invalid_or_incomplete",
+    "snapshot_case31_metrics": null
+  },
+  "isolation": {
+    "rejected_jobs": [
+      "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero"
+    ],
+    "policy": "Keep every original file in place; expose a separate rejected-case ledger and preserve final snapshot. Do not edit review status, contract timeout, validation or scores. Include only valid_for_acceptance true in scientific tables; pool extension remains0/3 per scenario.",
+    "retries_or_new_jobs_authorized_by_this_report": false
+  },
+  "future_engineering_suggestions": [
+    "Perform expensive immutable input hashing before deriving and freezing the launch timeout; retain original deadline.",
+    "Add a fail-closed actual-start admission check before any Torch/model work; if the entire frozen timeout no longer fits, refuse execution and archive an admission failure, not a successful scientific run. Do not retroactively shorten an executed contract.",
+    "Add a deterministic CPU regression fixture where input validation consumes more than10 seconds and verify that no inadmissible worker starts.",
+    "Publish review.accepted only after validation succeeds; otherwise preserve the output with needs_revision/failed archival status and include the unaccepted attempt in suite state.",
+    "Keep UTC and monotonic clock observations distinct, record prelaunch duration, and do not reset the10-hour objective clock."
+  ],
+  "evidence_sha256": {
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/task-contract.json": "d683e99baf3c1b6c27aedd73ee90a0daceae000a4b29be558fdea3cb81ed76d6",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/contract-validation.json": "02fa4ac22eb9432db8dc26a152c2f94cb38dbba1ccc468cf8846361b73df41ed",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/execution-receipt.json": "560d42e59234a6cac421404f632b207b40feceb9f0aef4902b128691fd6b1011",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/result-record.json": "cf5fc5132c35244ddd1ed0ac16264a662e1878a23b4ede48ee0fd079b5308c7b",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/result-validation.json": "4186e89bd71d8126b8809ae252f0abe522f4700e9f352b917defbebd880b5e53",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/resource_probe.json": "250664baefda6e69014bf1af5c59acc71d827e68ac81a5d0b3e3daac61f1fd31",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/running-process.json": "d671448fe2c82c54e0d7cd1f7f12224a1570413e91c023e7ccfcd42c70691639",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/result.json": "7166d8756be43e047ce3567a4f143e25c623818968a50bcc55f88f263167bd5f",
+    "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_global16_zero/artifacts/test_predictions_correct.jsonl": "31be267f4265ee21d0b73f9c32099b66fa492cd07e3ee3987103440427dbce2d",
+    "PROJECT_ROOT/scripts/matched_budget_20261016/execute_remaining_v1.py": "e1a886a2c8c33ae445d60883fbfc6811efd99c237e0456b3d0ec45b4b46d339b",
+    "PROJECT_ROOT/scripts/matched_budget_20261016/summarize_remaining_v1.py": "96dddafd1205b76dd1281cc5ce1a78ac9c201cfe6f85593e4051a2a64e50c929",
+    "PROJECT_ROOT/scripts/matched_budget_20261016/summarize.py": "695b6f876cc8d6da1773cbf70f69fbe4afe995ef4221a8cb2f5ea6895ea9b1c5",
+    "LOCAL_WORKBENCH_ROOT/复现/规范/validate_reproduction.py": "6a3f07bfbf4d70082888e2ca9d028ffe90f3b5d7a8a17a5845df80e6f366220e",
+    "PROJECT_ROOT/reports/benchmark_clarity_20261016/UTC_runtime_guard_terminal.json": "7cc543c1ca2b4a99f2ecb29bdbb7acbf5444c85cb82644a36ac196528c3b007f"
+  },
+  "old_assets_final_check_path": "PROJECT_ROOT/reports/benchmark_clarity_20261016/old_assets_final_check.json",
+  "old_assets_final_check_sha256": "bed539e9f70b0902c34457d2b8729580b809f54004b3fdd3d8e3f47c98c3d202"
+}

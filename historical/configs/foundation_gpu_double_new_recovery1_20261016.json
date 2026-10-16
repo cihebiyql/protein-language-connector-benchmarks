@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "scope": "engineering recovery1 of full second A1 scenario after preserved cuBLAS error; all algorithm hyperparameters unchanged",
+  "authorization": "Same user-requested actual foundation benchmark execution; parent explicitly extended the stage to both available full A1 scenarios without changing hyperparameters after observing test outcomes.",
+  "first_substantive_started_at": "2026-10-16T07:18:00+08:00",
+  "effective_deadline_at": "2026-10-16T17:18:00+08:00",
+  "scenario": "new_peptide_new_target",
+  "expected_counts": {
+    "train": 2063,
+    "validation": 431,
+    "test": 442
+  },
+  "methods": [
+    "input_mlp",
+    "qformer_style",
+    "internal_cross_attention",
+    "constant"
+  ],
+  "seed": 17,
+  "epochs": 3,
+  "batch_candidates": [
+    4
+  ],
+  "max_new_tokens": 24,
+  "message_modes": [
+    "correct",
+    "off"
+  ],
+  "cpu_threads": 2,
+  "memory_limit_bytes": 12884901888,
+  "gpu_allocation_budget_bytes": 12348030976,
+  "stage_timeout_seconds": 7200,
+  "method_timeout_seconds": 1200,
+  "canary_timeout_seconds": 180,
+  "expected_hostname": "LOCAL_HOST",
+  "predictor_pipeline": {
+    "run": true,
+    "predictor_device": "cpu",
+    "split": "both",
+    "new_training": false
+  },
+  "excluded_claims": [
+    "full ProtT3 reproduction",
+    "three-seed confirmatory experiment",
+    "30-epoch matched-budget predictor comparison",
+    "unified multitask connector",
+    "biological affinity optimization",
+    "protein sequence generation",
+    "wet-lab validation"
+  ],
+  "readiness_policy": "Separate frozen controller/config/output after initial suite exits; fresh per-job host/path/GPU/process probes and train-only canaries. Same batch4,seed17,3epochs and24tokens decided before first held-out outcomes; no test-driven retuning.",
+  "runtime_environment": {
+    "CUDA_LAUNCH_BLOCKING": "1",
+    "TORCH_SHOW_CPP_STACKTRACES": "1"
+  },
+  "engineering_revision": {
+    "prior_attempt": "results/foundation_20261016/gpu_suite_double_new",
+    "reason": "CUBLAS_STATUS_INTERNAL_ERROR after27 updates; fresh failing-batch and first28-updates diagnostics pass with synchronous scheduling. Root cause remains unverified, not classified as OOM.",
+    "heldout_predictions_seen_in_this_scenario_before_revision": false,
+    "algorithm_hyperparameters_changed": false,
+    "data_splits_changed": false,
+    "first_substantive_clock_reset": false,
+    "diagnostic_evidence": [
+      "results/foundation_20261016/gpu_suite_double_new/diagnostic_batch28_fresh_blocking",
+      "results/foundation_20261016/gpu_suite_double_new/diagnostic_prefix28_blocking"
+    ],
+    "numerical_note": "Same seed and mathematical update procedure do not imply bitwise bf16 parity; replay diverged numerically from step5."
+  }
+}

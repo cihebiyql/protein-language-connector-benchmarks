@@ -1,0 +1,66 @@
+{
+  "benchmark_version": "0.2",
+  "scope": "panel_specific_predictor",
+  "registered_before_neural_training": true,
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "budget": {
+    "epochs": 30,
+    "effective_batch_size": 64,
+    "micro_batch_size": 8,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "dropout": 0.1,
+    "early_stopping": false,
+    "order": "CPU Generator(seed+epoch), randperm, epoch1..30",
+    "selection": "earliest best validation MAE for A1; earliest best class-macro MRR for B1"
+  },
+  "BASE01": {
+    "protein_stems": "separate peptide/target learned LayerNorm640, Linear640->128, GELU",
+    "pooling": "peptide attention queried by full-target residue mean+context; target attention queried by peptide residue mean+context; masked softmax covers all concatenated residues",
+    "context": "148 features: train-fitted temperature/pH values, six missing/verified indicators, case-normalized 12 chemical-state onehots, fixed128bin SHA256 character-trigram encoding of allowed chemical/assay/buffer/sequence-role inputs",
+    "head": "concat peptide128,target128,elementwise product128,absolute difference128,context64,2loglengths ->256 GELU dropout.1 ->1",
+    "loss": "training-only pKD zscore MSE; inverse transform for validation/test"
+  },
+  "MEANPOOL": {
+    "same_as_BASE01_except": "replace both attention pools with full masked residue means; same stems/context/head; attention-query parameters absent"
+  },
+  "BASE02": {
+    "sequence": "LayerNorm640 Linear640->256 GELU dropout.1",
+    "text": "frozen Qwen full rule-free description maskedmean1536 -> learnedLayerNorm1536 Linear1536->256 GELU dropout.1",
+    "pooling": "normalized description-conditioned masked attention over every residue; normalize weighted residue pool and score against normalized description projection",
+    "temperature": "learned scalar initialized.07 clamped.01..1",
+    "loss": "uniform positive-normalized CE over train-class candidate universe only; all documented positives of identical train local sequences are merged; held-out class labels never enter training",
+    "evaluation": "all31 anonymized candidates; classmacroMRR on one query per exact local sequence with union documented positives; source members preserved"
+  },
+  "MEANALIGN": {
+    "same_as_BASE02_except": "description-independent masked mean of projected sequence residues; same projection/text/temperature parameters"
+  },
+  "backbones": {
+    "frozen": true,
+    "no_legacy_trained_weights": true,
+    "ESM2": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+    "Qwen": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "protein_chunking": "nonoverlap contiguous<=1022residues, concat, fullcoverage, BOS/EOS removed eachchunk; no crosschunk attention"
+  },
+  "inputs_explicitly_excluded": [
+    "sample/class identifiers as model features",
+    "publication/source DOI",
+    "gold pkd/known positives outside training loss",
+    "rawmetadata",
+    "ELM regex"
+  ],
+  "files": {
+    "scripts\\bench_v02\\train_panel_baselines.py": "7e1749489301d7b3fc198cc6d38b6f471df9f54df04d25faaeb10e1959bbd73d",
+    "scripts\\bench_v02\\cache_panel_features.py": "2f9c865c7e358fb56b53a8018f57b96efc42baa38c722e40a5ff3e5d466a6cef",
+    "results\\bench_v02\\panel_baselines_20261015\\preregistered_protocol.json": "537f5a4aa2c03de78dc2c9783d5848e18605e6773f38b18d75b4008e02cbd747"
+  }
+}

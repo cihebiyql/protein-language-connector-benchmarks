@@ -1,0 +1,1310 @@
+{
+  "schema_version": 1,
+  "review_date_local": "2026-10-16",
+  "review_type": "independent_read_only_current_source_and_contract",
+  "status": "passed_for_contracted_foundation_delivery",
+  "current_verdict": {
+    "foundation_deliverable": true,
+    "open_P1": 0,
+    "open_P2": 0,
+    "generation_channel_rows_unique": 20,
+    "information_jobs_actual_verified": 8,
+    "formal_superiority_or_multitask_or_biological_causality_established": false
+  },
+  "production_P1_findings": 0,
+  "actionable_P2_findings": 0,
+  "historical_P2_findings": 6,
+  "current_open_P2_findings": 0,
+  "code_or_data_changed": false,
+  "gpu_used": false,
+  "new_neural_training_performed": false,
+  "CPU_probe_refits_for_verification_only": true,
+  "findings": [
+    {
+      "priority": "P2",
+      "title": "BASE03 gold-exclusion fixture contradicts the current matched assay context contract",
+      "file": "PROJECT_ROOT/tests/test_foundation_pipeline.py",
+      "line": 85,
+      "related_lines": [
+        24,
+        84,
+        87
+      ],
+      "source_contract": "PROJECT_ROOT/scripts/foundation_20261016/run_predictor_pipeline.py:60",
+      "actual_failure": "SECRET_ASSAY unexpectedly found in the prompt",
+      "interpretation": "Stale synthetic test; actual gold-label leakage in real data was not established",
+      "minimum_fix": "Use legitimate gold-independent assay in fixture; assert its preservation; mutate only excluded gold/identity/raw fields for gold-exclusion invariance; narrow outdated arbitrary-strings comment at run_predictor_pipeline.py:55",
+      "production_context_removal_required": false,
+      "resolution_status": "resolved_verified_revision4",
+      "resolution_evidence": "Current gold-independent legitimate assay fixture and unified 53/53 foundation tests; pipeline SHA256 56c0465d923984f58fec3c3812757d27299fe5980c005bbfbdde8343cf6cb049"
+    },
+    {
+      "priority": "P2",
+      "title": "Suite report reads a nonexistent BASE03 regression metric key",
+      "file": "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_suite.py",
+      "line": 431,
+      "actual_source": "run_predictor_pipeline.py emits generated_pKD_mae_valid_only, not generated_regression_valid_only.mae",
+      "minimum_fix": "Correct later separate derived summarizer or future controller without editing current hashed controller",
+      "resolution_status": "resolved_separate_derived_report_and_actual_BASE03_verified_revision6",
+      "resolution_evidence": "make_report.py uses actual BASE03 keys; 4/4 reporting tests pass; actual three-method correct/off and paired metrics independently verified"
+    },
+    {
+      "priority": "P2",
+      "title": "Controller interruption bypasses owned independent process-group cleanup",
+      "file": "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_suite.py",
+      "line": 312,
+      "related_lines": [
+        316,
+        331
+      ],
+      "actual_source": "Worker starts a new session; no try/finally around watchdog and no SIGTERM handler; main finalizer writes state but does not kill worker",
+      "minimum_fix": "Future controller retains process and kills/waits owned PGID in finally, handles SIGTERM or uses parent-death termination, and emits terminal failure receipt; use separate bounded watch while immutable active controller runs",
+      "scope": "Interruption/monitor-exception path only; normal canary groups were verified absent",
+      "resolution_status": "mitigated_active_initial_external_watchdog_and_future_controller_fixed_CPU_verified",
+      "resolution_limit": "Initial immutable controller source retains historical gap; external safeguard later terminated with tracked workers absent; future controller CPU fix verified"
+    },
+    {
+      "priority": "P2",
+      "title": "Information checkpoint admission lacks successful source execution and accepted archive gates",
+      "file": "PROJECT_ROOT/scripts/foundation_20261016/execute_information.py",
+      "line": 223,
+      "related_lines": [
+        228,
+        232,
+        234
+      ],
+      "actual_source": "checkpoint_receipt checks source result/status/epochs/seed/checkpoint/manifest but not source terminal exit/group absence or accepted linked result archive",
+      "interpretation": "Admission-control gap; actual known-target source experiments independently verified and no information result yet exists",
+      "minimum_fix": "Require and hash-pin successful source receipt, accepted result-record/validation and linked contract/result/checkpoint/manifest; negative CPU tests reject missing/failed/changed source evidence",
+      "resolution_status": "resolved_independent27_CPU_and_actual_known4_stdlib_admission_revision8",
+      "resolved_wrapper_SHA256": "d524f3c3ee9ac9fee028beb011f772f73ceb3355b5dfdf09d79eefaebc259ab5"
+    },
+    {
+      "priority": "P2",
+      "title": "Completion plan records but does not enforce original registration/terminal receipt seals",
+      "file": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complete_remaining.py",
+      "line": 33,
+      "related_lines": [
+        45,
+        72,
+        73
+      ],
+      "reviewed_source_SHA256": "9870eee1c10723710f2a679d03ea539f6266d1d5ce64f507fac8b159b2736b11",
+      "minimum_fix": "Require actual timeout failed accepted source archive/contract/absence and hash-verify registration/receipt/record/validation/contract/watchdog seals before and after execution/merge; CPU negative fixtures",
+      "resolution_status": "resolved_exact_v2_seals_and2936canonicalrows_independently_verified_revision13",
+      "resolved_wrapper_SHA256": "c42335c743f4f2b1372cc9dbfe21ecd5f88c3c45ae87b8bb8602413a65dd4700"
+    },
+    {
+      "priority": "P2",
+      "title": "Interrupted or failed complement does not always emit terminal receipt and standard failed archive",
+      "file": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/complete_remaining.py",
+      "line": 287,
+      "related_lines": [
+        296,
+        297,
+        298
+      ],
+      "reviewed_source_SHA256": "9870eee1c10723710f2a679d03ea539f6266d1d5ce64f507fac8b159b2736b11",
+      "minimum_fix": "Catch monitor/interruption, cleanup/wait own group, always write actual exit/group/log-hash receipt and failed result-record before reraising; CPU timeout/interrupt/nonzero fixtures",
+      "resolution_status": "resolved_v2_terminalguard_and_failedarchive_CPU12_verified_revision13",
+      "resolved_core_SHA256": "b09d6400cbf88ba811f9d412ccc6c50468956fea35a2d3170148487bbb9b1cc2"
+    }
+  ],
+  "verification": {
+    "status": "passed_latest_unified_CPU_regression_and_updated27_information_tests",
+    "receipt": "PROJECT_ROOT/results/foundation_20261016/tests_20261016_103606/result.json",
+    "device": "cpu",
+    "models": "random tiny Qwen and fixtures only; no pretrained GPU inference",
+    "all_three_unified_log_hashes_recomputed_equal": true,
+    "windows": {
+      "discovered": 106,
+      "passed": 95,
+      "skipped": 11,
+      "exit_code": 0,
+      "log_sha256": "3aebf0093dcdf6d6704b935da2af8e702f0be18d95c4863d8f353f6579620f56"
+    },
+    "WSL_existing": {
+      "passed": 16,
+      "covers_windows_11_skipped": true,
+      "exit_code": 0,
+      "log_sha256": "88c30f3cee35f12b4cb0794eba02dc13566c07185a23f6b4003cae41ba373ab8"
+    },
+    "WSL_foundation": {
+      "passed": 77,
+      "exit_code": 0,
+      "log_sha256": "ad9d5382e18bdd008525d86b0dbf66a23562ddf9432a8ef4f06e5bfc3eb1fbaf"
+    },
+    "unique_tests_covered": 183,
+    "executed_tests_including_five_cross_platform_repeats": 188,
+    "failed": 0,
+    "independent_information_CPU_rerun": {
+      "command": "wsl -- LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s PROJECT_ROOT/tests -p test_foundation_information.py -v",
+      "passed": 27,
+      "failed": 0,
+      "added_source_admission_tests": 9
+    },
+    "actual_known4_sources_independently_admitted_without_Torch": true,
+    "current_source_admission_wrapper_SHA256": "58c49f979c57cf9182b5b55361e68a6eb6a07d72225590926a474bdaf4727168",
+    "previous_wrapper_SHA256_preserved": "d524f3c3ee9ac9fee028beb011f772f73ceb3355b5dfdf09d79eefaebc259ab5",
+    "current_metadata_real_frozen_positive_and_two_negative_checks_passed": true,
+    "independent_completion_core_CPU": {
+      "passed": 12,
+      "failed": 0,
+      "scope": "v2 completion bookkeeping/seal/real child termination tests; not part of latest full183unique regression receipt and not a scientific result"
+    },
+    "scope": "Latest full unified run covers183unique tests:106existing+77foundation; WSL16 covers11skips and repeats5, not16additional unique. It includes27 information tests. Source admission P2 resolved; no information GPU result implied."
+  },
+  "no_action_checks": [
+    "Causal LM loss shifting after prefix removal and answer-only masking",
+    "Cumulative positions, left padding and last-active-token greedy decoding",
+    "Frozen LM eval state/no backbone gradients and trainable connector gradient flow",
+    "Masked ordered adaptive pooling, residue type distinction and hook cleanup",
+    "Strict finite JSON parsing, full failure denominators and undefined full-sample MAE when any generation fails",
+    "Validation-only checkpoint/candidate selection with explicit deterministic ties",
+    "Replay states 18 prior checkpoints, not new training; reused calibration is descriptive",
+    "RT target-only frozen diagnostic, disjoint selection/calibration, train-only fit, A2 HOLD preserved"
+  ],
+  "current_scope_evidence": {
+    "benchmark_config": "PROJECT_ROOT/configs/bench_v02.json",
+    "readiness": "PROJECT_ROOT/results/foundation_20261016/readiness_A1.json",
+    "rt_contract": "PROJECT_ROOT/results/foundation_20261016/rt_target_diagnostic/task-contract.json",
+    "rt_protocol": "PROJECT_ROOT/data/processed/foundation_20261016/rt_target_diagnostic/frozen_protocol.json",
+    "rt_archive_validation": {
+      "path": "PROJECT_ROOT/results/foundation_20261016/rt_target_diagnostic/result_validation.json",
+      "valid_for_acceptance": true,
+      "errors": []
+    },
+    "replay_summary": {
+      "path": "PROJECT_ROOT/results/foundation_20261016/replay_predictors/summary.json",
+      "status": "passed",
+      "actual_replayed_checkpoints": 18,
+      "deterministic_control_fits": 6,
+      "new_neural_training": false
+    },
+    "generation_source_defaults": {
+      "seed": 17,
+      "epochs": 3,
+      "formal_multitask_connector_result": false
+    },
+    "new_generation_runtime_controller_reviewed": true,
+    "new_generation_execution_receipt_reviewed": true,
+    "canary_terminal_receipts_reviewed": 4,
+    "train_input_mlp_history": {
+      "completed_epochs": 3,
+      "optimizer_steps": 1548,
+      "terminal_generation_result_available": true
+    }
+  },
+  "limitations": [
+    "Both broad-reference A1 scenario populations and all8 real C1/C2 jobs are verified. All experiment-owned processes were released. The evidence supports delivery of this foundation contract, with formal research endpoints explicitly unclaimed.",
+    "No new full benchmark, GPU training, or external paper reproduction performed by this reviewer",
+    "One seed and three epochs are a bounded generation foundation rather than full three-seed multitask evidence",
+    "Final aggregate report must retain target-only RT, prior-checkpoint replay and generation-stage limits"
+  ],
+  "revisions": [
+    {
+      "revision": 1,
+      "scope": "five source modules, focused CPU tests, RT and replay contracts",
+      "tests": "42 run / 41 pass / 1 stale fixture failure",
+      "historical_verification": {
+        "tests_run": 42,
+        "passed": 41,
+        "failed": 1,
+        "failed_test": "test_foundation_pipeline.FoundationPipelineTests.test_prompt_excludes_gold_identifiers_and_untrusted_strings",
+        "resolved_in_revision": 4
+      }
+    },
+    {
+      "revision": 2,
+      "scope": "new GPU controller/configs/current registration and four canary receipts",
+      "status": "changes requested, active generation completion pending"
+    },
+    {
+      "revision": 3,
+      "scope": "first terminal full input_mlp generation result, literal prediction records and fingerprints",
+      "status": "input_mlp denominator verified; remaining stage and fixes pending"
+    },
+    {
+      "revision": 4,
+      "scope": "verified fixture/test resolution, live initial-controller external safeguard, future-controller interruption fix and CPU receipt",
+      "status": "presentation pending; initial GPU suite still running"
+    },
+    {
+      "revision": 5,
+      "scope": "separate derived report, 4 reporting CPU tests, three actual terminal new architectures and paired denominators",
+      "status": "reviewed components pass; actual BASE03/constant/second-scenario completion pending"
+    },
+    {
+      "revision": 6,
+      "scope": "actual known-target BASE03/constant, negative internal comparison, failed double-new, recovery contracts and append-only PDF identity",
+      "status": "known-target verified; second-scenario recovery running"
+    },
+    {
+      "revision": 7,
+      "scope": "C1/C2 protocol3 and wrapper static audit, 18 independent CPU tests, latest unified173unique coverage",
+      "status": "statistics paths verified; information source admission P2 owner fix pending; no information result"
+    },
+    {
+      "revision": 8,
+      "scope": "updated wrapper source admission, 27 independent CPU fixtures, actual known4 admission in stdlib-only process",
+      "status": "source admission P2 resolved; no information GPU result"
+    },
+    {
+      "revision": 9,
+      "scope": "double-new recovery full input_mlp/qformer/internal artifacts, literal records, CPU checkpoint load, independent125group bootstrap",
+      "status": "three recovered architectures verified; constant/BASE03/information pending"
+    },
+    {
+      "revision": 10,
+      "scope": "double-new constant actual artifact/checkpoint/receipt review, newest183unique CPU log hashes, complement pre-admission requirements",
+      "status": "all8connector runs verified; doubleBASE03active, complement not yet reviewed; information pending"
+    },
+    {
+      "revision": 11,
+      "scope": "completion bookkeeping core static and6independent CPU tests",
+      "status": "core passes; independent execution wrapper and contract admission pending"
+    },
+    {
+      "revision": 12,
+      "scope": "actual original BASE03 timeout/partial files, first independent complement wrapper",
+      "status": "source has196missingTEST; wrapper blocked by2P2pendingfix, no complement admitted"
+    },
+    {
+      "revision": 13,
+      "scope": "v2 wrapper/core/sealedplan/draft and12CPUtests with2936row9adminseals",
+      "status": "twoP2resolved; exact task technically admissible after parent release/freshprobe/freeze; no aggregate yet"
+    },
+    {
+      "revision": 14,
+      "scope": "actual873line composite byte/canonical/prompt/token/parser/source replay/cost/104archive bindings/terminal handoff",
+      "status": "bothA1scenario logicalfull results and20uniquechannels verified; original failures preserved"
+    },
+    {
+      "revision": 15,
+      "scope": "separate metadata-only information wrapper, real frozen fullfile positive and two negative checks, old failed inventory",
+      "status": "58c49f wrapper admitted under standing8job authority; no scientific information scores yet"
+    },
+    {
+      "revision": 16,
+      "scope": "actual knowninternal/Qformer information outputs, allarray/statistics/validationselection/testscore/bootstrapCPUreplay",
+      "status": "2of8 acceptedjobs independently verified; negativeprobe outcomes retained, noMI/causalclaim"
+    },
+    {
+      "revision": 17,
+      "scope": "actualknownMLP/constant CPUreplay plus exactshared B/rawfitstatesandarrays acrossall4known",
+      "status": "4of8 realjobsverified; constantmessagezero/Gpositive confirmslimitedpresenceinterpretation; double4pending"
+    },
+    {
+      "revision": 18,
+      "scope": "remainingdouble4 fullCPUreplay/125groupbootstrap, within-scenarioexactcontrols, all8terminalrelease, final20channels8information andlatest183tests",
+      "status": "passed_for_contracted_foundation_delivery; currentP1P2zero; formalresearchboundariesretained"
+    }
+  ],
+  "final_foundation_review_revision18": {
+    "delivery_verdict": "ready_for_current_foundation_contract",
+    "current_open_P1": 0,
+    "current_open_P2": 0,
+    "generation_channel_rows": 20,
+    "generation_unique_scenario_method_mode_keys": 20,
+    "information_actual_jobs_verified": 8,
+    "information_unique_scenario_method_keys": 8,
+    "new_double_jobs_all_artifact_data_code_checkpoint_contract_and_receipt_SHA_verified": true,
+    "new_double_each_full_counts": {
+      "train": 2063,
+      "validation": 431,
+      "test": 442
+    },
+    "new_double_finite_arrays": {
+      "raw": [
+        2936,
+        1280
+      ],
+      "message": [
+        2936,
+        1536
+      ],
+      "receiver": [
+        2936,
+        1536
+      ]
+    },
+    "new_double_C1_full442_rows_means_G_and_zero_donors_recomputed": true,
+    "new_double_three_TRAIN_projectionstats_seed42_matrices_and_four328D_probe_fits_rebuilt": true,
+    "new_double_fivealpha_val_selection_and_all_test_predictions_replayed_max_difference": 0.0,
+    "new_double_all125group2000bootstrap_intervals_reproduced": true,
+    "double_jobs": {
+      "internal_cross_attention": {
+        "elapsed_seconds": 271.00255251199997,
+        "correct_NLL": 0.6582781614491303,
+        "off_NLL": 1.2036653395691608,
+        "G": 0.5453871781200306,
+        "message_delta_MSE": 0.023418437929192848,
+        "message_CI95": [
+          -0.26339463823635273,
+          0.2928203098055965
+        ],
+        "receiver_delta_MSE": -0.043076580513200735
+      },
+      "qformer_style": {
+        "elapsed_seconds": 300.0736979289941,
+        "correct_NLL": 0.6611901220962473,
+        "off_NLL": 1.2036653395691608,
+        "G": 0.5424752174729136,
+        "message_delta_MSE": 0.08778661173352953,
+        "message_CI95": [
+          -0.1093982025777736,
+          0.2704357001170149
+        ],
+        "receiver_delta_MSE": -0.11603765262388466
+      },
+      "input_mlp": {
+        "elapsed_seconds": 268.03152463900915,
+        "correct_NLL": 0.6602836322730483,
+        "off_NLL": 1.2036653395691608,
+        "G": 0.5433817072961126,
+        "message_delta_MSE": -0.05246187345254327,
+        "message_CI95": [
+          -0.28116366419476047,
+          0.1642090289569605
+        ],
+        "receiver_delta_MSE": -0.04168603104061086
+      },
+      "constant": {
+        "elapsed_seconds": 301.9132726490061,
+        "correct_NLL": 0.6531410581385928,
+        "off_NLL": 1.2036653395691608,
+        "G": 0.5505242814305681,
+        "message_delta_MSE": 4.440892098500626e-16,
+        "message_CI95": [
+          -3.488980819879891e-16,
+          7.544807372150317e-16
+        ],
+        "receiver_delta_MSE": -0.1239969869014419
+      }
+    },
+    "double_shared_controls": {
+      "all4_raw_arrays_Bscores_rawscores_and_fitstates_exact_equal": true,
+      "raw_array_SHA256": "b22212988aa14556aeb55854936ccef69b271c2b70dd43bea23a5eac89219223",
+      "B_MSE": 3.1690580412746163,
+      "raw_delta_MSE": -0.14840254295509725,
+      "constant_message_max_row_difference": 0.0,
+      "constant_message_vs_B_prediction_max_difference": 1.7763568394002505e-15
+    },
+    "all_six_nonconstant_message_CI95_cross_zero": true,
+    "all_eight_receiver_point_deltas_negative": true,
+    "all8_donor_counts_zero_PH_undefined": true,
+    "all8_exit0_absent_groups_accepted_archives": true,
+    "all8_within840sec_RSS12GiB_GPU11_5GiB": true,
+    "sum8_worker_elapsed_seconds": 1701.9987173430272,
+    "information_release_receipt": "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/gpu_release_after_information_receipt.json",
+    "release_UTC": "2026-10-16T03:12:42.046979+00:00",
+    "all_owned_controller_worker_launcher_processes_and_groups_absent": true,
+    "fresh_independent_all_stage_process_scan_empty": true,
+    "GPU_compute_empty_at_release": true,
+    "original_failed_preflight_and_d524_science_da685_preserved": true,
+    "main_entry_local_links_independently_checked": 20,
+    "missing_local_links": 0,
+    "parent_reported_final_static_files": 24,
+    "parent_reported_local_refs_5docs": 65,
+    "latest_unified_test_receipt": "PROJECT_ROOT/results/foundation_20261016/tests_20261016_103606/result.json",
+    "latest_unified_unique_tests": 183,
+    "latest_unified_log_SHA_all_verified": true,
+    "completion_fixture_tests_separately_passed": 12,
+    "formal_research_remaining": [
+      "multi-seed confirmation and matched representation/parameter/compute budgets",
+      "verified same-condition KD pairs and assay constructs",
+      "independent donors/randomized labels/capacity or slot-deletion controls",
+      "exact RT source/PTM reconstruction and cross-condition training",
+      "broader B1 unseen classes",
+      "adjudicated B2QA/C3 atomic-fact gold",
+      "separate original-author system reproduction admission"
+    ],
+    "no_MI_complete_residue_retention_or_biological_causality_claim": true,
+    "general_model_superiority_established": false,
+    "reviewer_GPU_execution": false,
+    "only_owned_two_report_files_edited": true
+  },
+  "known4_information_review_revision17": {
+    "actual_jobs_reviewed_total": 4,
+    "newly_reviewed_without_repeating_prior2": [
+      "input_mlp_known_both",
+      "constant_known_both"
+    ],
+    "counts_each": {
+      "train": 2062,
+      "validation": 147,
+      "test": 152
+    },
+    "all_artifact_source_checkpoint_data_code_and_contract_bindings_verified": true,
+    "both_new_exit0_absentgroup_accepted_emptyerrors": true,
+    "all_new_probe_TRAINfit_val5alpha_selection_test_prediction_replay_max_difference": 0.0,
+    "all_new67physicalgroup2000draw_intervals_reproduced": true,
+    "new_jobs": {
+      "input_mlp_known_both": {
+        "elapsed_seconds": 142.01509795201127,
+        "C1_correct_NLL": 0.6671948095685557,
+        "C1_off_NLL": 1.2119851002567692,
+        "C1_G": 0.5447902906882135,
+        "message_delta_MSE": 0.13770214927202273,
+        "message_CI95": [
+          -0.19374760069121846,
+          0.4740177844245733
+        ],
+        "receiver_delta_MSE": -0.21096108400673286,
+        "receiver_CI95": [
+          -0.45448430192968214,
+          0.012390233898308475
+        ]
+      },
+      "constant_known_both": {
+        "elapsed_seconds": 145.53871810200508,
+        "C1_correct_NLL": 0.6564128589081136,
+        "C1_off_NLL": 1.2119851002567692,
+        "C1_G": 0.5555722413486556,
+        "message_delta_MSE": 0.0,
+        "message_CI95": [
+          0.0,
+          0.0
+        ],
+        "constant_message_max_row_difference": 0.0,
+        "receiver_delta_MSE": -0.057913252667204596,
+        "receiver_CI95": [
+          -0.36173762946794663,
+          0.22358254591720167
+        ]
+      }
+    },
+    "all4_exact_shared_input_sanity": {
+      "raw_arrays_equal": true,
+      "B_test_predictions_equal": true,
+      "raw_test_predictions_equal": true,
+      "all_B_and_raw_fit_states_equal": true,
+      "raw_array_SHA256": "0f52e69eb295652065e39a02a2449b68cb2941cfa8119aadca06928338d6fb6c",
+      "B_MSE": 3.0475890337126246,
+      "raw_delta_MSE": 0.06279528200412932
+    },
+    "all4_receiver_point_deltas_negative": true,
+    "C1_full152_each_and_zero_donors_PH_undefined": true,
+    "constant_G_positive_does_not_establish_protein_content_transfer": true,
+    "learned_constant_does_not_replace_independent_random_or_donor_controls": true,
+    "same152_test_examples_not608_independent_gold": true,
+    "remaining_double_new_jobs": 4,
+    "reviewer_GPU_used": false
+  },
+  "information_actual_review_revision16": {
+    "jobs_reviewed": 2,
+    "planned_jobs": 8,
+    "source": "results/foundation_20261016/information_diagnostics/v3_all8",
+    "common_full_counts": {
+      "train": 2062,
+      "validation": 147,
+      "test": 152
+    },
+    "exact_sample_order_artifact_source_code_checkpoint_and_contract_bindings_verified": true,
+    "both_exit0_absent_group_accepted_archive_empty_errors": true,
+    "wrapper58c_in_actual_executable_contracts": true,
+    "C1_full152_order_finite_NLL_positive_token_counts_means_recomputed": true,
+    "C1_donor_map_independently_recomputed_zero": true,
+    "P_H_correctly_undefined": true,
+    "actual_arrays": {
+      "raw": [
+        2361,
+        1280
+      ],
+      "message": [
+        2361,
+        1536
+      ],
+      "receiver": [
+        2361,
+        1536
+      ]
+    },
+    "all_arrays_finite": true,
+    "B200_TRAINstatistics_and_seed42_projection128_independently_reconstructed": true,
+    "all4probe328D_TRAINfits_5valalpha_trials_selectedalpha_and_test_scores_verified": true,
+    "max_saved_test_prediction_replay_difference_each": 0.0,
+    "all67physicalgroup2000draw_bootstrap_intervals_recomputed": true,
+    "shared_raw_array_SHA256": "0f52e69eb295652065e39a02a2449b68cb2941cfa8119aadca06928338d6fb6c",
+    "B_and_raw_identical_across_reviewed_methods": true,
+    "jobs": {
+      "internal_cross_attention_known_both_attempt2": {
+        "elapsed_seconds": 134.38267584099958,
+        "C1_correct_NLL": 0.6539162307193405,
+        "C1_off_NLL": 1.2119851002567692,
+        "C1_G": 0.5580688695374288,
+        "C1_units": "nats_per_answer_token",
+        "B_MSE": 3.0475890337126246,
+        "raw_delta_MSE": 0.06279528200412932,
+        "message_delta_MSE": -0.16699689076186663,
+        "receiver_delta_MSE": -0.32012766853291064,
+        "receiver_CI95": [
+          -0.600002379095923,
+          -0.034191465006658935
+        ]
+      },
+      "qformer_style_known_both": {
+        "elapsed_seconds": 139.041177719002,
+        "C1_correct_NLL": 0.6476212149780047,
+        "C1_off_NLL": 1.2119851002567692,
+        "C1_G": 0.5643638852787646,
+        "C1_units": "nats_per_answer_token",
+        "B_MSE": 3.0475890337126246,
+        "raw_delta_MSE": 0.06279528200412932,
+        "message_delta_MSE": -0.05034138573110081,
+        "receiver_delta_MSE": -0.2709142039469845,
+        "receiver_CI95": [
+          -0.49848226770995424,
+          -0.04229319069126339
+        ]
+      }
+    },
+    "negative_deltas_preserved": true,
+    "interpretation_limits": [
+      "C1G is presence sensitivity; zero independent donors prevents P/H content test",
+      "128D linear readout of mean/projection summaries, not complete residue retention",
+      "B text hash is lossy; receiver may reencode context",
+      "not total MI, bits, or biological causality",
+      "fixed checkpoint/single source seed; bootstrap excludes training-seed variation"
+    ],
+    "remaining_jobs_to_review": 6,
+    "constant_message_sanity_still_pending": true,
+    "reviewer_GPU_used": false
+  },
+  "BASE03_composite_final_review_revision14": {
+    "full_result_SHA256": "d296389d2462029663c00aa4383e3aeeaffa49a893049136cc41ef1a403815e2",
+    "full_unique_lineage_records": 873,
+    "all_lineage_fields_and_source_rawbytes_verified": true,
+    "all2936_canonical_source_seals_and_all_algorithm_model_admin_pins_verified": true,
+    "all_prediction_plan_lineage_SHA_verified": true,
+    "validation": {
+      "total_unique_source_order": 431,
+      "valid": 339,
+      "failed": 92,
+      "new_records": 0,
+      "source_all_MAE": 1.602326020227852,
+      "generated_valid_MAE": 4.992587529681867,
+      "generated_full_MAE": null
+    },
+    "test": {
+      "total_unique_source_order": 442,
+      "valid": 336,
+      "failed": 106,
+      "original_records": 246,
+      "new_disjoint_records": 196,
+      "new_invalid": 54,
+      "source_all_MAE": 1.4210855003430791,
+      "generated_valid_MAE": 4.638924016351397,
+      "generated_full_MAE": null
+    },
+    "original677_payloads_byte_identical": true,
+    "original_invalid144_retained_never_retried": true,
+    "all873_payload_prompt_inputIDs_counts_outputID_decode_and_strictparse_match": true,
+    "all_frozen_metrics_independently_recomputed": true,
+    "source_numeric_independent_replay_max_difference": 0.0,
+    "cost": {
+      "original_timeout_seconds": 1200.700283202008,
+      "complement_seconds": 363.26979181499337,
+      "aggregate_seconds": 1563.9700750170014,
+      "sum_exact": true
+    },
+    "complement_exit_code": 0,
+    "complement_group_absent": true,
+    "complement_archive_accepted_errors_empty": true,
+    "original_timeout_failure_record_and_partial_stage_preserved": true,
+    "original_single_job_completed": false,
+    "stage_deadline_UTC": "2026-10-16T02:32:32.279805+00:00",
+    "completion_ended_UTC": "2026-10-16T02:22:55.023334+00:00",
+    "post_archive_SHA_bindings_verified": 104,
+    "all4_actual_watchdog_receipts_ended_children_None": true,
+    "release_UTC": "2026-10-16T02:23:50.750902+00:00",
+    "release_owned_processes_empty_and_GPU_compute_empty": true,
+    "independent_current_oldstage_process_scan_empty": true,
+    "derived_channel_rows": 20,
+    "derived_unique_scenario_method_mode_keys": 20,
+    "double_BASE03_aggregate_unique_in_index": true,
+    "source1_42109_lower_than_internal1_50137": true,
+    "general_model_superiority_claim_supported": false,
+    "C1_C2_scientific_results_observed_at_composite_review": 0
+  },
+  "information_metadata_contractfix_review_revision15": {
+    "old_wrapper_SHA256_preserved": "d524f3c3ee9ac9fee028beb011f772f73ceb3355b5dfdf09d79eefaebc259ab5",
+    "new_wrapper_SHA256": "58c49f979c57cf9182b5b55361e68a6eb6a07d72225590926a474bdaf4727168",
+    "science_v3_SHA256_unchanged": "da6850d37fdbdf30a555b6f77e06a8f2a040d2f10610412d20115440e13010d9",
+    "only_exact_change": "add actual benchmark_lock.json manifest_path/manifest_sha256; samples path/SHA retained",
+    "old_prelaunch_failure_preserved_file_hashes": 8,
+    "old_failed_worker_started": false,
+    "old_failed_GPU_inference_calls": 0,
+    "real_CPU_contract_SHA256": "940363d991937288778ba2ba7f5c126d085dfac5e48db6a84d0c98ee9e442bf6",
+    "real_CPU_contract_non_template_frozen": true,
+    "independent_full_check_files_positive": {
+      "valid_for_execution": true,
+      "errors": [],
+      "blockers": [],
+      "physical_references_checked": 24
+    },
+    "samples_SHA_and_actual_lock_manifest_SHA_match": true,
+    "independent_negative_missing_manifestSHA_refused": true,
+    "independent_negative_wrong_manifestSHA_mismatch_refused": true,
+    "CPU_canary_worker_started": false,
+    "CPU_canary_Torch_imported": false,
+    "new_plan_jobs": 8,
+    "first_job_attempt2_isolated_old_failed_path_preserved": true,
+    "all8_commands_use_new_wrapper": true,
+    "owner_notified_to_resume_standing8job_authorization_after_freshprobes": true,
+    "actual_scientific_information_results_reviewed": false,
+    "reviewer_GPU_operations": 0
+  },
+  "completion_v2_admission_review_revision13": {
+    "reviewer_P2_gates_can_be_lifted": true,
+    "scope": "exact sealed196missingTEST complement of independently verified original timeout failure",
+    "SHA256": {
+      "wrapper": "c42335c743f4f2b1372cc9dbfe21ecd5f88c3c45ae87b8bb8602413a65dd4700",
+      "core": "b09d6400cbf88ba811f9d412ccc6c50468956fea35a2d3170148487bbb9b1cc2",
+      "plan": "553feeb0efab933392cab4809716c47bbb052424f36976a8843e256cfb8f95ad",
+      "draft": "771918a52aac6b95a1a0fe2a6de9c73b4891c670e450e36cad8bf0a1aaca4402",
+      "retained12CPU_test_log": "5928ee57b52d3ea240315ee8d99f5df0665fac211b5dfa8f33b7068dabf487b2"
+    },
+    "independent_CPU_tests_passed": 12,
+    "real_CPU_exit3_stderr_hash_and_groupabsence_verified": true,
+    "real_CPU_timeout_and_SIGINT_terminalreceipts_verified": true,
+    "canonical_source_rows_all2936_verified": true,
+    "original_nine_admin_file_seals_verified": true,
+    "original_registration_receipt_and_partial_hashes_verified": true,
+    "all_algorithm_and_prior_model_pins_match": true,
+    "exact_missing": {
+      "validation": 0,
+      "test": 196
+    },
+    "original_invalid_completed_preserved": {
+      "validation": 92,
+      "test": 52
+    },
+    "row_lineage_canonical_row_SHA_added": true,
+    "source_actual_timeout_failed_archive_and_groupabsence_verified": true,
+    "failed_or_interrupted_complement_archived_before_raise": true,
+    "draft_errors": [],
+    "draft_execution_blockers": [
+      "contract is not frozen"
+    ],
+    "draft_denominator": 196,
+    "draft_timeout_seconds": 1110,
+    "unchanged_tokens": 24,
+    "absolute_stage_deadline_UTC": "2026-10-16T02:32:32.279805+00:00",
+    "absolute_stage_deadline_local": "2026-10-16T10:32:32.279805+08:00",
+    "complement_running_record_at_review": false,
+    "reviewer_started_GPU": false,
+    "launch_still_requires": [
+      "parent explicit release",
+      "fresh idle resource probe",
+      "newly frozen executable contract",
+      "remainingtime cleanup reserve without deadlineextension"
+    ],
+    "actual_aggregate_complete_or_verified": false,
+    "postrun_remaining": [
+      "196literalnewrecords",
+      "431validation442TEST byte and perrow lineage",
+      "full failure denominators",
+      "both actual worker costs and receipts",
+      "accepted archive and process-group absence"
+    ]
+  },
+  "BASE03_partial_and_wrapper_review_revision12": {
+    "original_job": "gpu_suite_double_new_recovery1/recovery1_double_new_pipeline_BASE03_seed17",
+    "original_exit_code": -15,
+    "original_reason": "timeout",
+    "original_elapsed_seconds": 1200.700283202008,
+    "original_group_absent": true,
+    "original_failed_archive_accepted_errors_empty": true,
+    "original_watchdog_ended_all_nine_tracked_workers_absent": true,
+    "original_scientific_result_exists": false,
+    "physical_partial": {
+      "validation": {
+        "full": 431,
+        "complete": 431,
+        "valid": 339,
+        "invalid_completed": 92,
+        "missing": 0,
+        "outer_tail_bytes": 0,
+        "SHA256": "6b33c55f4f82d6f7a09ea8ab7cba61fe711a3480ae628799add67edf5504a7f9"
+      },
+      "test": {
+        "full": 442,
+        "complete": 246,
+        "valid": 194,
+        "invalid_completed": 52,
+        "missing": 196,
+        "outer_tail_bytes": 0,
+        "SHA256": "f99b5663e0763ea2c5e22fcec4aabd12b5bdb9f6ab20300152bb41eab1d8348a"
+      },
+      "both_sequences_exact_source_prefix": true,
+      "invalid_completed144_must_not_be_retried": true
+    },
+    "initial_complement_wrapper_SHA256": "9870eee1c10723710f2a679d03ea539f6266d1d5ce64f507fac8b159b2736b11",
+    "open_P2": [
+      "registration/receipt seals not enforced and source archive timeout binding incomplete",
+      "interruption/failed complement terminal archival incomplete"
+    ],
+    "additional_acceptance_requirement": "explicit canonical source-rowSHA in plan and lineage; changedrow and exactmissing196 fixtures",
+    "GPU_complement_admitted": false,
+    "frozen_algorithm_changes_allowed": false,
+    "original_stage_deadline_local": "2026-10-16 10:32:32 Asia/Shanghai"
+  },
+  "completion_core_review_revision11": {
+    "source": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new_recovery1/pipeline_completion/pipeline_completion_core.py",
+    "source_SHA256": "7074eac3c8af00416d709fbc9fe54d5d0e374be61fdd4a19efa36525168846e9",
+    "tests_SHA256": "265da27e80320dd882573da468c9ddde5a1b202f9d7fdfb0a6c1a29a0392066c",
+    "independent_CPU_passed": 6,
+    "no_scientific_result_or_GPU_created": true,
+    "verified": [
+      "parse-invalid model responses remain completed and are never retried",
+      "readable complete outer JSON without newline remains completed",
+      "only unparseable final outer-record bytes quarantined as incomplete tail",
+      "unknown duplicate wrongsplit interiorbadline missingschema or changedpromptSHA rejected",
+      "exact nonoverlapping full ID universe restored in original order",
+      "original payload bytes unchanged except absent line delimiter",
+      "perrow sourcepath line schema rawlineSHA rawtextSHA tokenSHA payloadSHA lineage"
+    ],
+    "blocking_P1_P2_in_core": false,
+    "core_does_not_prove": [
+      "complete canonical source row SHA",
+      "model/selection/prompt parameter identity",
+      "original cap failure and process absence",
+      "new bounded frozen contract",
+      "bothsegments actual elapsed/terminal receipts"
+    ],
+    "wrapper_or_contract_reviewed": false,
+    "GPU_complement_admitted": false,
+    "original_recovery_stage_deadline_local": "2026-10-16 10:32 Asia/Shanghai",
+    "aggregate_required_full_counts": {
+      "validation": 431,
+      "test": 442
+    },
+    "remaining_requirement": "Review independent wrapper/negative fixtures and actual original terminal cap state before any complement; no continuation if original succeeds within cap"
+  },
+  "double_new_constant_and_continuation_review_revision10": {
+    "constant": {
+      "result": "gpu_suite_double_new_recovery1/recovery1_double_new_train_constant_seed17/artifacts/result.json",
+      "whole_split_rows_order_equal_source": {
+        "train": 2063,
+        "validation": 431,
+        "test": 442
+      },
+      "epochs": 3,
+      "steps": 1548,
+      "best_epoch_validation_only": 3,
+      "trainable_parameters": 24576,
+      "correct": {
+        "total_unique_ordered": 442,
+        "valid": 442,
+        "failed": 0,
+        "full_MAE": 1.767973032830928
+      },
+      "off": {
+        "total_unique_ordered": 442,
+        "valid": 70,
+        "failed": 372,
+        "conditional_MAE": 3.966509197195959,
+        "full_MAE": null
+      },
+      "all_artifact_checkpoint_manifest_data_lock_hashes_match": true,
+      "record_contract_binding_matches": true,
+      "exit_code": 0,
+      "group_absent": true,
+      "archive_accepted_errors_empty": true,
+      "wall_seconds": 831.054678703993,
+      "CPU_checkpoint": {
+        "registration_epoch_NLL_equal": true,
+        "state_keys": [
+          "constant_tokens"
+        ],
+        "all_finite_CPU": true,
+        "numel": 24576
+      }
+    },
+    "all_eight_connector_training_runs_reviewed": true,
+    "double_BASE03_terminal_receipt_available": false,
+    "complement_helper_reviewed": false,
+    "complement_admitted": false,
+    "complement_preconditions": [
+      "original actual cap failure and absent owned PGID; do not complement success",
+      "new separate frozen contract referencing unchanged failed/partial attempt",
+      "all5lockedalgorithmSHA unchanged; sameprompt/model/selection/seed24tokens",
+      "exact missing canonical complete-rowSHA/IDs/splits/originalorder complement",
+      "no partial overwrite/repair/regeneration/duplicate",
+      "aggregate full431validation+442test exactlyonce in physicalorder",
+      "perrecordsource segment/path/line/hash provenance",
+      "unchanged parser/evaluator keeps generation failures and independent source numeric channel",
+      "bothactualelapsed costs and terminalreceipts visible",
+      "original stage deadline not extended",
+      "CPU negative fixtures and independent helper audit before release"
+    ],
+    "information_GPU_scientific_result_reviewed": false,
+    "current_scope": "all8connector runs verified; BASE03 continuation remains a proposal pending actual cap state and helper review"
+  },
+  "double_new_recovery_three_architecture_review_revision9": {
+    "suite": "gpu_suite_double_new_recovery1",
+    "actual_source_split_rows": {
+      "train": 2063,
+      "validation": 431,
+      "test": 442
+    },
+    "whole_snapshot_rows_and_order_equal_physical_source": true,
+    "common_registration": {
+      "seed": 17,
+      "epochs": 3,
+      "batch_size": 4,
+      "max_new_tokens": 24,
+      "subset_limits": null,
+      "modes": [
+        "correct",
+        "off"
+      ]
+    },
+    "methods": {
+      "input_mlp": {
+        "best_epoch": 3,
+        "steps": 1548,
+        "correct_valid": 442,
+        "correct_full_MAE": 1.9056241964989176,
+        "wall_seconds": 867.1643077650078
+      },
+      "qformer_style": {
+        "best_epoch": 2,
+        "steps": 1548,
+        "correct_valid": 442,
+        "correct_full_MAE": 1.7817553394446919,
+        "wall_seconds": 870.2429526060005
+      },
+      "internal_cross_attention": {
+        "best_epoch": 2,
+        "steps": 1548,
+        "correct_valid": 442,
+        "correct_full_MAE": 1.5013685606314315,
+        "wall_seconds": 755.1050236979936
+      }
+    },
+    "each_prediction_mode": {
+      "total": 442,
+      "unique_IDs": 442,
+      "same_physical_test_order": true
+    },
+    "each_off": {
+      "valid": 70,
+      "failed": 372,
+      "valid_only_MAE": 3.966509197195959,
+      "full_MAE": null
+    },
+    "raw_record_MAE_tolerance": 1e-12,
+    "all_artifact_checkpoint_manifest_samples_lock_SHA_verified": true,
+    "all_result_record_contract_bindings_verified": true,
+    "each_exit0_groupabsent_archive_accepted_errors_empty": true,
+    "CPU_weights_only_checkpoint_review": {
+      "registration_selected_epoch_validation_NLL_equal_result": true,
+      "all_tensors_finite_CPU": true,
+      "no_backbone_tensors": true,
+      "state_numel_equal_registered_trainable_capacity": true
+    },
+    "validation_only_earliest_selection_verified": true,
+    "independent_bootstrap": {
+      "groups": 125,
+      "draws": 2000,
+      "seed": 2026,
+      "MLP_minus_qformer": {
+        "MAE_difference": 0.12386885705422583,
+        "CI95": [
+          0.014381825267564445,
+          0.23391127375181542
+        ]
+      },
+      "MLP_minus_internal": {
+        "MAE_difference": 0.4042556358674859,
+        "CI95": [
+          0.26962720845089494,
+          0.5325027038341807
+        ]
+      },
+      "training_seed_uncertainty_or_multiplicity_adjustment": false
+    },
+    "interpretation": "Observed ordering depends on scenario; known-target internal-vs-constant negative result is not extrapolated to double-new; unequal architecture budgets retained",
+    "original_failed_attempt_preserved_as_failed_with_no_result": true,
+    "double_new_constant_and_BASE03_terminal_reviewed": false,
+    "information_scientific_results_n": 0,
+    "GPU_computation_by_reviewer": false,
+    "remaining_audit": [
+      "double-new constant and BASE03 terminal literal records/source numeric separation",
+      "all remaining contract/receipt/archive hashes",
+      "actual C1/C2 arrays/statistics/full denominators",
+      "recovery suite and watchdog terminal process-group absence",
+      "final derived report scope and failure preservation"
+    ]
+  },
+  "information_source_admission_resolution_revision8": {
+    "P2_can_be_closed": true,
+    "wrapper_SHA256": "d524f3c3ee9ac9fee028beb011f772f73ceb3355b5dfdf09d79eefaebc259ab5",
+    "science_script_SHA256_unchanged": "da6850d37fdbdf30a555b6f77e06a8f2a040d2f10610412d20115440e13010d9",
+    "protocol_revision": 3,
+    "independent_CPU_tests_passed": 27,
+    "source_admission_new_cases": 9,
+    "negative_cases": [
+      "missing terminal archive",
+      "nonzero source exit",
+      "source group remains",
+      "validation not accepted",
+      "contract hash changed",
+      "scientific-result artifact hash changed",
+      "best checkpoint changed",
+      "record/receipt PID mismatch"
+    ],
+    "actual_known4_sources_independent_stdlib_check": {
+      "input_mlp": true,
+      "qformer_style": true,
+      "internal_cross_attention": true,
+      "constant": true,
+      "torch_imported": false
+    },
+    "physical_gates_reviewed": [
+      "successful accepted training record",
+      "true-int exit0/groupabsent/no termination",
+      "contract physical path/SHA/taskrun binding",
+      "command/PID/PGID/receipt binding",
+      "every archived artifact local containment/size/SHA",
+      "scientific result and receipt mandatory archived hashes",
+      "stdout/stderr receipt hashes",
+      "best checkpoint physical path/SHA",
+      "manifest SHA",
+      "full same scenario seed17 and3epochs"
+    ],
+    "retained_fixture_log_SHA256": "a28648b6e96b3ea02b44fbd16b99e1e33d2ba44e7cd0c5010dbc8971030c5375",
+    "retained_actual_known4_receipt_SHA256": "c43c6c4eb5fbed907f9311316d4e429f621cd478298b9e3e6a8e860ba4106b75",
+    "new_plan": "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/sequential_execution_plan_v3_source_admission.json",
+    "scientific_information_GPU_result_available": false,
+    "GPU_operation_by_reviewer": false,
+    "release_conditions_still_apply": "fresh exact-job resource probe, frozen contract, per-job bounded execution and later actual output/terminal audit"
+  },
+  "information_protocol3_review_revision7": {
+    "source_SHA256": {
+      "information_diagnostics.py": "da6850d37fdbdf30a555b6f77e06a8f2a040d2f10610412d20115440e13010d9",
+      "execute_information.py": "f8eb35d6c127c8a43a43cbea54ae353200cda8bdab35bc1f84b3febddf41f1ea",
+      "test_foundation_information.py": "03efd4b04f8d09abcd1883c18938d4dd889f4d69a2e0f73f96134cc0848d0d28"
+    },
+    "readiness_source_hashes_match_at_review": true,
+    "readiness_CPU_log_hash_match": "4bac397f6ac46eac24bc6c4d60a1969b94421f69c4bc5c5a95475168291a2e9e",
+    "independent_CPU_tests_passed": 18,
+    "C1": {
+      "score": "S=-per-sample mean answer-token NLL",
+      "G": "NLL_off-NLL_correct",
+      "P": "NLL_mismatch-NLL_correct",
+      "H": "NLL_mismatch-NLL_off",
+      "P_equals_G_plus_H": true,
+      "denominator": "all locked test rows for correct/off",
+      "target": "same two-decimal serialized gold answer",
+      "independent_donors_known": 0,
+      "independent_donors_double": 0,
+      "P_H_status": "undefined_zero_independent_donors"
+    },
+    "C2": {
+      "state_input": "prompt-only; labels rejected",
+      "B_dimensions": 200,
+      "B_composition_chemistry_missingness": 52,
+      "B_ContextEncoder": 148,
+      "extra_dimensions_each": 128,
+      "four_probe_input_dimensions_each": 328,
+      "probes": [
+        "B+zero128",
+        "B+raw128",
+        "B+message128",
+        "B+receiver128"
+      ],
+      "numeric_scalers_fit_split": "TRAIN_only",
+      "projection": "TRAIN-standardized fixed Gaussian128 seed42",
+      "alpha_selection": "minimum validation MSE; same5alphas earliest tie",
+      "test_scoring": "after selection once per probe",
+      "bootstrap_unit": "physical locked group_id, all rows retained",
+      "delta_units": "pKD_squared; not bits or causality"
+    },
+    "constant_message": "No sample-varying information; theoretical augmented ridge equals baseline up to numerical effects; receiver context transformations require separate control interpretation",
+    "wrapper": {
+      "stdlib_import_before_Torch": true,
+      "worker_parent_death_SIGKILL_and_PPID_guard": true,
+      "whole_group_RSS_watchdog": true,
+      "subreaper_and_group_wait": true,
+      "SIGINT_SIGTERM_finally_cleanup": true,
+      "max_seconds_each": 840,
+      "CPU_threads": 2,
+      "RSS_limit_bytes": 12884901888,
+      "Torch_GPU_limit_bytes": 12348030976,
+      "original_deadline_local": "2026-10-16T17:18:00+08:00",
+      "source_accepted_archive_gate": "P2_pending_owner_fix"
+    },
+    "scientific_information_result_available": false,
+    "GPU_executed_by_reviewer": false,
+    "required_owner_resolution": "Source terminal exit0/groupabsence + accepted successful archive/contract/hash pins; positive known-source and missing/failed/changed evidence CPU fixtures; refresh readiness SHA"
+  },
+  "known_target_final_review_revision6": {
+    "suite": "gpu_suite",
+    "all_four_connectors_and_BASE03_terminal_reviewed": true,
+    "BASE03": {
+      "selected_architecture": "MEANPOOL",
+      "validation_candidates_MAE": {
+        "BASE01": 1.2975516625841486,
+        "MEANPOOL": 1.2869575520333176
+      },
+      "new_optimizer_steps": 0,
+      "exit_code": 0,
+      "group_absent": true,
+      "archive_accepted_no_errors": true,
+      "registration_prediction_and_all_input_pin_hashes_match": true,
+      "source_estimates_exactly_match_frozen_independent_replay": true,
+      "maximum_source_replay_difference": 0.0,
+      "prompt_hashes_match": true,
+      "structured_estimates_equal_source_values": true,
+      "direct_gold_ID_sequence_payload_keys_absent": true,
+      "validation": {
+        "n_unique_ordered": 147,
+        "n_valid": 81,
+        "n_failed": 66
+      },
+      "test": {
+        "n_unique_ordered": 152,
+        "n_valid": 91,
+        "n_failed": 61,
+        "source_all_MAE": 1.4686985760783524,
+        "source_same_valid_MAE": 1.3814002431690247,
+        "generated_valid_MAE": 5.922364502805869,
+        "generated_full_sample_MAE": null,
+        "source_preservation_MAE_valid": 5.283050853145698
+      },
+      "independently_recomputed_MAE_tolerance": 1e-12,
+      "source_numeric_is_separate_channel_not_repaired_generation": true,
+      "source_rendering_failure_is_not_optimized_pipeline_superiority_evidence": true
+    },
+    "constant": {
+      "exit_code": 0,
+      "group_absent": true,
+      "archive_accepted_no_errors": true,
+      "all_artifact_hashes_match": true,
+      "epochs": 3,
+      "updates": 1548,
+      "trainable_parameters": 24576,
+      "correct": {
+        "n_total_unique_ordered": 152,
+        "n_valid": 152,
+        "MAE": 1.9656087454219924
+      },
+      "off": {
+        "n_total_unique_ordered": 152,
+        "n_valid": 27,
+        "n_failed": 125,
+        "conditional_MAE": 3.1491419033118215,
+        "full_MAE": null
+      }
+    },
+    "internal_vs_constant": {
+      "internal_MAE": 2.1613332667319782,
+      "constant_MAE": 1.9656087454219924,
+      "constant_minus_internal": -0.19572452130998652,
+      "independent_group_bootstrap_95_interval": [
+        -0.3424609575991278,
+        -0.05819941920622589
+      ],
+      "groups": 67,
+      "draws": 2000,
+      "seed": 2026,
+      "interpretation": "Internal is worse in this fixed known-target run; not evidence of superiority over constant. Descriptive fixed checkpoint only; no training-seed uncertainty or multiplicity correction."
+    },
+    "initial_watchdog_terminal_all_four_children_absent": true
+  },
+  "second_scenario_recovery_review_revision6": {
+    "failed_attempt": "gpu_suite_double_new/double_new_train_input_mlp_seed17",
+    "failed_attempt_updates": 27,
+    "failed_attempt_test_events": 0,
+    "failed_attempt_test_files": 0,
+    "failed_attempt_terminal_result_exists": false,
+    "failed_attempt_exit_code": 1,
+    "failed_attempt_group_absent": true,
+    "failed_attempt_stdout_stderr_hashes_match": true,
+    "failed_archive_valid_does_not_mean_experiment_succeeded": true,
+    "failure": "CUBLAS_STATUS_INTERNAL_ERROR; root cause unverified, not classified as OOM",
+    "train_only_diagnostics_exit0_group_absent_archive_accepted": true,
+    "prefix_diagnostic_updates": 28,
+    "recovery": "gpu_suite_double_new_recovery1",
+    "same_training_hyperparameters_and_sample_hash": true,
+    "same_five_algorithm_source_hashes_match_current": true,
+    "runtime_flags": {
+      "CUDA_LAUNCH_BLOCKING": "1",
+      "TORCH_SHOW_CPP_STACKTRACES": "1"
+    },
+    "original_start_local": "2026-10-16T07:18:00+08:00",
+    "original_deadline_local": "2026-10-16T17:18:00+08:00",
+    "heldout_results_seen_before_revision": false,
+    "bitwise_bf16_equivalence_claimed": false,
+    "recovery_training_terminal_result_available": false,
+    "recovery_contract_valid_for_execution": true,
+    "recovery_watchdog_heartbeat_present": true,
+    "recovery_scientific_completion_claimed": false
+  },
+  "identity_clarification_review_revision6": {
+    "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/identity_clarification_receipt.json",
+    "append_only": true,
+    "original_pdf_version_field": "published",
+    "clarified_pdf_version": "accepted_manuscript",
+    "actual_text_evidence": "ARTICLE IN PRESS; unedited manuscript before final publication",
+    "PDF_and_text_SHA_match": true,
+    "original_frozen_contracts_SHA_match_count": 9,
+    "scientific_inputs_or_predictions_changed": false
+  },
+  "verified_resolutions_revision4": {
+    "pipeline_source_sha256": "56c0465d923984f58fec3c3812757d27299fe5980c005bbfbdde8343cf6cb049",
+    "unified_tests_receipt": "PROJECT_ROOT/results/foundation_20261016/tests_20261016_075513/result.json",
+    "all_three_log_hashes_verified": true,
+    "windows_existing": {
+      "discovered": 106,
+      "passed": 95,
+      "skipped": 11,
+      "exit_code": 0
+    },
+    "WSL_existing_panel": {
+      "passed": 16,
+      "exit_code": 0,
+      "covers_windows_skipped_test_classes": true
+    },
+    "WSL_foundation": {
+      "passed": 53,
+      "exit_code": 0
+    },
+    "initial_controller_source_edited": false,
+    "external_watchdog": {
+      "source": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/external_watchdog.py",
+      "receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite/external_watchdog_receipt.json",
+      "controller_pid": 201697,
+      "watchdog_pid": 203186,
+      "independent_process_check_utc": "2026-10-15T23:56:36.517143+00:00",
+      "both_expected_processes_exist": true,
+      "heartbeat_current": true,
+      "terminal_outcome_reviewed": false
+    },
+    "future_controller": {
+      "source": "PROJECT_ROOT/scripts/foundation_20261016/execute_gpu_double_new.py",
+      "owned_group_finally_cleanup": true,
+      "SIGINT_SIGTERM_handlers": true,
+      "worker_PDEATHSIG_and_PPID_race_checks": true,
+      "cpu_interrupt_fixture_receipt": "PROJECT_ROOT/results/foundation_20261016/gpu_suite_double_new/cpu_interrupt_fixture/fixture_result.json",
+      "fixture_exit_code": -15,
+      "fixture_group_absent": true,
+      "fixture_GPU_used": false,
+      "future_GPU_completion_inferred": false
+    },
+    "presentation": {
+      "future_BASE03_key_corrected": true,
+      "final_derived_index_with_both_modes_and_capacity_semantics_verified": true,
+      "verification_revision": 5
+    },
+    "entire_GPU_suite_complete": false
+  },
+  "derived_reporting_review_revision5": {
+    "source": "PROJECT_ROOT/scripts/foundation_20261016/make_report.py",
+    "report": "PROJECT_ROOT/reports/foundation_results_20261016.md",
+    "machine_data": "PROJECT_ROOT/results/foundation_20261016/derived_comparison.json",
+    "reporting_tests_independently_passed": 4,
+    "BASE03_actual_schema_fixture_full_mae": 1.5,
+    "BASE03_actual_terminal_result_observed": false,
+    "both_modes_explicit": true,
+    "failed_full_mae_remains_null": true,
+    "paired_27_subset_explicit": true,
+    "budget_semantics_and_scope_limits_explicit": true,
+    "actual_terminal_methods": [
+      "input_mlp",
+      "qformer_style",
+      "internal_cross_attention"
+    ],
+    "each_method_receipt_exit_zero_group_absent_archive_accepted": true,
+    "each_method_artifact_hashes_verified": true,
+    "each_mode_n_unique_and_snapshot_order_verified": 152,
+    "correct_valid_n_each": 152,
+    "off_valid_n_each": 27,
+    "correct_MAE": {
+      "input_mlp": 1.9962375221398578,
+      "qformer_style": 1.442674172563715,
+      "internal_cross_attention": 2.1613332667319782
+    },
+    "off_conditional_MAE_each": 3.1491419033118215,
+    "derived_and_recomputed_MAEs_tolerance": 1e-12,
+    "constant_terminal_result_reviewed": false,
+    "second_scenario_terminal_results_reviewed": false,
+    "entire_suite_complete": false
+  },
+  "completed_generation_review": {
+    "run": "gpu_suite/train_input_mlp_seed17",
+    "exit_code": 0,
+    "process_group_absent": true,
+    "valid_for_acceptance": true,
+    "archive_errors": [],
+    "artifact_sha256_all_recomputed_equal": true,
+    "correct": {
+      "n_total": 152,
+      "n_unique": 152,
+      "snapshot_ID_order_equal": true,
+      "n_valid": 152,
+      "n_failed": 0,
+      "parse_valid_rate": 1.0,
+      "independently_recomputed_mae": 1.9962375221398578,
+      "full_sample_mae": 1.9962375221398578
+    },
+    "off": {
+      "n_total": 152,
+      "n_unique": 152,
+      "snapshot_ID_order_equal": true,
+      "n_valid": 27,
+      "n_failed": 125,
+      "parse_valid_rate": 0.17763157894736842,
+      "independently_recomputed_valid_only_mae": 3.1491419033118215,
+      "full_sample_mae": null
+    },
+    "population_comparison_warning": "Correct full152 MAE versus off valid27 MAE is not a whole-population intervention MAE comparison; parsing coverage must remain explicit",
+    "remaining_architectures_or_scenario_complete": false
+  },
+  "architecture_interpretation": {
+    "equal_representation_budget": false,
+    "fixed_prefix_tokens": 16,
+    "internal_key_count": "all valid contextual ESM peptide and target residues; num_memory_tokens is unused by internal attention",
+    "internal_extra_LM_positions": 0,
+    "prefix_extra_LM_positions": 16,
+    "known_target_full_lock": {
+      "rows": 2361,
+      "maximum_total_residues": 3429,
+      "mean_peptide_fraction": 0.04956262706575412,
+      "minimum_peptide_fraction": 0.0014602803738317756,
+      "peptide_fraction_below_one_sixteenth_rows": 1749
+    },
+    "canary_trainable_parameters": {
+      "input_mlp": 282752,
+      "qformer_style": 350848,
+      "internal_cross_attention": 548608,
+      "constant": 24576
+    },
+    "canary_peak_allocated_bytes": {
+      "input_mlp": 7651422720,
+      "qformer_style": 7677833728,
+      "internal_cross_attention": 6453487616,
+      "constant": 7578859520
+    },
+    "not_an_automatic_code_bug": true,
+    "required_interpretation": "Foundation end-to-end architectures differ in compression and key/LM-position/parameter budgets; do not isolate internal-location advantage from these confounders",
+    "future_controls": [
+      "molecule-balanced peptide/target pooling",
+      "internal attention over same 16 compressed keys",
+      "preregistered token/parameter budget sweep",
+      "matched training and decoding budgets"
+    ],
+    "summary_metadata_needed": [
+      "effective variable key count",
+      "added LM positions",
+      "source length distribution",
+      "trainable and frozen parameters",
+      "observed timing and peak allocated/reserved memory",
+      "both correct and off metrics",
+      "BASE03 generated_pKD_mae_valid_only"
+    ]
+  }
+}

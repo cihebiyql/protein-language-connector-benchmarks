@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T09:44:02.894749+00:00",
+  "reviewer": "matched_protocol_review",
+  "status": "pass_no_endpoint_drift_or_unsupported_causal_claim_found",
+  "scope": "Read-only explanation audit of supplied README, numeric controls, fixed eight-case snapshot, residual literature and frozen protocol; no model, fit, process control or GPU",
+  "reviewed_source_sha256": {
+    "reports/benchmark_clarity_20261016/README.md": "7c962ef400dd123208274ca3aef507b997ec6d9ad8b44efb0ac9982810a05107",
+    "reports/benchmark_clarity_20261016/numeric_reference_audit.md": "c17d31564eb092f8d245b18b3ecb7e544604da5c8f9ad1b0391236633d0a77c5",
+    "reports/benchmark_clarity_20261016/numeric_reference_audit.json": "3912f4bd98d866185dcd36f0fdf9c29030b4ae595716b1e7d76283e65ac14602",
+    "reports/benchmark_clarity_20261016/interim_mechanism_8cases.md": "d3dd7c91f4e189381c4c00d51c006d4bd572ae5e018ded861290431a2263563c",
+    "reports/benchmark_clarity_20261016/interim_mechanism_8cases.json": "a617f7d26e8e5be5a2f98e4758599933518e80cd085a1624e76eeea2c72c035a",
+    "reports/benchmark_clarity_20261016/residual_scale_literature.md": "de114e78e8b74f575d108b7c9aa8e51c85d2979fbff99c1ecc4813b6217f94ac",
+    "reports/benchmark_clarity_20261016/residual_scale_literature.json": "5c5e10e3e9f5e630721b2301fd37c0bda384aefd1c1d0db19fbf116bb1e920e2",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208"
+  },
+  "findings": [],
+  "severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "independent_checks_summary": {
+    "checks": 123,
+    "passed": 123,
+    "raw_saved_generation_rows_reparsed": 2376,
+    "saved_artifact_pin_checks": 72,
+    "case_selections_checked": 8,
+    "frozen_signed_contrasts_checked": 14,
+    "maximum_raw_MAE_recalculation_difference": 1.1102230246251565e-15,
+    "arithmetic_tolerance_note": "1e-12 is a read-only floating arithmetic consistency guard, not a new benchmark score or acceptance threshold"
+  },
+  "selection_checks": [
+    {
+      "case_id": "trial_new_peptide_known_target_17_early_real_balanced_zero",
+      "selected_epoch": 1,
+      "minimum_original_full_validation_NLL_epoch": 1,
+      "passed": true
+    },
+    {
+      "case_id": "trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+      "selected_epoch": 1,
+      "minimum_original_full_validation_NLL_epoch": 1,
+      "passed": true
+    },
+    {
+      "case_id": "trial_new_peptide_known_target_17_mid_real_balanced_zero",
+      "selected_epoch": 1,
+      "minimum_original_full_validation_NLL_epoch": 1,
+      "passed": true
+    },
+    {
+      "case_id": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero",
+      "selected_epoch": 1,
+      "minimum_original_full_validation_NLL_epoch": 1,
+      "passed": true
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_early_real_balanced_zero",
+      "selected_epoch": 2,
+      "minimum_original_full_validation_NLL_epoch": 2,
+      "passed": true
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_early_neutral_balanced_zero",
+      "selected_epoch": 2,
+      "minimum_original_full_validation_NLL_epoch": 2,
+      "passed": true
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_mid_real_balanced_zero",
+      "selected_epoch": 1,
+      "minimum_original_full_validation_NLL_epoch": 1,
+      "passed": true
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero",
+      "selected_epoch": 3,
+      "minimum_original_full_validation_NLL_epoch": 3,
+      "passed": true
+    }
+  ],
+  "contrast_checks": [
+    {
+      "scenario": "new_peptide_known_target",
+      "name": "depth_real",
+      "reported_seed17": -0.14596469948859672,
+      "independent_formula_value": -0.14596469948859658,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "name": "depth_neutral",
+      "reported_seed17": -0.5243968786414849,
+      "independent_formula_value": -0.524396878641485,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "name": "content_early",
+      "reported_seed17": -0.16833744000760426,
+      "independent_formula_value": -0.16833744000760453,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "name": "content_mid",
+      "reported_seed17": 0.21009473914528387,
+      "independent_formula_value": 0.21009473914528387,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "name": "depth_content_difference_in_differences",
+      "reported_seed17": 0.3784321791528881,
+      "independent_formula_value": 0.3784321791528884,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "name": "gate_zero_initialization",
+      "reported_seed17": null,
+      "independent_formula_value": null,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "name": "balanced_pool_allocation",
+      "reported_seed17": null,
+      "independent_formula_value": null,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "name": "depth_real",
+      "reported_seed17": -0.06936645930336155,
+      "independent_formula_value": -0.06936645930336138,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "name": "depth_neutral",
+      "reported_seed17": -0.4066141553343558,
+      "independent_formula_value": -0.40661415533435585,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "name": "content_early",
+      "reported_seed17": -0.06836193638990609,
+      "independent_formula_value": -0.06836193638990617,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "name": "content_mid",
+      "reported_seed17": 0.2688857596410882,
+      "independent_formula_value": 0.2688857596410883,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "name": "depth_content_difference_in_differences",
+      "reported_seed17": 0.33724769603099425,
+      "independent_formula_value": 0.33724769603099447,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "name": "gate_zero_initialization",
+      "reported_seed17": null,
+      "independent_formula_value": null,
+      "passed": true
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "name": "balanced_pool_allocation",
+      "reported_seed17": null,
+      "independent_formula_value": null,
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "Frozen scientific SHA unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Eight cases are seed17 balanced alpha0 only",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_known_target_17_early_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_known_target_17_early_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_known_target_17_early_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_known_target_17_mid_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_known_target_17_mid_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_known_target_17_mid_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_known_target_17_mid_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_known_target_17_mid_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_known_target_17_mid_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_new_target_17_early_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_new_target_17_early_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_new_target_17_early_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_new_target_17_early_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_new_target_17_early_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_new_target_17_early_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_new_target_17_mid_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_new_target_17_mid_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_new_target_17_mid_real_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unchanged full validation NLL selection and exposure: trial_new_peptide_new_target_17_mid_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\history.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\run.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\selection_before_test.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\test_C1_answer_nll.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\train_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\validation_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Saved artifact SHA: PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\test_input_snapshot.jsonl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original raw JSON parser/order/gold/full denominator: trial_new_peptide_new_target_17_mid_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "C1 retains original row mean and undefined donor quantities: trial_new_peptide_new_target_17_mid_neutral_balanced_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "All seven frozen contrasts retained: new_peptide_known_target",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_known_target:depth_real",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_known_target:depth_neutral",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_known_target:content_early",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_known_target:content_mid",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_known_target:depth_content_difference_in_differences",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_known_target:gate_zero_initialization",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_known_target:balanced_pool_allocation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "All seven frozen contrasts retained: new_peptide_new_target",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_new_target:depth_real",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_new_target:depth_neutral",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_new_target:content_early",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_new_target:content_mid",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_new_target:depth_content_difference_in_differences",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_new_target:gate_zero_initialization",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Frozen signed contrast and missing-seed null: new_peptide_new_target:balanced_pool_allocation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "No current three-seed aggregate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Numeric six controls are numeric channels, no new fit",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Old neural three-seed summary: new_peptide_known_target:BASE01",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Old neural three-seed summary: new_peptide_known_target:MEANPOOL",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Old neural three-seed summary: new_peptide_new_target:BASE01",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Old neural three-seed summary: new_peptide_new_target:MEANPOOL",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Neutral prompt information expressly retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Scale/norm and calibration are unexecuted prospective proposals",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Snapshot source summary SHA matches",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "interpretation_confirmed": [
+    "Neutral removes per-example residue-message variation but retains allowed chemistry/assay prompt and supervised distribution/format adaptation",
+    "TRAIN mean is a saved numeric predictor channel, not neutral-message or learned-constant LLM",
+    "Old30-epoch MSE predictors are separate budget and output channel; no matched-budget superiority claim",
+    "Current single-seed eight-case statistics remain1/3 or0/3; no aggregate mean/SD",
+    "Early is dynamic residual reader, not historical MLP or classical prefix; no slot/type encoding guarantee",
+    "Gate sign/magnitude and delta/hidden ratios are descriptive, not message information or isolated causal effect",
+    "C1 row-normalized full-answer NLL and category contributions retain explicit denominators and numerical residual",
+    "S1/S2 remain prospective unexecuted hypotheses outside current36, with calibration and compute costs declared",
+    "Frozen metrics/failure handling/selection/contrast orientation unchanged"
+  ],
+  "limits": [
+    "This review does not establish absence of all dataset bias or pretraining exposure",
+    "No new PDF re-reading or official-page retrieval; literature transfer boundaries audited as reported, not a full paper reproduction audit",
+    "No new source/runtime acceptance, training, calibration, model forward, GPU or process manipulation",
+    "Single seed and overlapping-sample scenarios do not establish cross-seed or independent external confirmation"
+  ],
+  "writes": [
+    "reports/benchmark_clarity_20261016/benchmark_explanation_review.md",
+    "reports/benchmark_clarity_20261016/benchmark_explanation_review.json"
+  ],
+  "reviewed_inputs_unchanged_at_delivery": true,
+  "input_changes_at_delivery": [],
+  "report_sha256": "401ab304188957acd1c0d100f3ab8cd41fca5a8e9734cbae62fe0a4893f80e1a"
+}

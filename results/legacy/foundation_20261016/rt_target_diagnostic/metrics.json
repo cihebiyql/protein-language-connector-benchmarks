@@ -1,0 +1,193 @@
+{
+  "condition_id": "PXD064311:experiment_2_march:basic_pH9:author_mean_apex",
+  "rt_unit": "min",
+  "population": {
+    "source_rows": 7070,
+    "eligible_rows": 7070,
+    "excluded_rows": 0,
+    "counts": {
+      "train": 4952,
+      "validation": 1055,
+      "test": 1063,
+      "selection": 525,
+      "calibration": 530
+    },
+    "test_groups": 1040
+  },
+  "selected": {
+    "frozen_at_before_test_load": "2026-10-15T23:30:13.101152+00:00",
+    "candidates": [
+      {
+        "model": "ridge",
+        "alpha": 0.1,
+        "selection_MAE_min": 3.5592150852897113
+      },
+      {
+        "model": "ridge",
+        "alpha": 1.0,
+        "selection_MAE_min": 3.559609581434388
+      },
+      {
+        "model": "ridge",
+        "alpha": 10.0,
+        "selection_MAE_min": 3.5658036785556786
+      },
+      {
+        "model": "ridge",
+        "alpha": 100.0,
+        "selection_MAE_min": 3.6238056359725483
+      },
+      {
+        "model": "ridge",
+        "alpha": 1000.0,
+        "selection_MAE_min": 4.136037671001698
+      },
+      {
+        "model": "knn",
+        "k": 3,
+        "selection_MAE_min": 7.785674879512851
+      },
+      {
+        "model": "knn",
+        "k": 5,
+        "selection_MAE_min": 7.226642018726261
+      }
+    ],
+    "selected_ridge": {
+      "model": "ridge",
+      "alpha": 0.1,
+      "selection_MAE_min": 3.5592150852897113
+    },
+    "selected_knn": {
+      "model": "knn",
+      "k": 5,
+      "selection_MAE_min": 7.226642018726261
+    },
+    "constant": "train mean RT",
+    "conformal": {
+      "constant": {
+        "radius_min": 19.216036207882514,
+        "n_calibration_groups": 520,
+        "order_statistic": 469
+      },
+      "ridge": {
+        "radius_min": 7.320708193062252,
+        "n_calibration_groups": 520,
+        "order_statistic": 469
+      },
+      "knn": {
+        "radius_min": 15.034618391673298,
+        "n_calibration_groups": 520,
+        "order_statistic": 469
+      }
+    },
+    "test_label_use": "Not loaded until this immutable selection/calibration receipt was written"
+  },
+  "models": {
+    "constant": {
+      "test": {
+        "n": 1063,
+        "MAE_min": 10.916681471944866,
+        "RMSE_min": 12.851757585614427,
+        "Spearman_same_condition": null,
+        "interval_row_coverage": 0.8871119473189087,
+        "interval_mean_width_min": 38.43207241576503,
+        "interval_group_all_observations_coverage": 0.8875
+      },
+      "group_bootstrap_95CI": {
+        "MAE_min": [
+          10.499959890724583,
+          11.329567581193817
+        ],
+        "RMSE_min": [
+          12.416101044636802,
+          13.248313587612987
+        ],
+        "interval_row_coverage": [
+          0.8689865045707619,
+          0.9065199862228428
+        ],
+        "interval_mean_width_min": [
+          38.43207241576503,
+          38.43207241576503
+        ]
+      },
+      "undefined_metrics": {
+        "Spearman_same_condition": "constant predictions have zero rank variance"
+      }
+    },
+    "ridge": {
+      "test": {
+        "n": 1063,
+        "MAE_min": 3.940368768083775,
+        "RMSE_min": 5.275377998305763,
+        "Spearman_same_condition": 0.921283846090319,
+        "interval_row_coverage": 0.8777046095954845,
+        "interval_mean_width_min": 14.641416386124504,
+        "interval_group_all_observations_coverage": 0.8759615384615385
+      },
+      "group_bootstrap_95CI": {
+        "MAE_min": [
+          3.726804615904796,
+          4.155206877262959
+        ],
+        "RMSE_min": [
+          4.88712044934348,
+          5.696023287499202
+        ],
+        "Spearman_same_condition": [
+          0.9095272454668704,
+          0.9311452840996075
+        ],
+        "interval_row_coverage": [
+          0.857685009487666,
+          0.8975356349541804
+        ],
+        "interval_mean_width_min": [
+          14.641416386124504,
+          14.641416386124504
+        ]
+      },
+      "undefined_metrics": {}
+    },
+    "knn": {
+      "test": {
+        "n": 1063,
+        "MAE_min": 7.5595846084325276,
+        "RMSE_min": 9.490064568748728,
+        "Spearman_same_condition": 0.6703261965330347,
+        "interval_row_coverage": 0.8842897460018815,
+        "interval_mean_width_min": 30.069236783346597,
+        "interval_group_all_observations_coverage": 0.8826923076923077
+      },
+      "group_bootstrap_95CI": {
+        "MAE_min": [
+          7.208993383298542,
+          7.907803590783283
+        ],
+        "RMSE_min": [
+          9.058662639638566,
+          9.911230201785026
+        ],
+        "Spearman_same_condition": [
+          0.6321135607624281,
+          0.7075889795092105
+        ],
+        "interval_row_coverage": [
+          0.8637642844694517,
+          0.9031969968525967
+        ],
+        "interval_mean_width_min": [
+          30.069236783346597,
+          30.069236783346597
+        ]
+      },
+      "undefined_metrics": {}
+    }
+  },
+  "interpretation": [
+    "No parent-protein or homologous-family mapping; no new-family generalization claim",
+    "Target-domain diagnostic only; original PXD005573 source A2 HOLD remains unchanged",
+    "Not DeepLC paper reproduction; original source iRT is never used as minutes"
+  ]
+}

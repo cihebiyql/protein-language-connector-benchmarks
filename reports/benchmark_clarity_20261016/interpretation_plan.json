@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T06:42:46.712194+00:00",
+  "purpose": "预先解释固定36矩阵；未读取本轮测试分数，未运行新实验",
+  "authority": "configs/matched_budget_20261016.protocol.json; historical candidate suggestions do not supersede frozen matrix",
+  "input_sha256": {
+    "configs/matched_budget_20261016.protocol.json": "54445ef93ae577fef5136010d6cf4977eb0cb8fa6529793625af551c00d0d571",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "scripts/matched_budget_20261016/connectors.py": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+    "scripts/matched_budget_20261016/fixed_message.py": "08a354a7f9fdb1f23864ab14468d7e17edc8886e866fba4f338a564b63413a3b",
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "reports/benchmark_clarity_20261016/literature_evidence.json": "f4baa4c94da389a668f149aa64c1565dc7683f17649aeb704d42def91d3019d6"
+  },
+  "read_scope": "fixed protocol and implementation; previously checked literature evidence only; no current-round test result files",
+  "matrix": {
+    "primary_depth_content": {
+      "scenario_count": 2,
+      "seeds": [
+        17,
+        42,
+        2026
+      ],
+      "locations": [
+        "early",
+        "mid"
+      ],
+      "content": [
+        "real",
+        "neutral"
+      ],
+      "pool": "balanced",
+      "gate_alpha": 0.0,
+      "runs": 24
+    },
+    "gate_initialization_extension": {
+      "scenario_count": 2,
+      "seeds": [
+        17,
+        42,
+        2026
+      ],
+      "locations": [
+        "mid"
+      ],
+      "content": [
+        "real"
+      ],
+      "pool": "balanced",
+      "gate_alpha": 3.0,
+      "additional_runs": 6,
+      "control_reused": "primary mid real alpha0"
+    },
+    "pool_allocation_extension": {
+      "scenario_count": 2,
+      "seeds": [
+        17,
+        42,
+        2026
+      ],
+      "locations": [
+        "mid"
+      ],
+      "content": [
+        "real"
+      ],
+      "pool": "global16",
+      "gate_alpha": 0.0,
+      "additional_runs": 6,
+      "control_reused": "primary mid real balanced"
+    },
+    "total_new_training_runs": 36
+  },
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "training": {
+    "epochs": 3,
+    "batch_size": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "optimizer_steps": 1548,
+    "checkpoint_selection": "minimum full validation answer-token NLL, earliest tie",
+    "early_stopping": false,
+    "backbone_frozen": true
+  },
+  "endpoints": {
+    "primary": [
+      "strict JSON parse coverage and failures",
+      "full-population pKD MAE only when all answers valid"
+    ],
+    "conditional": [
+      "valid-only MAE with explicit denominator",
+      "original target-macro MAE with correct naming"
+    ],
+    "mechanism": [
+      "unchanged full answer C1 NLL difference",
+      "gate trajectory and delta-to-hidden norm ratio on TRAIN/VALIDATION",
+      "format/numeric answer-token NLL as additional diagnostic only"
+    ],
+    "statistics": [
+      "all seeds and fixed paired contrasts by-seed differences",
+      "seed mean and sample SD only with3/3, separate from frozen-test group uncertainty",
+      "unchanged source/family-component bootstrap2000 seed2026",
+      "no best-seed selection or metric/threshold/group changes"
+    ]
+  },
+  "missing_seed_rule": "A3-seed mean/SD or contrast is emitted only with all3 valid complete seed values; otherwise emit null with k/3 and missing/failed/invalid cases. No averaging only successful seeds as a3-seed finding. Coverage per seed is always shown.",
+  "interpretation_boundaries": [
+    "early为动态cross-attention残差，非旧MLP/soft prefix",
+    "early query未经过decoder上下文化，mid query已经上下文化；这是depth处理本身的一部分",
+    "balanced8+8仅池化配额；reader没有slot/type embedding，KV同步排列不改变标准注意力",
+    "fixed once-per-forward source message does not imply identical total generation reads when EOS differs",
+    "depth_real需联合depth_neutral与DiD解释；7contrast共享运行并相关",
+    "3 seeds描述本次有限训练波动，不提供充分强推断保证",
+    "old repeated benchmark is already observed, not an untouched confirmatory test"
+  ],
+  "fixed_paired_contrasts": [
+    {
+      "name": "depth_real",
+      "formula": "MAE(early,real)-MAE(mid,real)",
+      "positive_support": "固定消息/接收器预算下mid-real任务误差较低",
+      "other_patterns": "方向不稳或反向保留；无法由单一差值定位优化/压缩/表示原因",
+      "joint_diagnostics": [
+        "depth_neutral",
+        "depth_content_difference_in_differences",
+        "coverage",
+        "gate/norm"
+      ],
+      "paper_basis": [
+        "flamingo"
+      ],
+      "orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+      "statistics": "exactly frozen protocol; no added decision threshold"
+    },
+    {
+      "name": "depth_neutral",
+      "formula": "MAE(early,neutral)-MAE(mid,neutral)",
+      "positive_support": "固定均值消息下也存在mid通用适配/校准收益",
+      "other_patterns": "neutral作用弱不代表real内容无效",
+      "joint_diagnostics": [
+        "depth_real",
+        "format/numeric/mixed NLL"
+      ],
+      "paper_basis": [
+        "flamingo",
+        "prott3",
+        "control_tasks"
+      ],
+      "orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+      "statistics": "exactly frozen protocol; no added decision threshold"
+    },
+    {
+      "name": "content_early",
+      "formula": "MAE(early,neutral)-MAE(early,real)",
+      "positive_support": "early从变化的分子消息中获得超出训练均值分支的任务收益",
+      "other_patterns": "当前预算下real未显示同方向收益；均值neutral只是一个特定控制",
+      "joint_diagnostics": [
+        "content_mid",
+        "coverage",
+        "C1 decomposition"
+      ],
+      "paper_basis": [
+        "conditional_probing",
+        "control_tasks"
+      ],
+      "orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+      "statistics": "exactly frozen protocol; no added decision threshold"
+    },
+    {
+      "name": "content_mid",
+      "formula": "MAE(mid,neutral)-MAE(mid,real)",
+      "positive_support": "mid获得样本变化消息的任务收益",
+      "other_patterns": "可能只学通用校准或未读出任务信息；需诊断区分",
+      "joint_diagnostics": [
+        "content_early",
+        "depth_content_difference_in_differences",
+        "numeric/mixed NLL"
+      ],
+      "paper_basis": [
+        "conditional_probing",
+        "control_tasks"
+      ],
+      "orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+      "statistics": "exactly frozen protocol; no added decision threshold"
+    },
+    {
+      "name": "depth_content_difference_in_differences",
+      "formula": "depth_real-depth_neutral",
+      "positive_support": "mid相对early的收益在real消息下更大，符合depth-content交互",
+      "other_patterns": "两种消息深度收益相近则偏通用适配解释；反向则内容收益偏early",
+      "joint_diagnostics": [
+        "four original cell outcomes",
+        "depth_real",
+        "depth_neutral",
+        "content_early",
+        "content_mid"
+      ],
+      "paper_basis": [
+        "flamingo",
+        "conditional_probing"
+      ],
+      "algebraic_identity": "depth_real-depth_neutral = content_mid-content_early",
+      "independent_of_other_contrasts": false,
+      "orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+      "statistics": "exactly frozen protocol; no added decision threshold"
+    },
+    {
+      "name": "gate_zero_initialization",
+      "formula": "MAE(mid,real,balanced,alpha3)-MAE(mid,real,balanced,alpha0)",
+      "positive_support": "alpha0初始化在固定训练预算内有益，与身份保持动机相容",
+      "other_patterns": "无法单凭误差确定gate打开速度/有限预算等原因",
+      "joint_diagnostics": [
+        "gate trajectory",
+        "raw/gated delta-to-hidden norm",
+        "validation NLL",
+        "gradient norm"
+      ],
+      "paper_basis": [
+        "flamingo"
+      ],
+      "scope": "alpha3为近单位可学习tanh门控，非ungated",
+      "orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+      "statistics": "exactly frozen protocol; no added decision threshold"
+    },
+    {
+      "name": "balanced_pool_allocation",
+      "formula": "MAE(mid,real,global16,alpha0)-MAE(mid,real,balanced,alpha0)",
+      "positive_support": "独立8+8池化优于该全局16槽压缩规则",
+      "other_patterns": "固定配额可能浪费槽位或其他压缩损失主导；不证明长度无关",
+      "joint_diagnostics": [
+        "same projection/normalization/message dimensions",
+        "existing sequence-length metadata",
+        "paired train/validation logs"
+      ],
+      "paper_basis": [
+        "flamingo",
+        "blip2"
+      ],
+      "scope": "没有slot/type embedding；8+8只提供配额，不提供读者类型对齐",
+      "orientation": "positive MAE difference indicates benefit of the named treatment; defined only on identical full populations with all predictions valid",
+      "statistics": "exactly frozen protocol; no added decision threshold"
+    }
+  ],
+  "C1": {
+    "original_endpoint": "mean_i[(loss_off_full(i)-loss_correct_full(i))/n_full(i)]",
+    "category_contribution": "G_c=mean_i[(loss_off_c(i)-loss_correct_c(i))/n_full(i)]",
+    "categories": [
+      "format",
+      "numeric",
+      "mixed"
+    ],
+    "units": "nats/full-answer token for additive contributions; nats/category token for nonadditive category means",
+    "accounting": "sum_c G_c equals diagnostic G; original fp32 reduction residual exposed separately",
+    "numeric_boundary": "unique finite pKD character span; boundary-crossing tokens mixed; EOS/special format; original token IDs/labels unchanged",
+    "scope": "teacher-forced computational sensitivity, distinct from autonomous generation and biological causality",
+    "strict_matched_donor_count": 0,
+    "P_H_status": "undefined; no donor criterion relaxation",
+    "interpretation_cases": [
+      {
+        "pattern": "gain mostly format; real/neutral similar",
+        "supports": "template/termination/format prior explanation",
+        "needs": "numeric/mixed and original autonomous generation"
+      },
+      {
+        "pattern": "real-vs-neutral numeric contribution and original MAE agree",
+        "supports": "content sensitivity and task benefit compatible",
+        "needs": "teacher-forcing scope retained"
+      },
+      {
+        "pattern": "numeric NLL improves but MAE does not",
+        "supports": "local gold-prefix probability gain without autonomous decoding gain",
+        "needs": "retain old decoding/parser"
+      },
+      {
+        "pattern": "mixed dominates",
+        "supports": "boundary tokens materially involved",
+        "needs": "do not attribute entire mixed effect to pure numeric prediction"
+      },
+      {
+        "pattern": "C1 positive but content contrast weak",
+        "supports": "branch has computational effect",
+        "needs": "neutral/calibration/format alternatives retained"
+      }
+    ]
+  },
+  "gate_norm_diagnostics": {
+    "source_fields": [
+      "gate_tanh_alpha",
+      "gradient_norm_before_clip",
+      "raw_delta_over_hidden_l2",
+      "gated_delta_over_hidden_l2",
+      "validation full answer-token NLL"
+    ],
+    "interpretation": [
+      "zero gate implies expected first-step zero gradients for branch subsets; gate itself may update",
+      "gate and delta output can compensate in scale; alpha alone is not effect size",
+      "combine early perturbation, train/dev trajectory and fixed gate contrast; no new norm thresholds",
+      "hidden distributions differ by depth; absolute norms are not a cross-depth quality ranking"
+    ],
+    "new_thresholds": false
+  },
+  "old_C2": {
+    "given_fact": "six nonconstant message-summary increment intervals cross zero",
+    "valid_scope": "specified B, summary/128D projection and linear ridge family; no stable extra linear readout evidence in that diagnostic",
+    "invalid_extensions": [
+      "total information absent",
+      "full residue representation uninformative",
+      "biological causal theorem",
+      "basis for selecting seeds or changing current endpoint"
+    ],
+    "paper_basis": [
+      "conditional_probing",
+      "control_tasks",
+      "esm2"
+    ]
+  },
+  "improvement_directions": [
+    {
+      "name": "zero-initialized tanh gate",
+      "paper_basis": [
+        "flamingo"
+      ],
+      "current_execution": "fixed alpha0/alpha3 extension in 36 trials",
+      "limit": "alpha3 is near-unit gated; no ungated condition"
+    },
+    {
+      "name": "fixed bottleneck and pooling quota",
+      "paper_basis": [
+        "flamingo",
+        "blip2"
+      ],
+      "current_execution": "16x128 fixed sender and balanced/global16 extension",
+      "limit": "parameter-free pooling/random projection; no learned resampler or type alignment claim"
+    },
+    {
+      "name": "train-only task representation warmup",
+      "paper_basis": [
+        "blip2",
+        "prott3",
+        "protst"
+      ],
+      "current_execution": "candidate only; excluded from current 36 runs; not executed",
+      "limit": "pKD auxiliary numeric objective is a project transfer, not original paper evidence of its efficacy"
+    }
+  ],
+  "literature_sources": [
+    {
+      "id": "flamingo",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "year": 2022,
+      "doi": null,
+      "official_url": "https://arxiv.org/abs/2204.14198",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\communication\\pdfs\\flamingo-lossless.pdf",
+      "pdf_sha256": "5b96767ada8d76ad160c3087d80975b8af8e60b46786b10248c6b96b0c4699ba",
+      "pdf_physical_pages_1based": [
+        5,
+        8
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "blip2",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "year": 2023,
+      "doi": null,
+      "official_url": "https://proceedings.mlr.press/v202/li23q.html",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\communication\\pdfs\\blip2.pdf",
+      "pdf_sha256": "d59913d16edf1dc7e661ca3510c6efaa2b001146840d2e464a7fde980d088dd2",
+      "pdf_physical_pages_1based": [
+        3,
+        4,
+        6,
+        7
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "prott3",
+      "title": "ProtT3: Protein-to-Text Generation for Text-based Protein Understanding",
+      "year": 2024,
+      "doi": "10.18653/v1/2024.acl-long.324",
+      "official_url": "https://aclanthology.org/2024.acl-long.324/",
+      "local_pdf": "PROJECT_ROOT/papers\\methods\\ProtT3_ACL2024.pdf",
+      "pdf_sha256": "ffa65fc93979bcaf3cff2c60eaa4b832dff9492508f3493112755c3ca97038a1",
+      "pdf_physical_pages_1based": [
+        2,
+        4,
+        5,
+        6,
+        14,
+        16
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "protst",
+      "title": "ProtST: Multi-Modality Learning of Protein Sequences and Biomedical Texts",
+      "year": 2023,
+      "doi": null,
+      "official_url": "https://proceedings.mlr.press/v202/xu23t.html",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\molecular\\pdfs\\ProtST.pdf",
+      "pdf_sha256": "db7f7d620f05ed08e0b4b53f4f52a24eed535eed7a825ed4e1c48dbf34610633",
+      "pdf_physical_pages_1based": [
+        3,
+        4
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "conditional_probing",
+      "title": "Conditional probing: measuring usable information beyond a baseline",
+      "year": 2021,
+      "doi": "10.18653/v1/2021.emnlp-main.122",
+      "official_url": "https://aclanthology.org/2021.emnlp-main.122/",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\evaluation\\conditional-probing.pdf",
+      "pdf_sha256": "0d44d3b5c26ab2dbbffbc506e6d2535520bf46af79d061807fbfd7550f0545d1",
+      "pdf_physical_pages_1based": [
+        2,
+        3
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "control_tasks",
+      "title": "Designing and Interpreting Probes with Control Tasks",
+      "year": 2019,
+      "doi": "10.18653/v1/D19-1275",
+      "official_url": "https://aclanthology.org/D19-1275/",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\evaluation\\control-probes.pdf",
+      "pdf_sha256": "557f5d7dc18b17d641c9e54c91c0071b00612f9ec051fc788bcc7117f4d194d0",
+      "pdf_physical_pages_1based": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "local_version": "原论文PDF，具体页码依本地文件"
+    },
+    {
+      "id": "esm2",
+      "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+      "year": 2023,
+      "doi": "10.1126/science.ade2574",
+      "official_url": "https://github.com/facebookresearch/esm",
+      "local_pdf": "PROJECT_ROOT/papers\\continuation_20261016\\bibliography\\pdfs\\ESM2.pdf",
+      "pdf_sha256": "951003574aafbd1a93b0baf5a6b7ef1fd540af8db3fce6fa42f350c4413c3061",
+      "pdf_physical_pages_1based": [
+        3,
+        4
+      ],
+      "local_version": "bioRxiv 2022-10-31; preprint DOI10.1101/2022.07.20.500902"
+    }
+  ],
+  "immutable_scope": {
+    "matrix_unchanged": true,
+    "endpoints_unchanged": true,
+    "parser_unchanged": true,
+    "no_new_significance_criterion_or_threshold": true,
+    "current_test_scores_read": false,
+    "old_results_overwritten": false,
+    "new_experiments_executed": false,
+    "source_code_modified": false
+  }
+}

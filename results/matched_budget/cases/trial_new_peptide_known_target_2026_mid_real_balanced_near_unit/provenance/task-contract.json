@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0",
+  "record_type": "task_contract",
+  "is_template": false,
+  "task_id": "protein-language-connector-matched-budget-20261016",
+  "run_id": "v1_continuation__trial_new_peptide_known_target_2026_mid_real_balanced_near_unit",
+  "contract_status": "frozen",
+  "created_at": "2026-10-16T14:26:39.579727+00:00",
+  "frozen_at": "2026-10-16T14:26:39.579727+00:00",
+  "revision": 1,
+  "previous_contract_sha256": null,
+  "revision_reason": null,
+  "identity": {
+    "title": "A data resource of peptide–protein interaction structures and binding affinities for peptide drug discovery",
+    "doi": "10.1038/s41597-026-07962-1",
+    "publication_status": "published",
+    "first_online_date": null,
+    "journal": "Scientific Data",
+    "paper_type": "data-resource provenance; new matched-budget method experiment, no author table reproduction",
+    "pdf": {
+      "path": "PROJECT_ROOT/papers/bench_v02/ppikb/article.pdf",
+      "sha256": "3a4c200f0097adfe90abb27b478249022fdc7f2d405f40b4d7cbbd592ee50def",
+      "version": "accepted_manuscript",
+      "source_url": "https://doi.org/10.1038/s41597-026-07962-1"
+    },
+    "related_versions": [],
+    "eligibility": {
+      "scope": null,
+      "assessment": "unknown",
+      "evidence_paths": []
+    }
+  },
+  "execution_scope": {
+    "objective": "New matched-budget trial_new_peptide_known_target_2026_mid_real_balanced_near_unit",
+    "authorization_reference": "2026-10-16 user explicitly requested new multiseed matched-budget controls, causal diagnosis and paper-grounded improvements, preserving frozen tests and old results",
+    "relation_to_prior_run": "new explicitly authorized matched-budget objective, previously excluded from foundation scope; no old failed contract resumed or deadline rewritten",
+    "prior_run_ids": [],
+    "safety_assessment": "allowed",
+    "scope_coverage": "component_only",
+    "intended_level": "training",
+    "excluded_claims": [
+      "full author system reproduction",
+      "unobserved confirmatory test",
+      "biological activity optimization",
+      "matched total FLOPs"
+    ],
+    "restriction_check": {
+      "prior_platform_restriction": false,
+      "reason": "Scalar computation benchmark; no sequence generation or target-specific biological optimization.",
+      "evidence_paths": [
+        "PROJECT_ROOT/configs/matched_budget_20261016.frozen.json"
+      ]
+    }
+  },
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T13:20:00+08:00",
+    "earliest_associated_preparation_at": "2026-10-16T13:20:00+08:00",
+    "wall_clock_cap_hours": 10,
+    "original_deadline_at": "2026-10-16T23:20:00+08:00",
+    "additional_deadlines_at": [],
+    "effective_deadline_at": "2026-10-16T23:20:00+08:00",
+    "prior_window_expired": false,
+    "retry_resets_clock": false,
+    "timing_evidence_paths": [
+      "PROJECT_ROOT/configs/matched_budget_20261016.frozen.json"
+    ]
+  },
+  "assets": {
+    "datasets": [
+      {
+        "name": "Immutable A1 v2 new_peptide_known_target",
+        "version": "a1_locked_v2",
+        "source_url": "https://ppikb.duanlab.ac/",
+        "path": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/samples.jsonl",
+        "sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+        "manifest_path": "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/benchmark_lock.json",
+        "manifest_sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249",
+        "sample_count": 2361,
+        "statistical_unit": "database source measurement; correlated source/family components",
+        "splits": {
+          "train": 2062,
+          "validation": 147,
+          "test": 152,
+          "split_manifest_sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249"
+        },
+        "integrity": "complete",
+        "evidence_paths": [
+          "PROJECT_ROOT/data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/benchmark_lock.json"
+        ]
+      },
+      {
+        "name": "Fixed message/cache manifest",
+        "version": "matched_budget_20261016",
+        "source_url": "local frozen ESM residue cache",
+        "path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_admission_manifest.json",
+        "sha256": "dbc0fd9ce870369c512d770e3494db19c2c563d85475a149bf0a67399fd28045",
+        "manifest_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_admission_manifest.json",
+        "manifest_sha256": "dbc0fd9ce870369c512d770e3494db19c2c563d85475a149bf0a67399fd28045",
+        "integrity": "complete",
+        "notes": "Scenario-specific TRAIN mean; initialization untrained; projection independent of labels."
+      }
+    ],
+    "code": [
+      {
+        "role": "primary",
+        "path": "PROJECT_ROOT/scripts/matched_budget_20261016/execute_remaining_v1.py",
+        "archive_sha256": "e1a886a2c8c33ae445d60883fbfc6811efd99c237e0456b3d0ec45b4b46d339b",
+        "sha256": "e1a886a2c8c33ae445d60883fbfc6811efd99c237e0456b3d0ec45b4b46d339b",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/matched_budget_20261016/run_trial.py",
+        "archive_sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+        "sha256": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/matched_budget_20261016/connectors.py",
+        "archive_sha256": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+        "sha256": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/matched_budget_20261016/fixed_message.py",
+        "archive_sha256": "08a354a7f9fdb1f23864ab14468d7e17edc8886e866fba4f338a564b63413a3b",
+        "sha256": "08a354a7f9fdb1f23864ab14468d7e17edc8886e866fba4f338a564b63413a3b",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/matched_budget_20261016/prepare_cache.py",
+        "archive_sha256": "63e9094a4f9c4f6ec07f5b7b8e2e92423807ab4e03b57275caaded08636ff07b",
+        "sha256": "63e9094a4f9c4f6ec07f5b7b8e2e92423807ab4e03b57275caaded08636ff07b",
+        "integrity": "complete"
+      },
+      {
+        "role": "component",
+        "path": "PROJECT_ROOT/scripts/matched_budget_20261016/token_diagnostics.py",
+        "archive_sha256": "77722e4439b582edcaccae108529158068587b99fb6d6ce578afb363610d2e6e",
+        "sha256": "77722e4439b582edcaccae108529158068587b99fb6d6ce578afb363610d2e6e",
+        "integrity": "complete"
+      }
+    ],
+    "models": [
+      {
+        "name": "Qwen2.5-1.5B-Instruct",
+        "version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/model.safetensors",
+        "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+        "configuration_path": "PROJECT_ROOT/models/Qwen--Qwen2.5-1.5B-Instruct/config.json",
+        "configuration_sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+        "integrity": "complete",
+        "coverage": "Frozen LM; reader only training"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "target_id": "parse_coverage",
+      "paper_endpoint": "new controlled experiment; no author table",
+      "required": true,
+      "metric": "parse_valid_rate",
+      "metric_definition": "strict finite JSON predictions divided by every designated evaluation row; failures retained",
+      "statistical_unit": "held-out database measurement",
+      "denominator": 152,
+      "unit": "fraction",
+      "paper_value": null,
+      "paper_value_source": null,
+      "checkpoint_selection": "minimum full validation answer-token NLL, earliest tie",
+      "repetitions": {
+        "seed": 2026,
+        "n_seeds": 1,
+        "epochs": 3
+      },
+      "tolerance": {
+        "kind": "not_comparable",
+        "absolute": null,
+        "relative": null,
+        "reason": "New prospectively specified experiment, no corresponding author endpoint"
+      }
+    }
+  ],
+  "environment": {
+    "isolation": "existing dedicated WSL venv; no dependency or driver changes",
+    "environment_path": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080",
+    "lockfile_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/environment_freeze.txt",
+    "lockfile_sha256": "26137c2dd41c5bb2e14b1711ef7a9011a08752fe510e234da58b7e276eeca51f",
+    "runtime_versions": {},
+    "numerical_policy": {
+      "author_entrypoint_evidence_paths": [],
+      "parameter_dtype": "base bfloat16; reader float32",
+      "input_dtype": "message float32; token IDs integer",
+      "autocast": false,
+      "float32_matmul_precision": "highest",
+      "cuda_matmul_allow_tf32": false,
+      "cudnn_allow_tf32": false,
+      "determinism": "torch.use_deterministic_algorithms(True,warn_only=False); cudnn benchmarkFalse deterministicTrue",
+      "applied_before_model_instantiation": true,
+      "actual_policy_receipt_path": null,
+      "notes": "Declared mandatory worker setup; actual numerical_policy_actual.json is written before model initialization and archived after execution. Unsupported deterministic kernels fail TRAIN qualification without fallback."
+    },
+    "shared_environment_modified": false,
+    "process_local_runtime_flags": {
+      "CUDA_LAUNCH_BLOCKING": "1",
+      "TORCH_SHOW_CPP_STACKTRACES": "1",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "MATCHED_CONTROLLER_PID": "263028",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "TOKENIZERS_PARALLELISM": "false",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    }
+  },
+  "resources": {
+    "expected_hostname": "LOCAL_HOST",
+    "cpu_threads": 2,
+    "data_loader_workers": 0,
+    "memory_limit_bytes": 12884901888,
+    "gpu_devices": [
+      0
+    ],
+    "gpu_memory_budget_bytes": 12348030976,
+    "resource_probe_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_balanced_near_unit/resource_probe.json",
+    "resource_probe_at": "2026-10-16T14:26:39.571440+00:00",
+    "start_gate": "ready_for_exact_bounded_contract",
+    "budget_basis": "fresh idle GPU gate; <=12GiB whole process-group RSS, <=11.5GiB Torch allocator; no preemption",
+    "no_preemption": true
+  },
+  "execution": {
+    "command": [
+      "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+      "PROJECT_ROOT/scripts/matched_budget_20261016/execute_remaining_v1.py",
+      "--worker",
+      "--case-file",
+      "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_balanced_near_unit/case.json",
+      "--protocol",
+      "PROJECT_ROOT/configs/matched_budget_20261016.frozen.json",
+      "--protocol-sha256",
+      "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+      "--cache-manifest",
+      "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_admission_manifest.json",
+      "--cache-manifest-sha256",
+      "dbc0fd9ce870369c512d770e3494db19c2c563d85475a149bf0a67399fd28045",
+      "--output",
+      "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_balanced_near_unit/artifacts",
+      "--timeout-seconds",
+      "1800"
+    ],
+    "working_directory": "PROJECT_ROOT/",
+    "seed_policy": "Fixed 17/42/2026 paired initialization; no score-based selection",
+    "seeds": [
+      2026
+    ],
+    "timeout_seconds": 1800,
+    "process_control": {
+      "platform": "Linux WSL",
+      "mechanism": "new process group, subreaper, parent-death signal with race check; timed group RSS watchdog and finally SIGTERM/SIGKILL cleanup",
+      "whole_tree_bounded": true
+    },
+    "stdout_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_balanced_near_unit/stdout.log",
+    "stderr_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_2026_mid_real_balanced_near_unit/stderr.log"
+  },
+  "stop_conditions": [
+    "达到有效截止",
+    "达到合同资源上限",
+    "执行范围超出合同",
+    "出现平台拒绝或缺少适用授权"
+  ],
+  "review": {
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "checks": [],
+    "evidence_paths": []
+  },
+  "matched_budget_registration": {
+    "case": {
+      "scenario": "new_peptide_known_target",
+      "seed": 2026,
+      "placement": "mid",
+      "message_input": "real",
+      "sender_mode": "balanced",
+      "gate_init": "near_unit",
+      "phase": "trial"
+    },
+    "protocol_path": "PROJECT_ROOT/configs/matched_budget_20261016.frozen.json",
+    "protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "cache_manifest_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_admission_manifest.json",
+    "cache_manifest_sha256": "dbc0fd9ce870369c512d770e3494db19c2c563d85475a149bf0a67399fd28045",
+    "GPU_release_reference": "reports/benchmark_clarity_20261016/parent_GPU_release_remaining_v1.json"
+  },
+  "original_V1_continuation": {
+    "original_decoder": "Unchanged run_trial.py batch1",
+    "source_cases_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/original_source_receipts.json",
+    "source_cases_sha256": "d03d7c6cc462675c7bf7bec283196d21597213d501e7f8bb25a7e49ad433734c",
+    "qualification_path": "PROJECT_ROOT/results/matched_budget_20261016/remaining_v1_20261016_1546/reused_qualification_receipts.json",
+    "qualification_sha256": "0e1dde8de0b6e455e869dd37744e311cae6b2fa66914331b9baa459d54a2c3d4",
+    "skipped_fixed_trial_indices": [
+      0,
+      1
+    ],
+    "new_training_case_count": 34,
+    "new_runtime_identity_only": true,
+    "source_auditor_path": "PROJECT_ROOT/scripts/matched_budget_20261016/execute_suite_batched.py",
+    "source_auditor_sha256": "a5236400bbc350aa6328f45540dfe0699591fcba0e1ae680e67c012b758bcfac",
+    "preserved_failed_candidates": "V2/V3 qualifications are separate preserved evidence; no predictions from them are admitted"
+  }
+}

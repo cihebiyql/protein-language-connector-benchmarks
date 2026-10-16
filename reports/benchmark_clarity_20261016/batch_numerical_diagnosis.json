@@ -1,0 +1,302 @@
+{
+  "audit_version": 1,
+  "created_utc": "2026-10-16T07:22:01.979982+00:00",
+  "scope": "read-only V2 TRAIN canary diagnosis; no source changes/GPU/test metrics; only this json and md written",
+  "V2_qualification_accepted": false,
+  "qualification_failure_retained": true,
+  "reader_state_unchanged": true,
+  "canary_train_membership_verified": true,
+  "test_rows_used": 0,
+  "comparisons": {
+    "B4": [
+      {
+        "sample_id": "ppikb:PPIRE02255",
+        "split": "train",
+        "prompt_tokens": 224,
+        "first_differing_generated_position_1based": 1,
+        "canonical_ids_equal": false,
+        "raw_text_equal": false,
+        "parse_equal": false,
+        "B1_parse": {
+          "valid": true,
+          "value": 10.0,
+          "reason": null
+        },
+        "batch_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "B1_first_token": 515,
+        "batch_first_token": 73594,
+        "B1_canonical_length": 14,
+        "batch_canonical_length": 18,
+        "raw_padding_tail_count": 0
+      },
+      {
+        "sample_id": "ppikb:PPIRE09147",
+        "split": "train",
+        "prompt_tokens": 229,
+        "first_differing_generated_position_1based": 1,
+        "canonical_ids_equal": false,
+        "raw_text_equal": false,
+        "parse_equal": false,
+        "B1_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "batch_parse": {
+          "valid": true,
+          "value": 10.0,
+          "reason": null
+        },
+        "B1_first_token": 73594,
+        "batch_first_token": 515,
+        "B1_canonical_length": 18,
+        "batch_canonical_length": 14,
+        "raw_padding_tail_count": 4
+      },
+      {
+        "sample_id": "ppikb:PPIRE18275",
+        "split": "train",
+        "prompt_tokens": 229,
+        "first_differing_generated_position_1based": null,
+        "canonical_ids_equal": true,
+        "raw_text_equal": true,
+        "parse_equal": true,
+        "B1_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "batch_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "B1_first_token": 73594,
+        "batch_first_token": 73594,
+        "B1_canonical_length": 18,
+        "batch_canonical_length": 18,
+        "raw_padding_tail_count": 0
+      },
+      {
+        "sample_id": "ppikb:PPIRE19086",
+        "split": "train",
+        "prompt_tokens": 233,
+        "first_differing_generated_position_1based": null,
+        "canonical_ids_equal": true,
+        "raw_text_equal": true,
+        "parse_equal": true,
+        "B1_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "batch_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "B1_first_token": 73594,
+        "batch_first_token": 73594,
+        "B1_canonical_length": 18,
+        "batch_canonical_length": 18,
+        "raw_padding_tail_count": 0
+      }
+    ],
+    "B2_first_two": [
+      {
+        "sample_id": "ppikb:PPIRE02255",
+        "split": "train",
+        "prompt_tokens": 224,
+        "first_differing_generated_position_1based": null,
+        "canonical_ids_equal": true,
+        "raw_text_equal": true,
+        "parse_equal": true,
+        "B1_parse": {
+          "valid": true,
+          "value": 10.0,
+          "reason": null
+        },
+        "batch_parse": {
+          "valid": true,
+          "value": 10.0,
+          "reason": null
+        },
+        "B1_first_token": 515,
+        "batch_first_token": 515,
+        "B1_canonical_length": 14,
+        "batch_canonical_length": 14,
+        "raw_padding_tail_count": 4
+      },
+      {
+        "sample_id": "ppikb:PPIRE09147",
+        "split": "train",
+        "prompt_tokens": 229,
+        "first_differing_generated_position_1based": null,
+        "canonical_ids_equal": true,
+        "raw_text_equal": true,
+        "parse_equal": true,
+        "B1_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "batch_parse": {
+          "valid": false,
+          "value": null,
+          "reason": "invalid_json_or_nonfinite"
+        },
+        "B1_first_token": 73594,
+        "batch_first_token": 73594,
+        "B1_canonical_length": 18,
+        "batch_canonical_length": 18,
+        "raw_padding_tail_count": 0
+      }
+    ]
+  },
+  "ledger_summary": {
+    "B1": {
+      "rows": 4,
+      "strict_parse_valid_rows": 1,
+      "batch_wall_seconds": 5.527822188014397,
+      "reader_batch_forward_calls": 68,
+      "padded_text_queries": 16124,
+      "logical_message_payload_bytes": 557056,
+      "all_ledger_formulas_independently_verified": true
+    },
+    "B4": {
+      "rows": 4,
+      "strict_parse_valid_rows": 1,
+      "batch_wall_seconds": 2.2419419630023185,
+      "reader_batch_forward_calls": 18,
+      "padded_text_queries": 17388,
+      "logical_message_payload_bytes": 589824,
+      "all_ledger_formulas_independently_verified": true
+    },
+    "B2_first_two": {
+      "rows": 2,
+      "strict_parse_valid_rows": 1,
+      "batch_wall_seconds": 1.8963185860047815,
+      "reader_batch_forward_calls": 18,
+      "padded_text_queries": 8550,
+      "logical_message_payload_bytes": 294912,
+      "all_ledger_formulas_independently_verified": true
+    }
+  },
+  "numerical_policy": {
+    "pre_torch_environment": {
+      "CUDA_LAUNCH_BLOCKING": "1",
+      "TORCH_SHOW_CPP_STACKTRACES": "1",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "current_environment": {
+      "CUDA_LAUNCH_BLOCKING": "1",
+      "TORCH_SHOW_CPP_STACKTRACES": "1",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "float32_matmul_precision": "highest",
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cuda_autocast_enabled": false,
+    "cpu_autocast_enabled": false,
+    "base_parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "reader_parameter_dtypes": [
+      "torch.float32"
+    ],
+    "source_message_dtype": "torch.float32",
+    "reader_autocast": false,
+    "unsupported_deterministic_kernel_policy": "raise and stop; never warn_only or fallback"
+  },
+  "evidence_sha256": {
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/batch_invariance_qualification.json": "877a281856b7177a1d16862823ebe12233e21dda4ea8bdf46ff288e39ca1a441",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/run_preregistration.json": "95fb000f2b3ab9c0f0ec2c181817b74783c8b1f229669208ef523e38fdb0a740",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/failure.json": "202864d3e7a3df37f666a916b0c960c01df4579fd7f2318df20cf53a3f6565e1",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/numerical_policy_actual.json": "fbadeaeaceca9cf6c31cedece7ce06f582f03135375f3ba61424efd5707174a6",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/canary_train_B1.jsonl": "b4c1e589a6c0f5e249eabcbc18d878a0504ad477137d19ff5e3824a3744a8b54",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/canary_train_B1.batches.jsonl": "93a0eab05d96b2b81dfec18bf7f19669a89a9caee05736cbff09c21491e17974",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/canary_train_B4.jsonl": "39f7bddee8a513d150655ec822cad2b94ea007478bfba0444567ee94bdf50e6a",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/canary_train_B4.batches.jsonl": "9677705675b29b43b35788f467df8d575249fb12b357f12216370c64ce92ca30",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/canary_train_B2_first_two.jsonl": "4221915c92a6efd17ae281b90b8d629b4106ee9d16195c82918615d7c03a3f1f",
+    "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/canary_train_B2_first_two.batches.jsonl": "28b0192b2a8ce9d56f71dbdcbbbdac489c3997744eca54bfc9bfc3eb43fad846"
+  },
+  "source_sha256": {
+    "scripts/matched_budget_20261016/batched_generation.py": "4f1e8b185a90359d409aad4e05163f7630ad779c20c2813f9480cc056687c1f8",
+    "scripts/matched_budget_20261016/run_trial_batched.py": "d06956ee5d28c329b73031b043adb456cee3f8036409de2a55b70b9ddcdedc62",
+    "scripts/matched_budget_20261016/connectors.py": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "scripts/foundation_20261016/connectors.py": "ba06775a6e748de34a6788e82bd98654cb6fc3d1859d8ddb56eaf04d83d57318"
+  },
+  "source_matches_admitted_SHA": {
+    "scripts/matched_budget_20261016/batched_generation.py": true,
+    "scripts/matched_budget_20261016/run_trial_batched.py": true,
+    "scripts/matched_budget_20261016/connectors.py": true,
+    "scripts/matched_budget_20261016/run_trial.py": true,
+    "scripts/foundation_20261016/connectors.py": true
+  },
+  "installed_transformers": {
+    "version": "4.57.6",
+    "masking_utils_path": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/lib/python3.10/site-packages/transformers/masking_utils.py",
+    "masking_utils_sha256": "7a963feed8173b8265298dd24350c166222ce6b4719442fce48ab414d0478a6a",
+    "mask_functions_lines": {
+      "_ignore_causal_mask_sdpa": 219,
+      "sdpa_mask_recent_torch": 265,
+      "create_causal_mask": 745
+    },
+    "sdpa_attention_path": "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py",
+    "sdpa_attention_sha256": "dc5abe49a98dec3b9026739dfbf2e9a8f3e5272b2916b3c2d404727ac931a013",
+    "function_lines": {
+      "use_gqa_in_sdpa": 30,
+      "sdpa_attention_forward": 48
+    },
+    "fact": "all-one no-cache B1 mask may be skipped to None; left-padded batch creates 4D mask; mask None also controls GQA enable versus repeat_kv; actual GPU kernel/mask traces were not recorded"
+  },
+  "root_cause_status": "unresolved; consistent with batch/padding-dependent finite-precision or SDPA-path sensitivity, not proven by output patterns",
+  "excluded_by_first_step_evidence": [
+    "EOS postprocessing as origin of first-token divergence",
+    "canonical tail trimming as origin of divergent ordinary text"
+  ],
+  "not_excluded": [
+    "runtime collation/payload mismatch until tensor traces verified",
+    "backbone mutable state/kernel nonrepeatability",
+    "GEMM/SDPA batch-shape rounding",
+    "mask None/explicit4D and GQA implementation branch differences"
+  ],
+  "next_candidate": {
+    "name": "uniform B2 only",
+    "status": "not qualified; only one two-row pilot currently matches",
+    "scope": "all four fixed TRAIN rows; six existing scenario-placement/gate configurations; same seed17 canary and training update; exact original qualification fields",
+    "canary_cases": "two scenarios x early-zero/mid-zero/mid-near_unit, real balanced messages",
+    "acceptance": "all canonical IDs/raw_text/parse exactly equal B1 for all four rows in every case, state unchanged and ledgers valid; any mismatch stop; no pKD-only equivalence",
+    "uniform_trial_evaluation": "same fixed B2 grouping in immutable row order for all36, no per-case batch choice",
+    "unchanged": [
+      "36-case matrix",
+      "reader parameters",
+      "training",
+      "greedy24",
+      "parser",
+      "test sample set/gold",
+      "checkpoint selection",
+      "deadline 2026-10-16T23:20:00+08:00"
+    ],
+    "implementation_version": "fresh explicit admission/version; retain V1 and failed V2 files; no edits to admitted code in place"
+  },
+  "candidate_diagnostics_not_executed": [
+    "per-row input/mask/position/message tensor hashes",
+    "first-step and first-divergence logits/top-two margin",
+    "repeated same-shape B1/B4 in reversed order",
+    "aligned per-layer hidden/reader deltas",
+    "actual mask/is_causal/GQA/backend trace",
+    "fixed padded width B1/B2/B4 control",
+    "uniform explicit4D mask experiment",
+    "isolated fp32/eager comparison, not formal trial fallback"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "frozen_at_before_test_load": "2026-10-15T23:30:13.101152+00:00",
+  "candidates": [
+    {
+      "model": "ridge",
+      "alpha": 0.1,
+      "selection_MAE_min": 3.5592150852897113
+    },
+    {
+      "model": "ridge",
+      "alpha": 1.0,
+      "selection_MAE_min": 3.559609581434388
+    },
+    {
+      "model": "ridge",
+      "alpha": 10.0,
+      "selection_MAE_min": 3.5658036785556786
+    },
+    {
+      "model": "ridge",
+      "alpha": 100.0,
+      "selection_MAE_min": 3.6238056359725483
+    },
+    {
+      "model": "ridge",
+      "alpha": 1000.0,
+      "selection_MAE_min": 4.136037671001698
+    },
+    {
+      "model": "knn",
+      "k": 3,
+      "selection_MAE_min": 7.785674879512851
+    },
+    {
+      "model": "knn",
+      "k": 5,
+      "selection_MAE_min": 7.226642018726261
+    }
+  ],
+  "selected_ridge": {
+    "model": "ridge",
+    "alpha": 0.1,
+    "selection_MAE_min": 3.5592150852897113
+  },
+  "selected_knn": {
+    "model": "knn",
+    "k": 5,
+    "selection_MAE_min": 7.226642018726261
+  },
+  "constant": "train mean RT",
+  "conformal": {
+    "constant": {
+      "radius_min": 19.216036207882514,
+      "n_calibration_groups": 520,
+      "order_statistic": 469
+    },
+    "ridge": {
+      "radius_min": 7.320708193062252,
+      "n_calibration_groups": 520,
+      "order_statistic": 469
+    },
+    "knn": {
+      "radius_min": 15.034618391673298,
+      "n_calibration_groups": 520,
+      "order_statistic": 469
+    }
+  },
+  "test_label_use": "Not loaded until this immutable selection/calibration receipt was written"
+}

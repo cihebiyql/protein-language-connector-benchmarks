@@ -1,0 +1,190 @@
+{
+  "scope": "full-source post-run integrity audit, not paper performance equivalence",
+  "complete_noncanary_jobs": 5,
+  "expected_noncanary_jobs": 5,
+  "suite_status": "complete",
+  "all_requested_runs_verified": true,
+  "results": [
+    {
+      "job": "train_input_mlp_seed17",
+      "method": "input_mlp",
+      "source_test_count": 152,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 3,
+      "modes": {
+        "correct": {
+          "n_total": 152,
+          "n_valid": 152,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 1.9962375221398578
+        },
+        "off": {
+          "n_total": 152,
+          "n_valid": 27,
+          "n_failed": 125,
+          "parse_valid_rate": 0.17763157894736842,
+          "valid_only_mae": 3.1491419033118215
+        }
+      }
+    },
+    {
+      "job": "train_qformer_style_seed17",
+      "method": "qformer_style",
+      "source_test_count": 152,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 3,
+      "modes": {
+        "correct": {
+          "n_total": 152,
+          "n_valid": 152,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 1.442674172563715
+        },
+        "off": {
+          "n_total": 152,
+          "n_valid": 27,
+          "n_failed": 125,
+          "parse_valid_rate": 0.17763157894736842,
+          "valid_only_mae": 3.1491419033118215
+        }
+      }
+    },
+    {
+      "job": "train_internal_cross_attention_seed17",
+      "method": "internal_cross_attention",
+      "source_test_count": 152,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 3,
+      "modes": {
+        "correct": {
+          "n_total": 152,
+          "n_valid": 152,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 2.1613332667319782
+        },
+        "off": {
+          "n_total": 152,
+          "n_valid": 27,
+          "n_failed": 125,
+          "parse_valid_rate": 0.17763157894736842,
+          "valid_only_mae": 3.1491419033118215
+        }
+      }
+    },
+    {
+      "job": "train_constant_seed17",
+      "method": "constant",
+      "source_test_count": 152,
+      "checks_passed": [
+        "exact full source snapshots",
+        "source gold precision unchanged",
+        "checkpoint validation-only selection",
+        "all artifact hashes",
+        "literal output strict parser",
+        "complete failure denominators",
+        "recomputed metrics"
+      ],
+      "epochs": 3,
+      "optimizer_steps": 1548,
+      "best_epoch": 3,
+      "modes": {
+        "correct": {
+          "n_total": 152,
+          "n_valid": 152,
+          "n_failed": 0,
+          "parse_valid_rate": 1.0,
+          "valid_only_mae": 1.9656087454219924
+        },
+        "off": {
+          "n_total": 152,
+          "n_valid": 27,
+          "n_failed": 125,
+          "parse_valid_rate": 0.17763157894736842,
+          "valid_only_mae": 3.1491419033118215
+        }
+      }
+    },
+    {
+      "job": "pipeline_BASE03_seed17",
+      "method": "BASE03",
+      "source_test_count": 152,
+      "checks_passed": [
+        "all full validation/test rows",
+        "zero optimization steps",
+        "literal strict output parser",
+        "full parse failure denominator",
+        "recomputed pipeline metrics"
+      ],
+      "metrics": {
+        "validation": {
+          "n_total": 147,
+          "n_valid": 81,
+          "n_failed": 66,
+          "parse_valid_rate": 0.5510204081632653,
+          "failure_counts": {
+            "invalid_json_or_nonfinite": 66
+          },
+          "source_predictor_mae_same_all_examples": 1.2869575325705764,
+          "source_predictor_mae_same_valid_examples": 1.2212729643172575,
+          "generated_pKD_mae_valid_only": 4.513897454930157,
+          "parsed_estimate_preservation_mae_valid_only": 4.261234411234508,
+          "parsed_estimate_preservation_max_error_valid_only": 7.949466796875,
+          "full_sample_generated_mae": null,
+          "failure_policy": "no imputation, clipping, repair, or gold substitution",
+          "native_uncertainty_available": false
+        },
+        "test": {
+          "n_total": 152,
+          "n_valid": 91,
+          "n_failed": 61,
+          "parse_valid_rate": 0.5986842105263158,
+          "failure_counts": {
+            "invalid_json_or_nonfinite": 61
+          },
+          "source_predictor_mae_same_all_examples": 1.4686985760783524,
+          "source_predictor_mae_same_valid_examples": 1.3814002431690247,
+          "generated_pKD_mae_valid_only": 5.922364502805869,
+          "parsed_estimate_preservation_mae_valid_only": 5.283050853145698,
+          "parsed_estimate_preservation_max_error_valid_only": 8.203258056640625,
+          "full_sample_generated_mae": null,
+          "failure_policy": "no imputation, clipping, repair, or gold substitution",
+          "native_uncertainty_available": false
+        }
+      }
+    }
+  ],
+  "failures": []
+}

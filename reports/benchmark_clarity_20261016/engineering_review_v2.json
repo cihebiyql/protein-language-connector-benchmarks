@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T15:04:43.8166822+08:00",
+  "reviewer": "matched_protocol_review",
+  "status": "implementation_pending",
+  "decision": "Uniform batch4 throughput engineering boundary accepted; no GPU execution or qualification approval",
+  "reviewed_addendum": {
+    "path": "reports/benchmark_clarity_20261016/engineering_addendum_v2.json",
+    "sha256": "7e225bb39e301329e5574ed4e04bbf0c9b86ec46ac3e09fc4ea4eeafb36fa24e",
+    "status": "prospective_uniform_batch4_implementation_pending_qualification"
+  },
+  "scientific_protocol": {
+    "path": "configs/matched_budget_20261016.frozen.json",
+    "sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+    "unchanged": true
+  },
+  "scope": {
+    "only_change": "Uniform generation batch4 in original contiguous row order, final batch1to4",
+    "all36_same_V2_evaluation": true,
+    "V1_outputs_preserved_separate": true,
+    "casewise_version_selection_allowed": false,
+    "training_checkpoint_selection_metric_or_parser_change_allowed": false,
+    "deadline": "2026-10-16T23:20:00+08:00",
+    "deadline_reset_allowed": false,
+    "checkpoint_reuse": "Only accepted complete same-case V1 training with full history and pins; zero new optimizer steps, no extra training replicate",
+    "reused_checkpoints_fully_audited_in_this_review": false
+  },
+  "V1_boundary": {
+    "handoff_path": "reports/benchmark_clarity_20261016/V1_boundary_handoff.json",
+    "handoff_sha256": "328bf4ddc7cf0ae9ed22f0f9ceeff130d979a44ef6883957d525e75af4d7a9ec",
+    "suite_state_path": "results/matched_budget_20261016/suite_20261016_1426/suite_state.json",
+    "suite_state_sha256": "fa26f70bef7d942420c75f4bdc439bc8823a1f4980625abcb5986b94ed8bea9e",
+    "suite_status": "failed_or_partial",
+    "controller_exception": {
+      "type": "KeyboardInterrupt",
+      "message": "Supervisor stop requested before spawn"
+    },
+    "completed_trial_count": 2,
+    "trials": [
+      {
+        "case": {
+          "scenario": "new_peptide_known_target",
+          "seed": 17,
+          "placement": "early",
+          "message_input": "real",
+          "sender_mode": "balanced",
+          "gate_init": "zero",
+          "phase": "trial"
+        },
+        "complete": true,
+        "exit_code": 0,
+        "termination_reason": null,
+        "process_group_absent": true
+      },
+      {
+        "case": {
+          "scenario": "new_peptide_known_target",
+          "seed": 17,
+          "placement": "early",
+          "message_input": "neutral",
+          "sender_mode": "balanced",
+          "gate_init": "zero",
+          "phase": "trial"
+        },
+        "complete": true,
+        "exit_code": 0,
+        "termination_reason": null,
+        "process_group_absent": true
+      },
+      {
+        "case": {
+          "scenario": "new_peptide_known_target",
+          "seed": 17,
+          "placement": "mid",
+          "message_input": "real",
+          "sender_mode": "balanced",
+          "gate_init": "zero",
+          "phase": "trial"
+        },
+        "complete": false,
+        "exit_code": null,
+        "termination_reason": "controller_signal_15",
+        "process_group_absent": true
+      }
+    ],
+    "third_trial_interpretation": "Stopped before spawn; not a trained model or scientific training failure"
+  },
+  "qualification": {
+    "status": "pending",
+    "TRAIN_only_batch1_batch4_batch2_token_equivalence": "not performed by reviewer",
+    "CPU_mixed_EOS_pad_noEOS_ledger": "pending final independent implementation review",
+    "memory_and_throughput": "pending actual supervised TRAIN-only GPU canary",
+    "source_cache_and_standard_contract": "pending final",
+    "mismatch_action": "Stop qualification and archive; no test-driven version selection",
+    "scope_limit": "Strict deterministic algorithms do not ensure batch-shape-invariant logits; finite TRAIN canaries do not prove equality on all test inputs"
+  },
+  "reviewer_actions": {
+    "new_test_scores_or_predictions_read": false,
+    "GPU_calls": 0,
+    "training_performed": false,
+    "source_edits": false,
+    "old_protocol_acceptance_or_review_edits": false
+  },
+  "remaining_gates": [
+    "Final V2 source/cache/init/data pins and immutable V1 archive",
+    "Independent implementation and CPU negative/serialization review",
+    "Standard contracts, cleanup and fresh resource gate",
+    "Actual TRAIN-only batch equivalence, memory and throughput qualification",
+    "Uniform all36 V2 evaluation with no V1 answer fill-in",
+    "Hard23:20 stop and honest partial/k-of3 reporting"
+  ],
+  "report_sha256": "c251b4d82ecca76fc2f0266a3cfbc49aa27469bf8af545cc00bc9d97b085f8a3"
+}

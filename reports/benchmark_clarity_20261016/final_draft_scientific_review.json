@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T13:52:42.394233+00:00",
+  "reviewer": "matched_protocol_review",
+  "status": "draft_requires_one_factual_range_correction",
+  "scope": "Current review_draft/as_of_core24/extensions_pending only; not full36terminal acceptance",
+  "reviewed_source_sha256": {
+    "reports/benchmark_clarity_20261016/FINAL_REPORT.md": "31a493abb0831ffa8bb87401966ab582641e10152fee614753518e817d3d9a56",
+    "reports/benchmark_clarity_20261016/FINAL_REPORT.json": "58adef3a0212477ea3445d867aca12e5bf3488adbd03b154c6ca4a8f73959392",
+    "reports/benchmark_clarity_20261016/interim_24cases_20261016_2131/matched_summary.json": "d22da6e98304eb85301a130480bac413106b60511e9c05d92beaeb0d53156e4b",
+    "reports/benchmark_clarity_20261016/core24_mechanism.json": "4e0eb3eaf050680b3f21a922f5c3f8da2be34c8d77ddbf6ff87535292d3e926d",
+    "reports/benchmark_clarity_20261016/core24_execution_review.json": "4599dc2ceae0f890f69d1c3ee47fbd7aeea6e13a84813370f7d34d944b8aba23",
+    "reports/benchmark_clarity_20261016/core24_scientific_review.json": "2326960bf725b2f169bc596c5ddfe40265fb44564723a9fc0d2ea0af808117b1",
+    "reports/benchmark_clarity_20261016/evidence_backed_improvement_plan.json": "07c8f2c4c256204d1a9400a30ef7b1006c8c4699ab977e77dd8da50202b3d6db",
+    "reports/benchmark_clarity_20261016/residual_scale_literature.json": "5c5e10e3e9f5e630721b2301fd37c0bda384aefd1c1d0db19fbf116bb1e920e2",
+    "reports/benchmark_clarity_20261016/causal_estimands_note.json": "dec545570fc8ee56a8ac3dfbceeb4f9c9bf0bd4fe88ca7745f8cabb551f20365",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208"
+  },
+  "findings": [
+    {
+      "id": "DRAFT_RMS_RANGE",
+      "severity": "P2",
+      "status": "open_pending_parent_edit",
+      "source": {
+        "path": "reports/benchmark_clarity_20261016/FINAL_REPORT.md",
+        "line": 107,
+        "sha256": "31a493abb0831ffa8bb87401966ab582641e10152fee614753518e817d3d9a56"
+      },
+      "claim": "seed17 gated delta/hidden early approximately0.24-0.26 without known-only qualifier",
+      "actual_selected_validation_seed17_early_min": 0.242107932349419,
+      "actual_selected_validation_seed17_early_max": 0.29528295147630285,
+      "known_range": [
+        0.242107932349419,
+        0.26441474334210835
+      ],
+      "double_range": [
+        0.2914958213540949,
+        0.29528295147630285
+      ],
+      "required_correction": "Use approximately0.24-0.30 across both scenarios, or explicitly restrict0.24-0.26 toknown and separately listdouble. Retain validation/gold/pre-add-state scope; refresh MD hash in JSON selfcheck. Do not alter original histories/metrics.",
+      "blocks_current_training_or_protocol": false,
+      "must_close_before_publication": true
+    }
+  ],
+  "severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 1,
+    "P3": 0
+  },
+  "checks": [
+    {
+      "name": "Explicit core24 draft/nonterminal identity",
+      "passed": true
+    },
+    {
+      "name": "Scientific protocol/snapshot identity",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA interim_24cases_20261016_2131/matched_summary.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA interim_24cases_20261016_2131/snapshot_manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA core24_mechanism.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA core24_mechanism.md",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA core24_execution_review.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA core24_execution_review.md",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA causal_estimands_note.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA causal_estimands_note.md",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA evidence_backed_improvement_plan.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA evidence_backed_improvement_plan.md",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA literature_evidence.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA residual_scale_literature.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA residual_code_evidence.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA improvement_plan_review.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA paired-effects/core24/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA paired-effects/core24/self_check.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA locked_asset_snapshot.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA old_assets_pre_GPU_remaining_v1_check.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA core24_scientific_review.json",
+      "passed": true
+    },
+    {
+      "name": "Declared draft input SHA core24_scientific_review.md",
+      "passed": true
+    },
+    {
+      "name": "MD self hash current before correction",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_known_target', ['early', 'real', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_known_target', ['early', 'neutral', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_known_target', ['mid', 'real', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_known_target', ['mid', 'neutral', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_new_target', ['early', 'real', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_new_target', ['early', 'neutral', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_new_target', ['mid', 'real', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft configuration values ('new_peptide_new_target', ['mid', 'neutral', 'balanced', 'zero'])",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_known_target:depth_real",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_known_target:depth_neutral",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_known_target:content_early",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_known_target:content_mid",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_known_target:depth_content_difference_in_differences",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_new_target:depth_real",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_new_target:depth_neutral",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_new_target:content_early",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_new_target:content_mid",
+      "passed": true
+    },
+    {
+      "name": "Draft contrast full values new_peptide_new_target:depth_content_difference_in_differences",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:early／real",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:early／neutral",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:mid／real",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:mid／neutral",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:early／real",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:early／neutral",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:mid／real",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:mid／neutral",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:depth_real",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:depth_neutral",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:content_early",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:content_mid",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_known_target:DiD",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:depth_real",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:depth_neutral",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:content_early",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:content_mid",
+      "passed": true
+    },
+    {
+      "name": "MD rounded table row new_peptide_new_target:DiD",
+      "passed": true
+    },
+    {
+      "name": "MD18 numerical rows and JSON8plus10 complete",
+      "passed": true
+    },
+    {
+      "name": "Core count and full denominator intact",
+      "passed": true
+    },
+    {
+      "name": "Global budget not allFLOPs",
+      "passed": true
+    },
+    {
+      "name": "FutureS/W remain unexecuted",
+      "passed": true
+    },
+    {
+      "name": "Future parameter arithmetic",
+      "passed": true
+    },
+    {
+      "name": "All5closure placeholders explicitly pending",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference flamingo",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference blip2",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference prott3",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference protst",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference conditional_probing",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference control_tasks",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference esm2",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference normformer",
+      "passed": true
+    },
+    {
+      "name": "Primary paper identity reference rezero",
+      "passed": true
+    },
+    {
+      "name": "Nine original references",
+      "passed": true
+    },
+    {
+      "name": "Displayed seed17 early range covers both scenarios",
+      "passed": false
+    }
+  ],
+  "verification_summary": {
+    "checks": 76,
+    "passed": 75,
+    "MD_rounded_numeric_rows": 18,
+    "JSON_configuration_groups": 8,
+    "JSON_core_contrasts": 10,
+    "paper_identity_references": 9,
+    "active_gate_directories_read": 0,
+    "new_model_forward_fit_GPU_bootstrap_or_process_action": false,
+    "arithmetic_guard": "1e-12 float equality and5.1e-7 six-decimal display consistency are read-only audit guards, not scoring changes"
+  },
+  "seed17_selected_validation_ratios": [
+    {
+      "scenario": "new_peptide_known_target",
+      "placement": "early",
+      "message_input": "real",
+      "selected_epoch": 1,
+      "gated_delta_over_hidden_l2": 0.242107932349419
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "placement": "early",
+      "message_input": "neutral",
+      "selected_epoch": 1,
+      "gated_delta_over_hidden_l2": 0.26441474334210835
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "placement": "mid",
+      "message_input": "real",
+      "selected_epoch": 1,
+      "gated_delta_over_hidden_l2": 0.011298907488775673
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "placement": "mid",
+      "message_input": "neutral",
+      "selected_epoch": 1,
+      "gated_delta_over_hidden_l2": 0.01277310702176926
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "placement": "early",
+      "message_input": "real",
+      "selected_epoch": 2,
+      "gated_delta_over_hidden_l2": 0.2914958213540949
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "placement": "early",
+      "message_input": "neutral",
+      "selected_epoch": 2,
+      "gated_delta_over_hidden_l2": 0.29528295147630285
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "placement": "mid",
+      "message_input": "real",
+      "selected_epoch": 1,
+      "gated_delta_over_hidden_l2": 0.013324953451030436
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "placement": "mid",
+      "message_input": "neutral",
+      "selected_epoch": 3,
+      "gated_delta_over_hidden_l2": 0.01189789450352075
+    }
+  ],
+  "actual_seed17_ranges": {
+    "early": [
+      0.242107932349419,
+      0.29528295147630285
+    ],
+    "mid": [
+      0.011298907488775673,
+      0.013324953451030436
+    ]
+  },
+  "passed_interpretation": [
+    "Benchmark task/data/split/coverage/failure and selection rules precede results",
+    "Core24 and7128valid evidence separated from remaining36extensions and other benchmarks",
+    "Same nominal parameter/logicalbytes does not claim equalFLOPs or identifiability",
+    "Three-seed negative/positive reversals, correlated DiD andSDnotCI preserved",
+    "Content is separate-trained thetaR/thetaN total effect; fixedthetaRmean substitution absent; C1 entirebranch; P/Hundefined; no newC2",
+    "S1/S2 calibration/norm/zero-base and W ungatedaux/head465538/extra-budget boundaries correctly summarize linked detailed future plan",
+    "Nine papers and code supply transfer motivation, not score guarantee/globalfirst/originalsystem reproduction",
+    "V2/V3 qualification failures excluded from scientificcore, no casewise version fill-in",
+    "Asset finalcheck, processcleanup, extension closure and reportpublication explicitly pending"
+  ],
+  "full_round_terminal_acceptance": false,
+  "remaining_publication_gates": [
+    "Close DRAFT_RMS_RANGE if open",
+    "Actual G/P terminal results and fullk3ornull",
+    "Old1398 post-run preservation check",
+    "Whole-scope completion/partial/failure/deadline and ownedprocessgroup cleanup receipts",
+    "New final independent review on frozen terminal report",
+    "Actual workbench report publication proof if reported"
+  ],
+  "old_files_edited_by_reviewer": false,
+  "reviewed_inputs_unchanged_at_delivery": true,
+  "writes": [
+    "reports/benchmark_clarity_20261016/final_draft_scientific_review.md",
+    "reports/benchmark_clarity_20261016/final_draft_scientific_review.json"
+  ],
+  "report_sha256": "0f2ed8af4eff4aef318dfc9e580fd967dc827a5f6b23cac542bdd6d2447a7482"
+}

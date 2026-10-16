@@ -1,0 +1,143 @@
+{
+  "status": "implementation_review_passed_runtime_qualification_pending",
+  "reviewed_utc": "2026-10-16T06:23:14.314834+00:00",
+  "scope": "Independent read-only source review; no CUDA, downloads, backbone execution or source edits. Reports only.",
+  "source_sha256": {
+    "scripts/matched_budget_20261016/__init__.py": "6c93bf07294b0ba172227e698c1d21bf11d584174b604e3ad49d2a5ba8b164cd",
+    "scripts/matched_budget_20261016/connectors.py": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+    "scripts/matched_budget_20261016/execute_suite.py": "6044a3217916129341ed71e6dd36020047807d1a41433d11429266b3e7352080",
+    "scripts/matched_budget_20261016/fixed_message.py": "08a354a7f9fdb1f23864ab14468d7e17edc8886e866fba4f338a564b63413a3b",
+    "scripts/matched_budget_20261016/prepare_bounded.py": "6d59666cc223020fe321d6550ce84b0374ab1d508ecaad9424285ec285f5d30d",
+    "scripts/matched_budget_20261016/prepare_cache.py": "63e9094a4f9c4f6ec07f5b7b8e2e92423807ab4e03b57275caaded08636ff07b",
+    "scripts/matched_budget_20261016/preserve_assets.py": "a0467fa314aa84eef9684903220a41f29451ebfd7a72968af5275db0661bd231",
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "scripts/matched_budget_20261016/summarize.py": "695b6f876cc8d6da1773cbf70f69fbe4afe995ef4221a8cb2f5ea6895ea9b1c5",
+    "scripts/matched_budget_20261016/token_diagnostics.py": "77722e4439b582edcaccae108529158068587b99fb6d6ce578afb363610d2e6e",
+    "tests/test_matched_budget_core.py": "0d49914b0626cd4cfc7186c2343321704a89681f2611cf12d94f00c0b6bc9b3a",
+    "tests/test_matched_budget_runner.py": "b3b7e193f5b068bdf6784a6e34594a9b3a92430607d7d8fbc5eb742c3bd5aee2",
+    "tests/test_matched_budget_supervision.py": "218bf58b79cc2aea32124ed4b0ed6811b6156fee4ba06a768fd29d6aa6d8743f",
+    "tests/test_matched_budget_tokens.py": "b596204a5a16ed4db5e98fdbc28734852825951dfbc9fd146ba2c5e433c71ff8",
+    "configs/matched_budget_20261016.protocol.json": "54445ef93ae577fef5136010d6cf4977eb0cb8fa6529793625af551c00d0d571",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208"
+  },
+  "cpu_test": {
+    "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s tests -p 'test_matched_budget*.py' -v",
+    "environment": "WSL Ubuntu-22.04 existing venv",
+    "tests": 64,
+    "exit_code": 0,
+    "result": "OK; all64 current unique matched-budget tests passed, no skips",
+    "cuda_visibility": "",
+    "elapsed_test_seconds": 1.891
+  },
+  "closed_checks": [
+    "Identical 464001 nominal requires-grad reader tensor elements at both placements; frozen sender zero trainable parameters",
+    "Fixed Gaussian640x128 buffer uses private seed314159 CPU generator; no RNG or label dependence",
+    "Balanced8+8 versus global16 pooling and slot normalization follow declared order",
+    "Per-scenario neutral is exact TRAIN-only slot mean; initialization untrained, same seed state across locations, only declared alpha differs",
+    "Early prehook before first decoder block and mid hook after one-based block14; no extra language positions or source text leakage",
+    "Frozen backbone evaluation mode; gradients pass through downstream frozen blocks; causal text visibility and left-pad positions preserved",
+    "Zero gate first-step branch gradients expected zero; alpha receives gradient. K bias redundancy is not counted as effective identifiable degrees of freedom",
+    "Greedy decoding reuses historical implementation, no KV cache, unchanged24-token limit",
+    "Physical padded queries/attention edges, active masked writes and logical message bytes separately accounted",
+    "Answer-token categories use unchanged IDs plusEOS and causal shift; mixed boundaries separate; natural-log loss sums have consistent full-answer denominator",
+    "Timeout, SIGTERM, KeyboardInterrupt and spawn failures produce terminal receipts and bounded owned-group cleanup in independent CPU fixtures",
+    "Fixed36matrix, missing-seed k/3 null, paired signed contrasts and old source/family grouping are preserved",
+    "P2 closed: every raw test row is audited even when parse fails; immutable strict parser and all original metrics rerun; ID/order/split/gold coverage enforced",
+    "Final run_trial dca9c255 source integrates same-forward validation token accounting without criterion changes; C1 uses original per-sample NLL function, full test correct/off and separate original G plus category contribution rounding residual",
+    "Fresh AdamW and untrained per-seed reader load for every scenario/case; no trained state sharing",
+    "Pre-Torch process environment enforced; strict highest/TF32off/deterministic warn_onlyFalse flags and base bf16/reader fp32 verified before and after execution",
+    "Final prepare_cache63e9094a source pins include token module, original C1 source and both frozen zero-donor maps; execute_suite6044a321 contract includes token module",
+    "Bounded CPU preparation uses CUDA_VISIBLE_DEVICES empty,2threads,12GiB PGID RSS,600s limit,23:20 deadline and PDEATHSIG; preservation helper reads old contents and creates exclusive new reports",
+    "Frozen protocol9940d77d physical hash verified separately from retained54445ef9 draft"
+  ],
+  "findings": [
+    {
+      "id": "raw-prediction-summary",
+      "severity": "P2",
+      "status": "closed",
+      "resolution": "summary695b6f876cc8d6da1773cbf70f69fbe4afe995ef4221a8cb2f5ea6895ea9b1c5; independent24-test supervision including deleted/duplicate/permuted rows, fabricated parse/count/conditional/target-macro values passed"
+    },
+    {
+      "id": "integration-closure",
+      "severity": "pending",
+      "status": "closed",
+      "resolution": "Final runner dca9c255 and prepare63e9094a inspected; independently64 tests passed"
+    }
+  ],
+  "runtime_readiness": "not_inferred_from_CPU_tests; parent still must verify prepared cache, original assets, live probe, valid real contract and TRAIN-only deterministic numerical canaries",
+  "approval_for_GPU_execution": false,
+  "limitations": [
+    "Frozen benchmark test was previously observed; prospective fixed comparisons are subsequent experiments on the same test, not untouched confirmatory evaluation",
+    "No reviewer GPU or downloaded-backbone forward performed. Actual source/cache/model gates and real deterministic TRAIN canaries remain runtime gates",
+    "nominal reader parameter count does not imply identifiable degrees of freedom; gate0 creates expected initial branch-zero gradients and attention K bias redundancy remains",
+    "MatchedReader has no slot/type embedding and rejects memory_type_ids. MultiheadAttention is invariant to joint KV slot permutation. Balanced8+8 preserves allocation but slot order itself does not label peptide/target; content may encode implicit distinctions only",
+    "Frozen original prompt still says Memory type0 peptide/type1 target, while new matched interface supplies no original type IDs and no full-residue typed memory. Prompt bytes are preserved for comparison but original type semantics are not retained",
+    "Pool extension compares two pooling systems under the same budget; cannot establish explicit type alignment or precise peptide attention",
+    "Depth changes downstream frozen gradient path length and actual FLOPs; EOS realized calls and padding are recorded, not forced equal",
+    "P/H remains undefined with zero independent donors; category token NLL and teacher-forced C1 do not replace autonomous strict-JSON coverage/full-population MAE"
+  ],
+  "prior_review": {
+    "status": "core_and_token_cpu_passed_integration_review_pending",
+    "reviewed_utc": "2026-10-16T06:09:30.570177+00:00",
+    "source_sha256": {
+      "scripts/matched_budget_20261016/connectors.py": "fd2ccdf844a6ff9b557b05f01754f32d31e0af98f6e2b55c4852275efa7d1002",
+      "scripts/matched_budget_20261016/fixed_message.py": "08a354a7f9fdb1f23864ab14468d7e17edc8886e866fba4f338a564b63413a3b",
+      "scripts/matched_budget_20261016/token_diagnostics.py": "77722e4439b582edcaccae108529158068587b99fb6d6ce578afb363610d2e6e",
+      "scripts/matched_budget_20261016/prepare_cache.py": "118fe82c079b84b6df820e37cfc98451089bc2d612c29499cf27835d22d2f97b",
+      "scripts/matched_budget_20261016/run_trial.py": "28ada692e216f66f848e354a5c530e4f0c09cb1f769fdef65a20dcf300d32749",
+      "scripts/matched_budget_20261016/execute_suite.py": "9f6c40a76a311e81faea165e701b205ec1e852bb46b28df36acbddde1fed4641",
+      "scripts/matched_budget_20261016/summarize.py": "ad2322c7b6a3af4ea7709df24a425f214a6d53e5473a61ddf2a2a331a0666011",
+      "configs/matched_budget_20261016.protocol.json": "54445ef93ae577fef5136010d6cf4977eb0cb8fa6529793625af551c00d0d571",
+      "tests/test_matched_budget_core.py": "0d49914b0626cd4cfc7186c2343321704a89681f2611cf12d94f00c0b6bc9b3a",
+      "tests/test_matched_budget_runner.py": "64f2e97d5263f00c3d574a87b3294a6e81bc04a89979b1b8a8daa413703d5c55",
+      "tests/test_matched_budget_supervision.py": "500ca81e0ab9ca27ac0e27ea3e387ebdb6d96d84661ed5bac79b01e2242233b0",
+      "tests/test_matched_budget_tokens.py": "b596204a5a16ed4db5e98fdbc28734852825951dfbc9fd146ba2c5e433c71ff8"
+    },
+    "cpu_test": {
+      "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python -m unittest discover -s tests -p 'test_matched_budget*.py' -v",
+      "environment": "WSL Ubuntu-22.04 existing venv",
+      "tests": 64,
+      "exit_code": 0,
+      "result": "OK; all64 current unique matched-budget tests passed, no skips",
+      "cuda_visibility": "",
+      "elapsed_test_seconds": 1.891
+    },
+    "findings": [
+      {
+        "id": "integration-closure",
+        "severity": "pending",
+        "detail": "Runner does not yet call token diagnostics or C1 correct/off full-answer evaluation in reviewed SHA; parent says integration ongoing. Final integrated source hashes and tests must be reviewed before execution approval."
+      },
+      {
+        "id": "raw-prediction-summary",
+        "severity": "P2",
+        "detail": "Summarizer trusts stored parse fields; on parse-failure runs it does not read raw prediction file or verify its full row coverage. Full-valid path recomputes MAE but does not apply immutable parser to raw_text. Require full-row order/gold/strict-parse/count/MAE reconciliation plus negative fixtures before freeze; evaluation definition remains unchanged."
+      }
+    ]
+  },
+  "independent_subset_rerun": {
+    "suite": "test_matched_budget_supervision.py",
+    "tests": 24,
+    "result": "OK; subset of64, not added to unique count",
+    "elapsed_test_seconds": 1.099
+  },
+  "blocking_findings": [],
+  "implementation_gate_passed": true,
+  "slot_permutation_cpu_probe": {
+    "reader_hidden_dim": 24,
+    "seed": 19,
+    "shape_hidden": [
+      2,
+      5,
+      24
+    ],
+    "shape_message": [
+      2,
+      16,
+      128
+    ],
+    "max_abs_difference": 5.960464477539063e-08,
+    "allclose_atol_rtol_1e-6": true,
+    "meaning": "Confirms no explicit slot identity at reader; floating reduction order differs by rounding only"
+  }
+}

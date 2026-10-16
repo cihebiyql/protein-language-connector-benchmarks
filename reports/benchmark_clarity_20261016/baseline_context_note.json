@@ -1,0 +1,978 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T13:54:55.551596+00:00",
+  "purpose": "compact benchmark context from existing audit and frozen core24 summary only",
+  "inputs": {
+    "numeric_reference_audit_json": "PROJECT_ROOT/reports\\benchmark_clarity_20261016\\numeric_reference_audit.json",
+    "numeric_reference_audit_json_sha256": "3912f4bd98d866185dcd36f0fdf9c29030b4ae595716b1e7d76283e65ac14602",
+    "numeric_reference_audit_md_sha256": "c17d31564eb092f8d245b18b3ecb7e544604da5c8f9ad1b0391236633d0a77c5",
+    "frozen_core24_summary": "PROJECT_ROOT/reports\\benchmark_clarity_20261016\\interim_24cases_20261016_2131\\matched_summary.json",
+    "frozen_core24_summary_sha256": "d22da6e98304eb85301a130480bac413106b60511e9c05d92beaeb0d53156e4b"
+  },
+  "provenance_scope": "underlying sourceSHA and prior verification are inherited from numeric_reference_audit; no underlying models or fit functions reopened/executed by this note",
+  "numeric_single_selected_fit_references": [
+    {
+      "scenario": "new_peptide_known_target",
+      "model": "train_mean",
+      "source_result_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/results.json",
+      "source_prediction_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/test_predictions.jsonl",
+      "replay_result_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/results.json",
+      "replay_prediction_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/test_predictions.jsonl",
+      "channel": "numeric_predictor_not_LM_generation",
+      "test_n_total": 152,
+      "test_n_finite": 152,
+      "test_coverage": 1.0,
+      "test_mae_original": 1.6197442044721295,
+      "test_mae_recomputed_saved_predictions": 1.6197442044721295,
+      "validation_trials_original": [
+        {
+          "parameter": null,
+          "validation_mae": 1.3847400768165359
+        }
+      ],
+      "selected_parameter_original": null,
+      "selected_by_lowest_validation_MAE_first_tie_verified": true,
+      "replay_test_mae_saved": 1.6197442044721295,
+      "replay_max_abs_prediction_difference_recomputed": 0.0,
+      "original_group_macro": {
+        "unit": "target_family",
+        "groups": 42,
+        "value": 1.4988133465990718
+      },
+      "existing_exact_reference_target_macro": {
+        "unit": "target_sequence_sha256",
+        "groups": 48,
+        "value": 1.532309288818018,
+        "recomputed_from_saved_predictions": 1.5323092888180183
+      },
+      "state_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/train_mean.state.npz",
+      "state_array_shapes": {
+        "center": [
+          52
+        ],
+        "scale": [
+          52
+        ],
+        "state": [
+          1
+        ],
+        "train_features": [
+          0
+        ],
+        "train_labels": [
+          0
+        ]
+      },
+      "fitted_prediction_coefficient_count": 1,
+      "stored_train_feature_values": 0,
+      "stored_train_labels": 0,
+      "train_mean_scalar_saved": 5.53097756260741,
+      "common_TRAIN_feature_standardization": {
+        "dimensions": 52,
+        "center_values": 52,
+        "scale_values": 52,
+        "clipped_scale_1e_minus_6_indices": [
+          44,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "use_for_train_mean_prediction": false
+      },
+      "new_fit_or_prediction_performed_by_audit": false
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "model": "composition_chemistry_ridge",
+      "source_result_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/results.json",
+      "source_prediction_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/test_predictions.jsonl",
+      "replay_result_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/results.json",
+      "replay_prediction_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/test_predictions.jsonl",
+      "channel": "numeric_predictor_not_LM_generation",
+      "test_n_total": 152,
+      "test_n_finite": 152,
+      "test_coverage": 1.0,
+      "test_mae_original": 1.5926691086894593,
+      "test_mae_recomputed_saved_predictions": 1.5926691086894593,
+      "validation_trials_original": [
+        {
+          "parameter": 0.1,
+          "validation_mae": 1.4299212612038705
+        },
+        {
+          "parameter": 1.0,
+          "validation_mae": 1.429810983184785
+        },
+        {
+          "parameter": 10.0,
+          "validation_mae": 1.4287222191849491
+        },
+        {
+          "parameter": 100.0,
+          "validation_mae": 1.4192524879413981
+        },
+        {
+          "parameter": 1000.0,
+          "validation_mae": 1.3803197419663806
+        }
+      ],
+      "selected_parameter_original": 1000.0,
+      "selected_by_lowest_validation_MAE_first_tie_verified": true,
+      "replay_test_mae_saved": 1.592669108689459,
+      "replay_max_abs_prediction_difference_recomputed": 2.1316282072803006e-14,
+      "original_group_macro": {
+        "unit": "target_family",
+        "groups": 42,
+        "value": 1.4022896638784483
+      },
+      "existing_exact_reference_target_macro": {
+        "unit": "target_sequence_sha256",
+        "groups": 48,
+        "value": 1.4608874583554419,
+        "recomputed_from_saved_predictions": 1.4608874583554419
+      },
+      "state_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/composition_chemistry_ridge.state.npz",
+      "state_array_shapes": {
+        "center": [
+          52
+        ],
+        "scale": [
+          52
+        ],
+        "state": [
+          53
+        ],
+        "train_features": [
+          0
+        ],
+        "train_labels": [
+          0
+        ]
+      },
+      "fitted_prediction_coefficient_count": 53,
+      "stored_train_feature_values": 0,
+      "stored_train_labels": 0,
+      "train_mean_scalar_saved": null,
+      "common_TRAIN_feature_standardization": {
+        "dimensions": 52,
+        "center_values": 52,
+        "scale_values": 52,
+        "clipped_scale_1e_minus_6_indices": [
+          44,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "use_for_train_mean_prediction": true
+      },
+      "new_fit_or_prediction_performed_by_audit": false
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "model": "composition_chemistry_knn",
+      "source_result_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/results.json",
+      "source_prediction_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/test_predictions.jsonl",
+      "replay_result_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/results.json",
+      "replay_prediction_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/test_predictions.jsonl",
+      "channel": "numeric_predictor_not_LM_generation",
+      "test_n_total": 152,
+      "test_n_finite": 152,
+      "test_coverage": 1.0,
+      "test_mae_original": 1.7111403463024244,
+      "test_mae_recomputed_saved_predictions": 1.7111403463024244,
+      "validation_trials_original": [
+        {
+          "parameter": 1,
+          "validation_mae": 1.7924954995947526
+        },
+        {
+          "parameter": 3,
+          "validation_mae": 1.651485125653217
+        },
+        {
+          "parameter": 5,
+          "validation_mae": 1.5917835739085007
+        },
+        {
+          "parameter": 10,
+          "validation_mae": 1.4781158340051368
+        },
+        {
+          "parameter": 25,
+          "validation_mae": 1.3087771278092886
+        }
+      ],
+      "selected_parameter_original": 25,
+      "selected_by_lowest_validation_MAE_first_tie_verified": true,
+      "replay_test_mae_saved": 1.7111403463024244,
+      "replay_max_abs_prediction_difference_recomputed": 1.7763568394002505e-15,
+      "original_group_macro": {
+        "unit": "target_family",
+        "groups": 42,
+        "value": 1.5547689758347278
+      },
+      "existing_exact_reference_target_macro": {
+        "unit": "target_sequence_sha256",
+        "groups": 48,
+        "value": 1.5684932965781135,
+        "recomputed_from_saved_predictions": 1.5684932965781138
+      },
+      "state_path": "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/composition_chemistry_knn.state.npz",
+      "state_array_shapes": {
+        "center": [
+          52
+        ],
+        "scale": [
+          52
+        ],
+        "state": [
+          0
+        ],
+        "train_features": [
+          2062,
+          52
+        ],
+        "train_labels": [
+          2062
+        ]
+      },
+      "fitted_prediction_coefficient_count": 0,
+      "stored_train_feature_values": 107224,
+      "stored_train_labels": 2062,
+      "train_mean_scalar_saved": null,
+      "common_TRAIN_feature_standardization": {
+        "dimensions": 52,
+        "center_values": 52,
+        "scale_values": 52,
+        "clipped_scale_1e_minus_6_indices": [
+          44,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "use_for_train_mean_prediction": true
+      },
+      "new_fit_or_prediction_performed_by_audit": false
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "model": "train_mean",
+      "source_result_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/results.json",
+      "source_prediction_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/test_predictions.jsonl",
+      "replay_result_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/results.json",
+      "replay_prediction_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/test_predictions.jsonl",
+      "channel": "numeric_predictor_not_LM_generation",
+      "test_n_total": 442,
+      "test_n_finite": 442,
+      "test_coverage": 1.0,
+      "test_mae_original": 1.4462827692449542,
+      "test_mae_recomputed_saved_predictions": 1.4462827692449542,
+      "validation_trials_original": [
+        {
+          "parameter": null,
+          "validation_mae": 1.6110667885025292
+        }
+      ],
+      "selected_parameter_original": null,
+      "selected_by_lowest_validation_MAE_first_tie_verified": true,
+      "replay_test_mae_saved": 1.4462827692449542,
+      "replay_max_abs_prediction_difference_recomputed": 0.0,
+      "original_group_macro": {
+        "unit": "target_family",
+        "groups": 140,
+        "value": 1.6100759914744434
+      },
+      "existing_exact_reference_target_macro": {
+        "unit": "target_sequence_sha256",
+        "groups": 157,
+        "value": 1.6116596036564548,
+        "recomputed_from_saved_predictions": 1.6116596036564548
+      },
+      "state_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/train_mean.state.npz",
+      "state_array_shapes": {
+        "center": [
+          52
+        ],
+        "scale": [
+          52
+        ],
+        "state": [
+          1
+        ],
+        "train_features": [
+          0
+        ],
+        "train_labels": [
+          0
+        ]
+      },
+      "fitted_prediction_coefficient_count": 1,
+      "stored_train_feature_values": 0,
+      "stored_train_labels": 0,
+      "train_mean_scalar_saved": 5.600067544896424,
+      "common_TRAIN_feature_standardization": {
+        "dimensions": 52,
+        "center_values": 52,
+        "scale_values": 52,
+        "clipped_scale_1e_minus_6_indices": [
+          44,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "use_for_train_mean_prediction": false
+      },
+      "new_fit_or_prediction_performed_by_audit": false
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "model": "composition_chemistry_ridge",
+      "source_result_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/results.json",
+      "source_prediction_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/test_predictions.jsonl",
+      "replay_result_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/results.json",
+      "replay_prediction_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/test_predictions.jsonl",
+      "channel": "numeric_predictor_not_LM_generation",
+      "test_n_total": 442,
+      "test_n_finite": 442,
+      "test_coverage": 1.0,
+      "test_mae_original": 1.5522326388805492,
+      "test_mae_recomputed_saved_predictions": 1.5522326388805494,
+      "validation_trials_original": [
+        {
+          "parameter": 0.1,
+          "validation_mae": 1.8552211278279425
+        },
+        {
+          "parameter": 1.0,
+          "validation_mae": 1.854837658989386
+        },
+        {
+          "parameter": 10.0,
+          "validation_mae": 1.851060019522907
+        },
+        {
+          "parameter": 100.0,
+          "validation_mae": 1.8179942308981627
+        },
+        {
+          "parameter": 1000.0,
+          "validation_mae": 1.6890483426589844
+        }
+      ],
+      "selected_parameter_original": 1000.0,
+      "selected_by_lowest_validation_MAE_first_tie_verified": true,
+      "replay_test_mae_saved": 1.5522326388805487,
+      "replay_max_abs_prediction_difference_recomputed": 1.3322676295501878e-14,
+      "original_group_macro": {
+        "unit": "target_family",
+        "groups": 140,
+        "value": 1.752731692418311
+      },
+      "existing_exact_reference_target_macro": {
+        "unit": "target_sequence_sha256",
+        "groups": 157,
+        "value": 1.7383988467951281,
+        "recomputed_from_saved_predictions": 1.7383988467951281
+      },
+      "state_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/composition_chemistry_ridge.state.npz",
+      "state_array_shapes": {
+        "center": [
+          52
+        ],
+        "scale": [
+          52
+        ],
+        "state": [
+          53
+        ],
+        "train_features": [
+          0
+        ],
+        "train_labels": [
+          0
+        ]
+      },
+      "fitted_prediction_coefficient_count": 53,
+      "stored_train_feature_values": 0,
+      "stored_train_labels": 0,
+      "train_mean_scalar_saved": null,
+      "common_TRAIN_feature_standardization": {
+        "dimensions": 52,
+        "center_values": 52,
+        "scale_values": 52,
+        "clipped_scale_1e_minus_6_indices": [
+          44,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "use_for_train_mean_prediction": true
+      },
+      "new_fit_or_prediction_performed_by_audit": false
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "model": "composition_chemistry_knn",
+      "source_result_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/results.json",
+      "source_prediction_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/test_predictions.jsonl",
+      "replay_result_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/results.json",
+      "replay_prediction_path": "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/test_predictions.jsonl",
+      "channel": "numeric_predictor_not_LM_generation",
+      "test_n_total": 442,
+      "test_n_finite": 442,
+      "test_coverage": 1.0,
+      "test_mae_original": 1.592355486770503,
+      "test_mae_recomputed_saved_predictions": 1.592355486770503,
+      "validation_trials_original": [
+        {
+          "parameter": 1,
+          "validation_mae": 2.1506975705259905
+        },
+        {
+          "parameter": 3,
+          "validation_mae": 1.9362736502317754
+        },
+        {
+          "parameter": 5,
+          "validation_mae": 1.864883380905409
+        },
+        {
+          "parameter": 10,
+          "validation_mae": 1.7944122705972918
+        },
+        {
+          "parameter": 25,
+          "validation_mae": 1.720413870513354
+        }
+      ],
+      "selected_parameter_original": 25,
+      "selected_by_lowest_validation_MAE_first_tie_verified": true,
+      "replay_test_mae_saved": 1.592355486770503,
+      "replay_max_abs_prediction_difference_recomputed": 2.6645352591003757e-15,
+      "original_group_macro": {
+        "unit": "target_family",
+        "groups": 140,
+        "value": 1.7913517293981243
+      },
+      "existing_exact_reference_target_macro": {
+        "unit": "target_sequence_sha256",
+        "groups": 157,
+        "value": 1.7934876470174859,
+        "recomputed_from_saved_predictions": 1.793487647017486
+      },
+      "state_path": "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/composition_chemistry_knn.state.npz",
+      "state_array_shapes": {
+        "center": [
+          52
+        ],
+        "scale": [
+          52
+        ],
+        "state": [
+          0
+        ],
+        "train_features": [
+          2063,
+          52
+        ],
+        "train_labels": [
+          2063
+        ]
+      },
+      "fitted_prediction_coefficient_count": 0,
+      "stored_train_feature_values": 107276,
+      "stored_train_labels": 2063,
+      "train_mean_scalar_saved": null,
+      "common_TRAIN_feature_standardization": {
+        "dimensions": 52,
+        "center_values": 52,
+        "scale_values": 52,
+        "clipped_scale_1e_minus_6_indices": [
+          44,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "use_for_train_mean_prediction": true
+      },
+      "new_fit_or_prediction_performed_by_audit": false
+    }
+  ],
+  "numeric_capacity_explanation": {
+    "train_mean": {
+      "selected_fit_count_per_scenario": 1,
+      "prediction_capacity": "one stored TRAIN-label mean scalar; common saved52D feature statistics not used by its predictions",
+      "train_mean_saved": {
+        "new_peptide_known_target": 5.53097756260741,
+        "new_peptide_new_target": 5.600067544896424
+      },
+      "seed_SD": null,
+      "selection": "one candidate, no test-selected constant"
+    },
+    "composition_chemistry_ridge": {
+      "selected_fit_count_per_scenario": 1,
+      "input_dimensions": 52,
+      "saved_coefficients_including_intercept": 53,
+      "selected_alpha": 1000,
+      "selection": "original validationMAE from fixed alpha0.1/1/10/100/1000, TRAIN-only fits; one selected stored fit, not a3seed model",
+      "statistical_degrees_of_freedom": null,
+      "coefficient_count_is_not_effective_degrees_of_freedom": true
+    },
+    "composition_chemistry_knn": {
+      "selected_fit_count_per_scenario": 1,
+      "input_dimensions": 52,
+      "selected_k": 25,
+      "stored_TRAIN_rows": {
+        "new_peptide_known_target": 2062,
+        "new_peptide_new_target": 2063
+      },
+      "stored_feature_values": {
+        "new_peptide_known_target": 107224,
+        "new_peptide_new_target": 107276
+      },
+      "stored_TRAIN_labels": {
+        "new_peptide_known_target": 2062,
+        "new_peptide_new_target": 2063
+      },
+      "capacity": "nonparametric stored memory is capacity, not zero-information because no neural weights",
+      "selection": "original validationMAE from k1/3/5/10/25, same frozen TRAIN standardization"
+    }
+  },
+  "neural_numeric_three_seed_references": [
+    {
+      "scenario": "new_peptide_known_target",
+      "architecture": "BASE01",
+      "seed_mae": {
+        "17": 1.4619118947050607,
+        "2026": 1.4426225707530902,
+        "42": 1.4761552343568474
+      },
+      "seed_mean_MAE": 1.4602298999383327,
+      "sample_sd_between_seeds": 0.016829489353131315,
+      "source": "results/bench_v02/panel_baselines_20261015_v2/comparison.json",
+      "epochs": 30,
+      "effective_batch_size": 64,
+      "micro_batch_size": 8,
+      "optimizer_steps": 990,
+      "training_loss": "TRAIN-standardized pKD MSE",
+      "checkpoint_selection": "minimum validation pKD MAE, earliest best tie; no early stopping",
+      "channel": "numeric predictor",
+      "not_matched_to_current_3epoch_text_NLL_training": true,
+      "trainable_parameters": 374081
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "architecture": "MEANPOOL",
+      "seed_mae": {
+        "17": 1.4686985745098091,
+        "2026": 1.456309525866089,
+        "42": 1.4848144284644882
+      },
+      "seed_mean_MAE": 1.4699408429467953,
+      "sample_sd_between_seeds": 0.01429299797761848,
+      "source": "results/bench_v02/panel_baselines_20261015_v2/comparison.json",
+      "epochs": 30,
+      "effective_batch_size": 64,
+      "micro_batch_size": 8,
+      "optimizer_steps": 990,
+      "training_loss": "TRAIN-standardized pKD MSE",
+      "checkpoint_selection": "minimum validation pKD MAE, earliest best tie; no early stopping",
+      "channel": "numeric predictor",
+      "not_matched_to_current_3epoch_text_NLL_training": true,
+      "trainable_parameters": 324673
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "architecture": "BASE01",
+      "seed_mae": {
+        "17": 1.4202220446112324,
+        "2026": 1.4127478775232536,
+        "42": 1.5394761319069425
+      },
+      "seed_mean_MAE": 1.4574820180138095,
+      "sample_sd_between_seeds": 0.07110725580596407,
+      "source": "results/bench_v02/panel_baselines_20261015_v2/comparison.json",
+      "epochs": 30,
+      "effective_batch_size": 64,
+      "micro_batch_size": 8,
+      "optimizer_steps": 990,
+      "training_loss": "TRAIN-standardized pKD MSE",
+      "checkpoint_selection": "minimum validation pKD MAE, earliest best tie; no early stopping",
+      "channel": "numeric predictor",
+      "not_matched_to_current_3epoch_text_NLL_training": true,
+      "trainable_parameters": 374081
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "architecture": "MEANPOOL",
+      "seed_mae": {
+        "17": 1.4210854917125422,
+        "2026": 1.4216072044911172,
+        "42": 1.5732135420999078
+      },
+      "seed_mean_MAE": 1.4719687461011892,
+      "sample_sd_between_seeds": 0.0876809533688615,
+      "source": "results/bench_v02/panel_baselines_20261015_v2/comparison.json",
+      "epochs": 30,
+      "effective_batch_size": 64,
+      "micro_batch_size": 8,
+      "optimizer_steps": 990,
+      "training_loss": "TRAIN-standardized pKD MSE",
+      "checkpoint_selection": "minimum validation pKD MAE, earliest best tie; no early stopping",
+      "channel": "numeric predictor",
+      "not_matched_to_current_3epoch_text_NLL_training": true,
+      "trainable_parameters": 324673
+    }
+  ],
+  "inherited_underlying_source_sha256": {
+    "data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/samples.jsonl": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+    "data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/test_gold.jsonl": "6f50e85443d1056ef35d509b5229dfb0bc364e266da2aebfa3fa78dcdb07c07b",
+    "data/processed/bench_v02/a1_locked_v2/new_peptide_known_target/benchmark_lock.json": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/results.json": "c7bf61d92609cc527614806e8d014e7b18b08e7f5aae98d3ec160c982296c8eb",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/composition_chemistry_knn.state.npz": "e18bdb03fb9a9da6bc1ae4e9e1f3255eb422b5278d55af6b46d4f63ce05f0313",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/composition_chemistry_ridge.state.npz": "2e810ff4f5f5496d2e66c383b9dd2fb22417801b7cccff7c6d28997b759c1ded",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/test_predictions.jsonl": "13a7895e9b5086b2e84900fcf2110f60c8c4bfd3f3967e685a82c891cc1927ea",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_known_BASE00/train_mean.state.npz": "f2e30f1aa2defc0968ef10559971697329947b20bd9261aa4202b476e65cb419",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/results.json": "b121fe6a8db625cc58630bdc3428af4ba67c97b721d43479a04950551506d80a",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/composition_chemistry_knn.state.npz": "100d067ba5c809b662b606db404b106a0abaf8dc39fa7b785f03ca0d5c78fb9c",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/composition_chemistry_ridge.state.npz": "6decf1b09915840762e01ef16584476b8cf60c21f94ceec4a3dea850dbe40bd1",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/test_predictions.jsonl": "c20bbfe61d20299eea8e13b18c55343fe4064282df002251d70ecb0a52c2b13d",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_known_target/train_mean.state.npz": "aacd7ba5650130fb22a366e37e75f7378cad6b301dd606e6f7ed8dfcbb10fc57",
+    "data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/samples.jsonl": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+    "data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/test_gold.jsonl": "388e50ac4776bd122dc3fb60a688ee715173a8703c890ac7d0ad38eaab82065f",
+    "data/processed/bench_v02/a1_locked_v2/new_peptide_new_target/benchmark_lock.json": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/results.json": "d2db4063cbd17afac07cb584a1ae8f3bff2651f3ad70040da6a4abd5b0bc3eee",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/composition_chemistry_knn.state.npz": "0e27aba14202ea329aa8422fa556b5021bbce56781e1775e103a384b6cba641e",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/composition_chemistry_ridge.state.npz": "5bb1c577ef165e7f0ba5eb60049b4572a132b09393afa4a643a2acb2a31cba9d",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/test_predictions.jsonl": "9571848846066b8c887f88ca0a2d20179b085280c1124159a2f1bbc8c8c5b0d1",
+    "results/bench_v02/panel_baselines_20261015_v2/A1_double_new_BASE00/train_mean.state.npz": "006f4554451f0c1f9d7cf026d53fee43650c3cc202ba4494c7fc70469bc230d0",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/results.json": "3c417debff28c040ad064a30e4d09f341007b5d1297e7a3e7852fbd80a050956",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/composition_chemistry_knn.state.npz": "4a83711451b344d88f1114e3ae8256fe611ff2b5016c20287327fd04a42faa66",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/composition_chemistry_ridge.state.npz": "64a20e7cbb8d95195294494aafe27964fe98a91a8e11da07a13096e34d4cf99b",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/test_predictions.jsonl": "dce4d4b6c72882db78062d24bea1b45a5365c37c2a0d45e799c50fd305429e7a",
+    "results/foundation_20261016/replay_predictors/BASE00_new_peptide_new_target/train_mean.state.npz": "869ba8a83e669f6e18a4f6fd2de178687e3bdd75d84919c92bf87c240a2f1673",
+    "scripts/bench_v02/run_simple_baselines.py": "237446d0366be8e82dc4cb84b02c30f34cea07921c50311429ae2d73cbd83e5c",
+    "scripts/bench_v02/train_panel_baselines.py": "c215d72317400eb2a315d8b2149dde7b1cd46df9f62e58fb66274c188d2721c9",
+    "scripts/bench_v02/summarize_panel_baselines.py": "7a0834e93bd1583184c1fc0494e361efb144c2076471677160dc40352c077cf3",
+    "scripts/foundation_20261016/replay_predictors.py": "ee0ddc314fe408ccf48a722a47529e7fead81022999072090ce41e0bc1802840",
+    "scripts/foundation_20261016/run_connectors.py": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+    "scripts/matched_budget_20261016/run_trial.py": "dca9c255e5403af0207390f8a247403aa9728fba50034b85dec108656d877c2c",
+    "scripts/matched_budget_20261016/run_trial_batched_v3.py": "98e61cce159477cbf19fccb0bf16dc5372317d277b309b407463ebe57e6f809c",
+    "scripts/matched_budget_20261016/batched_generation_v3.py": "c98cc308708acd9c34813ac352055ceee1c30ca4506aba6c46d3c5223500f934",
+    "results/bench_v02/panel_baselines_20261015_v2/architecture_training_preregistration.json": "ba396579df26c57f737bd1ef7959b67d2c587c0bbe185f9e12ffb9b2a8d9e0ad",
+    "results/bench_v02/panel_baselines_20261015_v2/preregistered_protocol.json": "537f5a4aa2c03de78dc2c9783d5848e18605e6773f38b18d75b4008e02cbd747",
+    "results/bench_v02/panel_baselines_20261015_v2/comparison.json": "535e529c403a9255ea64268bd8ff47c293bb11460c15b8d153c92bedebe94459",
+    "results/foundation_20261016/replay_predictors/summary.json": "6ecb58024d700aaf92261751ca47e901b72ba4ca44cce75711789c400a4a4b68",
+    "configs/bench_v02.json": "1508e488e64a48f17fd03eeb9ec2640b3cc3968a535384a3b3498ce477aa7214",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208"
+  },
+  "same_frozen_population_evidence": {
+    "new_peptide_known_target": {
+      "samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+      "test_gold_sha256": "6f50e85443d1056ef35d509b5229dfb0bc364e266da2aebfa3fa78dcdb07c07b",
+      "benchmark_lock_sha256": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249",
+      "split_counts": {
+        "train": 2062,
+        "validation": 147,
+        "test": 152
+      },
+      "test_sample_and_gold_ID_order_equal": true,
+      "test_sample_and_gold_pKD_exact_equal": true,
+      "lock_pins_match_current_samples_and_gold": true,
+      "prompt_input_inventory": {
+        "train": {
+          "rows": 2062,
+          "assay_string_nonempty_rows": 2062,
+          "distinct_case_sensitive_assay_strings": 80,
+          "assay_unreported_sentinels": {
+            "Not reported": 1,
+            "not specified": 3
+          },
+          "unique_allowed_context_views": 126,
+          "context_fields_observed": {
+            "temperature_kelvin": 0,
+            "ph": 0,
+            "buffer": 0,
+            "actual_construct_sequence": 0,
+            "actual_construct_verified": 0
+          },
+          "chemical_state_key_sets": [
+            [
+              "c_terminal",
+              "chemical_modification",
+              "cyclization_method",
+              "explicitly_representable",
+              "n_terminal",
+              "residue_modification",
+              "topology"
+            ]
+          ]
+        },
+        "validation": {
+          "rows": 147,
+          "assay_string_nonempty_rows": 147,
+          "distinct_case_sensitive_assay_strings": 29,
+          "assay_unreported_sentinels": {
+            "not reported": 1
+          },
+          "unique_allowed_context_views": 33,
+          "context_fields_observed": {
+            "temperature_kelvin": 0,
+            "ph": 0,
+            "buffer": 0,
+            "actual_construct_sequence": 0,
+            "actual_construct_verified": 0
+          },
+          "chemical_state_key_sets": [
+            [
+              "c_terminal",
+              "chemical_modification",
+              "cyclization_method",
+              "explicitly_representable",
+              "n_terminal",
+              "residue_modification",
+              "topology"
+            ]
+          ]
+        },
+        "test": {
+          "rows": 152,
+          "assay_string_nonempty_rows": 152,
+          "distinct_case_sensitive_assay_strings": 19,
+          "assay_unreported_sentinels": {},
+          "unique_allowed_context_views": 30,
+          "context_fields_observed": {
+            "temperature_kelvin": 0,
+            "ph": 0,
+            "buffer": 0,
+            "actual_construct_sequence": 0,
+            "actual_construct_verified": 0
+          },
+          "chemical_state_key_sets": [
+            [
+              "c_terminal",
+              "chemical_modification",
+              "cyclization_method",
+              "explicitly_representable",
+              "n_terminal",
+              "residue_modification",
+              "topology"
+            ]
+          ]
+        }
+      },
+      "actual_allowed_context_identifier_substring_hits": []
+    },
+    "new_peptide_new_target": {
+      "samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+      "test_gold_sha256": "388e50ac4776bd122dc3fb60a688ee715173a8703c890ac7d0ad38eaab82065f",
+      "benchmark_lock_sha256": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f",
+      "split_counts": {
+        "train": 2063,
+        "validation": 431,
+        "test": 442
+      },
+      "test_sample_and_gold_ID_order_equal": true,
+      "test_sample_and_gold_pKD_exact_equal": true,
+      "lock_pins_match_current_samples_and_gold": true,
+      "prompt_input_inventory": {
+        "train": {
+          "rows": 2063,
+          "assay_string_nonempty_rows": 2063,
+          "distinct_case_sensitive_assay_strings": 80,
+          "assay_unreported_sentinels": {
+            "not reported": 5,
+            "No description": 1,
+            "Not reported": 2,
+            "not specified": 2
+          },
+          "unique_allowed_context_views": 129,
+          "context_fields_observed": {
+            "temperature_kelvin": 0,
+            "ph": 0,
+            "buffer": 0,
+            "actual_construct_sequence": 0,
+            "actual_construct_verified": 0
+          },
+          "chemical_state_key_sets": [
+            [
+              "c_terminal",
+              "chemical_modification",
+              "cyclization_method",
+              "explicitly_representable",
+              "n_terminal",
+              "residue_modification",
+              "topology"
+            ]
+          ]
+        },
+        "validation": {
+          "rows": 431,
+          "assay_string_nonempty_rows": 431,
+          "distinct_case_sensitive_assay_strings": 41,
+          "assay_unreported_sentinels": {
+            "not specified": 1
+          },
+          "unique_allowed_context_views": 68,
+          "context_fields_observed": {
+            "temperature_kelvin": 0,
+            "ph": 0,
+            "buffer": 0,
+            "actual_construct_sequence": 0,
+            "actual_construct_verified": 0
+          },
+          "chemical_state_key_sets": [
+            [
+              "c_terminal",
+              "chemical_modification",
+              "cyclization_method",
+              "explicitly_representable",
+              "n_terminal",
+              "residue_modification",
+              "topology"
+            ]
+          ]
+        },
+        "test": {
+          "rows": 442,
+          "assay_string_nonempty_rows": 442,
+          "distinct_case_sensitive_assay_strings": 49,
+          "assay_unreported_sentinels": {
+            "not specified": 2
+          },
+          "unique_allowed_context_views": 71,
+          "context_fields_observed": {
+            "temperature_kelvin": 0,
+            "ph": 0,
+            "buffer": 0,
+            "actual_construct_sequence": 0,
+            "actual_construct_verified": 0
+          },
+          "chemical_state_key_sets": [
+            [
+              "c_terminal",
+              "chemical_modification",
+              "cyclization_method",
+              "explicitly_representable",
+              "n_terminal",
+              "residue_modification",
+              "topology"
+            ]
+          ]
+        }
+      },
+      "actual_allowed_context_identifier_substring_hits": []
+    }
+  },
+  "current_real_vs_TRAIN_mean_descriptive_check": [
+    {
+      "scenario": "new_peptide_known_target",
+      "placement": "early",
+      "current_real_three_seed_values": {
+        "17": 1.7172145129305871,
+        "42": 1.9341582630494205,
+        "2026": 2.233326676857049
+      },
+      "current_real_MAE_mean": 1.9615664842790188,
+      "current_real_MAE_sample_SD": 0.25914542130132595,
+      "existing_single_fit_TRAIN_mean_MAE": 1.6197442044721295,
+      "arithmetic_mean_gap_current_minus_numeric_reference": 0.3418222798068893,
+      "gap_positive": true,
+      "interpretation": "descriptive same frozen-test task context; not matched architecture contrast or significance/equivalence test"
+    },
+    {
+      "scenario": "new_peptide_known_target",
+      "placement": "mid",
+      "current_real_three_seed_values": {
+        "17": 1.8631792124191837,
+        "42": 2.2824792740629354,
+        "2026": 2.0663459706923417
+      },
+      "current_real_MAE_mean": 2.070668152391487,
+      "current_real_MAE_sample_SD": 0.20968344322953542,
+      "existing_single_fit_TRAIN_mean_MAE": 1.6197442044721295,
+      "arithmetic_mean_gap_current_minus_numeric_reference": 0.4509239479193574,
+      "gap_positive": true,
+      "interpretation": "descriptive same frozen-test task context; not matched architecture contrast or significance/equivalence test"
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "placement": "early",
+      "current_real_three_seed_values": {
+        "17": 1.4943973561192023,
+        "42": 1.7321422226232848,
+        "2026": 1.4800162514780515
+      },
+      "current_real_MAE_mean": 1.5688519434068462,
+      "current_real_MAE_sample_SD": 0.14159622349346676,
+      "existing_single_fit_TRAIN_mean_MAE": 1.4462827692449542,
+      "arithmetic_mean_gap_current_minus_numeric_reference": 0.12256917416189195,
+      "gap_positive": true,
+      "interpretation": "descriptive same frozen-test task context; not matched architecture contrast or significance/equivalence test"
+    },
+    {
+      "scenario": "new_peptide_new_target",
+      "placement": "mid",
+      "current_real_three_seed_values": {
+        "17": 1.5637638154225637,
+        "42": 1.3864328942787574,
+        "2026": 1.867917073364436
+      },
+      "current_real_MAE_mean": 1.6060379276885857,
+      "current_real_MAE_sample_SD": 0.24350991582143552,
+      "existing_single_fit_TRAIN_mean_MAE": 1.4462827692449542,
+      "arithmetic_mean_gap_current_minus_numeric_reference": 0.15975515844363142,
+      "gap_positive": true,
+      "interpretation": "descriptive same frozen-test task context; not matched architecture contrast or significance/equivalence test"
+    }
+  ],
+  "all_four_current_real_means_above_TRAIN_mean_reference": true,
+  "budget_and_channel_boundary": {
+    "old_simple": "numeric finite-output predictor channel; one selected fit each/scenario, no3seedSD; ridge/kNN have original validation candidate search",
+    "old_neural": "BASE01 374081 or MEANPOOL324673params;30epochs,effectivebatch64,micro8,990updates;TRAIN-standardized pKD MSE, validationpKD MAE selector; numeric output",
+    "current_core": "Reader464001, fixedsender0;3epochs,batch4,1548updates;answer-text CE, fullvalidation answer-token NLL selector; frozenQwen autonomous strictJSON;16x128 float32 source message",
+    "nonmatched_axes": [
+      "parameters/representation",
+      "training sample exposure and objective",
+      "validation checkpoint criterion and search",
+      "output channel/format generation",
+      "communication and compute budget"
+    ],
+    "not_allowed_claims": [
+      "matched comparison proves neural architecture superiority",
+      "single stored fit duplicated as3seeds",
+      "numeric finite coverage equals language strictJSON generation",
+      "source numeric predictor replaces LM output",
+      "microMAE mixed with different target-family/target-sequence macro groups"
+    ],
+    "meaning": "numeric references locate presentA1 task usefulness, preserve original matched depth/content contrasts for their own estimands"
+  },
+  "formulas": {
+    "micro_MAE": "sum_i abs(pred_i-original_unrounded_pKD_i)/n; all152or442rows",
+    "three_seed_mean": "sum three independent stored seedMAEs/3",
+    "sample_SD": "sqrt(sum((seedMAE-mean)^2)/(3-1)); notCI",
+    "reference_gap": "current3seedmeanMAE minus one stored numeric fit MAE; descriptive arithmetic only"
+  },
+  "verification": {
+    "six_control_coverages_complete": true,
+    "neural_three_seed_arithmetic_matches_audit": true,
+    "current4real_vs_mean_assertion_true": true,
+    "source_reference_SHA_present_for_neural_comparison": true,
+    "new_fit_forward_GPU_download_bootstrap": false,
+    "active_gate_case_read": false,
+    "FINAL_old_files_or_sources_modified": false,
+    "new_significance_threshold_or_metric": false
+  }
+}

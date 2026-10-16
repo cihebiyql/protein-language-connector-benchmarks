@@ -1,0 +1,19 @@
+# Optional template only: this .example file is not an activated GitHub workflow.
+# It installs no Python dependencies and never runs a model, training, or downloads.
+name: Public saved-result validation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  stdlib-validation:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m unittest discover -s tests_public -v
+      - run: python -m analysis.analyze_results validate --repo-root .

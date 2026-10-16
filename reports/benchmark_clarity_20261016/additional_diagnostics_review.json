@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T10:03:17.954176+00:00",
+  "reviewer": "matched_protocol_review",
+  "status": "pass_no_standard_drift_or_causal_overclaim_found",
+  "scope": "Read-only fixed eight-case saved-output distribution and already-downloaded official-code static evidence; no active-case read, model forward, fit, GPU, external download or third-party execution",
+  "reviewed_source_sha256": {
+    "reports/benchmark_clarity_20261016/output_distribution_diagnostic_8cases.md": "a111374b55dae7ec72fb72098f652c7836567ca67cf690fafc4aa318ef08f9f7",
+    "reports/benchmark_clarity_20261016/output_distribution_diagnostic_8cases.json": "2767e39a62bec59e16b1b28f461a7dd99db68f730b2ed31ebc3f10b814cb650b",
+    "reports/benchmark_clarity_20261016/residual_code_evidence.md": "9ad85df7245e3b094a80a1f9baa5d7ed5bbaae83599f9571157f6def37ea4b33",
+    "reports/benchmark_clarity_20261016/residual_code_evidence.json": "ac3421aedc7044869095a533ab9354c3e4708551b0f67a7b17f48f899c3460f3",
+    "configs/matched_budget_20261016.frozen.json": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208"
+  },
+  "findings": [],
+  "severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "verification_summary": {
+    "checks": 112,
+    "passed": 112,
+    "fixed_case_saved_rows": 2376,
+    "existing_numeric_mean_rows": 594,
+    "source_files_disk_ZIP_SHA": 13,
+    "protected_old_report_hashes": 18,
+    "source_archives": 2,
+    "arithmetic_guard": "1e-12 is read-only floating consistency tolerance, not a benchmark endpoint or acceptance-rule change"
+  },
+  "case_recomputation": [
+    {
+      "case_id": "trial_new_peptide_known_target_17_early_real_balanced_zero",
+      "n": 152,
+      "MAE": 1.7172145129305862,
+      "global_Spearman": 0.01712552180790431,
+      "distinct_values": 11
+    },
+    {
+      "case_id": "trial_new_peptide_known_target_17_early_neutral_balanced_zero",
+      "n": 152,
+      "MAE": 1.5488770729229822,
+      "global_Spearman": 0.13261134519899515,
+      "distinct_values": 2
+    },
+    {
+      "case_id": "trial_new_peptide_known_target_17_mid_real_balanced_zero",
+      "n": 152,
+      "MAE": 1.8631792124191833,
+      "global_Spearman": 0.1309524224362925,
+      "distinct_values": 5
+    },
+    {
+      "case_id": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero",
+      "n": 152,
+      "MAE": 2.073273951564467,
+      "global_Spearman": 0.10934544935747761,
+      "distinct_values": 5
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_early_real_balanced_zero",
+      "n": 442,
+      "MAE": 1.4943973561192012,
+      "global_Spearman": 0.07891014271547367,
+      "distinct_values": 3
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_early_neutral_balanced_zero",
+      "n": 442,
+      "MAE": 1.4260354197292955,
+      "global_Spearman": 0.23411774617119271,
+      "distinct_values": 3
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_mid_real_balanced_zero",
+      "n": 442,
+      "MAE": 1.563763815422563,
+      "global_Spearman": 0.07183456923196502,
+      "distinct_values": 3
+    },
+    {
+      "case_id": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero",
+      "n": 442,
+      "MAE": 1.832649575063652,
+      "global_Spearman": 0.17564441861857016,
+      "distinct_values": 3
+    }
+  ],
+  "checks": [
+    {
+      "name": "Frozen scientific SHA unchanged",
+      "passed": true
+    },
+    {
+      "name": "Frozen eight-case summary SHA",
+      "passed": true
+    },
+    {
+      "name": "Three-seed summaries null",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_real_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_real_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_real_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_real_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_real_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_neutral_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_neutral_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_neutral_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_neutral_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_early_neutral_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_real_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_real_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_real_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_real_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_real_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_known_target_17_mid_neutral_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_real_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_real_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_real_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_real_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_real_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_neutral_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_neutral_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_neutral_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_neutral_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_early_neutral_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_real_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_real_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_real_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_real_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_real_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero complete original denominator",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero original MAE/global average-tie Spearman",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero prediction_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero gold_distribution",
+      "passed": true
+    },
+    {
+      "name": "trial_new_peptide_new_target_17_mid_neutral_balanced_zero exact unbinned frequencies",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_real_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/scripts\\bench_v02\\metrics.py",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/scripts\\bench_v02\\train_panel_baselines.py",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\suite_20261016_1426\\trial_new_peptide_known_target_17_early_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_real_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_known_target_17_mid_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_real_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_early_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_real_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\test_predictions_correct.jsonl",
+      "passed": true
+    },
+    {
+      "name": "Output metric source SHA PROJECT_ROOT/results\\matched_budget_20261016\\remaining_v1_20261016_1546\\trial_new_peptide_new_target_17_mid_neutral_balanced_zero\\artifacts\\result.json",
+      "passed": true
+    },
+    {
+      "name": "TRAIN mean source SHA PROJECT_ROOT/results\\bench_v02\\panel_baselines_20261015_v2\\A1_known_BASE00\\results.json",
+      "passed": true
+    },
+    {
+      "name": "TRAIN mean source SHA PROJECT_ROOT/results\\bench_v02\\panel_baselines_20261015_v2\\A1_known_BASE00\\test_predictions.jsonl",
+      "passed": true
+    },
+    {
+      "name": "TRAIN mean source SHA PROJECT_ROOT/results\\bench_v02\\panel_baselines_20261015_v2\\A1_known_BASE00\\train_mean.state.npz",
+      "passed": true
+    },
+    {
+      "name": "Constant TRAIN mean/null Spearman new_peptide_known_target",
+      "passed": true
+    },
+    {
+      "name": "TRAIN mean source SHA PROJECT_ROOT/results\\bench_v02\\panel_baselines_20261015_v2\\A1_double_new_BASE00\\results.json",
+      "passed": true
+    },
+    {
+      "name": "TRAIN mean source SHA PROJECT_ROOT/results\\bench_v02\\panel_baselines_20261015_v2\\A1_double_new_BASE00\\test_predictions.jsonl",
+      "passed": true
+    },
+    {
+      "name": "TRAIN mean source SHA PROJECT_ROOT/results\\bench_v02\\panel_baselines_20261015_v2\\A1_double_new_BASE00\\train_mean.state.npz",
+      "passed": true
+    },
+    {
+      "name": "Constant TRAIN mean/null Spearman new_peptide_new_target",
+      "passed": true
+    },
+    {
+      "name": "Pinned archive SHA normformer_fairseq",
+      "passed": true
+    },
+    {
+      "name": "ZIP comment fixed commit normformer_fairseq",
+      "passed": true
+    },
+    {
+      "name": "Pinned archive SHA rezero",
+      "passed": true
+    },
+    {
+      "name": "ZIP comment fixed commit rezero",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/README.md",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/examples/normformer/train_lm.sh",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/transformer_layer.py",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/multihead_attention.py",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/modules/layer_norm.py",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/models/transformer_lm.py",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/fairseq/optim/adam.py",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/normformer_fairseq/source/fairseq-3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99/LICENSE",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/README.md",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/requirements.txt",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/setup.py",
+      "passed": true
+    },
+    {
+      "name": "Static disk/ZIP/SHA repos/benchmark_clarity_20261016/residual_scale/rezero/source/rezero-e2c94a825c5564217e8cf4d75a28d59cab1d7029/LICENSE",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/residual_scale_literature.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/residual_scale_literature.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/benchmark_explanation_review.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/benchmark_explanation_review.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/engineering_review_v2.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/engineering_review_v2.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/engineering_review_v3.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/engineering_review_v3.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review_v1_continuation.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review_v1_continuation.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review_v2.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review_v2.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review_v3.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/implementation_review_v3.md",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/protocol_review.json",
+      "passed": true
+    },
+    {
+      "name": "Protected old report SHA reports/benchmark_clarity_20261016/protocol_review.md",
+      "passed": true
+    },
+    {
+      "name": "NormFormer branch LN before dropout/residual",
+      "passed": true
+    },
+    {
+      "name": "NormFormer FFN LN before fc2; w_resid scales skip",
+      "passed": true
+    },
+    {
+      "name": "Head-slice scale is after MHA return with out_proj",
+      "passed": true
+    },
+    {
+      "name": "ReZero direct zero scalar/no tanh/no LN",
+      "passed": true
+    },
+    {
+      "name": "ReZero outer norm/defaults are distinct from paper recipe",
+      "passed": true
+    },
+    {
+      "name": "NormFormer private-data/optional residual-scale caveat",
+      "passed": true
+    },
+    {
+      "name": "Both pinned code commits postdate paper v2",
+      "passed": true
+    },
+    {
+      "name": "Report does not claim code-executed improvement",
+      "passed": true
+    }
+  ],
+  "confirmed_boundaries": [
+    "Original MAE and registered instance-level Spearman versus post-test descriptive ddof0/frequency statistics are separate",
+    "Positive sample rho is descriptive association, not significance/causality/message-source proof",
+    "Prediction shrinkage and mean movement are compatible observations, not measured error attribution or formal calibration",
+    "TRAIN mean is separate numeric channel; constant-rank Spearman stays null",
+    "No current test-based clipping/calibration/threshold/checkpoint change; three-seed aggregates null",
+    "Official code commits are later than paper v2, not asserted experiment commits",
+    "NormFormer LN is inside attention branch before add; head-slice scaling in snapshot is post-MHA-out-projection",
+    "ReZero shared zero scalar uses no tanh/LN; package defaults differ from AppendixB",
+    "Single frozen-Qwen reader is not complete NormFormer/ReZero; output LN/calibration remains unexecuted",
+    "fairseq partial source view/omissions disclosed; no full functional-checkout claim"
+  ],
+  "limits": [
+    "No new PDF full-text identity audit or external retrieval",
+    "No significance, causal effect or formal calibration fit",
+    "No model, source execution, GPU, training or runtime-release verification"
+  ],
+  "writes": [
+    "reports/benchmark_clarity_20261016/additional_diagnostics_review.md",
+    "reports/benchmark_clarity_20261016/additional_diagnostics_review.json"
+  ],
+  "reviewed_inputs_unchanged_at_delivery": true,
+  "input_changes_at_delivery": [],
+  "report_sha256": "5be2b538b4bd3170fc2745ce2b9ac03c598f609a702353aec1202db0a4f8f27e"
+}

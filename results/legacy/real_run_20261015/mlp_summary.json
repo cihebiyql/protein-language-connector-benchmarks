@@ -1,0 +1,119 @@
+{
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "device": "cpu",
+  "torch_version": "2.13.0+cpu",
+  "threads": 2,
+  "input_sha256": "57038156925fb5d772824716eef68cf6ce55d288175913e5d86a095007c9e8da",
+  "runs": [
+    {
+      "seed": 17,
+      "best_epoch": 11,
+      "scores": {
+        "correct": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.7691645133505599,
+          "mrr": 0.6831867443440333
+        },
+        "closed_raw_zero": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.04737295434969854,
+          "mrr": 0.08747118311094092
+        },
+        "closed_train_mean": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.17958656330749354,
+          "mrr": 0.18367874015896726
+        },
+        "mismatched_10_donor_mean": {
+          "n": 387,
+          "n_donors_per_sample": 10,
+          "known_positive_recall_at_3": 0.12088716623600346,
+          "mrr": 0.15238271427708955
+        }
+      },
+      "seconds": 1.4175299519993132,
+      "optimizer_steps": 900
+    },
+    {
+      "seed": 42,
+      "best_epoch": 27,
+      "scores": {
+        "correct": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.7704565030146426,
+          "mrr": 0.6692387060248619
+        },
+        "closed_raw_zero": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.02670111972437554,
+          "mrr": 0.08413565853121584
+        },
+        "closed_train_mean": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.2049956933677864,
+          "mrr": 0.22750910952583164
+        },
+        "mismatched_10_donor_mean": {
+          "n": 387,
+          "n_donors_per_sample": 10,
+          "known_positive_recall_at_3": 0.10887166236003445,
+          "mrr": 0.14847128587931477
+        }
+      },
+      "seconds": 1.3463006480014883,
+      "optimizer_steps": 900
+    },
+    {
+      "seed": 2026,
+      "best_epoch": 12,
+      "scores": {
+        "correct": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.7756244616709733,
+          "mrr": 0.6771804565978613
+        },
+        "closed_raw_zero": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.02670111972437554,
+          "mrr": 0.08460075168050317
+        },
+        "closed_train_mean": {
+          "n": 387,
+          "known_positive_recall_at_3": 0.16279069767441862,
+          "mrr": 0.2160252624466935
+        },
+        "mismatched_10_donor_mean": {
+          "n": 387,
+          "n_donors_per_sample": 10,
+          "known_positive_recall_at_3": 0.11507321274763135,
+          "mrr": 0.15027116232775603
+        }
+      },
+      "seconds": 1.4047954639972886,
+      "optimizer_steps": 900
+    }
+  ],
+  "across_seed_mean": {
+    "correct": {
+      "known_positive_recall_at_3": 0.7717484926787254,
+      "mrr": 0.6765353023222521
+    },
+    "closed_raw_zero": {
+      "known_positive_recall_at_3": 0.03359173126614987,
+      "mrr": 0.0854025311075533
+    },
+    "closed_train_mean": {
+      "known_positive_recall_at_3": 0.18245765144989953,
+      "mrr": 0.20907103737716415
+    },
+    "mismatched_10_donor_mean": {
+      "known_positive_recall_at_3": 0.1149440137812231,
+      "mrr": 0.15037505416138677
+    }
+  },
+  "inference_scope": "fixed Benz held-out groups; seed spread is descriptive, not three independent test sets"
+}

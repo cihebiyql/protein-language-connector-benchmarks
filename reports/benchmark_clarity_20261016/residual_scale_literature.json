@@ -1,0 +1,236 @@
+{
+  "created_utc": "2026-10-16T08:24:02.202595+00:00",
+  "scope": "literature and proposal only; no existing code/protocol/results changes; no GPU, optimizer fitting, calibration, test-score reading or new model/data download",
+  "local_library_search": {
+    "project_filename_search": "No exact NormFormer/ReZero/CaiT filename match found in bounded papers scan",
+    "NormFormer_keyword": "0 results; exact original not found",
+    "2110.09456_keyword": "0 results",
+    "ReZero_keyword": "5 other papers mentioning ReZero; original title not returned",
+    "2003.04887_keyword": "Attention Residuals bibliography mention only; not the original paper",
+    "important_boundary": "Keyword search misses do not prove absence from every possible library path; no cited-by paper used as original evidence"
+  },
+  "local_scale_evidence": {
+    "early_real": {
+      "source_path": "results/matched_budget_20261016/suite_20261016_1426/trial_new_peptide_known_target_17_early_real_balanced_zero/artifacts/history.json",
+      "source_sha256": "7131378c941e5b895156bf3ee3d464c2e0546f5e1c6b605911cdeeffe64bd2bb",
+      "epoch": 1,
+      "phase": "validation; teacher-forced all active prompt and answer positions",
+      "statistics": {
+        "hidden_l2_per_token_rms": 1.0054589105779017,
+        "gated_delta_over_hidden_l2": 0.242107932349419,
+        "raw_delta_over_hidden_l2": 37.70429701946747,
+        "alpha": 0.00642132293432951,
+        "gate_tanh_alpha": 0.006421234458684921,
+        "active_text_positions": 34968
+      }
+    },
+    "early_neutral": {
+      "source_path": "results/matched_budget_20261016/suite_20261016_1426/trial_new_peptide_known_target_17_early_neutral_balanced_zero/artifacts/history.json",
+      "source_sha256": "a95c0f10dbc98f0189a2c37a8f53e38e63fecf0a089e372af95e221e96c019c1",
+      "epoch": 1,
+      "phase": "validation; teacher-forced all active prompt and answer positions",
+      "statistics": {
+        "hidden_l2_per_token_rms": 1.0054589105779017,
+        "gated_delta_over_hidden_l2": 0.26441474334210835,
+        "raw_delta_over_hidden_l2": 45.37909431669343,
+        "alpha": 0.005826706066727638,
+        "gate_tanh_alpha": 0.0058266399428248405,
+        "active_text_positions": 34968
+      }
+    },
+    "mid_real": {
+      "source_path": "results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_real_balanced_zero/artifacts/history.json",
+      "source_sha256": "1770edba66939f86bddeadf7cfb9cf435e0797a29764dad4a6cf8da30e71977e",
+      "epoch": 1,
+      "phase": "validation; teacher-forced all active prompt and answer positions",
+      "statistics": {
+        "hidden_l2_per_token_rms": 719.0113958245411,
+        "gated_delta_over_hidden_l2": 0.011298907488775673,
+        "raw_delta_over_hidden_l2": 0.5434425750037133,
+        "alpha": -0.020794374868273735,
+        "gate_tanh_alpha": -0.020791377872228622,
+        "active_text_positions": 34968
+      }
+    },
+    "mid_neutral": {
+      "source_path": "results/matched_budget_20261016/remaining_v1_20261016_1546/trial_new_peptide_known_target_17_mid_neutral_balanced_zero/artifacts/history.json",
+      "source_sha256": "44282f6c3d59feebc8d3b787a3cf9e9164574acc4b6c33944923b929f4ba492c",
+      "epoch": 1,
+      "phase": "validation; teacher-forced all active prompt and answer positions",
+      "statistics": {
+        "hidden_l2_per_token_rms": 719.0113958245411,
+        "gated_delta_over_hidden_l2": 0.01277310702176926,
+        "raw_delta_over_hidden_l2": 0.6213923673642499,
+        "alpha": -0.020558733493089676,
+        "gate_tanh_alpha": -0.020555837079882622,
+        "active_text_positions": 34968
+      }
+    }
+  },
+  "evidence_boundary": "Four known-target seed17 val snapshots at selected epoch1; association only, not causal attribution; norms include teacher-forced answer positions and are not proposed TRAIN prompt-only calibration statistics",
+  "papers": [
+    {
+      "title": "NormFormer: Improved Transformer Pretraining with Extra Normalization",
+      "authors": [
+        "Sam Shleifer",
+        "Jason Weston",
+        "Myle Ott"
+      ],
+      "arxiv": "2110.09456v2",
+      "pdf_url": "https://arxiv.org/pdf/2110.09456v2",
+      "abs_url": "https://arxiv.org/abs/2110.09456v2",
+      "version_date": "2021-11-01",
+      "pages": 14,
+      "status_in_this_version": "Under review as a conference paper at ICLR 2022",
+      "local_pdf_downloaded": true,
+      "method_evidence": [
+        {
+          "pages_1based": [
+            2
+          ],
+          "section": "2.1",
+          "fact": "HeadScale multiplies each attention head by learned gamma_i initialized1"
+        },
+        {
+          "pages_1based": [
+            3
+          ],
+          "section": "2.1",
+          "equation_number": "unnumbered displayed equations",
+          "formula": "NormScaledMHA(x)=x+LN(HeadScaleMHA(LN(x),LN(x),LN(x)))",
+          "additional_formula": "NormFFN(x)=x+LN(GELU(LN(x)W1+b1))W2+b2"
+        },
+        {
+          "pages_1based": [
+            3,
+            4,
+            5
+          ],
+          "section": "2.2 and Table2",
+          "author_configuration": "1.3B CLM LR6e-4; baseline286K and NormFormer275K updates in compute-matched table; baseline300B-token setup, NormFormer equal GPU time; extra operations mean2-6% fewer steps/tokens"
+        },
+        {
+          "pages_1based": [
+            6,
+            7
+          ],
+          "section": "4.1",
+          "fact": "Per-layer gradient norms become more balanced; not a study of frozen protein connectors"
+        },
+        {
+          "pages_1based": [
+            4,
+            8
+          ],
+          "section": "2.2/4.2",
+          "negative_evidence": "Optional learned skip/residual scaling initialized1 does not help at1.3B and above; it is not used for their1.3B/2.7B CLM results"
+        }
+      ],
+      "transfer_boundary": "New branch-output norm is inspired by their attention-output norm; not full NormFormer reproduction. Original ResScale weights the skip x, while proposed calibration scales the new message branch. Their evidence concerns end-to-end pretraining gradients, not our activation norms or affinity task.",
+      "local_pdf_path": "papers/benchmark_clarity_20261016/residual_scale/NormFormer_2110.09456v2.pdf",
+      "pdf_sha256": "c3bd7416cf2e37290a3a0ac807f193c344a905605afb86aad9bef3fd14bfc502",
+      "pdf_bytes": 2201887,
+      "physical_pages_1based": 14,
+      "cpu_page_text_path": "papers/benchmark_clarity_20261016/residual_scale/NormFormer_2110.09456v2.text-pages.json",
+      "extraction_warning": "",
+      "workbench_paper_id": "22de1a65-affd-5b7f-a816-57fe0c0fca3b",
+      "workbench_reader_url": "http://LOCAL_ADDRESS:4318/api/research/papers/22de1a65-affd-5b7f-a816-57fe0c0fca3b/source",
+      "workbench_import_status": "imported",
+      "keyword_retrieval_verified": true,
+      "semantic_retrieval_verified": true,
+      "semantic_provider": "existing remote SiliconFlow BAAI/bge-m3 API, no local GPU"
+    },
+    {
+      "title": "ReZero is All You Need: Fast Convergence at Large Depth",
+      "authors": [
+        "Thomas Bachlechner",
+        "Bodhisattwa Prasad Majumder",
+        "Huanru Henry Mao",
+        "Garrison W. Cottrell",
+        "Julian McAuley"
+      ],
+      "arxiv": "2003.04887v2",
+      "pdf_url": "https://arxiv.org/pdf/2003.04887v2",
+      "abs_url": "https://arxiv.org/abs/2003.04887v2",
+      "version_date": "2020-06-25",
+      "pages": 14,
+      "status_in_this_version": "Preprint. Under review.",
+      "local_pdf_downloaded": true,
+      "method_evidence": [
+        {
+          "pages_1based": [
+            1,
+            2
+          ],
+          "section": "1 and Table1",
+          "equation_number": "1",
+          "formula": "x_(i+1)=x_i+alpha_i F(x_i), alpha_i initialized0",
+          "fact": "Identity initial residual block; F-parameter gradients initially vanish and alpha starts learning"
+        },
+        {
+          "pages_1based": [
+            7,
+            8
+          ],
+          "section": "6.2/Table3",
+          "author_result": "12-layer enwiki8 target1.2BPB: zero-alpha8800 vs warmup baseline13690 iterations; table speedup1.56x, not56% fewer updates"
+        },
+        {
+          "pages_1based": [
+            12
+          ],
+          "section": "AppendixB",
+          "author_configuration": "12layers, hidden/embed512,2heads,context512,batch1080,attention/FFNdropout0.2,GELU,LAMB fixedLR0.016,no LR schedule; baseline post-norm uses100warmup steps as described section6.2"
+        }
+      ],
+      "transfer_boundary": "Our tanh(alpha) zero gate preserves the frozen base at initialization and has derivative1 atalpha0, but is not ReZero unbounded alpha away from zero; no claim that the entire pretrained LM is an identity map or has proven dynamical isometry.",
+      "local_pdf_path": "papers/benchmark_clarity_20261016/residual_scale/ReZero_2003.04887v2.pdf",
+      "pdf_sha256": "54eea1741fad2e7a20e52f55c64b34977f1206c5e3c8e14804ea5385c299c070",
+      "pdf_bytes": 1314235,
+      "physical_pages_1based": 14,
+      "cpu_page_text_path": "papers/benchmark_clarity_20261016/residual_scale/ReZero_2003.04887v2.text-pages.json",
+      "extraction_warning": "syntax error: could not parse color space (469 0 R)\nIgnoring Page blending colorspace.",
+      "workbench_paper_id": "4917e4f7-6691-54c2-a869-452a0c28a9cb",
+      "workbench_reader_url": "http://LOCAL_ADDRESS:4318/api/research/papers/4917e4f7-6691-54c2-a869-452a0c28a9cb/source",
+      "workbench_import_status": "imported",
+      "keyword_retrieval_verified": true,
+      "semantic_retrieval_verified": true,
+      "semantic_provider": "existing remote SiliconFlow BAAI/bge-m3 API, no local GPU"
+    }
+  ],
+  "proposals_not_executed": [
+    {
+      "id": "S1_fixed_train_only_calibration",
+      "formula": "u_l=Reader_init(h_l,z); r_l(a)=sqrt(mean_TRAIN_valid_prompt_tokens ||a||_2^2); s_l=r_l(h_l)/r_l(u_l); h_new=h_l+tanh(alpha)*s_l*u_l; alpha0=0",
+      "fitting_rule": "Future only: frozen backbone+initial reader, fixed label-free TRAIN prompt-only set; no gold suffix/validation/test; reject invalid/zero denominator; freeze scalar and calibration IDs/SHA perplacement/seed, no outcome-selected multiplier",
+      "parameters": "464001 unchanged; fixed scalar is a buffer not an optimizer parameter",
+      "causal_caveat": "Changes gate-gradient/effective learning parametrization too; equality of scalar norm does not imply equal causal impact or Jacobians"
+    },
+    {
+      "id": "S2_extra_output_norm_then_zero_gate",
+      "formula": "v_l=LN_affineFalse(u_l); c_l=r_l(h_l)/r_l(v_l) using same future TRAIN-only calibration; h_new=h_l+tanh(alpha)*c_l*v_l; alpha0=0",
+      "norm_position": "After output projection to1536 and before the scalar gate/residual addition; never LN(h+delta), which would alter the zero-gate backbone",
+      "parameters": "affineFalse adds0 trainable parameters; affine LN alternative would add2H=3072 to both placements and change each count to467073",
+      "scope": "Compare against S1 to separate output-shape normalization from potential relative-amplitude matching; extra LN without scaling does not by itself match early/mid relative update norms"
+    }
+  ],
+  "budget_and_governance": {
+    "current36_cases_unchanged": true,
+    "existing_source_protocol_results_unchanged": true,
+    "new_training_or_calibration_executed": false,
+    "source_message_budget": "16x128 float32 remains8192 logical bytes per sample perforward",
+    "extra_costs": [
+      "TRAIN-only calibration forwards and statistics",
+      "per-token output norm O(B*L*H), extra activations/statistics",
+      "per-token scalar scaling O(B*L*H) and frozen scalar bytes",
+      "actual walltime/peakmemory/backward/realized generation calls all require measurement"
+    ],
+    "future_design": "Separate prospective factorial placement x scale/norm, same real/neutral controls and seeds; preserve frozen samples/parser/selection; record both fixed-steps and measured compute, not claim free compute matching",
+    "forbidden_inference": "No causal claim from four val snapshots; no test-selected scale; no architecture inference from V2/V3 batching qualification failures"
+  },
+  "zero_gate_optimizer_boundary": "At alpha0 the F task gradients vanish. In this implementation AdamW wd0.01 can still decay F parameters with non-None zero gradients; no assertion that only alpha weights update on the first step.",
+  "asset_manifest_path": "papers/benchmark_clarity_20261016/residual_scale/manifest.json",
+  "workbench_registration_path": "papers/benchmark_clarity_20261016/residual_scale/workbench_registration.json",
+  "local_GPU_used": false,
+  "new_model_or_dataset_downloads": 0
+}

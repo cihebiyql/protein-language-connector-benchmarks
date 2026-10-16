@@ -1,0 +1,47 @@
+{
+  "panel_id": "A1",
+  "scenario": "new_peptide_new_target",
+  "version": "A1-PEPBI-actual-inventory-supplement-v2",
+  "parent_lock_sha256": "8b978acb28b2638adabfb9a75ddae7e99dbee87d26dea89afcabe27065ed54d7",
+  "parent_samples_sha256": "24f532a7a97e6d4e91b327f18d070bd2f582e82cc3797966679e419f26be24ab",
+  "parent_test_gold_sha256": "388e50ac4776bd122dc3fb60a688ee715173a8703c890ac7d0ad38eaab82065f",
+  "pepbi_workbook_sha256": "0f3ae5e9021b5c0e925114c5b53a0cb441de90adc42134e5144d4ac9c4826a24",
+  "pepbi_rows": 329,
+  "source_doi_join_missing_rows": 0,
+  "unique_peptides": 84,
+  "unique_actual_targets": 58,
+  "unique_original_itc_dois": 22,
+  "new_external_excluded_rows": 14,
+  "additional_known_target_dependency_exclusions": 0,
+  "whole_broad_pool_rows": 5122,
+  "whole_broad_actual_pepbi_matches": 569,
+  "new_whole_pool_quarantine_rows": 14,
+  "prior_allocation_preserved": true,
+  "new_exclusion_splits": {
+    "validation": 12,
+    "train": 2
+  },
+  "split_counts": {
+    "train": 2063,
+    "test": 442,
+    "validation": 431
+  },
+  "checks": {
+    "peptide_family_disjoint": true,
+    "source_disjoint": true,
+    "target_family_disjoint": true,
+    "duplicate_measurement_disjoint": true,
+    "exact_target_seen_in_train": false,
+    "external_isolation_verified": false,
+    "pepbi_complete_inventory_audited": true,
+    "pepbi_actual_source_and_sequence_family_isolation_verified": true
+  },
+  "limitations": [
+    "Target families use exhaustive MMseqs2 all-pair alignments at >=30% identity/80% bidirectional coverage; this is an operational sequence-family definition, not all possible remote homology.",
+    "No curated cross-source parent peptide coordinates or variant-series lineage; sequence connected components and full DOI grouping provide declared operational isolation.",
+    "Protein inputs are database reference sequences, actual assay constructs and conditions remain unverified; these panels support broad reference-target pKD prediction only.",
+    "Prior baseline results and public-source foundation-model pretraining exposure remain separate from this project supervised split audit.",
+    "PepInter processed source rows have incomplete original DOI and chemistry provenance; available PMID and sequence-pair homolog matches are excluded, remaining cross-source provenance gaps retained as scope limits.",
+    "PEPBI actual workbook covers all329 rows with actual target/peptide sequences and source-DOI join; terminal chemistry lacks explicit fields, so exclusion conservatively ignores unknown chemical distinctions."
+  ]
+}

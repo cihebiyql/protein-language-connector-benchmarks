@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "scope": "second full A1-v2 scenario: new peptide and new target; no full-paper or multitask claim",
+  "authorization": "Same user-requested actual foundation benchmark execution; parent explicitly extended the stage to both available full A1 scenarios without changing hyperparameters after observing test outcomes.",
+  "first_substantive_started_at": "2026-10-16T07:18:00+08:00",
+  "effective_deadline_at": "2026-10-16T17:18:00+08:00",
+  "scenario": "new_peptide_new_target",
+  "expected_counts": {
+    "train": 2063,
+    "validation": 431,
+    "test": 442
+  },
+  "methods": [
+    "input_mlp",
+    "qformer_style",
+    "internal_cross_attention",
+    "constant"
+  ],
+  "seed": 17,
+  "epochs": 3,
+  "batch_candidates": [
+    4
+  ],
+  "max_new_tokens": 24,
+  "message_modes": [
+    "correct",
+    "off"
+  ],
+  "cpu_threads": 2,
+  "memory_limit_bytes": 12884901888,
+  "gpu_allocation_budget_bytes": 12348030976,
+  "stage_timeout_seconds": 7200,
+  "method_timeout_seconds": 1200,
+  "canary_timeout_seconds": 180,
+  "expected_hostname": "LOCAL_HOST",
+  "predictor_pipeline": {
+    "run": true,
+    "predictor_device": "cpu",
+    "split": "both",
+    "new_training": false
+  },
+  "excluded_claims": [
+    "full ProtT3 reproduction",
+    "three-seed confirmatory experiment",
+    "30-epoch matched-budget predictor comparison",
+    "unified multitask connector",
+    "biological affinity optimization",
+    "protein sequence generation",
+    "wet-lab validation"
+  ],
+  "readiness_policy": "Separate frozen controller/config/output after initial suite exits; fresh per-job host/path/GPU/process probes and train-only canaries. Same batch4,seed17,3epochs and24tokens decided before first held-out outcomes; no test-driven retuning."
+}

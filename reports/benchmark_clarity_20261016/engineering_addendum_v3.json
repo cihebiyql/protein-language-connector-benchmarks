@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16 07:24:26 UTC",
+  "status": "frozen_last_engineering_candidate_runtime_qualification_pending",
+  "purpose": "Last uniform throughput candidate selected using TRAIN-only consistency evidence; no test score selection",
+  "scientific_protocol": "configs/matched_budget_20261016.frozen.json",
+  "scientific_protocol_sha256": "9940d77d82e3ff23a085aa026219a4f4ee4e7ecd18bc1afe6952646a78e8b208",
+  "scientific_protocol_changed": false,
+  "preceding_failed_version": {
+    "version": "batch4_v2",
+    "qualification": "results/matched_budget_20261016/suite_batched_v2_20261016_1514/canary_new_peptide_known_target_17_early_real_balanced_zero/artifacts/batch_invariance_qualification.json",
+    "test_rows_used": 0,
+    "reader_state_unchanged": true,
+    "observed": "B4 first-token, text and strict-parse differences on two TRAIN rows; B2_first_two had no differences but covered only two rows and one configuration",
+    "status": "failed_preserved_no_test_evaluation"
+  },
+  "engineering_version": {
+    "execution_revision": "fixed_order_generation_batch2_v3",
+    "generation_batch_size": 2,
+    "grouping": "Original frozen order, contiguous batches of2, final batch1or2; all36 models uniform",
+    "raw_outputs": "Full returned tokens, first-EOS canonical length, pad tail, original decoded text and strict parser",
+    "communication": "Actual batch forwards, physical/valid queries and payload, including finished rows until whole-batch EOS; no dummy calls",
+    "whole_batch_time_not_fabricated_per_row": true
+  },
+  "unchanged": [
+    "V1 training function byte-identical;3epochs/1548steps/batch4/optimizer/validation full-answer NLL checkpoint selection",
+    "Frozen data, gold, prompts, answer serialization, seeds and36-case matrix/order",
+    "464001nominal parameters,16x128 float32 source message, initialization and neutral fitting",
+    "Base bfloat16,reader float32,SDPA,strict numerical flags and deterministic policy",
+    "Greedy24,no KV cache,strict parser,full-MAE null on any failure,all denominators and paired statistics"
+  ],
+  "qualification": {
+    "train_only": true,
+    "fixed_cases": 6,
+    "rows_per_case": 4,
+    "row_selection": "Same predetermined short/medium/long/longest TRAIN prompts and sample-ID tie break",
+    "comparisons": [
+      "B1 all4rows",
+      "B2_all_four in2contiguous batches"
+    ],
+    "required": "Exact per-row first-EOS tokens, decoded text and strict parse; same reader state; real memory, timing and ledger checks",
+    "failure_action": "Stop immediately; preserve failed candidate; no further batch-size search, backend/dtype change, relaxed equivalence or test-based selection",
+    "scope": "A passing TRAIN probe covers its measured inputs and states; it does not guarantee batch-shape-invariant logits for every test input"
+  },
+  "reuse": {
+    "sources": "Exactly two complete V1 prefix cases with checkpoint/history/standard acceptance/source budget verified",
+    "performed_new_optimizer_steps": 0,
+    "counting": "Reuse is inference-only, not a new training replicate;34remaining trainings plus2earlier complete trainings give36distinct configuration-seed states",
+    "all_models_uniform_evaluation": true,
+    "V1_original_predictions_preserved": true,
+    "V1_answers_never_used_to_fill_V3": true
+  },
+  "timing": {
+    "first_substantive_started_at": "2026-10-16T13:20:00+08:00",
+    "effective_deadline_at": "2026-10-16T23:20:00+08:00",
+    "window_reset": false,
+    "incomplete": "Preserve every failed/partial case and emit k/3 with null aggregates when incomplete"
+  },
+  "required_gates": [
+    "New immutable V3 source/cache-manifest/standard contracts",
+    "Independent source review and CPU positive/negative tests",
+    "Fresh exact-task resource probe and owned-process cleanup",
+    "All six full-four-row TRAIN GPU equivalence qualifications"
+  ]
+}

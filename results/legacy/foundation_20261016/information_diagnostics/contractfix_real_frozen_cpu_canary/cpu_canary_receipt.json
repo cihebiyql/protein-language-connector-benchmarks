@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "real frozen non-template standard contract validation with physical files; no worker execution",
+  "gpu_worker_started": false,
+  "torch_imported": false,
+  "positive_valid_for_execution": true,
+  "positive_errors": [],
+  "negative": {
+    "missing_manifest_sha256": {
+      "valid_for_execution": false,
+      "errors": [
+        {
+          "field": "contract.assets.datasets[0].manifest_sha256",
+          "message": "complete assets require a frozen SHA256"
+        }
+      ]
+    },
+    "wrong_manifest_sha256": {
+      "valid_for_execution": false,
+      "errors": [
+        {
+          "field": "contract.assets.datasets[0].manifest_path",
+          "message": "SHA256 mismatch"
+        }
+      ]
+    }
+  },
+  "wrapper_sha256": "58c49f979c57cf9182b5b55361e68a6eb6a07d72225590926a474bdaf4727168",
+  "contract_sha256": "940363d991937288778ba2ba7f5c126d085dfac5e48db6a84d0c98ee9e442bf6",
+  "worker_command_prepared_but_not_spawned": [
+    "LOCAL_HOME/.venvs/peptide-omnipanel-plm5080/bin/python",
+    "PROJECT_ROOT/scripts/foundation_20261016/execute_information_contractfix.py",
+    "--worker",
+    "--parent-pid",
+    "223890",
+    "--checkpoint",
+    "PROJECT_ROOT/results/foundation_20261016/gpu_suite/train_internal_cross_attention_seed17/artifacts/best_connector.pt",
+    "--scenario",
+    "new_peptide_known_target",
+    "--mode",
+    "both",
+    "--output",
+    "PROJECT_ROOT/results/foundation_20261016/information_diagnostics/contractfix_real_frozen_cpu_canary/artifacts",
+    "--timeout-seconds",
+    "840",
+    "--batch-size",
+    "4"
+  ],
+  "finished_utc": "2026-10-16T02:30:52.589692+00:00"
+}

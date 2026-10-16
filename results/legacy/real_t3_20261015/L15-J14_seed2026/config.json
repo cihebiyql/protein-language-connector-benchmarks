@@ -1,0 +1,61 @@
+{
+  "task": "T3 real-pair stage B with equal-count D1 replay",
+  "configuration": "L15-J14",
+  "seed": 2026,
+  "epochs": 30,
+  "d2_batch_size": 32,
+  "microbatch_size": 8,
+  "d1_d2_samples_per_epoch": [
+    34,
+    34
+  ],
+  "expected_optimizer_steps": 60,
+  "effective_mixed_batch": "32 D2 + 32 D1, equal partial tails",
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ]
+  },
+  "selection": "earliest highest D2 validation balanced accuracy across all 30 epochs",
+  "loss": "sample-weighted 0.5*(mean D2 full-vocabulary A/B-token CE + mean D1 full-vocabulary known-positive CE)",
+  "flip": "D2 train only SHA256(seed|epoch|pair_id) first byte % 2; swap messages and label",
+  "order": "D2 CPU Generator(seed+epoch); D1 Generator(seed+100000+epoch) first N_D2_train",
+  "molecular_slots": {
+    "t3": 128,
+    "a": 64,
+    "b": 64,
+    "t1_replay": 16
+  },
+  "target_identity": "predeclared opaque measurement-object aliases only; no raw target names or domain semantics",
+  "target_catalog_sha256": "4f49723e68d0c4246d7043940414053d14f54b0e45702c41679c6f64751561a6",
+  "inputs_sha256": {
+    "t3_d2_pairs.jsonl": "63c62e3a00ba81f0df743fc655cd3bd331bf8c1869a968c06cc2e1896b5091be",
+    "t3_g1_direction_pairs.jsonl": "e5f498e072298e8e58970781095c20ce5dea39158f2bc0482da5d7913b07ba9e",
+    "t3_split_manifest.json": "14719bd73cc19d10495941448123c2f1f75fd9ab0d55121b140eb99a65e3b0f5"
+  },
+  "input_sha256": "57038156925fb5d772824716eef68cf6ce55d288175913e5d86a095007c9e8da",
+  "t1_checkpoint_sha256": "d4d4ab32bea755f29c560d9459e8786d5e1038bf58fe6f066dd97c260afaed9a",
+  "t1_initialization": "PROJECT_ROOT/results/real_run_20261015/L15-J14_seed2026/best.pt",
+  "t1_result_sha256": "5591e96aba7f00786b1d9ddff229f111f0d984be40bcf8503d420afcd1536e09",
+  "script_sha256": "ba446472e8c6cf912e715c0846aa66a7f1f30b736b2b6a196ddc40d89695a9c0",
+  "model_script_sha256": "03eea7213cc6ee484bbe337df7526d37a68eb7cfc746ce4443d5c69a5c636666",
+  "metric_helper_sha256": "39a2e9fcafc6693022f74f39f3bede9a4b50053c9d4041ecfa86ed725720d8a0",
+  "trainable_parameters": 563201,
+  "split_sizes": {
+    "train": 34,
+    "val": 16,
+    "test": 9
+  },
+  "alias_token_ids": [
+    32,
+    33
+  ],
+  "answer_labels": [
+    "A",
+    "B"
+  ]
+}
