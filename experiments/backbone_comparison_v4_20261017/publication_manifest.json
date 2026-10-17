@@ -275,6 +275,54 @@
       "bytes": 11028,
       "transformation": "STANDARD fallback assignment only; environment override unchanged",
       "ast_other_statements_identical": true
+    },
+    {
+      "source_relative": "resources/freeze_formal.py",
+      "public_relative": "resources/freeze_formal.py",
+      "source_sha256": "f790131b39d43ff3df250f8c0e447243d4b14648889f02d2ecbb62e67746dbb9",
+      "public_sha256": "f790131b39d43ff3df250f8c0e447243d4b14648889f02d2ecbb62e67746dbb9",
+      "bytes": 27125,
+      "transformation": "original_bytes"
+    },
+    {
+      "source_relative": "resources/analyze_v4.py",
+      "public_relative": "resources/analyze_v4.py",
+      "source_sha256": "89023056213de58233521b5f3a4bb745f21c129aabdebdfb2d2a4cf958c839f3",
+      "public_sha256": "89023056213de58233521b5f3a4bb745f21c129aabdebdfb2d2a4cf958c839f3",
+      "bytes": 22684,
+      "transformation": "original_bytes"
+    },
+    {
+      "source_relative": "tests/test_freeze_formal.py",
+      "public_relative": "tests/test_freeze_formal.py",
+      "source_sha256": "c8b8cd3f88ab84602fd4d21f2378aa9e2855f21a7026b562ef8eb93049fe5bf6",
+      "public_sha256": "c8b8cd3f88ab84602fd4d21f2378aa9e2855f21a7026b562ef8eb93049fe5bf6",
+      "bytes": 14795,
+      "transformation": "original_bytes"
+    },
+    {
+      "source_relative": "tests/test_analyze_v4.py",
+      "public_relative": "tests/test_analyze_v4.py",
+      "source_sha256": "84507ee75da6f375e79835af833ceb576c4eda40cf472fbd1e29505ef333e579",
+      "public_sha256": "84507ee75da6f375e79835af833ceb576c4eda40cf472fbd1e29505ef333e579",
+      "bytes": 10866,
+      "transformation": "original_bytes"
+    },
+    {
+      "source_relative": "docs/FORMAL_FREEZE_AND_RETRIEVAL.md",
+      "public_relative": "docs/FORMAL_FREEZE_AND_RETRIEVAL.md",
+      "source_sha256": "86c6ce90de173710c15543a7d59056db8427636d577e99b058a77d9f63a46ef4",
+      "public_sha256": "86c6ce90de173710c15543a7d59056db8427636d577e99b058a77d9f63a46ef4",
+      "bytes": 5105,
+      "transformation": "original_bytes"
+    },
+    {
+      "source_relative": "docs/ANALYSIS_V4.md",
+      "public_relative": "docs/ANALYSIS_V4.md",
+      "source_sha256": "5d98652cc6451950becf0ac0a2e6539fb8c555efc2cd1da2e22c36161667321a",
+      "public_sha256": "5d98652cc6451950becf0ac0a2e6539fb8c555efc2cd1da2e22c36161667321a",
+      "bytes": 3877,
+      "transformation": "original_bytes"
     }
   ],
   "derived_metadata_files": [
@@ -282,7 +330,9 @@
     "resources/model_asset_verification_summary.json",
     "resources/portable_cpu_checks.json",
     "results/registry.json",
-    "STATUS.md"
+    "STATUS.md",
+    "docs/freezer_cpu_verification_summary.json",
+    "docs/analysis_cpu_verification_summary.json"
   ],
   "privacy_scan": {
     "decoded_JSON_strings_and_keys": true,
@@ -290,5 +340,55 @@
     "version_like_numeric_hits": []
   },
   "formal_results_verified": 0,
-  "formal_results_claimed": false
+  "formal_results_claimed": false,
+  "publication_extensions": [
+    {
+      "base_commit": "f4b4b7303db3d6a2ed1a810468a5eccd38faf8ef",
+      "base_manifest_sha256": "27ebd2d4ab28d2572c0819b92a6addd770eccf904031a7b218e589c14dc7dc2d",
+      "scope": "Model-free freeze and terminal-audit tooling only; initial pending scientific registry unchanged",
+      "added_exact_source_files": [
+        "resources/freeze_formal.py",
+        "resources/analyze_v4.py",
+        "tests/test_freeze_formal.py",
+        "tests/test_analyze_v4.py",
+        "docs/FORMAL_FREEZE_AND_RETRIEVAL.md",
+        "docs/ANALYSIS_V4.md"
+      ],
+      "decoded_JSON_privacy_hits": 0,
+      "public_copy_added_tests": [
+        {
+          "platform": "windows",
+          "test_module": "test_freeze_formal.py",
+          "passed": 9,
+          "seconds": 0.628,
+          "log_sha256": "8768dd17144b21993b70d36415a0d6952f014badb6a14b0f6343586a56818c5c",
+          "source_sha256": "c8b8cd3f88ab84602fd4d21f2378aa9e2855f21a7026b562ef8eb93049fe5bf6"
+        },
+        {
+          "platform": "windows",
+          "test_module": "test_analyze_v4.py",
+          "passed": 7,
+          "seconds": 0.099,
+          "log_sha256": "376149875ab4495de53a1c54dcbdd6ab9d8d276c64296f1c669e09ec1082c4c1",
+          "source_sha256": "84507ee75da6f375e79835af833ceb576c4eda40cf472fbd1e29505ef333e579"
+        },
+        {
+          "platform": "linux",
+          "test_module": "test_freeze_formal.py",
+          "passed": 9,
+          "seconds": 0.18,
+          "log_sha256": "0c321ef55b3b8fd3287d56487db5aa826fab914515ac9e0ec8bc15249fdf526f",
+          "source_sha256": "c8b8cd3f88ab84602fd4d21f2378aa9e2855f21a7026b562ef8eb93049fe5bf6"
+        },
+        {
+          "platform": "linux",
+          "test_module": "test_analyze_v4.py",
+          "passed": 7,
+          "seconds": 0.033,
+          "log_sha256": "d00f34b3c1cacda01efe90c538d3b7d67c9332b6b0a200105039113b985cbd69",
+          "source_sha256": "84507ee75da6f375e79835af833ceb576c4eda40cf472fbd1e29505ef333e579"
+        }
+      ]
+    }
+  ]
 }

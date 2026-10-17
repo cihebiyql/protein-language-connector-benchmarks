@@ -52,5 +52,48 @@
   "registered_case_count_verified": 24,
   "config_relative_manifest_paths_verified": true,
   "runtime_tested_full_suite_reference": "resources/cpu_verification_summary.json",
-  "scientific_metrics": null
+  "scientific_metrics": null,
+  "added_freezer_and_analysis_checks": [
+    {
+      "platform": "windows",
+      "test_module": "test_freeze_formal.py",
+      "passed": 9,
+      "seconds": 0.628,
+      "log_sha256": "8768dd17144b21993b70d36415a0d6952f014badb6a14b0f6343586a56818c5c",
+      "source_sha256": "c8b8cd3f88ab84602fd4d21f2378aa9e2855f21a7026b562ef8eb93049fe5bf6"
+    },
+    {
+      "platform": "windows",
+      "test_module": "test_analyze_v4.py",
+      "passed": 7,
+      "seconds": 0.099,
+      "log_sha256": "376149875ab4495de53a1c54dcbdd6ab9d8d276c64296f1c669e09ec1082c4c1",
+      "source_sha256": "84507ee75da6f375e79835af833ceb576c4eda40cf472fbd1e29505ef333e579"
+    },
+    {
+      "platform": "linux",
+      "test_module": "test_freeze_formal.py",
+      "passed": 9,
+      "seconds": 0.18,
+      "log_sha256": "0c321ef55b3b8fd3287d56487db5aa826fab914515ac9e0ec8bc15249fdf526f",
+      "source_sha256": "c8b8cd3f88ab84602fd4d21f2378aa9e2855f21a7026b562ef8eb93049fe5bf6"
+    },
+    {
+      "platform": "linux",
+      "test_module": "test_analyze_v4.py",
+      "passed": 7,
+      "seconds": 0.033,
+      "log_sha256": "d00f34b3c1cacda01efe90c538d3b7d67c9332b6b0a200105039113b985cbd69",
+      "source_sha256": "84507ee75da6f375e79835af833ceb576c4eda40cf472fbd1e29505ef333e579"
+    }
+  ],
+  "parent_verified_preaddition_full_suite": {
+    "tests_passed": 148,
+    "seconds": 10.751,
+    "verification_time": "2026-10-17T18:13:00+08:00",
+    "evidence_kind": "Parent-agent actual tool transcript attestation; no standalone log hash provided",
+    "scope": "Public copy before the two added test modules; CPU fixtures only",
+    "log_sha256": null,
+    "scientific_results": false
+  }
 }
