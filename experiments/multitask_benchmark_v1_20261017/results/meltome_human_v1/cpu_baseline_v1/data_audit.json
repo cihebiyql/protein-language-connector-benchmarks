@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "counts": {
+    "train": 7287,
+    "test": 1945,
+    "validation": 861
+  },
+  "total_rows": 10093,
+  "unique_sequences": 9792,
+  "exact_sequence_cross_split_duplicates": 0,
+  "within_split_extra_duplicate_rows": {
+    "train": 217,
+    "test": 56,
+    "validation": 28
+  },
+  "independent_exact_sequence_groups": {
+    "train": 7070,
+    "test": 1889,
+    "validation": 833
+  },
+  "dependency_note": "Same-sequence repeated rows may represent correlated experimental observations. Row metrics preserve the official denominator; group-macro metrics weight exact-sequence groups equally.",
+  "noncanonical_residue_counts": {
+    "U": 27
+  },
+  "duplicates_policy": "Preserve all official rows, including same-split repeated sequences; no filtering.",
+  "identifier_policy": "CSV has no original protein IDs; stable IDs use zero-based official row index and sequence SHA256 prefix.",
+  "cluster_metadata": {
+    "representatives": 15666,
+    "unique_components": 84030,
+    "source": "data/meltome/meltome_PIDE20_clusters.tsv",
+    "declared_mmseqs_min_seq_id": 0.2,
+    "human_csv_row_cluster_membership_verified": false,
+    "reason": "The official CSV and derived FASTA omit original protein IDs used by the clustering table.",
+    "interpretation": "Official cluster-derived split preserved. A 20% clustering threshold is not a guarantee of pairwise identity <=20%."
+  },
+  "test_targets_usage": "Integrity checks only (finite values/schema); no test metric or selection before the frozen model."
+}

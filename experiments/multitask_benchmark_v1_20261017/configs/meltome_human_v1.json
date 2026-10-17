@@ -1,0 +1,41 @@
+{
+  "schema": "meltome-human-cpu-baseline.v1",
+  "task": "single-sequence experimental thermal stability regression",
+  "dataset": "data/meltome/human.csv",
+  "cluster_metadata": "data/meltome/meltome_PIDE20_clusters.tsv",
+  "upstream_revision": "62cace8735f5610e2743cf06ce0f944b37fffaa6",
+  "expected_counts": {
+    "train": 7287,
+    "validation": 861,
+    "test": 1945
+  },
+  "official_split_policy": "Preserve set and validation fields exactly; never resplit or filter rows.",
+  "primary_metric": "complete-test Spearman",
+  "secondary_metrics": [
+    "MAE degrees Celsius",
+    "RMSE degrees Celsius",
+    "prediction coverage",
+    "exact-sequence group macro errors and group-mean Spearman"
+  ],
+  "ridge_alphas": [
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "selection": "Maximum full validation Spearman; first registered alpha on exact tie; no train+validation refit.",
+  "features": "Sequence length + twenty canonical amino-acid fractions + explicit other-residue fraction (including U). No sequence truncation.",
+  "model_fit": "Float64 closed-form ridge; train-only feature population mean/std; unpenalized train target-mean intercept; no target standardization.",
+  "mean_baseline": "TRAIN target mean; constant Spearman is undefined and serialized null.",
+  "test_policy": "Integrity audit may check finite labels; no test metric before frozen configuration and frozen train/validation-selected model.",
+  "replication": "Deterministic CPU baselines require one exact run; connector experiments will require real paired multi-seed comparisons.",
+  "interpretation": "Experimental melting phenotype may reflect cell and complex environment; it is not a thermodynamic free-energy gold standard.",
+  "files_sha256": {
+    "data/meltome/splits.zip": "6da88cb6f699f814054a998e7b2a5c6796a6907de391f50aa156a5b4c1ed7152",
+    "data/meltome/FLIP_meltome_README.md": "044f50baafbc27c500e624ea244ee439cc2c84fe3cac847f1bf535c22cf1237e",
+    "data/meltome/meltome_PIDE20_clusters.tsv": "681bfa23a56c3faf8c8e380ddbb66efc19bbbe22e28e3e58fdc32ba3ccdd3866",
+    "data/meltome/FLIP_LICENSE": "969cb4ec48c8472b30d0f982d7264193101975fda882a086b08823d88950acfb",
+    "data/meltome/human.csv": "cfafab67d5e29188fe0846ab48cdf6aff36aaf4ccd635b7b66bb4002a939822c"
+  }
+}

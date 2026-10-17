@@ -1,0 +1,108 @@
+{
+  "schema": "connector_multitask_foundation.v1",
+  "scope": "multitask_benchmark_v1_20261017",
+  "periodic_monitoring": "deleted_at_user_request",
+  "existing_node1_training_queue": "preserved_under_its_original_frozen_plan",
+  "existing_A1_frozen_test_or_scoring_modified": false,
+  "current_V4_M0_M3_completed_new_task_training": false,
+  "actual_work": ["Four historical prediction panels independently rescored", "New official FLIP human thermal-stability dataset acquired", "Deterministic CPU baselines fitted and independently verified", "One-command fresh-run orchestration exercised"],
+  "baseline_seed_policy": "Deterministic closed-form CPU baselines have one exact run; existing neural models retain their real historical seeds. Repeating deterministic code is not independent training replication.",
+  "tasks": [
+    {
+      "id": "meltome_human_thermal_stability_v1",
+      "status": "new_data_and_CPU_baseline_complete",
+      "task_type": "single_sequence_regression",
+      "input": "protein_sequence; target molecule explicitly absent in future connector adapter",
+      "train_validation_test": [7287, 861, 1945],
+      "primary_metric": "complete-test Spearman",
+      "secondary_metrics": ["MAE degrees Celsius", "RMSE degrees Celsius", "coverage", "exact-sequence group supplementary metrics"],
+      "configuration": "configs/meltome_human_v1.json",
+      "configuration_sha256": "ab925802e16ffffa9fc53944d481fa824d96abd0294724a2c5de489ff09a535d",
+      "official_revision": "62cace8735f5610e2743cf06ce0f944b37fffaa6",
+      "official_data_index": "data/meltome/download_manifest.json",
+      "results": "results/meltome_human_v1/cpu_baseline_v1",
+      "test_composition_ridge": {"Spearman": 0.5042264169798857, "MAE_degrees_C": 3.4448707987018747, "RMSE_degrees_C": 4.261471129182016, "coverage": 1.0},
+      "interpretation": "Experimental thermal phenotype; independent sequence-cluster mapping not verified from ID-free CSV. Official rows and within-split duplicates preserved."
+    },
+    {
+      "id": "elm_unseen_description_v1",
+      "status": "historical_prediction_replay_complete",
+      "task_type": "sequence_to_function_description_ranking",
+      "source": "data/processed/bench_v02/b1_homology_locked",
+      "benchmark_lock_sha256": "5b8ffbe6a148bf3569c552402e900d33de70877546c6aba0a82ba958c76ddef8",
+      "train_validation_test": [378, 134, 76],
+      "candidates": 31,
+      "test_classes": 2,
+      "historical_neural_runs": 6,
+      "primary_metric": "class-macro MRR",
+      "secondary_metrics": ["known-positive Recall@1", "known-positive Recall@3", "sample MRR", "candidate/format coverage"],
+      "observed": "All six historical Recall@3 values are zero",
+      "interpretation": "Restricted-scope project class-holdout protocol; unknown relations are not experimental negatives."
+    },
+    {
+      "id": "march_retention_time_diagnostic_v1",
+      "status": "historical_prediction_replay_complete",
+      "task_type": "single_peptidoform_conditional_regression",
+      "source": "data/processed/foundation_20261016/rt_target_diagnostic",
+      "frozen_protocol_sha256": "8a15cce4d1daf5d7e7ddb2aa1f85750975a3b7a60ad4bca36d535d81962520ed",
+      "train_validation_test": [4952, 1055, 1063],
+      "validation_selection_calibration": [525, 530],
+      "unit": "minutes",
+      "metrics": ["condition-specific MAE", "RMSE", "Spearman", "interval coverage", "interval width"],
+      "interpretation": "Same March/pH9 domain diagnostic. Original cross-condition source training remains HOLD; this is not an executed transfer benchmark."
+    },
+    {
+      "id": "benz_known_positive_target_ranking_v1",
+      "status": "historical_prediction_replay_complete",
+      "task_type": "multi_positive_target_ranking",
+      "source": "data/processed/benz_samples.jsonl",
+      "split_manifest_sha256": "530cd6db379132b353cb1eff6776552232efc1c0e77013eae072cbe716ce492a",
+      "train_validation_test": [1914, 393, 387],
+      "externally_reserved": 30,
+      "candidates": 34,
+      "metrics": ["known-positive Recall@1", "known-positive Recall@3", "MRR"],
+      "interpretation": "Historical engineering diagnostic split; distinguish from ELM B1 and preserve unannotated pairs as unknown."
+    },
+    {
+      "id": "kliche_variant_direction_diagnostic_v1",
+      "status": "historical_prediction_replay_complete",
+      "task_type": "paired_direction_and_swap_consistency",
+      "source": "data/processed/t3_split_manifest.json",
+      "split_manifest_sha256": "14719bd73cc19d10495941448123c2f1f75fd9ab0d55121b140eb99a65e3b0f5",
+      "D2_all_test_clean_test": [9, 5],
+      "G1_source_consistent_measured_directions": 14,
+      "metrics": ["accuracy", "balanced accuracy", "swap consistency", "swapped correctness"],
+      "interpretation": "D2 phage-count direction is weak supervision; G1 measured affinity direction is small. This is a binding diagnostic rather than a separate general property task."
+    },
+    {
+      "id": "protein_text_retrieval_and_grounded_QA_v1",
+      "status": "planned_pending_pair_dataset_and_gold_freeze",
+      "basis": ["ProtT3 protein-text retrieval", "ProtNote function-description controls"],
+      "raw_available": "OPUS18 benchmark files; project sequence/gold/exposure audit incomplete",
+      "pending": ["freeze sequence-text positives and candidate pool", "freeze train-validation-test and exposure audit", "implement single-sequence presence masks and task adapter", "review QA evidence and answer gold"],
+      "metrics": ["bidirectional full-pool Recall@K", "MRR", "task answer accuracy", "evidence-grounded fact accuracy", "format coverage"],
+      "not_substitutes_for_fact_accuracy": ["BLEU", "ROUGE", "LLM self-reported confidence"]
+    }
+  ],
+  "next_neural_round": {
+    "primary_task_order": ["meltome_human_thermal_stability_v1", "elm_unseen_description_v1", "march_retention_time_diagnostic_v1"],
+    "task_training_status": "not_started",
+    "minimum_controls": ["composition or nearest-neighbor baseline where appropriate", "ESM plus task head", "text-only Qwen", "predictor plus Qwen pipeline", "same-capacity M0 versus M3"],
+    "backbones": ["Qwen2.5-1.5B-Instruct", "Qwen3-4B-Instruct-2507"],
+    "training_seeds": [17, 42, 2026],
+    "per_task_budget": "prospectively freeze from TRAIN-only qualification before test; same budget within each task/control group",
+    "single_sequence_policy": "explicit target-absent mask; skip target and cross-relation banks without all-masked softmax; never fabricate a target",
+    "module_followup": ["M0", "M1", "M2", "M3", "full-minus-layer", "full-minus-query"],
+    "continuation": "Complete registered seeds despite small early gains; stop only for concrete numerical/data/resource failures or registered end condition",
+    "unified_multitask_claim_requires": "one shared trained model, registered task sampling and losses, one registered validation-selection rule; no per-task checkpoint cherry-picking"
+  },
+  "results": {
+    "historical_scores": "results/existing_replay_v1/scores.json",
+    "historical_manifest": "results/existing_replay_v1/manifest.json",
+    "historical_model_seed_subset_records": 39,
+    "historical_verification": "results/existing_replay_v1/execution_verification.json",
+    "meltome_independent_verification": "results/meltome_human_v1/cpu_baseline_v1/independent_verification.json",
+    "CPU_unit_tests_passed": 26,
+    "unified_integration_run": "results/suites/suite_integration_v1/suite_receipt.json"
+  }
+}

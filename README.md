@@ -2,6 +2,8 @@
 
 Protein-language connector benchmarks, literature, frozen data, and auditable results.
 
+**非pKD基础测试已扩展：[架构说明与多任务验证](experiments/multitask_benchmark_v1_20261017/README.md)。** 新增官方FLIP human热稳定性数据与真实CPU基线（测试1945条，组成Ridge Spearman0.50423／MAE3.44487°C）；另对ELM未见功能描述、March保留时间、Benz靶点排名和Kliche方向诊断完成39条历史模型／种子／子集结果复算。26项CPU测试及统一入口验收通过。这些是新CPU基础参照和历史复核，当前V4连接器尚未完成这些任务的神经训练。用户要求的定时监控已关闭，原node1队列保留。
+
 **V4 已在 node1 启动：[1.5B／4B × 简化／完整连接器](experiments/backbone_comparison_v4_20261017/node_shared/STATUS.md)，两场景、三随机种子，共24个全新训练位置。** 两种底座的实际TRAIN试跑均已验收，统一冻结5轮训练。按用户要求，CPU／GPU利用率和卡上已有进程不再作为启动门槛，最多同时使用3块GPU。2026-10-17 20:29（北京时间）队列登记3组运行、21组待运行、正式完成0/24；试跑不计入模型效果。数据划分、评价标准、旧结果和原截止时间保持不变。
 
 **2026-10-17更新：[V3消融结果已取回](experiments/molecular_memory_v3/results/formal/REPORT.md)：32/36组完成并通过独立复核，4组因监督器`/proc`枚举竞态中断。** 公开逐样本预测、训练历史、所选接口权重、图表和多seed比较。现有结果尚不支持完整新架构具有稳定精度优势；缺失seed保持缺失，四项失败不补记成功。详见[图表报告](experiments/molecular_memory_v3/results/formal/analysis_figures/report.pdf)。

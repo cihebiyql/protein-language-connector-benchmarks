@@ -1,0 +1,51 @@
+{
+  "started_utc": "2026-10-17T13:05:27.609683+00:00",
+  "run_id": "suite_integration_v1",
+  "scope": "CPU infrastructure and historical prediction replay",
+  "V4_connector_multitask_training": false,
+  "GPU_used": false,
+  "runner_sha256": "512370673cd690614abe8b4981554d75253de368e27525f1bd950f077b31400f",
+  "historical_panels": {
+    "ELM_unseen_function": "complete",
+    "March_RT": "complete",
+    "Benz_known_positive": "complete",
+    "Kliche_direction": "complete"
+  },
+  "status": "complete",
+  "meltome_results": "results\\meltome_human_v1\\suite_integration_v1",
+  "meltome_test": {
+    "train_mean": {
+      "n": 1945,
+      "prediction_coverage": 1.0,
+      "spearman": null,
+      "mae_degrees_C": 4.051979100457655,
+      "rmse_degrees_C": 4.909533827936942
+    },
+    "composition_ridge": {
+      "n": 1945,
+      "prediction_coverage": 1.0,
+      "spearman": 0.5042264169798857,
+      "mae_degrees_C": 3.4448707987018747,
+      "rmse_degrees_C": 4.261471129182016
+    },
+    "supplementary_group_metrics": {
+      "train_mean": {
+        "n_rows": 1945,
+        "n_exact_sequence_groups": 1889,
+        "group_macro_mae_degrees_C": 4.061217122869305,
+        "group_macro_rmse_degrees_C": 4.91894744295889,
+        "group_mean_spearman": null,
+        "definition": "MAE/MSE averaged within sequence then equally across groups; Spearman correlates group-mean target and prediction."
+      },
+      "composition_ridge": {
+        "n_rows": 1945,
+        "n_exact_sequence_groups": 1889,
+        "group_macro_mae_degrees_C": 3.4448349795778888,
+        "group_macro_rmse_degrees_C": 4.254784850462847,
+        "group_mean_spearman": 0.5114147536970123,
+        "definition": "MAE/MSE averaged within sequence then equally across groups; Spearman correlates group-mean target and prediction."
+      }
+    }
+  },
+  "ended_utc": "2026-10-17T13:05:28.965723+00:00"
+}
