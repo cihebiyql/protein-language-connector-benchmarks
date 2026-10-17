@@ -4,6 +4,8 @@ Protein-language connector benchmarks, literature, frozen data, and auditable re
 
 **V5 三任务真实神经对照已在 node1 启动：[热稳定性、功能描述与保留时间](experiments/multitask_connector_v5_20261017/README.md)。** 每个任务比较 ESM 基线，以及 Qwen2.5-1.5B-Instruct／Qwen3-4B-Instruct-2507 上的 M0 与 M3；固定种子17、42、2026，共45次独立训练，每次3个完整epoch。数据划分、选点规则和评价指标已冻结，最多使用同3块GPU，原pKD实验及结果保留。2026-10-17 22:50:38（北京时间）的只读队列观察为7组验收通过、4组运行、34组待运行，尚无完整三种子优势结论。已取回的前2组独立复算见[启动分析](experiments/multitask_connector_v5_20261017/analysis/startup_v1/analysis.json)，全队列最终取回状态见[收尾状态](experiments/multitask_connector_v5_20261017/COMPLETION_STATUS.json)。仅设置本次队列结束后取回、复算并发布的一次性收尾进程，没有定时监控。下列基础验证和V4状态保留为各自时间点的历史记录。
 
+**V5收尾已迁到node1：[部署说明](experiments/multitask_connector_v5_20261017/docs/NODE1_PUBLICATION.md)。** 本轮训练结束后的独立复算、汇总和GitHub发布均由节点一次性后台进程完成，本机关机或断网不再中断收尾；没有新增定时监控。原训练和结果保留，见[接管证据](experiments/multitask_connector_v5_20261017/operations/node1_handoff_v1.json)。
+
 **非pKD基础测试已扩展：[架构说明与多任务验证](experiments/multitask_benchmark_v1_20261017/README.md)。** 新增官方FLIP human热稳定性数据与真实CPU基线（测试1945条，组成Ridge Spearman0.50423／MAE3.44487°C）；另对ELM未见功能描述、March保留时间、Benz靶点排名和Kliche方向诊断完成39条历史模型／种子／子集结果复算。26项CPU测试及统一入口验收通过。这些是新CPU基础参照和历史复核，当前V4连接器尚未完成这些任务的神经训练。用户要求的定时监控已关闭，原node1队列保留。
 
 **V4 已在 node1 启动：[1.5B／4B × 简化／完整连接器](experiments/backbone_comparison_v4_20261017/node_shared/STATUS.md)，两场景、三随机种子，共24个全新训练位置。** 两种底座的实际TRAIN试跑均已验收，统一冻结5轮训练。按用户要求，CPU／GPU利用率和卡上已有进程不再作为启动门槛，最多同时使用3块GPU。2026-10-17 20:29（北京时间）队列登记3组运行、21组待运行、正式完成0/24；试跑不计入模型效果。数据划分、评价标准、旧结果和原截止时间保持不变。
