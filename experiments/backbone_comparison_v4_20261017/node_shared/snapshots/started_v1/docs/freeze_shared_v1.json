@@ -1,0 +1,161 @@
+{
+  "scope_id": "backbone_comparison_v4_20261017",
+  "execution_version": "node1_user_shared_v1",
+  "user_resource_policy_sha256": "56a404606b5a66883c16f638209144d37f0bdf9d9e0bf958f13b57975ee62e31",
+  "selected_gpu_devices": [
+    4,
+    5,
+    3
+  ],
+  "frozen_at": "2026-10-17T12:27:21.699844+00:00",
+  "deadline": "2026-10-18T03:26:57+08:00",
+  "canary_evidence": {
+    "qwen25_1p5b": {
+      "backbone": "qwen25_1p5b",
+      "manifest_path": "<REMOTE_SCOPE>/runs/canary_qwen25_1p5b_shared_v1/artifacts/run_manifest.json",
+      "manifest_sha256": "23161ff196aeffaba870c5dc5cb5fa0420df55a155de8b8af2c719cadb0c0efd",
+      "gpu_limit_receipt_sha256": "a8bb4daefe517592896bb8e16ab658e4f81167fae7a7d680b30e7e3e3458c727",
+      "archive_root": "<REMOTE_SCOPE>/runs/canary_qwen25_1p5b_shared_v1/archive",
+      "archive_receipt_sha256": "e019e83a8261916a8611cd90e754e0dbed98d9fef6e4d30a1a43eeb06f74bf5f",
+      "training_seconds": 3.472007043659687,
+      "first_update_seconds": 1.3709662845358253,
+      "optimizer_steps": 4,
+      "view_manifest_sha256": "b505c29ea8b78cd4d6d9fb6f0bca52f5b09cd3a25f43ea8d727d1ca5066e91f0",
+      "cache_manifest_sha256": "24ebf3118a9e00ff8a1c30ee289a5202577ae4f44d1e2d67092db7865e778d88",
+      "model_manifest_sha256": "d9da2ee4a7e4d7e1b1a06737646a1172ff4b2737c920f2d24595cc8c86904198",
+      "seconds_per_optimizer_step": 0.8680017609149218,
+      "generation_seconds_per_row": 0.29438704007770866,
+      "c1_seconds_per_row": 0.2658830964937806,
+      "model_loading_seconds": 20.089877864345908,
+      "asset_verification_seconds": 5.901693612337112,
+      "peak_cuda_memory_bytes": 4885209088,
+      "trainable_parameters": 1618568
+    },
+    "qwen3_4b_2507": {
+      "backbone": "qwen3_4b_2507",
+      "manifest_path": "<REMOTE_SCOPE>/runs/canary_qwen3_4b_2507_shared_v1/artifacts/run_manifest.json",
+      "manifest_sha256": "e02e26a9d1073a4ac3a09ced8dfcefa16600c362606bf981148796fa29d9a92c",
+      "gpu_limit_receipt_sha256": "b35b2a142fca47144bd45160aab9a13191ba079161c45bfbee6569485b9e1651",
+      "archive_root": "<REMOTE_SCOPE>/runs/canary_qwen3_4b_2507_shared_v1/archive",
+      "archive_receipt_sha256": "41039aa62cc2a53cecc3d07e5cf7f5935fde54c5b00001baf64404155e31efcc",
+      "training_seconds": 4.71825600694865,
+      "first_update_seconds": 1.6084369262680411,
+      "optimizer_steps": 4,
+      "view_manifest_sha256": "b505c29ea8b78cd4d6d9fb6f0bca52f5b09cd3a25f43ea8d727d1ca5066e91f0",
+      "cache_manifest_sha256": "24ebf3118a9e00ff8a1c30ee289a5202577ae4f44d1e2d67092db7865e778d88",
+      "model_manifest_sha256": "27eefdc1769d40363b0d23f3506337e1e877882d3d091c45a2c1bdd8e5d4958f",
+      "seconds_per_optimizer_step": 1.1795640017371625,
+      "generation_seconds_per_row": 0.24263762787450105,
+      "c1_seconds_per_row": 0.29614654392935336,
+      "model_loading_seconds": 16.813975356519222,
+      "asset_verification_seconds": 12.365390803664923,
+      "peak_cuda_memory_bytes": 10763524096,
+      "trainable_parameters": 1884808
+    }
+  },
+  "estimates_seconds": {
+    "qwen25_1p5b": {
+      "new_peptide_known_target": {
+        "training_seconds": 1807.565672211349,
+        "validation_nll_seconds": 64.34437324816827,
+        "validation_and_test_generation_seconds": 132.03258747485233,
+        "test_C1_seconds": 60.62134600058198,
+        "both_phase_model_loading_and_asset_seconds": 51.98314295336604,
+        "serialization_margin_seconds": 120,
+        "total_seconds": 2236.5471218883176
+      },
+      "new_peptide_new_target": {
+        "training_seconds": 1807.565672211349,
+        "validation_nll_seconds": 188.6559514963301,
+        "validation_and_test_generation_seconds": 385.4998289817595,
+        "test_C1_seconds": 176.28049297537655,
+        "both_phase_model_loading_and_asset_seconds": 51.98314295336604,
+        "serialization_margin_seconds": 120,
+        "total_seconds": 2729.985088618181
+      }
+    },
+    "qwen3_4b_2507": {
+      "new_peptide_known_target": {
+        "training_seconds": 2675.0162399513647,
+        "validation_nll_seconds": 95.23820934584364,
+        "validation_and_test_generation_seconds": 108.82297610171372,
+        "test_C1_seconds": 67.52141201589257,
+        "both_phase_model_loading_and_asset_seconds": 58.35873232036829,
+        "serialization_margin_seconds": 120,
+        "total_seconds": 3124.957569735183
+      },
+      "new_peptide_new_target": {
+        "training_seconds": 2675.0162399513647,
+        "validation_nll_seconds": 279.235838286113,
+        "validation_and_test_generation_seconds": 317.7339737016591,
+        "test_C1_seconds": 196.34515862516128,
+        "both_phase_model_loading_and_asset_seconds": 58.35873232036829,
+        "serialization_margin_seconds": 120,
+        "total_seconds": 3646.6899428846664
+      }
+    }
+  },
+  "estimate_limit": "TRAIN canaries approximate validation/evaluation cost; not a completion guarantee",
+  "queue_max_case_timeout_seconds": 5400,
+  "all24_estimated_gpu_seconds": 70429.07833875809,
+  "common_budget": {
+    "epochs": 5,
+    "batch_size": 4,
+    "grad_accumulation": 2,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "numeric_loss_weight": 1.0,
+    "numeric_standardization": "train_zscore",
+    "checkpoint_selection": "min_full_validation_answer_token_nll_earliest_tie",
+    "max_new_tokens": 24,
+    "generation_batch_size": 8,
+    "micro_batch_size": 2,
+    "effective_batch_size": 4
+  },
+  "source_pins": {
+    "<REMOTE_SCOPE>/src/mm_archive.py": "c02444d7695b4bdf040a45a26d0d5ef50273962a9dc6bc1c5aaa5478596cae54",
+    "<REMOTE_SCOPE>/src/mm_case.py": "7ce8dacac7b1376a3451ab3e24a003d53cfd00f373d8d5990c70b6a3ca59376e",
+    "<REMOTE_SCOPE>/src/mm_contract.py": "5c35d13f380fd60aab8b4ea70cbd947077df321f1cd15c1aea54b19d4a909941",
+    "<REMOTE_SCOPE>/src/mm_data.py": "08e564f234d0fb12fe3a5a32c6050f6be516c79e7bfd82d7d5ed6b8f80cd7b72",
+    "<REMOTE_SCOPE>/src/mm_data_evaluation.py": "9c653e065c3142cf37f705c09702ea840f834ad4cbfeb7575d12b4e5981b98c1",
+    "<REMOTE_SCOPE>/src/mm_evaluate.py": "1d921a4d21f78535a9c048f8eb75943b0c18b002ff86111c4c3809b307d1c947",
+    "<REMOTE_SCOPE>/src/mm_extract.py": "1c3a18ec5efb0a3e00bc72ab2940d3ffb06bed5c5c6ea2c491c658dc7c1717bf",
+    "<REMOTE_SCOPE>/src/mm_model.py": "c2db5771eed8b7df99be12c061129c58c2f883d1a03b02bed1cdd80973f5b5a7",
+    "<REMOTE_SCOPE>/src/mm_queue.py": "ad30994172e5f627bec48cbab1ba58ac0081797bfca5481ccfe298e4af846f00",
+    "<REMOTE_SCOPE>/src/mm_supervise.py": "3e920b9bc773705ca9114d83827b1d583ec1c570cbae62d7be676a8041c26ac6",
+    "<REMOTE_SCOPE>/src/mm_train.py": "5c53dd0c3a43817813f6be5addf376bd1e545055431cc6e0586e344ecc9f1eb5",
+    "<REMOTE_SCOPE>/src/mm_worker_limit.py": "ee0a3c74423b7ce983a34df31ee4b669078a60a24685e0b14977d78d637cfe29",
+    "<REMOTE_SCOPE>/resources/freeze_formal_shared.py": "a1c335a4585a8fcf2f7451738645eeade3fc21fc50127acf3a0e213e4294f3ed",
+    "<REMOTE_SCOPE>/USER_RESOURCE_POLICY.json": "56a404606b5a66883c16f638209144d37f0bdf9d9e0bf958f13b57975ee62e31"
+  },
+  "outputs": {
+    "config": {
+      "path": "<REMOTE_SCOPE>/configs/formal_shared_v1.json",
+      "sha256": "6a1d549e55ac01ae59313350bdfb440f95b90dbc19e22a7cafc97307992c732b"
+    },
+    "evaluation_protocol": {
+      "path": "<REMOTE_SCOPE>/docs/evaluation_shared_v1.json",
+      "sha256": "a9c47a03d2f551b6eb264ab51f68a5086fea769e341d40460bf1abba2adad39c"
+    },
+    "queue": {
+      "path": "<REMOTE_SCOPE>/configs/queue_shared_v1.json",
+      "sha256": "e9b5028045ddba11b7d000e601350967aae9712e89f884bb3c50cd1b3c0323fe"
+    },
+    "registry": {
+      "path": "<REMOTE_SCOPE>/docs/registry_shared_v1.json",
+      "sha256": "a3bc83d999c47f4c71cc06b9ea80cdeb387b9ac44fcb53bf017f22bdb6ffd408"
+    }
+  },
+  "launch_command": [
+    "<ENV_ROOT>/bin/python",
+    "-m",
+    "src.mm_queue",
+    "--plan",
+    "<REMOTE_SCOPE>/configs/queue_shared_v1.json",
+    "--output",
+    "<REMOTE_SCOPE>/runs/formal_shared_v1"
+  ],
+  "freezer_source_sha256": "a1c335a4585a8fcf2f7451738645eeade3fc21fc50127acf3a0e213e4294f3ed",
+  "formal_models_executed_by_freezer": false
+}

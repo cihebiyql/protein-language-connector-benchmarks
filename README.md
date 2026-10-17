@@ -2,7 +2,7 @@
 
 Protein-language connector benchmarks, literature, frozen data, and auditable results.
 
-**新一轮 V4 已登记：[1.5B／4B × 简化／完整连接器](experiments/backbone_comparison_v4_20261017/STATUS.md)，两场景、三随机种子，共24个全新训练位置。** 监控竞态已修复，实际环境148项CPU回归通过；当前等待真实TRAIN资格测试与共同预算冻结，已核实正式完成0/24。这里的准备测试不计入模型效果，后续结果使用独立登记表，保留以下历史结果。
+**V4 已在 node1 启动：[1.5B／4B × 简化／完整连接器](experiments/backbone_comparison_v4_20261017/node_shared/STATUS.md)，两场景、三随机种子，共24个全新训练位置。** 两种底座的实际TRAIN试跑均已验收，统一冻结5轮训练。按用户要求，CPU／GPU利用率和卡上已有进程不再作为启动门槛，最多同时使用3块GPU。2026-10-17 20:29（北京时间）队列登记3组运行、21组待运行、正式完成0/24；试跑不计入模型效果。数据划分、评价标准、旧结果和原截止时间保持不变。
 
 **2026-10-17更新：[V3消融结果已取回](experiments/molecular_memory_v3/results/formal/REPORT.md)：32/36组完成并通过独立复核，4组因监督器`/proc`枚举竞态中断。** 公开逐样本预测、训练历史、所选接口权重、图表和多seed比较。现有结果尚不支持完整新架构具有稳定精度优势；缺失seed保持缺失，四项失败不补记成功。详见[图表报告](experiments/molecular_memory_v3/results/formal/analysis_figures/report.pdf)。
 

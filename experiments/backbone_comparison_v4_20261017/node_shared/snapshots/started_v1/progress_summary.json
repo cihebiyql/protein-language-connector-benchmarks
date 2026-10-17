@@ -1,0 +1,40 @@
+{
+  "schema": "shared_formal_snapshot_progress.v1",
+  "snapshot_created_utc": "2026-10-17T12:29:12.493769+00:00",
+  "formal_queue_launch_utc": "2026-10-17T12:28:11.928962+00:00",
+  "formal_plan_source_sha256": "e9b5028045ddba11b7d000e601350967aae9712e89f884bb3c50cd1b3c0323fe",
+  "max_concurrent_GPU_workers": 3,
+  "selected_GPU_ids": [
+    4,
+    5,
+    3
+  ],
+  "n_expected": 24,
+  "queue_status_counts": {
+    "running": 3,
+    "not_started": 21
+  },
+  "canonically_accepted_and_recomputed": 0,
+  "queue_terminal_receipt_observed": false,
+  "accepted_TRAIN_canaries": 2,
+  "common_training_budget": {
+    "epochs": 5,
+    "batch_size": 4,
+    "grad_accumulation": 2,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "numeric_loss_weight": 1.0,
+    "numeric_standardization": "train_zscore",
+    "checkpoint_selection": "min_full_validation_answer_token_nll_earliest_tie",
+    "max_new_tokens": 24,
+    "generation_batch_size": 8,
+    "micro_batch_size": 2,
+    "effective_batch_size": 4
+  },
+  "estimated_total_GPU_seconds": 70429.07833875809,
+  "estimate_limit": "TRAIN canaries approximate validation/evaluation cost; not a completion guarantee",
+  "deadline": "2026-10-18T03:26:57+08:00",
+  "source_export_tar_sha256": "f8d6372dbb465923837e02f57c42f3726dbad6f3c0b893990d7bea4d5f414494",
+  "metrics_are_from_snapshot_time_only": true
+}

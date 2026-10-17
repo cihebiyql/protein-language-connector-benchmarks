@@ -1,0 +1,52 @@
+{
+  "schema": "user-resource-policy-override.v1",
+  "policy_id": "user_shared_node1_v1",
+  "authority": "Explicit user override: CPU/GPU sharing and high utilization are allowed; use at most three GPU workers and preserve all unrelated workloads.",
+  "new_exclusive_remote_scope": "<REMOTE_SHARED_SCOPE>",
+  "first_preparation": "2026-10-17T17:26:57+08:00",
+  "absolute_deadline": "2026-10-18T03:26:57+08:00",
+  "clock_not_reset": true,
+  "preserve_original_scopes_and_results": true,
+  "scientific_splits_scores_selector_seeds_unchanged": true,
+  "source_origin": "Original canonical V4 legacy HF loader; no local streaming loader or local fallback source",
+  "producer_sha256": "5c53dd0c3a43817813f6be5addf376bd1e545055431cc6e0586e344ecc9f1eb5",
+  "max_concurrent_workers": 3,
+  "max_GPU_devices": 3,
+  "selected_GPU_ids": [
+    4,
+    5,
+    3
+  ],
+  "cpu_threads_per_worker": 2,
+  "host_group_RSS_limit_bytes_per_worker": 68719476736,
+  "host_available_reserve_bytes": 4294967296,
+  "maximum_own_group_RSS_envelope_bytes": 206158430208,
+  "GPU_allocator_budget_bytes_per_worker": 21474836480,
+  "GPU_free_headroom_bytes": 536870912,
+  "minimum_GPU_free_bytes": 22011707392,
+  "observe_only": [
+    "CPU idle and load",
+    "CPU PSI",
+    "I/O wait and pressure",
+    "GPU utilization",
+    "existing external compute processes"
+  ],
+  "no_idle_utilization_or_empty_compute_gate": true,
+  "retained_guards": [
+    "expected hostname node1",
+    "scope is a new REAL directory on verified local NVMe",
+    "writable output/storage capacity",
+    "host RAM and per-worker RSS budget",
+    "GPU allocator plus free-memory headroom",
+    "at most one own case per selected GPU",
+    "deadline and owned process-group supervision"
+  ],
+  "forbidden_actions": [
+    "kill or preempt other workloads",
+    "change shared environments or global controllers",
+    "rewrite old source, contracts, datasets or results",
+    "mix local fallback results into this formal node cohort"
+  ],
+  "execution_owner": "parent only; resource agents do not launch GPU models",
+  "source_pin_status": "awaiting two runtime-owned resource-policy files"
+}

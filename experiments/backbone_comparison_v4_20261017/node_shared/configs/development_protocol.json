@@ -1,0 +1,101 @@
+{
+  "schema_version": "mm-v4.protocol.v1",
+  "status": "draft",
+  "budget_signature": null,
+  "first_preparation": "2026-10-17T17:26:57+08:00",
+  "deadline": "2026-10-18T03:26:57+08:00",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "variants": [
+    "M0",
+    "M3"
+  ],
+  "scenarios": [
+    "new_peptide_known_target",
+    "new_peptide_new_target"
+  ],
+  "model": {
+    "esm_backbone_path": "models/facebook--esm2_t30_150M_UR50D",
+    "slots": 8,
+    "memory_dim": 128,
+    "num_heads": 4,
+    "condition_slots": 10
+  },
+  "training": {
+    "epochs": 10,
+    "batch_size": 4,
+    "grad_accumulation": 2,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "numeric_loss_weight": 1.0,
+    "numeric_standardization": "train_zscore",
+    "checkpoint_selection": "min_full_validation_answer_token_nll_earliest_tie",
+    "max_new_tokens": 24,
+    "generation_batch_size": 1,
+    "micro_batch_size": 2,
+    "effective_batch_size": 4
+  },
+  "numerical_policy": {
+    "base_dtype": "bfloat16",
+    "trainable_dtype": "float32",
+    "autocast": false,
+    "tf32": false,
+    "float32_matmul_precision": "highest",
+    "deterministic_algorithms": true,
+    "cudnn_benchmark": false,
+    "cpu_threads": 2,
+    "data_loader_workers": 0
+  },
+  "disabled_supervision": {
+    "same_condition_pair": "unavailable_gold",
+    "fact_qa": "unavailable_gold",
+    "explanation_faithfulness_gold": "unavailable_gold"
+  },
+  "rules": [
+    "Development canary uses TRAIN only; formal execution requires a separate frozen config.",
+    "Freeze the common training budget from canary time and memory, never from test scores.",
+    "Train each scenario independently; no trained weights or fitted statistics cross scenarios.",
+    "Continue every preregistered arm despite neutral or negative early gains if technically qualified.",
+    "Keep original LM scoring and numeric head scoring separate; retain all failures and seeds.",
+    "Do not reopen the expired 20261016 experiment or change its frozen artifacts.",
+    "All24 positions are fresh fits; do not fill1.5B scores with historical v3 results.",
+    "Within each backbone M0 and M3 have equal active capacity and58 memory slots128float32=29696logicalbytes.",
+    "Frozen generation_batch_size must be identical across backbones after TRAIN-only resource canaries."
+  ],
+  "backbones": {
+    "qwen25_1p5b": {
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": null,
+      "backbone_path": "models/Qwen--Qwen2.5-1.5B-Instruct",
+      "model_manifest_path": null,
+      "hook_layer": 13,
+      "hidden_size": 1536,
+      "num_hidden_layers": 28
+    },
+    "qwen3_4b_2507": {
+      "repo": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "backbone_path": "models/Qwen--Qwen3-4B-Instruct-2507",
+      "model_manifest_path": null,
+      "hook_layer": 17,
+      "hidden_size": 2560,
+      "num_hidden_layers": 36
+    }
+  },
+  "backbone_signatures": null,
+  "communication_budget": {
+    "slots": 58,
+    "width": 128,
+    "dtype": "float32",
+    "logical_bytes": 29696,
+    "includes": [
+      "2views_x3banks_x8slots",
+      "10condition_slots"
+    ],
+    "cross_backbone_interface_parameter_matched": false
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "schema_version": "mm-v4.protocol.v1",
+  "status": "frozen",
+  "budget_signature": "784f428511f258c30fa38ed14851c49f7bcdac0dd66d20d3baca975d0f9a8616",
+  "first_preparation": "2026-10-17T17:26:57+08:00",
+  "deadline": "2026-10-18T03:26:57+08:00",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "variants": [
+    "M0",
+    "M3"
+  ],
+  "scenarios": [
+    "new_peptide_known_target",
+    "new_peptide_new_target"
+  ],
+  "model": {
+    "esm_backbone_path": "models/facebook--esm2_t30_150M_UR50D",
+    "slots": 8,
+    "memory_dim": 128,
+    "num_heads": 4,
+    "condition_slots": 10
+  },
+  "training": {
+    "epochs": 5,
+    "batch_size": 4,
+    "grad_accumulation": 2,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "numeric_loss_weight": 1.0,
+    "numeric_standardization": "train_zscore",
+    "checkpoint_selection": "min_full_validation_answer_token_nll_earliest_tie",
+    "max_new_tokens": 24,
+    "generation_batch_size": 8,
+    "micro_batch_size": 2,
+    "effective_batch_size": 4
+  },
+  "numerical_policy": {
+    "base_dtype": "bfloat16",
+    "trainable_dtype": "float32",
+    "autocast": false,
+    "tf32": false,
+    "float32_matmul_precision": "highest",
+    "deterministic_algorithms": true,
+    "cudnn_benchmark": false,
+    "cpu_threads": 2,
+    "data_loader_workers": 0
+  },
+  "disabled_supervision": {
+    "same_condition_pair": "unavailable_gold",
+    "fact_qa": "unavailable_gold",
+    "explanation_faithfulness_gold": "unavailable_gold"
+  },
+  "rules": [
+    "Development canary uses TRAIN only; formal execution requires a separate frozen config.",
+    "Freeze the common training budget from canary time and memory, never from test scores.",
+    "Train each scenario independently; no trained weights or fitted statistics cross scenarios.",
+    "Continue every preregistered arm despite neutral or negative early gains if technically qualified.",
+    "Keep original LM scoring and numeric head scoring separate; retain all failures and seeds.",
+    "Do not reopen the expired 20261016 experiment or change its frozen artifacts.",
+    "All24 positions are fresh fits; do not fill1.5B scores with historical v3 results.",
+    "Within each backbone M0 and M3 have equal active capacity and58 memory slots128float32=29696logicalbytes.",
+    "Frozen generation_batch_size must be identical across backbones after TRAIN-only resource canaries."
+  ],
+  "backbones": {
+    "qwen25_1p5b": {
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "backbone_path": "models/Qwen--Qwen2.5-1.5B-Instruct",
+      "model_manifest_path": "experiments/backbone_comparison_v4_20261017/resources/model_manifest_qwen25.json",
+      "hook_layer": 13,
+      "hidden_size": 1536,
+      "num_hidden_layers": 28
+    },
+    "qwen3_4b_2507": {
+      "repo": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "backbone_path": "models/Qwen--Qwen3-4B-Instruct-2507",
+      "model_manifest_path": "experiments/backbone_comparison_v4_20261017/resources/model_manifest_qwen3.json",
+      "hook_layer": 17,
+      "hidden_size": 2560,
+      "num_hidden_layers": 36
+    }
+  },
+  "backbone_signatures": {
+    "qwen25_1p5b": "a2d8c36b8a23ab9d1faca4f7a039e87888b44efb7822cd4885475b7e92e6efc4",
+    "qwen3_4b_2507": "7e5d42878489379c6358117acb0885c4a8af9435d0009029a4afa25e029150e1"
+  },
+  "communication_budget": {
+    "slots": 58,
+    "width": 128,
+    "dtype": "float32",
+    "logical_bytes": 29696,
+    "includes": [
+      "2views_x3banks_x8slots",
+      "10condition_slots"
+    ],
+    "cross_backbone_interface_parameter_matched": false
+  },
+  "frozen_at": "2026-10-17T12:27:21.699844+00:00",
+  "qualified_interface_parameter_counts": {
+    "qwen25_1p5b": 1618568,
+    "qwen3_4b_2507": 1884808
+  },
+  "formal_budget_evidence": {
+    "canaries": {
+      "qwen25_1p5b": {
+        "backbone": "qwen25_1p5b",
+        "manifest_path": "<REMOTE_SCOPE>/runs/canary_qwen25_1p5b_shared_v1/artifacts/run_manifest.json",
+        "manifest_sha256": "23161ff196aeffaba870c5dc5cb5fa0420df55a155de8b8af2c719cadb0c0efd",
+        "gpu_limit_receipt_sha256": "a8bb4daefe517592896bb8e16ab658e4f81167fae7a7d680b30e7e3e3458c727",
+        "archive_root": "<REMOTE_SCOPE>/runs/canary_qwen25_1p5b_shared_v1/archive",
+        "archive_receipt_sha256": "e019e83a8261916a8611cd90e754e0dbed98d9fef6e4d30a1a43eeb06f74bf5f",
+        "training_seconds": 3.472007043659687,
+        "first_update_seconds": 1.3709662845358253,
+        "optimizer_steps": 4,
+        "view_manifest_sha256": "b505c29ea8b78cd4d6d9fb6f0bca52f5b09cd3a25f43ea8d727d1ca5066e91f0",
+        "cache_manifest_sha256": "24ebf3118a9e00ff8a1c30ee289a5202577ae4f44d1e2d67092db7865e778d88",
+        "model_manifest_sha256": "d9da2ee4a7e4d7e1b1a06737646a1172ff4b2737c920f2d24595cc8c86904198",
+        "seconds_per_optimizer_step": 0.8680017609149218,
+        "generation_seconds_per_row": 0.29438704007770866,
+        "c1_seconds_per_row": 0.2658830964937806,
+        "model_loading_seconds": 20.089877864345908,
+        "asset_verification_seconds": 5.901693612337112,
+        "peak_cuda_memory_bytes": 4885209088,
+        "trainable_parameters": 1618568
+      },
+      "qwen3_4b_2507": {
+        "backbone": "qwen3_4b_2507",
+        "manifest_path": "<REMOTE_SCOPE>/runs/canary_qwen3_4b_2507_shared_v1/artifacts/run_manifest.json",
+        "manifest_sha256": "e02e26a9d1073a4ac3a09ced8dfcefa16600c362606bf981148796fa29d9a92c",
+        "gpu_limit_receipt_sha256": "b35b2a142fca47144bd45160aab9a13191ba079161c45bfbee6569485b9e1651",
+        "archive_root": "<REMOTE_SCOPE>/runs/canary_qwen3_4b_2507_shared_v1/archive",
+        "archive_receipt_sha256": "41039aa62cc2a53cecc3d07e5cf7f5935fde54c5b00001baf64404155e31efcc",
+        "training_seconds": 4.71825600694865,
+        "first_update_seconds": 1.6084369262680411,
+        "optimizer_steps": 4,
+        "view_manifest_sha256": "b505c29ea8b78cd4d6d9fb6f0bca52f5b09cd3a25f43ea8d727d1ca5066e91f0",
+        "cache_manifest_sha256": "24ebf3118a9e00ff8a1c30ee289a5202577ae4f44d1e2d67092db7865e778d88",
+        "model_manifest_sha256": "27eefdc1769d40363b0d23f3506337e1e877882d3d091c45a2c1bdd8e5d4958f",
+        "seconds_per_optimizer_step": 1.1795640017371625,
+        "generation_seconds_per_row": 0.24263762787450105,
+        "c1_seconds_per_row": 0.29614654392935336,
+        "model_loading_seconds": 16.813975356519222,
+        "asset_verification_seconds": 12.365390803664923,
+        "peak_cuda_memory_bytes": 10763524096,
+        "trainable_parameters": 1884808
+      }
+    },
+    "decision_basis": "actual TRAIN time/memory; no validation/test score selection",
+    "user_resource_policy": {
+      "path": "<REMOTE_SCOPE>/USER_RESOURCE_POLICY.json",
+      "sha256": "56a404606b5a66883c16f638209144d37f0bdf9d9e0bf958f13b57975ee62e31",
+      "id": "user_shared_node1_v1"
+    },
+    "common_change_reason": "Both completed TRAIN-only canaries measured four optimizer updates. After first-update diagnostics, steady update rates were approximately0.70seconds for1.5B and1.04seconds for4B. With24 fresh fits on at most3 GPUs and the unchanged03:26:57+08 deadline, a common5 complete epochs leaves time for full validation NLL, fixed generation and C1 evaluation. No validation/test score was consulted for this prospective decision.",
+    "new_scope_does_not_reopen_old_round": true
+  }
+}
