@@ -1,0 +1,28 @@
+{
+  "scope_id": "backbone_comparison_v4_20261017",
+  "authorization": "User explicitly requested a new monitored experiment comparing Qwen2.5-1.5B-Instruct and Qwen3-4B-Instruct-2507 with M0/M3, frozen splits and scoring, multiple seeds, node1 preferred, automatic execution and GitHub publication.",
+  "first_preparation": "2026-10-17T17:26:57+08:00",
+  "absolute_deadline": "2026-10-18T03:26:57+08:00",
+  "prior_scope": "molecular_memory_v3_20261017",
+  "prior_results_preserved": true,
+  "prior_partial_runs_reopened": false,
+  "new_fits_required": 24,
+  "backbones": ["qwen25_1p5b", "qwen3_4b_2507"],
+  "arms": ["M0", "M3"],
+  "scenarios": ["new_peptide_known_target", "new_peptide_new_target"],
+  "seeds": [17, 42, 2026],
+  "simplified_control_definition": "M0 is the existing capacity-matched functional control: L30/L30 views, static routing and peptide-self relation; all modules remain active. It is not a single MLP.",
+  "primary_comparison": "M0 minus M3 within each backbone, then paired difference of these effects across backbones.",
+  "frozen_inputs": {
+    "known_samples_sha256": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+    "double_samples_sha256": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+    "prepared_views_manifest_sha256": "b505c29ea8b78cd4d6d9fb6f0bca52f5b09cd3a25f43ea8d727d1ca5066e91f0",
+    "paired_cache_manifest_sha256": "24ebf3118a9e00ff8a1c30ee289a5202577ae4f44d1e2d67092db7865e778d88",
+    "cache_reextraction": false
+  },
+  "fixed_scoring": ["strict single-field finite pKD JSON", "greedy max24", "all original test rows", "separate LM and numeric channels", "MAE/RMSE/Spearman/target macro", "same-theta on/off C1", "full validation answer NLL earliest exact minimum"],
+  "cross_backbone_equal_interface_parameters_claimed": false,
+  "within_backbone_M0_M3_capacity_matched": true,
+  "training_budget_status": "draft_until_both_TRAIN_canaries_qualify",
+  "biological_scope": "Fixed public scalar-prediction benchmark; no sequence generation or biological-function optimization."
+}

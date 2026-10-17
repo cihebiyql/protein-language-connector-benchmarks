@@ -1,0 +1,90 @@
+{
+  "schema": "v4_public_cpu_verification.v1",
+  "evidence_cutoff": "2026-10-17T18:09:00+08:00",
+  "scope": "CPU fixtures only; no pretrained model execution or CUDA qualification",
+  "source_receipts": [
+    {
+      "relative": "resources/runtime_validation_node1.json",
+      "sha256": "2a2ed4e412fd78da3cdc73973376b02409096302519fedb0aafae3fc5d8b44f2"
+    },
+    {
+      "relative": "resources/runtime_validation_node1_attempt2.json",
+      "sha256": "7289f495dc73e1961fb41d814769431f5e0d19060391c0038597a35ef9d202f4"
+    }
+  ],
+  "initial_attempt": {
+    "passed": 134,
+    "errors": 14,
+    "cause": "Archive fixtures used a developer-specific canonical-standard fallback; retained in original private receipt.",
+    "formal_results": false
+  },
+  "corrected_attempt": {
+    "passed": 148,
+    "errors": 0,
+    "skipped": 0,
+    "unittest_seconds": 25.688,
+    "wrapper_elapsed_seconds": 35.07861542701721,
+    "test_log_sha256": "82c5da8329b366078e3c24c900dfd92494842484eda26b097cf0b2975918cc68",
+    "source_file_sha256": {
+      "src/mm_archive.py": "c02444d7695b4bdf040a45a26d0d5ef50273962a9dc6bc1c5aaa5478596cae54",
+      "src/mm_case.py": "7ce8dacac7b1376a3451ab3e24a003d53cfd00f373d8d5990c70b6a3ca59376e",
+      "src/mm_contract.py": "44840a16ea2edc65cd882dc96461b7e3308e12f7dd8912cb61ad02b480ccfc0f",
+      "src/mm_data.py": "08e564f234d0fb12fe3a5a32c6050f6be516c79e7bfd82d7d5ed6b8f80cd7b72",
+      "src/mm_data_evaluation.py": "9c653e065c3142cf37f705c09702ea840f834ad4cbfeb7575d12b4e5981b98c1",
+      "src/mm_evaluate.py": "1d921a4d21f78535a9c048f8eb75943b0c18b002ff86111c4c3809b307d1c947",
+      "src/mm_extract.py": "1c3a18ec5efb0a3e00bc72ab2940d3ffb06bed5c5c6ea2c491c658dc7c1717bf",
+      "src/mm_model.py": "c2db5771eed8b7df99be12c061129c58c2f883d1a03b02bed1cdd80973f5b5a7",
+      "src/mm_queue.py": "dafc750573272b74911e9178aa8decebf877652203d183955d03a09ce1dec459",
+      "src/mm_supervise.py": "7e894341e7b212981651974650cdccd932268383ebf4c2ce7993c38af91eff26",
+      "src/mm_train.py": "5c53dd0c3a43817813f6be5addf376bd1e545055431cc6e0586e344ecc9f1eb5",
+      "src/mm_worker_limit.py": "ee0a3c74423b7ce983a34df31ee4b669078a60a24685e0b14977d78d637cfe29",
+      "tests/test_archive.py": "63b3104ca1b9c25554394af59dd425cb5dbc3e6f00106702fbfebe737d664767",
+      "tests/test_data.py": "521932e0f5e4909f84c71c1832f3e1a668825430ca835cbf76cba8d8ba092b7b",
+      "tests/test_data_evaluation.py": "79f8667f16da92f6acf6f4fee0d26fba88f18a861b68cfc4625f772848cb7c59",
+      "tests/test_evaluate.py": "7716d205a50c6094dc825e1755c315cef64a9c56a9ca041694bb457f68486acf",
+      "tests/test_model.py": "a1afa0bbca56b8c86eb7a08adf95441e95ba6008d06eab635a4e2542a14b2de4",
+      "tests/test_proc_race.py": "6f2e7d975b2bc1fa19af21b498446045c8253150ae0ab38998b20637c98330a6",
+      "tests/test_queue.py": "f37037e6dd1121f7c1e909753f63745bcf0abac47f2c970a5bd135cdddf68f88",
+      "tests/test_supervise.py": "7230c0125b3f306565954e525995605a268f94b86567023b749a6a7241b7fc5a",
+      "tests/test_train.py": "2ca9e273c9b5a03e90b0acb6e2080d67313be158e4bd783b8c800673e0250290",
+      "tests/test_v4_runtime.py": "50de19921be524a21f50e3524ac0afc1fc2609df0e4095c4b9b2dd347052daf6",
+      "configs/development_protocol.json": "67f6edafe81f3a7e72b815a6f21a782e579c68bf0cab7159f1c62f16b3f7d471",
+      "docs/evaluation_protocol.json": "38c102a476609afa82035d178c7e56ea979d66c3954080f889f6cbbdafc2e0b8",
+      "tests/runtime_validation_wsl.json": "466d3a1ecbd53eeb31d8a48843632f6a1c6bac910e900c6f7e8ed15d41cb2e09",
+      "tests/runtime_validation_wsl.log": "976091158565d3ccc48185e19a11f63a34c5b8ad737aaf4643381ffd5ca13440"
+    }
+  },
+  "environment": {
+    "source_receipt_sha256": "41422d51690b4c3d33ff8e31c55acfee2f37dc48865c445667850f669dd61c99",
+    "python": "3.11.13 (main, Jun  5 2025, 13:12:00) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "4.51.3",
+      "tokenizers": "0.21.1",
+      "huggingface-hub": "0.35.3",
+      "safetensors": "0.5.3",
+      "accelerate": "1.7.0",
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "scikit-learn": "1.4.2"
+    },
+    "cuda_initialized": false,
+    "class_source_sha256": {
+      "Qwen3DecoderLayer": "704c914530530a1acb0b443add1f520404e3ac2c28c0ab7e16f80f86cfe8ccb2",
+      "Qwen3Model": "704c914530530a1acb0b443add1f520404e3ac2c28c0ab7e16f80f86cfe8ccb2",
+      "Qwen2DecoderLayer": "1760c628019995d3564c8572be6c5149f488b6c3aa95ceda16099c2516e146ff",
+      "Qwen2Model": "1760c628019995d3564c8572be6c5149f488b6c3aa95ceda16099c2516e146ff"
+    }
+  },
+  "public_test_path_adaptation": {
+    "source_relative": "tests/test_archive.py",
+    "public_relative": "tests/test_archive.py",
+    "source_sha256": "63b3104ca1b9c25554394af59dd425cb5dbc3e6f00106702fbfebe737d664767",
+    "public_sha256": "ec289ec1a309523d8c3a2ef53143772b7e636af384131dbaecc6e1ad5b3549a6",
+    "bytes": 11028,
+    "transformation": "STANDARD fallback assignment only; environment override unchanged",
+    "ast_other_statements_identical": true
+  },
+  "real_TRAIN_canary_qualification": "pending_at_cutoff",
+  "scientific_effectiveness_claim": null
+}

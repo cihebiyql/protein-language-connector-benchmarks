@@ -1,0 +1,56 @@
+{
+  "schema": "v4_public_portable_cpu_checks.v1",
+  "scope": "Checks of the actual public copy; Linux/WSL CPU only, no pretrained model/GPU execution",
+  "observed_checks": [
+    {
+      "command": "python -S -B -m unittest discover -s tests -p test_evaluate.py -v",
+      "passed": 56,
+      "seconds": 0.197
+    },
+    {
+      "command": "python -S -B -m unittest discover -s tests -p test_queue.py -v",
+      "passed": 23,
+      "seconds": 6.888
+    },
+    {
+      "command": "python -S -B -m unittest discover -s tests -p test_archive.py -v",
+      "passed": 7,
+      "seconds": 0.169,
+      "MM_STANDARD_ROOT": "unset; bundled standard fallback tested"
+    },
+    {
+      "command": "python -S -B -m src.mm_evaluate validate-protocol --protocol docs/evaluation_protocol.json --development",
+      "result": "valid_development_protocol"
+    }
+  ],
+  "AST_parsed_python_files": [
+    "src/mm_archive.py",
+    "src/mm_case.py",
+    "src/mm_contract.py",
+    "src/mm_data.py",
+    "src/mm_data_evaluation.py",
+    "src/mm_evaluate.py",
+    "src/mm_extract.py",
+    "src/mm_model.py",
+    "src/mm_queue.py",
+    "src/mm_supervise.py",
+    "src/mm_train.py",
+    "src/mm_worker_limit.py",
+    "standard/validate_reproduction.py",
+    "tests/test_archive.py",
+    "tests/test_data.py",
+    "tests/test_data_evaluation.py",
+    "tests/test_evaluate.py",
+    "tests/test_model.py",
+    "tests/test_proc_race.py",
+    "tests/test_queue.py",
+    "tests/test_supervise.py",
+    "tests/test_train.py",
+    "tests/test_v4_runtime.py"
+  ],
+  "exact_source_and_standard_hashes_verified": true,
+  "registered_case_count_verified": 24,
+  "config_relative_manifest_paths_verified": true,
+  "runtime_tested_full_suite_reference": "resources/cpu_verification_summary.json",
+  "scientific_metrics": null
+}
