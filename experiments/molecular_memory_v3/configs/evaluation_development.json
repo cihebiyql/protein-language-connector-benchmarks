@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope_id": "molecular_memory_v3_20261017",
+  "status": "DEVELOPMENT_ONLY_UNFROZEN",
+  "first_authorized_at": "2026-10-17T00:29:40+08:00",
+  "deadline": "2026-10-17T10:29:40+08:00",
+  "scenarios": [
+    "new_peptide_known_target",
+    "new_peptide_new_target"
+  ],
+  "arms": [
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "A_L",
+    "A_Q"
+  ],
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "n_expected_formal_cases": 36,
+  "data_sha256": {
+    "new_peptide_known_target": {
+      "samples.jsonl": "d1d9ce44db4aeefcc829f5ce7b50b3e288ad03a28af9d15bb9f1fd550a6b657e",
+      "test_gold.jsonl": "6f50e85443d1056ef35d509b5229dfb0bc364e266da2aebfa3fa78dcdb07c07b",
+      "manifest.json": "f90f94866baa34f05af2b5d9416c653847fe4beb0cebbd4614592399e12c190e",
+      "benchmark_lock.json": "bf15cc6dfc1a62c3b97a3201ff5961167f0ac0d7afcf7872c46aa1ff57e65249"
+    },
+    "new_peptide_new_target": {
+      "samples.jsonl": "7ff5a67203efaa94db29fad1f7d2774b5f5e5f8a9155fc47a090e0f2a3baee71",
+      "test_gold.jsonl": "388e50ac4776bd122dc3fb60a688ee715173a8703c890ac7d0ad38eaab82065f",
+      "manifest.json": "508aa3835d652aab4d115a61fa90bc6aa157e3c195e035803fb808b0cbed88c5",
+      "benchmark_lock.json": "329ebdf75e792eabe80d2edf423c53990ea31551fae5112e20b463c30b27b90f"
+    }
+  },
+  "split_counts": {
+    "new_peptide_known_target": {
+      "train": 2062,
+      "validation": 147,
+      "test": 152
+    },
+    "new_peptide_new_target": {
+      "train": 2063,
+      "validation": 431,
+      "test": 442
+    }
+  },
+  "condition_slots": [
+    "c_terminal",
+    "chemical_modification",
+    "cyclization_method",
+    "explicitly_representable",
+    "n_terminal",
+    "residue_modification",
+    "topology",
+    "assay",
+    "measurement_context",
+    "target_context"
+  ],
+  "condition_encoding": {
+    "vocabulary": "fixed SHA256(slotname+NUL+canonicalJSON) modulo4096; no fit on test",
+    "measurement_context": [
+      "temperature_kelvin",
+      "ph",
+      "buffer"
+    ],
+    "measurement_observed": "any actual nonmissing value among3fields; no imputed0",
+    "target_context": [
+      "target_sequence_role",
+      "actual_construct_verified",
+      "actual_construct_sequence_missing"
+    ],
+    "target_observed": "known reference role/status does not imply verified construct",
+    "missing": "None/explicit missing marker, never invented measured0",
+    "actual_construct_sequence_in_conditions": false
+  },
+  "training_budget": {
+    "status": "UNFROZEN",
+    "config_path": "configs/development.json",
+    "signature_basis": "canonical JSON of training dict: sort_keys=True ensure_ascii=False separators comma/colon",
+    "training_budget_sha256": null,
+    "training": null,
+    "expected_training": {
+      "new_peptide_known_target": null,
+      "new_peptide_new_target": null
+    },
+    "config_sha256": null
+  },
+  "checkpoint_selector": "full_validation_answer_token_nll_earliest_exact_tie",
+  "generation": {
+    "max_new_tokens": 24,
+    "batch_size": 1,
+    "sampling": false
+  },
+  "legacy_parser_source_sha256": "88da80f9c75116625c2ec8601d4d5685882c4d899f693371338179f36e905da5",
+  "primary": "LM strictJSON full_sample_mae plus parse_valid_rate; any failure full_sample_mae=null",
+  "numeric": "separate raw pKD MAE/RMSE/Spearman/targetmacro; any unavailable prediction full_population=null",
+  "numeric_normalization": "producer TRAIN mean/std ddof0; inverse transform before scoring; no clipping or rounding",
+  "C1_required_for_formal": true,
+  "C1_scope": "same-theta branch-off and TRAIN-mean distribution sensitivity only; no biological donor/P/H/pairgold",
+  "seed_summary": "all3explicit; mean/sampleSD ddof1 only if3/3 metric values defined",
+  "strata": "temperature/ph/buffer/actual_construct allmissing currently; n_observed0 means undefined comparison",
+  "old_completed30_role": "historical_reference_only_not_new_budget_matched_baseline",
+  "standard_library_token_check_scope": "validate token IDs/types/length and independently parse raw_text; exact tokenizer decode is a pinned producer obligation, not performed by stdlib evaluator",
+  "test_selection_prohibited": true,
+  "formal_gate": "UNFROZEN budget always rejected. Parent must freeze training dict/signature/expectedcounts and C1 plan before formal execution.",
+  "C1_plan": {
+    "required_modes": [
+      "correct",
+      "off"
+    ],
+    "numeric_on_off": true,
+    "train_mean": "not_run",
+    "uniform": "not_run",
+    "missing_biological_donor_P_H": "undefined"
+  },
+  "run_manifest_schema": {
+    "required": [
+      "schema_version",
+      "scope_id",
+      "run_id",
+      "phase",
+      "status",
+      "scenario",
+      "arm",
+      "seed",
+      "protocol_sha256",
+      "training_budget_sha256",
+      "data_sha256",
+      "training",
+      "test_labels_used_for_fit",
+      "artifacts"
+    ],
+    "optional": [
+      "identity",
+      "execution_phase",
+      "runtime",
+      "model_policy",
+      "provenance",
+      "source_fit",
+      "evaluation",
+      "worker_completion_is_controller_acceptance",
+      "deadline",
+      "created_utc",
+      "elapsed_seconds"
+    ],
+    "artifact_keys": [
+      "history",
+      "selection",
+      "checkpoint",
+      "lm_predictions",
+      "numeric_predictions",
+      "c1"
+    ],
+    "artifact_ref": {
+      "path": "relative path inside run root",
+      "sha256": "lowercase64hex"
+    },
+    "protocol_sha256": "training config file SHA; distinct from this evaluator protocol file SHA",
+    "training_counts": [
+      "epochs_completed",
+      "optimizer_steps",
+      "examples_seen"
+    ]
+  },
+  "evaluator_source_sha256": "0f0ecf1554d7aac08ded3a111a59f631257528164e43d96589280c7dae0bea36",
+  "implementation_verification": {
+    "CPU_stdlib_test_count": 53,
+    "command": "python -S -m unittest discover -s tests -p test_evaluate.py -v",
+    "frozen_data_actual_hashes_and_counts_verified": true,
+    "legacy_parser_archive_files": 31,
+    "legacy_parser_archive_rows": 9062,
+    "legacy_parser_mismatches": 0,
+    "archive_includes_nonformal_case31": true,
+    "model_forward_or_training_performed_by_evaluator_owner": false,
+    "formal_UNFROZEN_actual_child_exit_code": 2,
+    "platforms": [
+      "Windows Python3.11.9 -S",
+      "WSL Python3.10.12 -S"
+    ]
+  },
+  "producer_source_path": "src/mm_train.py",
+  "producer_source_sha256": "a7947ca19aa3cb47d88136da7f0ea5f2e2783c421ac5d06774fee375b05c91a2",
+  "producer_pin_status": "development_observed_reverify_at_formal_freeze",
+  "generation_batch_policy": "positive integer fixed before test; generation.batch_size equals frozen training.generation_batch_size for every formal case"
+}

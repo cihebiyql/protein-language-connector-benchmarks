@@ -1,0 +1,63 @@
+{
+  "status": "complete",
+  "scenario": "new_peptide_known_target",
+  "channel": "numeric_predictor",
+  "generation_performed": false,
+  "source_result_sha256": "b5802fae515156686f08ca34d31f2de9e1141475112371dceace41a751d920fc",
+  "models": {
+    "ridge2700_alpha1000": {
+      "validation": {
+        "n_total": 147,
+        "n_finite": 147,
+        "numeric_coverage": 1.0,
+        "micro_MAE": 1.4967244495082603,
+        "RMSE": 1.9253906800050682,
+        "global_Spearman": 0.17171945189607205,
+        "exact_target_macro_MAE": 1.7104295698140226,
+        "n_exact_targets": 47,
+        "unit": "pKD",
+        "coverage_semantics": "finite numeric predictor output, not strict language generation"
+      },
+      "test": {
+        "n_total": 152,
+        "n_finite": 152,
+        "numeric_coverage": 1.0,
+        "micro_MAE": 1.3853407594395484,
+        "RMSE": 1.7076820803143615,
+        "global_Spearman": 0.492858048181362,
+        "exact_target_macro_MAE": 1.4119219545243948,
+        "n_exact_targets": 48,
+        "unit": "pKD",
+        "coverage_semantics": "finite numeric predictor output, not strict language generation"
+      }
+    },
+    "knn2700_k25": {
+      "validation": {
+        "n_total": 147,
+        "n_finite": 147,
+        "numeric_coverage": 1.0,
+        "micro_MAE": 1.4871571622172803,
+        "RMSE": 1.8968877550921768,
+        "global_Spearman": 0.07183808167782312,
+        "exact_target_macro_MAE": 1.6331706532108514,
+        "n_exact_targets": 47,
+        "unit": "pKD",
+        "coverage_semantics": "finite numeric predictor output, not strict language generation"
+      },
+      "test": {
+        "n_total": 152,
+        "n_finite": 152,
+        "numeric_coverage": 1.0,
+        "micro_MAE": 1.6699925219913307,
+        "RMSE": 1.99365136497726,
+        "global_Spearman": 0.2056129153462246,
+        "exact_target_macro_MAE": 1.5179772828585276,
+        "n_exact_targets": 48,
+        "unit": "pKD",
+        "coverage_semantics": "finite numeric predictor output, not strict language generation"
+      }
+    }
+  },
+  "budget_group": "same_source_information_unmatched_numeric_reference",
+  "n_expected_test": 152
+}

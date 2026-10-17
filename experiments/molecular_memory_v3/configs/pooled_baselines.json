@@ -1,0 +1,25 @@
+{
+  "schema": "mm_pooled_numeric_baseline_config.v1",
+  "scenarios": ["new_peptide_known_target", "new_peptide_new_target"],
+  "methods": ["ridge2700_alpha1000", "knn2700_k25"],
+  "features": {
+    "dimension": 2700,
+    "pooled_order": ["peptide_H15", "peptide_H30", "target_H15", "target_H30"],
+    "slot_reduction": "unweighted_float64_mean_of_8_saved_slots",
+    "lengths": "peptide_and_target_log1p_full_sequence_length",
+    "condition_observed_dimension": 10,
+    "condition_hash_dimension": 128,
+    "condition_hash": "SHA256(slotname+NUL+canonicalJSON); bucket=bigendian_first8_mod128; sign=1_if_byte8_even_else_minus1; sum_observed_slots"
+  },
+  "training": {
+    "standardization": "TRAIN_mean_population_SD",
+    "standard_deviation_floor": 0.000001,
+    "ridge_alpha": 1000.0,
+    "ridge_intercept": "unpenalized",
+    "knn_k": 25,
+    "knn_weights": "1/(squared_euclidean_distance+1e-6)",
+    "tie_break": "locked_TRAIN_row_order",
+    "validation_selection": "none; fixed_parameters_both_methods_retained"
+  },
+  "output_relative": "experiments/molecular_memory_v3_20261017/results/pooled_numeric_baselines"
+}

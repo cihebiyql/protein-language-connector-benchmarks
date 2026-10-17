@@ -1,0 +1,56 @@
+{
+  "schema_version": "mm-v3.protocol.v1",
+  "status": "draft",
+  "budget_signature": null,
+  "first_preparation": "2026-10-17T00:29:40+08:00",
+  "deadline": "2026-10-17T10:29:40+08:00",
+  "seeds": [17, 42, 2026],
+  "variants": ["M0", "M1", "M2", "M3", "A_L", "A_Q"],
+  "scenarios": ["new_peptide_known_target", "new_peptide_new_target"],
+  "model": {
+    "backbone_path": "models/Qwen--Qwen2.5-1.5B-Instruct",
+    "esm_backbone_path": "models/facebook--esm2_t30_150M_UR50D",
+    "slots": 8,
+    "memory_dim": 128,
+    "num_heads": 4,
+    "hook_layer": 13,
+    "condition_slots": 10
+  },
+  "training": {
+    "epochs": 3,
+    "batch_size": 4,
+    "grad_accumulation": 1,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "numeric_loss_weight": 1.0,
+    "numeric_standardization": "train_zscore",
+    "checkpoint_selection": "min_full_validation_answer_token_nll_earliest_tie",
+    "max_new_tokens": 24,
+    "generation_batch_size": 1
+  },
+  "numerical_policy": {
+    "base_dtype": "bfloat16",
+    "trainable_dtype": "float32",
+    "autocast": false,
+    "tf32": false,
+    "float32_matmul_precision": "highest",
+    "deterministic_algorithms": true,
+    "cudnn_benchmark": false,
+    "cpu_threads": 2,
+    "data_loader_workers": 0
+  },
+  "disabled_supervision": {
+    "same_condition_pair": "unavailable_gold",
+    "fact_qa": "unavailable_gold",
+    "explanation_faithfulness_gold": "unavailable_gold"
+  },
+  "rules": [
+    "Development canary uses TRAIN only; formal execution requires a separate frozen config.",
+    "Freeze the common training budget from canary time and memory, never from test scores.",
+    "Train each scenario independently; no trained weights or fitted statistics cross scenarios.",
+    "Continue every preregistered arm despite neutral or negative early gains if technically qualified.",
+    "Keep original LM scoring and numeric head scoring separate; retain all failures and seeds.",
+    "Do not reopen the expired 20261016 experiment or change its frozen artifacts."
+  ]
+}

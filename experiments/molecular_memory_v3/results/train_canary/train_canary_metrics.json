@@ -1,0 +1,97 @@
+{
+  "development_only": true,
+  "split": "train",
+  "rows": 8,
+  "lm": {
+    "n_total": 8,
+    "n_valid": 0,
+    "n_failed": 8,
+    "parse_valid_rate": 0.0,
+    "failure_counts": {
+      "invalid_json_or_nonfinite": 8
+    },
+    "full_sample_mae": null,
+    "full_sample_mae_status": "undefined_parse_failures",
+    "valid_only_mae": null,
+    "valid_only_denominator": 0,
+    "regression_valid_only": {
+      "n": 0,
+      "mae": null,
+      "rmse": null,
+      "spearman": null,
+      "n_targets": 0,
+      "target_macro_mae": null,
+      "targets": []
+    },
+    "prediction_clipping": false,
+    "hand_corrected_outputs": false
+  },
+  "numeric": {
+    "n_total": 8,
+    "n_finite": 8,
+    "n_failed": 0,
+    "coverage": 1.0,
+    "failure_counts": {},
+    "full_population": {
+      "n": 8,
+      "mae": 1.7343237923472863,
+      "rmse": 1.8377334265391707,
+      "spearman": 0.14285714285714285,
+      "n_targets": 2,
+      "target_macro_mae": 1.9607068144481625,
+      "targets": [
+        {
+          "target_sequence_sha256": "c1c101b738eca478ffaa196b2d78ff3e3f458a1c435f855b3daeee103e85eedb",
+          "n": 6,
+          "mae": 1.5079407702464103
+        },
+        {
+          "target_sequence_sha256": "5f093c99db2aa40b6ae12c2cf1cf3b490b01b1ca9dd3048d15151566e5509f1b",
+          "n": 2,
+          "mae": 2.413472858649915
+        }
+      ]
+    },
+    "status": "defined",
+    "finite_only_diagnostic": {
+      "n": 8,
+      "mae": 1.7343237923472863,
+      "rmse": 1.8377334265391707,
+      "spearman": 0.14285714285714285,
+      "n_targets": 2,
+      "target_macro_mae": 1.9607068144481625,
+      "targets": [
+        {
+          "target_sequence_sha256": "c1c101b738eca478ffaa196b2d78ff3e3f458a1c435f855b3daeee103e85eedb",
+          "n": 6,
+          "mae": 1.5079407702464103
+        },
+        {
+          "target_sequence_sha256": "5f093c99db2aa40b6ae12c2cf1cf3b490b01b1ca9dd3048d15151566e5509f1b",
+          "n": 2,
+          "mae": 2.413472858649915
+        }
+      ]
+    },
+    "finite_only_denominator": 8,
+    "units": "original_pKD"
+  },
+  "c1": {
+    "n_test": 8,
+    "G_off": -0.0017036795616149764,
+    "G_train_mean": null,
+    "train_mean_status": "not_run",
+    "uniform_status": "not_run",
+    "numeric_off_minus_on_MAE": 0.0018858489892339403,
+    "numeric_off_status": "defined",
+    "units": "nats_per_answer_token",
+    "aggregation": "mean_of_per_row_mean_NLL_differences",
+    "scope": "fixed_theta_message_distribution_sensitivity",
+    "n_biological_donors": 0,
+    "n_strict_comparable_pairs": 0,
+    "P": null,
+    "H": null,
+    "P_H_status": "undefined_zero_independent_donors"
+  },
+  "c1_seconds": 0.79724414460361
+}

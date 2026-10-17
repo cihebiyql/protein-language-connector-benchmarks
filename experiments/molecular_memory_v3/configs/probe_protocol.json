@@ -1,0 +1,53 @@
+{
+  "schema": "mm_conditional_probe_v1",
+  "status": "preregistered",
+  "scenarios": [
+    "new_peptide_known_target",
+    "new_peptide_new_target"
+  ],
+  "variant": "M3",
+  "seed": 17,
+  "checkpoint": "selected.pt",
+  "batch_size": 4,
+  "representation": "numeric_head_input_finalnorm_prompt_end_only",
+  "base_order": [
+    "p15",
+    "p30",
+    "t15",
+    "t30"
+  ],
+  "base_raw_dim": 2560,
+  "base_projection": {
+    "dim": 64,
+    "seed": 0,
+    "rng": "PCG64",
+    "scale": "1/sqrt(2560)"
+  },
+  "receiver_raw_dim": 1536,
+  "receiver_projection": {
+    "dim": 64,
+    "seed": 1,
+    "rng": "PCG64",
+    "scale": "1/sqrt(1536)"
+  },
+  "condition_hash": {
+    "dim": 16,
+    "algorithm": "sha256(slot_name:NUL:condition_id); first8_big_mod16; byte8_parity_sign; sum/sqrt(10); observed_only"
+  },
+  "observed_dim": 10,
+  "length_features": "log1p(peptide_length),log1p(target_length)",
+  "base_dim": 92,
+  "joint_dim": 156,
+  "ridge_lambda": 1000.0,
+  "ridge_intercept": "unpenalized",
+  "standardization": "TRAIN_only_population_std_floor_1e-8",
+  "targets": "original_precision_TRAIN_pkd_only",
+  "comparison": [
+    "[B;R64]",
+    "[B;zero64]"
+  ],
+  "selection": "none_fixed_lambda_no_validation_or_test_tuning",
+  "delta": "baseline_error_minus_conditioned_error_positive_is_gain",
+  "interpretation": "single_seed_diagnostic_not_mutual_information_not_three_seed_superiority",
+  "source": "https://aclanthology.org/2021.emnlp-main.122/"
+}

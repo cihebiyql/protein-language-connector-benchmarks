@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "record_type": "task_contract",
+  "is_template": true,
+  "task_id": "填写稳定任务编号",
+  "run_id": "填写唯一运行编号",
+  "contract_status": "draft",
+  "created_at": null,
+  "frozen_at": null,
+  "revision": 1,
+  "previous_contract_sha256": null,
+  "revision_reason": null,
+  "identity": {
+    "title": null,
+    "doi": null,
+    "publication_status": "unknown",
+    "first_online_date": null,
+    "journal": null,
+    "paper_type": null,
+    "pdf": { "path": null, "sha256": null, "version": "unknown", "source_url": null },
+    "related_versions": [],
+    "eligibility": { "scope": null, "assessment": "unknown", "evidence_paths": [] }
+  },
+  "execution_scope": {
+    "objective": null,
+    "authorization_reference": null,
+    "relation_to_prior_run": null,
+    "prior_run_ids": [],
+    "safety_assessment": "pending",
+    "scope_coverage": "not_evaluated",
+    "intended_level": "static_audit",
+    "excluded_claims": [],
+    "restriction_check": { "prior_platform_restriction": null, "reason": null, "evidence_paths": [] }
+  },
+  "timing": {
+    "first_substantive_started_at": null,
+    "earliest_associated_preparation_at": null,
+    "wall_clock_cap_hours": 10,
+    "original_deadline_at": null,
+    "additional_deadlines_at": [],
+    "effective_deadline_at": null,
+    "prior_window_expired": null,
+    "retry_resets_clock": false,
+    "timing_evidence_paths": []
+  },
+  "assets": {
+    "datasets": [
+      { "name": null, "version": null, "source_url": null, "license": null, "path": null, "manifest_sha256": null, "sample_count": null, "statistical_unit": null, "splits": { "train": null, "validation": null, "test": null, "split_manifest_sha256": null }, "preprocessing": null, "leakage_check": { "status": "unknown", "method": null, "evidence_paths": [] }, "integrity": "unknown", "notes": null }
+    ],
+    "code": [
+      { "role": "primary", "source_url": null, "path": null, "commit": null, "archive_sha256": null, "license": null, "checkout_status": "unknown", "submodules_lfs": null, "dependency_lock_path": null, "integrity": "unknown", "patch_path": null, "evidence_paths": [], "notes": null }
+    ],
+    "models": [
+      { "name": null, "version": null, "source_url": null, "path": null, "sha256": null, "configuration_path": null, "configuration_sha256": null, "coverage": null, "license": null, "integrity": "unknown", "evidence_paths": [], "notes": null }
+    ]
+  },
+  "targets": [
+    { "target_id": "填写端点编号", "paper_endpoint": null, "required": true, "dataset_reference": null, "comparison_endpoint": null, "metric": null, "metric_definition": null, "statistical_unit": null, "denominator": null, "unit": null, "paper_value": null, "paper_value_source": null, "baseline": null, "checkpoint_selection": null, "repetitions": null, "tolerance": { "kind": "not_comparable", "absolute": null, "relative": null, "rule": null, "reason": "待预注册比较规则" }, "evidence_paths": [] }
+  ],
+  "environment": {
+    "isolation": null,
+    "environment_path": null,
+    "lockfile_path": null,
+    "lockfile_sha256": null,
+    "runtime_versions": {},
+    "numerical_policy": {
+      "author_entrypoint_evidence_paths": [],
+      "parameter_dtype": null,
+      "input_dtype": null,
+      "autocast": null,
+      "float32_matmul_precision": null,
+      "cuda_matmul_allow_tf32": null,
+      "cudnn_allow_tf32": null,
+      "determinism": null,
+      "applied_before_model_instantiation": null,
+      "actual_policy_receipt_path": null,
+      "notes": "按实际入口核对；未知或不适用明确说明，不修改既有冻结合同。"
+    },
+    "shared_environment_modified": false
+  },
+  "resources": {
+    "expected_hostname": null,
+    "cpu_threads": null,
+    "data_loader_workers": null,
+    "memory_limit_bytes": null,
+    "gpu_devices": [],
+    "gpu_memory_budget_bytes": null,
+    "resource_probe_path": null,
+    "resource_probe_at": null,
+    "start_gate": null,
+    "budget_basis": null,
+    "no_preemption": true
+  },
+  "execution": {
+    "command": null,
+    "working_directory": null,
+    "seed_policy": null,
+    "seeds": [],
+    "timeout_seconds": null,
+    "process_control": { "platform": null, "mechanism": null, "whole_tree_bounded": null },
+    "stdout_path": null,
+    "stderr_path": null
+  },
+  "stop_conditions": ["达到有效截止", "达到合同资源上限", "执行范围超出合同", "出现平台拒绝或缺少适用授权"],
+  "review": { "status": "pending", "reviewer": null, "reviewed_at": null, "checks": [], "evidence_paths": [] }
+}
