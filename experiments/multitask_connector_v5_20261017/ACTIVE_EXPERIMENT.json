@@ -1,0 +1,68 @@
+{
+  "schema": "active-three-task-connector.v1",
+  "status": "formal_queue_running",
+  "scope_id": "multitask_connector_v5_20261017",
+  "remote_scope": "<REMOTE_SCOPE>",
+  "remote_python": "<RUNTIME_ENV>/bin/python",
+  "launched_utc": "2026-10-17T14:18:26.437529+00:00",
+  "plan_sha256": "57524b9a29aed47727b932e1283cc48cf14a944b9b68e55eec450117e163c595",
+  "plan": "configs/queue_formal_v1.json",
+  "configuration": "configs/formal_formal_v1.json",
+  "queue_root": "runs/formal_v1",
+  "source_closure_frozen": true,
+  "tasks": [
+    "meltome",
+    "elm",
+    "rt"
+  ],
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "expected_cases": 45,
+  "epochs_per_fit": 3,
+  "GPU_ids": [
+    3,
+    4,
+    5
+  ],
+  "maximum_distinct_owned_GPUs_including_old_runs": 3,
+  "old_pKD_source_data_evaluation_and_results_preserved": true,
+  "application_or_system_scheduled_monitor": false,
+  "completion_sync_mode": "One task-linked blocking completion process; no recurring automation",
+  "completion_sync_launch_receipt": "resources/completion_process_formal_v1_v2.json",
+  "completion_sync_started_utc": "2026-10-17T14:57:10.9544524Z",
+  "completion_sync_run_id": "formal_v1_terminal_v2",
+  "completion_sync_source_sha256": "f301cb5059bb50f5c0ac7eda4d4a7d33c487aa259fd7cff25cefc32de7cb9477",
+  "superseded_completion_process_exact_cleanup_receipt": "resources/superseded_waiter_stop_receipt.json",
+  "completion_sync_verified_waiting": true,
+  "latest_manual_queue_observation": {
+    "source": "resources/manual_state_20261017_2250.json",
+    "at_unix": 1792248637.790811,
+    "counts": {
+      "accepted": 7,
+      "pending": 34,
+      "running": 4
+    }
+  },
+  "latest_preserved_snapshot": "resources/startup_snapshot_v1.json",
+  "snapshot_utc": "2026-10-17T14:29:52.829867+00:00",
+  "snapshot_counts": {
+    "accepted": 2,
+    "pending": 39,
+    "running": 4
+  },
+  "startup_independent_rescoring": "analysis/startup_v1/analysis.json",
+  "node1_full_CPU_tests_passed_before_final_publication_filter_changes": 87,
+  "representative_actual_TRAIN_qualifications": 6,
+  "each_formal_case_requires_own_TRAIN_qualification": true,
+  "causal_guard_fix": "Same-shape future-value perturbation, unchanged1e-5 threshold; originalT-versusT+2BF16 arithmetic diagnostic retained",
+  "source_sha256_mt_train": "a68cd7b470b23807fbb746e15f8fe1e738133365107667dce66fef5cb7901c50",
+  "data_manifest_sha256": "be4b440b2ee91729af25acc02ab6a248af2b6b8bebaa7b66c11b6002492a9ec5",
+  "cache_sequences": 17279,
+  "cache_residues": 6325974,
+  "formal_results_are_in_progress": true,
+  "no_complete_three_seed_stability_claim": true,
+  "forward_instruction": "Do not relaunch a second queue, change pinned source, reset epochs, edit frozen scoring or reuse qualification weights. Inspect exact controller/worker identities and existing receipts before any recovery."
+}

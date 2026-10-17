@@ -1,0 +1,110 @@
+{
+  "scope_id": "multitask_connector_v5_20261017",
+  "status": "prospective_qualification",
+  "phase": "train-canary",
+  "require_train_canary": false,
+  "paths": {
+    "python": "<RUNTIME_ENV>/bin/python",
+    "scope_root": "<REMOTE_SCOPE>",
+    "data_root": "<REMOTE_SCOPE>/data",
+    "cache_root": "<REMOTE_SCOPE>/cache",
+    "config": "<REMOTE_SCOPE>/configs/development_v2.json"
+  },
+  "source_pins": {
+    "<REMOTE_SCOPE>/src/__init__.py": "ca2a1e8255699be337ccac1b09a4046363feb9523a1db5a86d8f0bc338d0d932",
+    "<REMOTE_SCOPE>/src/mt_analyze.py": "8f7ace827ebc624991c45eea53fb41b51dfbbedee631790a764d83e6ab70cb1c",
+    "<REMOTE_SCOPE>/src/mt_case.py": "eca98479a98adf0fb450e6652180144abbe214ae30c099f7858f2ac1b175ccd2",
+    "<REMOTE_SCOPE>/src/mt_data.py": "9782a2658cf2e1e6371fb7fe5ed7c4d92d65ea8d1d323d53d151240ecef73373",
+    "<REMOTE_SCOPE>/src/mt_extract.py": "e22068ef62557fbfa5fac66082c0d7e772be1ef4f0e08fd1489b56cd7115f024",
+    "<REMOTE_SCOPE>/src/mt_metrics.py": "1b200b51817ec09dabb5ebcb3d7a1d6a9755424f26f785c6faa29e3fc19dbfe8",
+    "<REMOTE_SCOPE>/src/mt_model.py": "38fb5e41bf8590fb94e88f0b55aeb62307cb76d76b2950a94164040787624dc1",
+    "<REMOTE_SCOPE>/src/mt_queue.py": "2d153c50dad0748f748ff5033d451fbb9e43c4cde8ead8cd27d10556b81da09d",
+    "<REMOTE_SCOPE>/src/mt_supervise.py": "b4eecc66e4a870e69b1d25aaf8b09b974c69a13a7aca56fc17df992e5ef63156",
+    "<REMOTE_SCOPE>/src/mt_train.py": "a68cd7b470b23807fbb746e15f8fe1e738133365107667dce66fef5cb7901c50",
+    "<REMOTE_SCOPE>/src/v4_model.py": "c2db5771eed8b7df99be12c061129c58c2f883d1a03b02bed1cdd80973f5b5a7"
+  },
+  "asset_pins": {
+    "<REMOTE_SCOPE>/configs/development_v2.json": "ad5d508b60cf10e484e604cb69e3742c80d82455ea1c768163e6bec01ba40611",
+    "<REMOTE_SCOPE>/data/manifest.json": "be4b440b2ee91729af25acc02ab6a248af2b6b8bebaa7b66c11b6002492a9ec5",
+    "<REMOTE_SCOPE>/cache/manifest.json": "d79300a88ae0171d78c62243b196a2dce233b75be1f9a01848137dff92f2de04",
+    "<REMOTE_SCOPE>/cache/cache_spec.json": "cd2c28b51a199f319fb430a7a3b48574ed6d78fdcba8b01845f5f2d1b176f024",
+    "<REMOTE_SCOPE>/cache/description_vectors.npz": "3d7a18a4f981c41f49961fdb0de1406583799f3770ea522a86ab49e222c69a77",
+    "<REMOTE_SCOPE>/cache/description_vectors.json": "cf7f69eb0287cc2bad72f5eb0e00d426551e99eb1d3f2657060640478474658a",
+    "<REMOTE_SCOPE>/resources/model_manifest_qwen25.json": "d9da2ee4a7e4d7e1b1a06737646a1172ff4b2737c920f2d24595cc8c86904198",
+    "<REMOTE_SCOPE>/resources/model_manifest_qwen3.json": "27eefdc1769d40363b0d23f3506337e1e877882d3d091c45a2c1bdd8e5d4958f",
+    "<REMOTE_SCOPE>/data/meltome/train.jsonl": "e96258eabf97d1be5f6ef2d4ab4f9790ca913e071994277c838faa262eeca360",
+    "<REMOTE_SCOPE>/data/meltome/validation.jsonl": "091d7457a9ea0d9fbc4814ef2a30862b8e9ab6d764d155ad01bceb111fb52faf",
+    "<REMOTE_SCOPE>/data/meltome/test.jsonl": "4ce20348323d24f7f98f67f1d08315c6b581de26cf043efcde7e58618ffd70fb",
+    "<REMOTE_SCOPE>/data/elm/train.jsonl": "6ceeacce87cfad4a2425f4d5343ad3f56a26901b68e38497092e004e12d5df61",
+    "<REMOTE_SCOPE>/data/elm/validation.jsonl": "5ade3e066535c6c787953073e963d3507aff7372e6c4b9a34bfbee260f948d2f",
+    "<REMOTE_SCOPE>/data/elm/test.jsonl": "da016b49aacdc4689ded22ba2d5729559dcddb58f724e0fddfb115ba641742a4",
+    "<REMOTE_SCOPE>/data/rt/train.jsonl": "c7e18760e7a157f12e58bc2554a8a3b7b2c55ace02cd17bda029795c827c2014",
+    "<REMOTE_SCOPE>/data/rt/selection.jsonl": "33f68b6330ea96db11dc86d1f16f635741b5ccfde4060101b6fbb8011462d24a",
+    "<REMOTE_SCOPE>/data/rt/calibration.jsonl": "12b6813ffe897cb2e4789dfe7454800196ff87b1be1f003bc88284ca7cce6f6f",
+    "<REMOTE_SCOPE>/data/rt/test.jsonl": "9147cb524d6787b7534a163a7058830a5ad36fab2b3fe657370144df3d89697a",
+    "<REMOTE_SCOPE>/data/rt/validation.jsonl": "6446d30057a5fc0fad56765dd4fa13fd92f24a92234c86725b4caff1ac8c09ba",
+    "<REMOTE_SCOPE>/data/elm/candidates.jsonl": "8e6916f088f55f2a778badb666de85e2bd023a74421cc05a86f0ee28818af17b"
+  },
+  "cases": [
+    {
+      "case_id": "meltome__ESM__none__seed17",
+      "task": "meltome",
+      "method": "ESM",
+      "backbone": "none",
+      "seed": 17
+    },
+    {
+      "case_id": "elm__ESM__none__seed17",
+      "task": "elm",
+      "method": "ESM",
+      "backbone": "none",
+      "seed": 17
+    },
+    {
+      "case_id": "rt__ESM__none__seed17",
+      "task": "rt",
+      "method": "ESM",
+      "backbone": "none",
+      "seed": 17
+    },
+    {
+      "case_id": "meltome__M3__qwen25_1p5b__seed17",
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "seed": 17
+    },
+    {
+      "case_id": "elm__M3__qwen25_1p5b__seed17",
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "seed": 17
+    },
+    {
+      "case_id": "rt__M3__qwen25_1p5b__seed17",
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "seed": 17
+    }
+  ],
+  "gpu_devices": [
+    3,
+    4,
+    5
+  ],
+  "per_case_timeout_seconds": 1800,
+  "resource_wait_timeout_seconds": 86400,
+  "resource_policy": {
+    "expected_host": "<COMPUTE_HOST>",
+    "cpu_threads": 2,
+    "rss_limit_bytes": 68719476736,
+    "cpu_rss_limit_bytes": 17179869184,
+    "storage_reserve_bytes": 10737418240,
+    "gpu_memory_budget_bytes": {
+      "qwen25_1p5b": 8589934592,
+      "qwen3_4b_2507": 19327352832
+    }
+  }
+}

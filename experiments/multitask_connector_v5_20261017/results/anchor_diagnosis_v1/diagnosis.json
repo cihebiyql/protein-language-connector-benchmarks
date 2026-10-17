@@ -1,0 +1,313 @@
+{
+  "schema": "TRAIN-anchor-shape-diagnosis.v1",
+  "started_utc": "2026-10-17T14:00:51.720015+00:00",
+  "torch": "2.6.0+cu124",
+  "transformers": "4.51.3",
+  "cuda": "12.4",
+  "physical_gpu": 3,
+  "allocator_cap_bytes": 8589934592,
+  "source_pins": {
+    "__init__.py": "ca2a1e8255699be337ccac1b09a4046363feb9523a1db5a86d8f0bc338d0d932",
+    "mt_analyze.py": "8f7ace827ebc624991c45eea53fb41b51dfbbedee631790a764d83e6ab70cb1c",
+    "mt_case.py": "eca98479a98adf0fb450e6652180144abbe214ae30c099f7858f2ac1b175ccd2",
+    "mt_data.py": "9782a2658cf2e1e6371fb7fe5ed7c4d92d65ea8d1d323d53d151240ecef73373",
+    "mt_extract.py": "e22068ef62557fbfa5fac66082c0d7e772be1ef4f0e08fd1489b56cd7115f024",
+    "mt_metrics.py": "1b200b51817ec09dabb5ebcb3d7a1d6a9755424f26f785c6faa29e3fc19dbfe8",
+    "mt_model.py": "38fb5e41bf8590fb94e88f0b55aeb62307cb76d76b2950a94164040787624dc1",
+    "mt_queue.py": "2d153c50dad0748f748ff5033d451fbb9e43c4cde8ead8cd27d10556b81da09d",
+    "mt_supervise.py": "b4eecc66e4a870e69b1d25aaf8b09b974c69a13a7aca56fc17df992e5ef63156",
+    "mt_train.py": "a63a76aa11983c8b9ed713241d2f727b1ac0575addb87c1e13c3281b74ed5eb6",
+    "v4_model.py": "c2db5771eed8b7df99be12c061129c58c2f883d1a03b02bed1cdd80973f5b5a7"
+  },
+  "script_sha256": "28cc3351723d510277656ddecf6f92e3801b3e875438f21bb38f57b6fadf877c",
+  "config_sha256": "ad5d508b60cf10e484e604cb69e3742c80d82455ea1c768163e6bec01ba40611",
+  "validation_or_test_opened": false,
+  "new_training_updates": 0,
+  "peak_cuda_allocated_bytes": 3157221888,
+  "peak_cuda_reserved_bytes": 3355443200,
+  "finished_utc": "2026-10-17T14:01:33.880868+00:00",
+  "tasks": {
+    "meltome": {
+      "checkpoint_sha256_before": "f53eff0b83d4530d00b30aa9ac4ed2b365d4374ae9b6fe7e71be22910fca16a4",
+      "checkpoint_sha256_after": "f53eff0b83d4530d00b30aa9ac4ed2b365d4374ae9b6fe7e71be22910fca16a4",
+      "trainable_state_unchanged": true,
+      "source_failure": {
+        "status": "failed",
+        "exception_type": "ValueError",
+        "message": "prompt-anchor readout depends on future tokens",
+        "traceback": "Traceback (most recent call last):\n  File \"<REMOTE_SCOPE>/src/mt_train.py\", line 650, in main\n    raise ValueError('prompt-anchor readout depends on future tokens')\nValueError: prompt-anchor readout depends on future tokens\n",
+        "elapsed_seconds": 28.856590134091675
+      },
+      "source_anchor_record": {
+        "passed": false,
+        "max_abs_difference": 0.05488532781600952,
+        "source_split": "train",
+        "future_tokens": 2
+      },
+      "source_split": "train",
+      "base_dtype": "torch.bfloat16",
+      "gate": -0.0006655968027189374,
+      "comparisons": {
+        "connector_on": {
+          "shape_change_original_vs_future_A": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.828125,
+              "l2_difference": 7.617170810699463
+            },
+            "numeric_z": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.05488532781600952,
+              "l2_difference": 0.05488532781600952
+            },
+            "routes_view": {
+              "equal": false,
+              "allclose_1e5": true,
+              "max_abs_difference": 2.384185791015625e-07
+            },
+            "routes_bank": {
+              "equal": false,
+              "allclose_1e5": true,
+              "max_abs_difference": 2.086162567138672e-06
+            }
+          },
+          "same_shape_future_A_vs_B": {
+            "prompt_hidden": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            },
+            "numeric_z": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            },
+            "routes_view": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0
+            },
+            "routes_bank": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0
+            }
+          },
+          "same_shape_prefix_positive_control": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 2.375,
+              "l2_difference": 20.44333839416504
+            },
+            "numeric_z": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.0742616057395935,
+              "l2_difference": 0.0742616057395935
+            },
+            "routes_view": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 2.4199485778808594e-05
+            },
+            "routes_bank": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 4.824995994567871e-05
+            }
+          }
+        },
+        "connector_off": {
+          "shape_change_original_vs_future_A": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 1.25,
+              "l2_difference": 5.707870960235596
+            },
+            "numeric_z": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.01938539743423462,
+              "l2_difference": 0.01938539743423462
+            }
+          },
+          "same_shape_future_A_vs_B": {
+            "prompt_hidden": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            },
+            "numeric_z": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            }
+          },
+          "same_shape_prefix_positive_control": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 3.875,
+              "l2_difference": 20.623849868774414
+            },
+            "numeric_z": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.05989265441894531,
+              "l2_difference": 0.05989265441894531
+            }
+          }
+        }
+      }
+    },
+    "elm": {
+      "checkpoint_sha256_before": "2cddcfc058e49963bf9b0b2b580fb9fa8df4b3cf9f44deb1f34b56fab86131b1",
+      "checkpoint_sha256_after": "2cddcfc058e49963bf9b0b2b580fb9fa8df4b3cf9f44deb1f34b56fab86131b1",
+      "trainable_state_unchanged": true,
+      "source_failure": {
+        "status": "failed",
+        "exception_type": "ValueError",
+        "message": "prompt-anchor readout depends on future tokens",
+        "traceback": "Traceback (most recent call last):\n  File \"<REMOTE_SCOPE>/src/mt_train.py\", line 650, in main\n    raise ValueError('prompt-anchor readout depends on future tokens')\nValueError: prompt-anchor readout depends on future tokens\n",
+        "elapsed_seconds": 20.948365510441363
+      },
+      "source_anchor_record": {
+        "passed": false,
+        "max_abs_difference": 0.04260987043380737,
+        "source_split": "train",
+        "future_tokens": 2
+      },
+      "source_split": "train",
+      "base_dtype": "torch.bfloat16",
+      "gate": -0.0009658075869083405,
+      "comparisons": {
+        "connector_on": {
+          "shape_change_original_vs_future_A": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 1.75,
+              "l2_difference": 4.6419677734375
+            },
+            "ranking_logits": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.04260987043380737,
+              "l2_difference": 0.2186722606420517
+            },
+            "routes_view": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 3.921985626220703e-05
+            },
+            "routes_bank": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 4.1961669921875e-05
+            }
+          },
+          "same_shape_future_A_vs_B": {
+            "prompt_hidden": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            },
+            "ranking_logits": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            },
+            "routes_view": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0
+            },
+            "routes_bank": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0
+            }
+          },
+          "same_shape_prefix_positive_control": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 2.8125,
+              "l2_difference": 20.63877296447754
+            },
+            "ranking_logits": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.04093611240386963,
+              "l2_difference": 0.08058658987283707
+            },
+            "routes_view": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.00012916326522827148
+            },
+            "routes_bank": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.00014773011207580566
+            }
+          }
+        },
+        "connector_off": {
+          "shape_change_original_vs_future_A": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.75,
+              "l2_difference": 4.303579807281494
+            },
+            "ranking_logits": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.02776026725769043,
+              "l2_difference": 0.1320941150188446
+            }
+          },
+          "same_shape_future_A_vs_B": {
+            "prompt_hidden": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            },
+            "ranking_logits": {
+              "equal": true,
+              "allclose_1e5": true,
+              "max_abs_difference": 0.0,
+              "l2_difference": 0.0
+            }
+          },
+          "same_shape_prefix_positive_control": {
+            "prompt_hidden": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 3.5,
+              "l2_difference": 20.997180938720703
+            },
+            "ranking_logits": {
+              "equal": false,
+              "allclose_1e5": false,
+              "max_abs_difference": 0.04766610264778137,
+              "l2_difference": 0.09354301542043686
+            }
+          }
+        }
+      }
+    }
+  }
+}

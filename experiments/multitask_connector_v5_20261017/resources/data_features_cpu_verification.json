@@ -1,0 +1,42 @@
+{
+  "schema": "multitask-data-features-verification.v1",
+  "checks": {
+    "data_tests": 4,
+    "extractor_tests": 3,
+    "failures": 0,
+    "skipped": 0
+  },
+  "runtimes": {
+    "data": "Windows existing Hermes Python",
+    "extractor_tiny_fixture": "WSL existing Torch2.12.1+cu130 CPU; no CUDA operations"
+  },
+  "source_pins": {
+    "src/mt_data.py": "9782a2658cf2e1e6371fb7fe5ed7c4d92d65ea8d1d323d53d151240ecef73373",
+    "src/mt_extract.py": "e22068ef62557fbfa5fac66082c0d7e772be1ef4f0e08fd1489b56cd7115f024",
+    "tests/test_mt_data.py": "6b0270373bd09668bd21451d09d2b5f51918a33889693f66f24545eedda95304",
+    "tests/test_mt_extract.py": "b9cf88b452d5bcd4203088ca09d3c5ac75da2e78e204c394954de18aa6a28932",
+    "data/manifest.json": "be4b440b2ee91729af25acc02ab6a248af2b6b8bebaa7b66c11b6002492a9ec5"
+  },
+  "actual_data_prepare": {
+    "status": "complete",
+    "frozen_source_checksums_verified": true,
+    "original_files_modified": false,
+    "expected_sequences": 17279,
+    "expected_residues": 6325974,
+    "native_U_retained": 27,
+    "exact_sequence_cross_split_overlap": 0
+  },
+  "tests_evidence": [
+    "label and sample IDs cannot alter registered condition features",
+    "missing conditions use zero with false observed",
+    "field-aware stable SHA buckets remain below4096",
+    "RT525/530 partition fixed validation1055",
+    "all official10093 Meltome rows and U retained",
+    "cache coverage/SHA corruption rejected",
+    "tinyCPU model block15 before norm vs final30 distinguished",
+    "full1022+1 chunk and nativeU one-token identity checked"
+  ],
+  "GPU_work_launched_by_data_owner": false,
+  "new_views_only_remote_operation": true,
+  "formal_runtime_requirement": "Transformers4.51.3 installed-source semantics checked before real extraction; CPU tiny fixture does not qualify CUDA execution"
+}

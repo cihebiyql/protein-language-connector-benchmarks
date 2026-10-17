@@ -1,0 +1,152 @@
+{
+  "schema": "mt-training.v1",
+  "scope_id": "multitask_connector_v5_20261017",
+  "status": "draft",
+  "prepared_utc": "2026-10-17T13:39:06.157480+00:00",
+  "training_signature": null,
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "tasks": [
+    "meltome",
+    "elm",
+    "rt"
+  ],
+  "methods": [
+    "ESM",
+    "M0",
+    "M3"
+  ],
+  "model": {
+    "esm_dim": 640,
+    "memory_dim": 128,
+    "num_heads": 4,
+    "slots": 8,
+    "condition_slots": 10,
+    "active_banks": [
+      "p",
+      "c"
+    ],
+    "logical_slots": 26,
+    "logical_bytes_per_row": 13312,
+    "target_present": false,
+    "relation_modules_registered": false,
+    "description_encoder": "fixed_Qwen2.5-1.5B_same_vectors_for_all_ELM_arms"
+  },
+  "training": {
+    "epochs": 5,
+    "micro_batch_size": 1,
+    "grad_accumulation": 4,
+    "effective_batch_size": 4,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "readout_loss_weight": 1.0,
+    "language_loss_weight": 1.0,
+    "generation_batch_size": 8,
+    "readout_batch_size": 8,
+    "numeric_standardization": "TRAIN_population_zscore",
+    "tail_policy": "exact_group_token_sum_CE_and_sample_mean_head"
+  },
+  "numerical_policy": {
+    "base_dtype": "bfloat16",
+    "trainable_dtype": "float32",
+    "attention_implementation": "eager",
+    "autocast": false,
+    "tf32": false,
+    "float32_matmul_precision": "highest",
+    "deterministic_algorithms": true,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "cpu_threads": 2,
+    "data_loader_workers": 0,
+    "gpu_allocator_gib": {
+      "qwen25_1p5b": 8,
+      "qwen3_4b_2507": 18
+    }
+  },
+  "task_protocols": {
+    "meltome": {
+      "task_type": "regression",
+      "train_rows": 7287,
+      "validation_rows": 861,
+      "test_rows": 1945,
+      "primary_metric": "readout.spearman",
+      "checkpoint_split": "validation",
+      "checkpoint_metric": "spearman",
+      "checkpoint_direction": "max",
+      "exact_tie": "earliest_epoch",
+      "unit": "degrees_Celsius",
+      "answer_key": "melting_temperature_c",
+      "max_new_tokens": 24
+    },
+    "elm": {
+      "task_type": "semantic_ranking",
+      "train_rows": 378,
+      "validation_rows": 134,
+      "test_rows": 76,
+      "primary_metric": "readout.class_macro_mrr",
+      "checkpoint_split": "validation",
+      "checkpoint_metric": "class_macro_mrr",
+      "checkpoint_direction": "max",
+      "exact_tie": "earliest_epoch",
+      "candidate_count": 31,
+      "test_classes": 2,
+      "answer_key": "function",
+      "max_new_tokens": 256,
+      "loss": "known-positive-uniform softmax over frozen31-description universe; plus positive-description LMCE for connectors",
+      "unknown_candidate_semantics": "relative ranking alternatives, not observed experimental negatives"
+    },
+    "rt": {
+      "task_type": "regression",
+      "train_rows": 4952,
+      "validation_rows": 1055,
+      "selection_rows": 525,
+      "calibration_rows": 530,
+      "test_rows": 1063,
+      "primary_metric": "readout.mae",
+      "checkpoint_split": "selection",
+      "checkpoint_metric": "mae",
+      "checkpoint_direction": "min",
+      "exact_tie": "earliest_epoch",
+      "unit": "minutes",
+      "answer_key": "retention_time_min",
+      "max_new_tokens": 24,
+      "interval_alpha": 0.1,
+      "interval_rule": "ceil((calibration_groups+1)*0.9) quantile of group-max absolute residual",
+      "scope": "same March/pH9 diagnostic; not cross-domain adaptation"
+    }
+  },
+  "backbones": {
+    "qwen25_1p5b": {
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "backbone_path": "<OLD_MODELS_PROJECT>/models/Qwen--Qwen2.5-1.5B-Instruct",
+      "model_manifest_path": "<REMOTE_SCOPE>/resources/model_manifest_qwen25.json",
+      "hidden_size": 1536,
+      "num_hidden_layers": 28,
+      "hook_layer": 13
+    },
+    "qwen3_4b_2507": {
+      "repo": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "backbone_path": "<OLD_MODELS_PROJECT>/models/Qwen--Qwen3-4B-Instruct-2507",
+      "model_manifest_path": "<REMOTE_SCOPE>/resources/model_manifest_qwen3.json",
+      "hidden_size": 2560,
+      "num_hidden_layers": 36,
+      "hook_layer": 17
+    }
+  },
+  "formal_rules": [
+    "Freeze complete epochs from actual TRAIN time/memory, never from validation/test score.",
+    "Each of45 positions is a fresh fit; old results cannot fill new cases.",
+    "Single task/seed models and TRAIN statistics are independent; no cross-task warm start.",
+    "Readout, language generation and same-checkpoint C1 are separately scored.",
+    "Malformed generation stays in full test denominator; never repair with readout.",
+    "Keep all registered seeds despite neutral/negative early gains.",
+    "M0 andM3 match active parameters andcommunication within task/backbone; ESM capacity and FLOPs reported separately.",
+    "No fourth physical GPU and no scheduled app monitor; preserve old jobs/results.",
+    "All tasks remain fixed benchmarks with existing historical exposure; no claim of unseen pretraining data."
+  ]
+}

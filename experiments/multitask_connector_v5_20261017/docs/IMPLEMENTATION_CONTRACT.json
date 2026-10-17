@@ -1,0 +1,80 @@
+{
+  "schema": "multitask-connector-implementation.v1",
+  "scope_id": "multitask_connector_v5_20261017",
+  "tasks": ["meltome", "elm", "rt"],
+  "methods": ["ESM", "M0", "M3"],
+  "backbones": ["qwen25_1p5b", "qwen3_4b_2507"],
+  "seeds": [17, 42, 2026],
+  "case_count": 45,
+  "matrix": "Per task and seed: one shared ESM baseline, M0/M3 on each of two Qwen backbones",
+  "gpu_policy": {
+    "physical_ids": [3, 4, 5],
+    "maximum_distinct_owned_physical_devices_including_old_runs": 3,
+    "existing_jobs": "preserve; sharing allowed when actual free memory suffices",
+    "CPU_and_GPU_utilization": "observed_only_no_admission_threshold",
+    "feature_extractor_allocator_GiB": 2,
+    "qwen25_allocator_GiB_initial_canary": 8,
+    "qwen3_allocator_GiB_initial_canary": 18,
+    "host_RSS_GiB_per_training_worker": 64,
+    "CPU_threads_per_worker": 2,
+    "no_app_scheduled_monitor": true
+  },
+  "data_API": {
+    "module": "src.mt_data",
+    "functions": ["prepare_data(project_root, output_root)", "load_task(data_root, task, split)", "load_catalog(data_root)", "load_manifest(data_root)", "condition_tensors_values(row)"],
+    "row": {"sample_id": "unique original or stable official-row ID", "task": "meltome|elm|rt", "split": "train|validation|selection|calibration|test", "sequence": "full uppercase source sequence, U retained", "condition_values": "list length10 of safe strings or null; no labels, IDs, split or accessions", "target": "finite original float for regression, null for elm", "positive_ids": "known positive candidate IDs for elm, [] otherwise", "group_id": "evaluation-only grouping, never a model input"},
+    "catalog": "list of {candidate_id,description}, fixed original31 candidates, no regex/class IDs as features",
+    "rt": "train4952; selection525 for checkpoint; calibration530 only after selection; test1063. Preserve original validation1055 as audit union.",
+    "meltome": "original human7287/861/1945; preserve official duplicate rows and U",
+    "elm": "original378/134/76; preserve31 candidates and original class-holdout restriction"
+  },
+  "feature_API": {
+    "module": "src.mt_extract",
+    "FeatureStore": "FeatureStore(cache_root); .get(sequence)->{p15:float32[8,640],p30:float32[8,640]}; .verify_all(rows)->coverage receipt",
+    "sequence_key": "sha256(sequence ASCII bytes)",
+    "semantics": "ESM2-150M block15 hook and final normalized layer30; full ordered1022-residue chunks then float32 adaptive-average8; no cross-chunk attention",
+    "cache": "per sequence NPZ plus SHA/coverage JSON; only frozen ESM, no train-fitted parameters",
+    "ELM_descriptions": "cache/description_vectors.npz: candidate_ids unicode[31], vectors float32[31,1536]; frozen Qwen2.5-1.5B mean descriptor token states, same fixed descriptors for every arm and backbone"
+  },
+  "model_API": {
+    "module": "src.mt_model",
+    "classes": ["SingleMemoryLM(base_lm, task, variant='M3', hidden_dim=1536, esm_dim=640, memory_dim=128, num_heads=4, hook_layer=13, candidate_vectors=None)", "ESMTaskModel(task, esm_dim=640, memory_dim=128, candidate_vectors=None)"],
+    "memory_inputs": "exactly p15,p30 [B,8,640], condition_ids int64[B,10], observed bool[B,10]",
+    "LM_forward": "forward(input_ids, attention_mask, prompt_end_index, memory_inputs, labels=None, off=False)->dict loss,logits,numeric_z or ranking_logits,prompt_hidden",
+    "ESM_forward": "forward(memory_inputs)->dict numeric_z or ranking_logits",
+    "model_methods": ["capacity_report()", "trainable_state_dict()", "load_trainable_state_dict(state)"],
+    "single_sequence_controls": "No registered target/relation modules or dead optimizer parameters; both arms P/C only26slots128float32=13312logicalbytes. M0 independent H30/H30 projections + nonzero static router; M3 H15/H30 + prompt router.",
+    "ranking_head": "trainable query and shared frozen-description projection to128, L2-normalized dot scores with fixed temperature0.1;31 descriptions used semantically, not a31-ID classifier",
+    "ESM_baseline": "both ESM layers and identical conditions; trainable FP32 MLP; no online Qwen. ELM gets same offline frozen description vectors. Report actual parameter/FLOP differences; M0=M3 matched within backbone/task only.",
+    "train_boundary": "freeze ESM/Qwen; adapter/head float32, frozen Qwen bfloat16/eval; preserve gradient through frozen LM; answer-before outputs cannot depend on future gold tokens"
+  },
+  "training_API": {
+    "module": "src.mt_train",
+    "CLI": "python -m src.mt_train --config FILE --task TASK --method ESM|M0|M3 --backbone NAME --seed N --data-root DIR --cache-root DIR --output NEW --phase train-canary|formal [--max-updates4] --device cpu|cuda:0",
+    "config": "top-level model,training,backbones,task_protocols,numerical_policy; config paths explicit absolute runtime paths",
+    "common_start": "epochs5 provisional until actual TRAIN canaries; effective4; micro1/accum4; AdamW lr0.0003 wd0.01 clip1",
+    "regression": "TRAIN-only zscore; head MSE plus LM answer-token CE for connectors; ESM head MSE. Original-valued test gold never rounded/clipped; supervised JSON value rounded4 decimals only.",
+    "elm": "known-positive softmax ranking loss over shared31 candidate descriptions plus LM positive-description JSON CE for connectors; ranking-only for ESM. Unknown candidates are relative ranking alternatives, not experimental negative observations.",
+    "checkpoint": "meltome max full-validation readout Spearman; elm max full-validation class-macro readout MRR; rt min full-selection525 readout MAE. Earliest exact tie; identical within each task across arms.",
+    "generation": "separate LM channel, greedy; regression24 tokens; ELM256 tokens; strict one-field JSON melting_temperature_c|retention_time_min|function; no parse repair or numerical backfill",
+    "C1": "same selected checkpoint readout on/off full test; report branch dependence only",
+    "output": "run_manifest.json, training_history.json, progress.jsonl, checkpoint.pt (trainable CPU tensors only), selection.json, model_frozen_before_test.json, readout_predictions.jsonl, LM_predictions.jsonl (connector only), C1_predictions.jsonl, metrics.json, resource peaks and code/data/config/model/cache pins",
+    "canary": "TRAIN only4updates16examples; no validation/test reads, TRAIN prefix scoring optional; no use of canary accuracy to freeze budget"
+  },
+  "metrics_API": {
+    "module": "src.mt_metrics",
+    "functions": ["score_regression(rows,predictions)", "score_ranking(rows,predictions,candidate_ids)", "parse_task_answer(task,text)", "score_language(task,rows,predictions,catalog=None)", "calibration_radius(rows,predictions,alpha=0.1)"],
+    "prediction_rows": "sample_id,prediction for regression; sample_id,ranking for ranking; sample_id,text for LM. Optional candidate_scores retained as evidence. Strict exact test ID coverage, duplicate/extra IDs rejected; missing/nonfinite accounted in coverage and whole-population aggregate null.",
+    "ranking": "complete31-candidate unique ranking required; average-known-positive MRR/sample and class macro; stable candidate catalog tie order",
+    "RT_interval": "calibration group-max absolute residual finite-sample quantile; empirical same-condition coverage and width only",
+    "analysis": "all45 statuses including failed/unstarted; paired ESM-M0/M3 and M0-M3 by task/backbone/seed; mean/SD only complete3/3. Bootstrap uses fixed trained predictions and proper observed groups, not seed repeats as biological replicates."
+  },
+  "runtime_API": {
+    "module": "src.mt_queue",
+    "CLI": "python -m src.mt_queue --plan FILE --output NEW [--resume]",
+    "plan": "scope_id,paths{python,scope_root,data_root,cache_root,config},source_pins,asset_pins,cases[case_id,task,method,backbone,seed],gpu_devices[3,4,5],resource policy,per-case timeout",
+    "behavior": "one bounded owned worker per selected GPU plus one CPU ESM lane; gates only actual memory/storage/identity/pins; waits without app automation; exact owned PGID supervision+independent deadline watchdog; records and preserves every attempt/status; no use of old V4 supervisor hardcoded deadline",
+    "finalization": "all cases terminal -> independent CPU rescoring and report; results synchronization uses one task-linked completion process, no recurring app monitor"
+  },
+  "ownership": "Original V4 and foundation files immutable; all implementation lives in this new scope. Module owners coordinate API changes through parent."
+}
