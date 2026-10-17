@@ -1,6 +1,12 @@
-# 分子记忆连接器 V3：框架与已验收基线
+# 分子记忆连接器 V3：32组已验收消融与完整基线
 
-**当前公开的是新框架、真实 TRAIN 试跑及已验收的数值基线。36组远端消融的最终产物尚未取回，本目录没有宣称连接器获得稳定提升。** 这是独立于旧实验的新版本；原30项已验收历史结果继续保留。
+**36组均已有终态：32组完成10轮训练、完整测试预测并通过独立验收，4组因监控程序竞态中断。现有结果尚未确立完整新架构的稳定优势。** 本轮与旧30项已验收历史结果分别登记，原件均保留。
+
+先看[完整结果分析](results/formal/REPORT.md)、[逐seed图表PDF](results/formal/analysis_figures/report.pdf)及[实际36项执行状态](results/formal/execution_registry.json)。32组每个通道共9,794条TEST记录，严格JSON及数值覆盖均100%；远端原路径canonical校验、逐行重算和取回后的本地重算一致。
+
+新靶点场景M3语言MAE为1.608803±0.086808，相对M2平均改善0.027539±0.049152，只有2/3种子改善；相对去掉L15的A_L平均更差。已知靶点M3只有1/3有效种子，新靶点M0只有2/3，相关完整模型均值或三seed基线配对保持null。数值头另表，不替代语言成绩。
+
+32份[接口及buffer纯tensor权重](checkpoints/index.json)已公开，原值逐tensor校验不变；原PT和未验收partial权重留在私有完整镜像。四项失败的历史、原因和[未来版本修复补丁](results/formal/proc_race_fix/README.md)单独保存，未修改已冻结源码或恢复训练。
 
 ## 已完成的结果
 
@@ -30,9 +36,9 @@
 | A_L | L30/L30 | 问题查询 | 肽→靶点 |
 | A_Q | L15/L30 | 固定非零查询 | 肽→靶点 |
 
-远端预登记6配置×2场景×种子17/42/2026，共36项，统一10个完整epoch、训练batch4、生成batch8。按完整validation答案token NLL最小选点，精确相等取最早epoch；原严格JSON／greedy最多24token及完整失败分母保留。语言生成和数值头分别评分，缺seed不补均值。最后一次确认5项进入运行；网络不可达后最终完成数尚未核实，详见 [远端状态与冻结SHA](results/remote_queue_status.json)。
+预登记6配置×2场景×种子17/42/2026，共36项，统一10个完整epoch、训练batch4、生成batch8。按完整validation答案token NLL最小选点，精确相等取最早epoch；原严格JSON／greedy最多24token及完整失败分母保留。语言生成和数值头分别评分，缺seed不补均值。队列于2026-10-17 05:21（北京时间）结束，32成功／4失败，详见[终态及冻结SHA](results/remote_queue_status.json)。
 
-三类评价接口分别为量测预测、同一checkpoint的on/off干预、条件探针。C1在TRAIN试跑已执行，正式TEST C1待取回；条件探针目前完成代码和CPU测试，真实结果尚未取得。数据缺少可靠配对、事实问答和解释gold，对应监督保持关闭。
+三类评价接口分别为量测预测、同一checkpoint的on/off干预、条件探针。32组正式TEST预测和C1均已取回；条件探针目前完成代码和CPU测试，真实结果尚未取得。C1语言G_off全部为正，但它证明支路影响，不等于泛化精度优势。数据缺少可靠配对、事实问答和解释gold，对应监督保持关闭。
 
 ## 现在即可复核
 
@@ -42,11 +48,11 @@
 python experiments/molecular_memory_v3/analyze.py
 ```
 
-此命令仅用标准库，逐行核对冻结gold、全部16份基线预测的顺序／覆盖／数值指标，并校验公开清单的文件SHA；不加载模型、训练或调用GPU。
+此命令仅用标准库，核对全部基线、32组完整TEST语言／numeric／C1、三seed缺失规则、文件SHA和导出tensor字节；不加载模型、训练或调用GPU。
 
 `src/` 是本轮实现源码存档，16个模块保持原字节；`tests/` 随附CPU测试，归档测试只将规范文件路径改为本目录的`standard/`。训练依赖包括原运行的Torch2.6.0、Transformers4.48.1、NumPy1.26.4等；CPU数值基线实际使用NumPy2.2.6。测试和模型入口的依赖范围不同，不能把默认无模型复核解释成全部训练依赖已经安装。
 
-原科研目录布局与本公共仓库布局不同。完整训练需按清单准备原数据闭包、预训练模型、已校验缓存和新的任务合同；当前配置中的历史截止仍保留，不能直接启动已到期合同。`development.json`和`evaluation_development.json`明确为开发配置，不能代替未取回的远端正式文件。参数预算与正式文件SHA已记录，未伪造其原字节。
+原科研目录布局与本公共仓库布局不同。完整训练需按清单准备原数据闭包、预训练模型、已校验缓存和新的任务合同；当前配置中的历史截止仍保留，不能直接启动已到期合同。开发配置和正式配置分别保留；本次取回的`formal_10e_b8_v1.json`及`evaluation_10e_b8_v1.json`保持原字节，原含机器路径的队列计划以SHA索引。
 
 ## 文献与公开范围
 
@@ -54,4 +60,4 @@ python experiments/molecular_memory_v3/analyze.py
 
 PPIKB派生数据遵循 [原仓库数据声明](../../docs/PUBLICATION_SCOPE.md) 的CC BY4.0要求；本目录预测和拟合状态不改变底层数据来源。第三方论文及预训练模型继续适用各自许可；本更新未为原代码新增通用开源许可。
 
-原科研文件保持原样。公开副本省略私有路径、SSH配置、资源身份、原始聊天和未取回的正式结果；文档路径规范化及每项原始／公开SHA见 [publication_manifest.json](publication_manifest.json)。公共验收摘要是原记录的派生说明，不冒充原合同及其原始SHA文件。
+原科研文件保持原样。公开副本省略私有路径、SSH配置、资源身份和原始聊天；初次框架公开清单见[publication_manifest.json](publication_manifest.json)，取回结果清单见[formal/publication_manifest.json](results/formal/publication_manifest.json)。公共验收摘要和审计JSON是原记录的去路径派生说明，数值保持一致；不冒充原合同字节。

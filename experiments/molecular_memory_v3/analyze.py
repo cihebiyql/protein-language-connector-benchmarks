@@ -8,7 +8,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 sys.path.insert(0, str(HERE))
-from src.mm_evaluate import regression
+from src.mm_evaluate import regression, generation_metrics, numeric_metrics, c1_metrics, summarize_runs
 
 
 def load(path):
@@ -51,9 +51,50 @@ def main():
                     n_files += 1
                     n_predictions += len(rows)
     remote = load(HERE / 'results/remote_queue_status.json')
-    assert remote['completed_cases'] is None and remote['failed_cases'] is None
+    formal = HERE / 'results/formal'
+    assert remote['completed_cases'] == 32 and remote['failed_cases'] == 4
+    for item in load(formal / 'publication_manifest.json')['records']:
+        path = HERE / item['public_relative']
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == item['public_sha256'], str(path)
+    audit = load(formal / 'independent_audit.json')
+    assert len(audit['records']) == 36
+    accepted, formal_rows = [], 0
+    for case in audit['records']:
+        directory = formal / 'cases' / case['case_id']
+        if not case['canonical_accepted']:
+            assert case['queue_status'] == 'failed' and (directory / 'failure.json').is_file()
+            assert not (directory / 'result.json').exists()
+            continue
+        saved = load(directory / 'result.json')
+        assert saved == case['evaluation']
+        source = jsonl(REPO / 'data/a1' / saved['scenario'] / 'samples.jsonl')
+        rows = [row for row in source if row['split'] == 'test']
+        assert generation_metrics(rows,jsonl(directory/'test_lm_predictions.jsonl')) == saved['LM']
+        assert numeric_metrics(rows,jsonl(directory/'test_numeric_predictions.jsonl')) == saved['numeric']
+        assert c1_metrics(rows,jsonl(directory/'c1_predictions.jsonl')) == saved['C1']
+        assert load(directory/'acceptance_summary.json')['current_remote_revalidation'] is True
+        accepted.append(saved);formal_rows += len(rows)
+    assert len(accepted) == 32 and formal_rows == 9794
+    assert summarize_runs(accepted,audit['summary']['protocol_sha256']) == load(formal/'formal_summary.json')
+    tensors_checked = 0
+    import struct
+    tensor_index = load(HERE / 'checkpoints/index.json')
+    assert len(tensor_index['entries']) == 32
+    for entry in tensor_index['entries']:
+        data = (HERE/'checkpoints'/entry['filename']).read_bytes()
+        assert hashlib.sha256(data).hexdigest() == entry['sha256']
+        length = struct.unpack('<Q',data[:8])[0]
+        header = json.loads(data[8:8+length])
+        for name, expected in entry['tensor_value_sha256'].items():
+            info = header[name]
+            assert info['dtype'] == 'F32'
+            a,b = info['data_offsets']
+            assert hashlib.sha256(data[8+length+a:8+length+b]).hexdigest() == expected
+            tensors_checked += 1
     print(json.dumps(dict(status='validated', manifest_files=len(manifest['records']),
         prediction_files=n_files, predictions=n_predictions, reconstructed_metrics=n_metrics,
+        formal_accepted=len(accepted),formal_failed=4,formal_TEST_rows_per_channel=formal_rows,
+        tensor_values_checked=tensors_checked,
         remote_formal_status=remote['status'], model_or_GPU_used=False), indent=2))
 
 

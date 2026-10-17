@@ -1,0 +1,10 @@
+{
+  "status": "failed",
+  "category": "supervisor_proc_enumeration_ProcessLookupError",
+  "error": "[Errno 3] No such process: '/proc/1957214/stat'",
+  "traceback": "Traceback (most recent call last):\n  File \"<PROJECT>/experiments/molecular_memory_v3_20261017/src/mm_queue.py\", line 414, in worker\n    code = run_fn(attempt / \"contract/contract.json\",\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<PROJECT>/experiments/molecular_memory_v3_20261017/src/mm_supervise.py\", line 191, in run\n    used = group_rss(process.pid)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"<PROJECT>/experiments/molecular_memory_v3_20261017/src/mm_supervise.py\", line 100, in group_rss\n    for pid in group_members(pgid):\n               ^^^^^^^^^^^^^^^^^^^\n  File \"<PROJECT>/experiments/molecular_memory_v3_20261017/src/mm_supervise.py\", line 88, in group_members\n    for path in Path('/proc').glob('[0-9]*/stat'):\n  File \"<PYTHON_ENV>/lib/python3.11/pathlib.py\", line 953, in glob\n    for p in selector.select_from(self):\n  File \"<PYTHON_ENV>/lib/python3.11/pathlib.py\", line 372, in _select_from\n    for p in self.successor._select_from(path, is_dir, exists, scandir):\n  File \"<PYTHON_ENV>/lib/python3.11/pathlib.py\", line 340, in _select_from\n    if (is_dir if self.dironly else exists)(path):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<PYTHON_ENV>/lib/python3.11/pathlib.py\", line 1235, in exists\n    self.stat()\n  File \"<PYTHON_ENV>/lib/python3.11/pathlib.py\", line 1013, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nProcessLookupError: [Errno 3] No such process: '/proc/1957214/stat'\n",
+  "source_sha256": "54e0dd08bb3cad661c7b78e3d60e5c8f93fcbc21f62c9ddc05edf84c307c5559",
+  "last_completed_epoch": 2,
+  "scientific_score": null,
+  "frozen_original_status_preserved": true
+}

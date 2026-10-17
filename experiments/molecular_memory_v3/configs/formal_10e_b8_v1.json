@@ -1,0 +1,81 @@
+{
+  "schema_version": "mm-v3.protocol.v1",
+  "status": "frozen",
+  "budget_signature": "7af6630a495536edfcc1555525739549bd1c4c423f448727288c90f83e75d42b",
+  "first_preparation": "2026-10-17T00:29:40+08:00",
+  "deadline": "2026-10-17T10:29:40+08:00",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "variants": [
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "A_L",
+    "A_Q"
+  ],
+  "scenarios": [
+    "new_peptide_known_target",
+    "new_peptide_new_target"
+  ],
+  "model": {
+    "backbone_path": "models/Qwen--Qwen2.5-1.5B-Instruct",
+    "esm_backbone_path": "models/facebook--esm2_t30_150M_UR50D",
+    "slots": 8,
+    "memory_dim": 128,
+    "num_heads": 4,
+    "hook_layer": 13,
+    "condition_slots": 10
+  },
+  "training": {
+    "epochs": 10,
+    "batch_size": 4,
+    "grad_accumulation": 1,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "numeric_loss_weight": 1.0,
+    "numeric_standardization": "train_zscore",
+    "checkpoint_selection": "min_full_validation_answer_token_nll_earliest_tie",
+    "max_new_tokens": 24,
+    "generation_batch_size": 8
+  },
+  "numerical_policy": {
+    "base_dtype": "bfloat16",
+    "trainable_dtype": "float32",
+    "autocast": false,
+    "tf32": false,
+    "float32_matmul_precision": "highest",
+    "deterministic_algorithms": true,
+    "cudnn_benchmark": false,
+    "cpu_threads": 2,
+    "data_loader_workers": 0
+  },
+  "disabled_supervision": {
+    "same_condition_pair": "unavailable_gold",
+    "fact_qa": "unavailable_gold",
+    "explanation_faithfulness_gold": "unavailable_gold"
+  },
+  "rules": [
+    "Development canary uses TRAIN only; formal execution requires a separate frozen config.",
+    "Freeze the common training budget from canary time and memory, never from test scores.",
+    "Train each scenario independently; no trained weights or fitted statistics cross scenarios.",
+    "Continue every preregistered arm despite neutral or negative early gains if technically qualified.",
+    "Keep original LM scoring and numeric head scoring separate; retain all failures and seeds.",
+    "Do not reopen the expired 20261016 experiment or change its frozen artifacts."
+  ],
+  "frozen_at": "2026-10-16T18:35:22.499949+00:00",
+  "budget_basis": {
+    "kind": "TRAIN-only engineering throughput and memory, no test scores",
+    "canary_manifest_sha256": "13840197002c4af771b8a523ea9f0e5ca9472b46e90bc7c6784d31de6af729f1",
+    "canary_process_receipt_sha256": "9881ff7e4172e6c783fc49ed8967ecba7362cde53aff2b745a4be3b7a5812285",
+    "canary_gpu_cap_receipt_sha256": "6917e2c88f07b62a68bf337e241c10760a73c97a51dab505aae03e8d3ea56179",
+    "observed_four_update_seconds": 3.8556003691628575,
+    "observed_peak_allocated_bytes": 6505563648,
+    "observed_peak_reserved_bytes": 12767461376,
+    "decision": "Ten complete epochs for every new arm and seed, validation NLL selects checkpoint; early neutral/negative metrics never stop an arm."
+  }
+}

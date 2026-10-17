@@ -1,0 +1,7 @@
+# Figure captions
+
+Figure 1. Test LM generation MAE for six V3 configurations in the two frozen scenarios (152 and 442 test examples, respectively; lower is better). Markers identify seeds 17, 42 and 2026; black squares and error bars show mean ± sample SD only for complete 3/3 groups. Tick labels give accepted seed coverage; four unaccepted runs are omitted without imputation, and no significance tests are performed. Seed variation and missing full-model runs prevent a claim of stable full-architecture improvement.
+
+Figure 2. Test numeric-head MAE for six V3 configurations in the two frozen scenarios (152 and 442 test examples, respectively; lower is better). Markers identify seeds 17, 42 and 2026; black squares and error bars show mean ± sample SD only for complete 3/3 groups. Tick labels give accepted seed coverage; four unaccepted runs are omitted without imputation, and no significance tests are performed. The numeric head varies markedly across seeds, including errors above 3 pKD units; it must not substitute for the LM endpoint.
+
+Figure 3. Same-seed MAE differences for registered module additions and the full model in both frozen scenarios. Each marker is reference MAE minus candidate MAE for one accepted seed; positive values favour the candidate. Black squares and horizontal error bars denote mean ± sample SD only for complete 3/3 pairs, and labels show paired coverage. Seed-dependent sign changes and incomplete pairs limit claims of stable module gains; no significance tests or biological causal claims are made.

@@ -2,7 +2,7 @@
 
 Protein-language connector benchmarks, literature, frozen data, and auditable results.
 
-**2026-10-17更新：[分子记忆V3框架与已验收基线](experiments/molecular_memory_v3/README.md)已公开。** 包含新模型、自动训练／评测／消融代码、两场景均值／中位数／Ridge／kNN的完整预测和拟合状态，以及真实TRAIN试跑证据。36组新消融队列的远端最终结果尚未取回，不计为已完成，也不宣称新连接器取得稳定优势。
+**2026-10-17更新：[V3消融结果已取回](experiments/molecular_memory_v3/results/formal/REPORT.md)：32/36组完成并通过独立复核，4组因监督器`/proc`枚举竞态中断。** 公开逐样本预测、训练历史、所选接口权重、图表和多seed比较。现有结果尚不支持完整新架构具有稳定精度优势；缺失seed保持缺失，四项失败不补记成功。详见[图表报告](experiments/molecular_memory_v3/results/formal/analysis_figures/report.pdf)。
 
 **2026-10-16历史实验状态：36项预登记实验中，30项验收通过、1项池化尝试验收拒绝、5项未启动。三种子结果尚未确立稳定的中层连接器优势。** 未验收尝试的原始数值保留在隔离状态，不进入正式统计；该历史36项与V3的新36项分别登记。
 

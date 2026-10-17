@@ -1,0 +1,3244 @@
+[
+  {
+    "epoch": 1,
+    "optimizer_steps": 516,
+    "examples_seen": 2062,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 17130.47763633728,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 1.4917677934096347,
+    "epoch_fully_completed": true,
+    "seconds": 115.80842239037156,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 0,
+        "model_before_update": {
+          "forward_calls": 1,
+          "off_forward_calls": 0,
+          "padded_text_queries": 956,
+          "active_text_positions": 954,
+          "logical_bank_payload_bytes": 118784,
+          "logical_selected_raw_fp32_bytes": 327680,
+          "logical_reader_kv_bytes": 237568,
+          "logical_relation_kv_bytes": 65536,
+          "logical_reader_query_bytes": 3426304,
+          "logical_relation_query_bytes": 32768,
+          "reader_calls": 7,
+          "relation_calls": 2,
+          "reader_attention_edges_including_heads": 221792,
+          "relation_attention_edges_including_heads": 2048,
+          "written_delta_bytes": 2936832,
+          "variant": "M1",
+          "alpha": 0.0,
+          "gate_tanh_alpha": 0.0,
+          "routes": {
+            "view": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "bank": [
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0258634090423584
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.5400465726852417
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 937.9532024339599
+            }
+          }
+        }
+      },
+      {
+        "optimizer_step_before_update": 1,
+        "model_before_update": {
+          "forward_calls": 2,
+          "off_forward_calls": 0,
+          "padded_text_queries": 1912,
+          "active_text_positions": 1908,
+          "logical_bank_payload_bytes": 237568,
+          "logical_selected_raw_fp32_bytes": 655360,
+          "logical_reader_kv_bytes": 475136,
+          "logical_relation_kv_bytes": 131072,
+          "logical_reader_query_bytes": 6852608,
+          "logical_relation_query_bytes": 65536,
+          "reader_calls": 14,
+          "relation_calls": 4,
+          "reader_attention_edges_including_heads": 443584,
+          "relation_attention_edges_including_heads": 4096,
+          "written_delta_bytes": 5873664,
+          "variant": "M1",
+          "alpha": 0.00029999460093677044,
+          "gate_tanh_alpha": 0.00029999460093677044,
+          "routes": {
+            "view": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "bank": [
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.11922122538089752
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.0004965519027061811
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.0707637861942636e-05
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.517485208499961e-05
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.035819766317272e-06
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.04172857632879e-06
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.2924057261675034e-06
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00011331606906397379
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.00014274580287023392
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.0015179791768732353
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 8.899425489060165e-05
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00022160585817968364
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0013411163015280142
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.2211495041847229
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.0035283797258914584
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0002883442387384448
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0001709442507471265
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.3468195732134994e-05
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.554786044785888e-05
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.1742991459373957e-05
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0009451738579369727
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.0011029865821717516
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.011118044413159943
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00040089489425176205
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.001974333218228173
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.010211364491605012
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 438.30159533134673
+            }
+          }
+        }
+      },
+      {
+        "optimizer_step_before_update": 3,
+        "model_before_update": {
+          "forward_calls": 4,
+          "off_forward_calls": 0,
+          "padded_text_queries": 3848,
+          "active_text_positions": 3824,
+          "logical_bank_payload_bytes": 475136,
+          "logical_selected_raw_fp32_bytes": 1310720,
+          "logical_reader_kv_bytes": 950272,
+          "logical_relation_kv_bytes": 262144,
+          "logical_reader_query_bytes": 13791232,
+          "logical_relation_query_bytes": 131072,
+          "reader_calls": 28,
+          "relation_calls": 8,
+          "reader_attention_edges_including_heads": 892736,
+          "relation_attention_edges_including_heads": 8192,
+          "written_delta_bytes": 11821056,
+          "variant": "M1",
+          "alpha": 0.0007735675317235291,
+          "gate_tanh_alpha": 0.0007735673571005464,
+          "routes": {
+            "view": [
+              [
+                0.5116251111030579,
+                0.48837488889694214
+              ],
+              [
+                0.5116251111030579,
+                0.48837488889694214
+              ],
+              [
+                0.5116251111030579,
+                0.48837488889694214
+              ],
+              [
+                0.5116251111030579,
+                0.48837488889694214
+              ]
+            ],
+            "bank": [
+              [
+                0.24776357412338257,
+                0.2553320825099945,
+                0.24183745682239532,
+                0.2550668716430664
+              ],
+              [
+                0.24776357412338257,
+                0.2553320825099945,
+                0.24183745682239532,
+                0.2550668716430664
+              ],
+              [
+                0.24776357412338257,
+                0.2553320825099945,
+                0.24183745682239532,
+                0.2550668716430664
+              ],
+              [
+                0.24776357412338257,
+                0.2553320825099945,
+                0.24183745682239532,
+                0.2550668716430664
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.06164536625146866
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.0006910571615078442
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 6.121935944862235e-05
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.5109680817756547e-05
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 7.936024046988659e-06
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.852739278481805e-06
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 3.1180651814594934e-06
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00016211250838144098
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.00024064813364027017
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.002242356745006665
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.8614942718069098e-06
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00040184689856152307
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.002046302334504876
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.678151607513428
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.006079490942791858
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0004688610354292538
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.00028724657280441843
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.359396065362109e-05
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.846080005533328e-05
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 3.411920776423409e-05
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00145778217395048
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.0018204939476423132
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.01776089556902125
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0007601999234970638
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00449752393409991
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.015899012522381024
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 272.42147584774
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 516,
+      "off_forward_calls": 0,
+      "padded_text_queries": 495076,
+      "active_text_positions": 491779,
+      "logical_bank_payload_bytes": 61233152,
+      "logical_selected_raw_fp32_bytes": 168919040,
+      "logical_reader_kv_bytes": 122466304,
+      "logical_relation_kv_bytes": 33783808,
+      "logical_reader_query_bytes": 1774352384,
+      "logical_relation_query_bytes": 16891904,
+      "reader_calls": 3612,
+      "relation_calls": 1032,
+      "reader_attention_edges_including_heads": 114857632,
+      "relation_attention_edges_including_heads": 1055744,
+      "written_delta_bytes": 1520873472,
+      "variant": "M1",
+      "alpha": -0.0111923199146986,
+      "gate_tanh_alpha": -0.011191852390766144,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            8.906196335978223e-10
+          ],
+          [
+            1.0,
+            8.906196335978223e-10
+          ]
+        ],
+        "bank": [
+          [
+            6.250771093618823e-06,
+            1.7537239438425445e-09,
+            5.408424819108859e-10,
+            0.9999938011169434
+          ],
+          [
+            6.250771093618823e-06,
+            1.7537239438425445e-09,
+            5.408424819108859e-10,
+            0.9999938011169434
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 1033.1836242675781,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.7023682014055596,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 2,
+    "optimizer_steps": 1032,
+    "examples_seen": 4124,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 14259.047785758972,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 1.2085838195380947,
+    "epoch_fully_completed": true,
+    "seconds": 114.82189779821783,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 516,
+        "model_before_update": {
+          "forward_calls": 554,
+          "off_forward_calls": 0,
+          "padded_text_queries": 531181,
+          "active_text_positions": 527698,
+          "logical_bank_payload_bytes": 65717248,
+          "logical_selected_raw_fp32_bytes": 181288960,
+          "logical_reader_kv_bytes": 131434496,
+          "logical_relation_kv_bytes": 36257792,
+          "logical_reader_query_bytes": 1903752704,
+          "logical_relation_query_bytes": 18128896,
+          "reader_calls": 3878,
+          "relation_calls": 1108,
+          "reader_attention_edges_including_heads": 123233992,
+          "relation_attention_edges_including_heads": 1133056,
+          "written_delta_bytes": 1631788032,
+          "variant": "M1",
+          "alpha": -0.0111923199146986,
+          "gate_tanh_alpha": -0.011191852390766144,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                8.921123284544308e-10
+              ],
+              [
+                1.0,
+                8.921123284544308e-10
+              ],
+              [
+                1.0,
+                8.921123284544308e-10
+              ],
+              [
+                1.0,
+                8.921123284544308e-10
+              ]
+            ],
+            "bank": [
+              [
+                6.257475433812942e-06,
+                1.7568310139992604e-09,
+                5.419308890530772e-10,
+                0.9999938011169434
+              ],
+              [
+                6.257475433812942e-06,
+                1.7568310139992604e-09,
+                5.419308890530772e-10,
+                0.9999938011169434
+              ],
+              [
+                6.257475433812942e-06,
+                1.7568310139992604e-09,
+                5.419308890530772e-10,
+                0.9999938011169434
+              ],
+              [
+                6.257475433812942e-06,
+                1.7568310139992604e-09,
+                5.419308890530772e-10,
+                0.9999938011169434
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 8.08506965637207
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.1594216312940723
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.006928351046575181
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.007657697745948634
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.0077353057996836e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.129312239830267e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00014572205775316682
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0015355669840079389
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.1113342677473059
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.10478935867548538
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 3.126283440509508e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 5.2159053349328766e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.08215225669800984
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.478501319885254
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.3545516569156701
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0032477151560043166
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.003357262099438606
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.544818106045608e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.039879201604791e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0004168004232702973
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.006618058872446389
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.19738470004869585
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.14085742917266295
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 8.006556019673633e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 5.323310343100787e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.23360593331630117
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 6.874702818850795
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 1069,
+      "off_forward_calls": 0,
+      "padded_text_queries": 1025359,
+      "active_text_positions": 1018526,
+      "logical_bank_payload_bytes": 126831616,
+      "logical_selected_raw_fp32_bytes": 349880320,
+      "logical_reader_kv_bytes": 253663232,
+      "logical_relation_kv_bytes": 69976064,
+      "logical_reader_query_bytes": 3674886656,
+      "logical_relation_query_bytes": 34988032,
+      "reader_calls": 7483,
+      "relation_calls": 2138,
+      "reader_attention_edges_including_heads": 237883288,
+      "relation_attention_edges_including_heads": 2186752,
+      "written_delta_bytes": 3149902848,
+      "variant": "M1",
+      "alpha": -0.012337971478700638,
+      "gate_tanh_alpha": -0.012337345629930496,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.0711823650311203e-09
+          ],
+          [
+            1.0,
+            1.0711823650311203e-09
+          ]
+        ],
+        "bank": [
+          [
+            7.2397228905174416e-06,
+            2.1451755927159866e-09,
+            6.6890365468808e-10,
+            0.9999927282333374
+          ],
+          [
+            7.2397228905174416e-06,
+            2.1451755927159866e-09,
+            6.6890365468808e-10,
+            0.9999927282333374
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 1028.9774627685547,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6995088122151969,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 3,
+    "optimizer_steps": 1548,
+    "examples_seen": 6186,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 14021.842288017273,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 1.1407580572522809,
+    "epoch_fully_completed": true,
+    "seconds": 115.67340777441859,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 1032,
+        "model_before_update": {
+          "forward_calls": 1107,
+          "off_forward_calls": 0,
+          "padded_text_queries": 1061464,
+          "active_text_positions": 1054443,
+          "logical_bank_payload_bytes": 131315712,
+          "logical_selected_raw_fp32_bytes": 362250240,
+          "logical_reader_kv_bytes": 262631424,
+          "logical_relation_kv_bytes": 72450048,
+          "logical_reader_query_bytes": 3804286976,
+          "logical_relation_query_bytes": 36225024,
+          "reader_calls": 7749,
+          "relation_calls": 2214,
+          "reader_attention_edges_including_heads": 246259648,
+          "relation_attention_edges_including_heads": 2264064,
+          "written_delta_bytes": 3260817408,
+          "variant": "M1",
+          "alpha": -0.012337971478700638,
+          "gate_tanh_alpha": -0.012337345629930496,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.07150921468957e-09
+              ],
+              [
+                1.0,
+                1.07150921468957e-09
+              ],
+              [
+                1.0,
+                1.07150921468957e-09
+              ],
+              [
+                1.0,
+                1.07150921468957e-09
+              ]
+            ],
+            "bank": [
+              [
+                7.256443495862186e-06,
+                2.1480661693829006e-09,
+                6.698075427635786e-10,
+                0.9999927282333374
+              ],
+              [
+                7.256443495862186e-06,
+                2.1480661693829006e-09,
+                6.698075427635786e-10,
+                0.9999927282333374
+              ],
+              [
+                7.256443495862186e-06,
+                2.1480661693829006e-09,
+                6.698075427635786e-10,
+                0.9999927282333374
+              ],
+              [
+                7.256443495862186e-06,
+                2.1480661693829006e-09,
+                6.698075427635786e-10,
+                0.9999927282333374
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.5633392333984375
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.07770511630708926
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0038014543500060065
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.004365007027982051
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.3091674545922523e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.379287461221887e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00011477200157164366
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0009202646845492351
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.07784806072139981
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.07174881517085654
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.874747726319123e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 5.3144890388299655e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.06978703701758464
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 98.35975646972656
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 1.7705538591184153
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0801976193725656
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0902966745710856
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 6.009211160892054e-12
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.586704505439267e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00033156295656729324
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.006306015198938597
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.432633881013204
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.4096970385076444
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 4.9184179740096394e-08
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0008976831676957765
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.948873320324639
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 279.7162464229879
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 1622,
+      "off_forward_calls": 0,
+      "padded_text_queries": 1555552,
+      "active_text_positions": 1545273,
+      "logical_bank_payload_bytes": 192430080,
+      "logical_selected_raw_fp32_bytes": 530841600,
+      "logical_reader_kv_bytes": 384860160,
+      "logical_relation_kv_bytes": 106168320,
+      "logical_reader_query_bytes": 5575098368,
+      "logical_relation_query_bytes": 53084160,
+      "reader_calls": 11354,
+      "relation_calls": 3244,
+      "reader_attention_edges_including_heads": 360888064,
+      "relation_attention_edges_including_heads": 3317760,
+      "written_delta_bytes": 4778655744,
+      "variant": "M1",
+      "alpha": -0.014026203192770481,
+      "gate_tanh_alpha": -0.014025283046066761,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.1586595016765955e-09
+          ],
+          [
+            1.0,
+            1.1586595016765955e-09
+          ]
+        ],
+        "bank": [
+          [
+            7.284643743332708e-06,
+            2.2894759421632216e-09,
+            7.105613319957627e-10,
+            0.9999927282333374
+          ],
+          [
+            7.284643743332708e-06,
+            2.2894759421632216e-09,
+            7.105613319957627e-10,
+            0.9999927282333374
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 970.283519744873,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6596081031576295,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 4,
+    "optimizer_steps": 2064,
+    "examples_seen": 8248,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 13824.682022094727,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 1.03882963935168,
+    "epoch_fully_completed": true,
+    "seconds": 117.81354171037674,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 1548,
+        "model_before_update": {
+          "forward_calls": 1660,
+          "off_forward_calls": 0,
+          "padded_text_queries": 1591669,
+          "active_text_positions": 1581194,
+          "logical_bank_payload_bytes": 196914176,
+          "logical_selected_raw_fp32_bytes": 543211520,
+          "logical_reader_kv_bytes": 393828352,
+          "logical_relation_kv_bytes": 108642304,
+          "logical_reader_query_bytes": 5704541696,
+          "logical_relation_query_bytes": 54321152,
+          "reader_calls": 11620,
+          "relation_calls": 3320,
+          "reader_attention_edges_including_heads": 369267208,
+          "relation_attention_edges_including_heads": 3395072,
+          "written_delta_bytes": 4889607168,
+          "variant": "M1",
+          "alpha": -0.014026203192770481,
+          "gate_tanh_alpha": -0.014025283046066761,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.1595946425302373e-09
+              ],
+              [
+                1.0,
+                1.1595946425302373e-09
+              ],
+              [
+                1.0,
+                1.1595946425302373e-09
+              ],
+              [
+                1.0,
+                1.1595946425302373e-09
+              ]
+            ],
+            "bank": [
+              [
+                7.337647275562631e-06,
+                2.2987169945309915e-09,
+                7.134497992389299e-10,
+                0.9999926090240479
+              ],
+              [
+                7.337647275562631e-06,
+                2.2987169945309915e-09,
+                7.134497992389299e-10,
+                0.9999926090240479
+              ],
+              [
+                7.337647275562631e-06,
+                2.2987169945309915e-09,
+                7.134497992389299e-10,
+                0.9999926090240479
+              ],
+              [
+                7.337647275562631e-06,
+                2.2987169945309915e-09,
+                7.134497992389299e-10,
+                0.9999926090240479
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 5.428764343261719
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.1786802574087233
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.00728044270162944
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.007451530773006676
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.012474200283544e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.7084318873417281e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0002383876960425137
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.001676678145650403
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.13861833690653824
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.1378189111352091
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 7.134310732931548e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 7.423760766988086e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.1879567712192012
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 80.76134490966797
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 2.2951054934507726
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.08475091585797924
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.08942761152918004
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.31980282924498e-12
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.9655999465430733e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.001635314584324055
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.008521705644792016
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.7951315650401931
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.1818548160006044
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 9.683627216467026e-08
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0010234506653954202
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.4456112016793452
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 73.11478479097268
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 2175,
+      "off_forward_calls": 0,
+      "padded_text_queries": 2085859,
+      "active_text_positions": 2072020,
+      "logical_bank_payload_bytes": 258028544,
+      "logical_selected_raw_fp32_bytes": 711802880,
+      "logical_reader_kv_bytes": 516057088,
+      "logical_relation_kv_bytes": 142360576,
+      "logical_reader_query_bytes": 7475718656,
+      "logical_relation_query_bytes": 71180288,
+      "reader_calls": 15225,
+      "relation_calls": 4350,
+      "reader_attention_edges_including_heads": 483919288,
+      "relation_attention_edges_including_heads": 4448768,
+      "written_delta_bytes": 6407758848,
+      "variant": "M1",
+      "alpha": -0.014002065174281597,
+      "gate_tanh_alpha": -0.014001150615513325,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.3576261226333486e-09
+          ],
+          [
+            1.0,
+            1.3576261226333486e-09
+          ]
+        ],
+        "bank": [
+          [
+            8.613588761363644e-06,
+            2.7465660856762497e-09,
+            8.634577497446116e-10,
+            0.9999914169311523
+          ],
+          [
+            8.613588761363644e-06,
+            2.7465660856762497e-09,
+            8.634577497446116e-10,
+            0.9999914169311523
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 991.1279888153076,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6737783744495633,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 5,
+    "optimizer_steps": 2580,
+    "examples_seen": 10310,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 13757.587151527405,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 0.9071171089472063,
+    "epoch_fully_completed": true,
+    "seconds": 115.33871269226074,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 2064,
+        "model_before_update": {
+          "forward_calls": 2213,
+          "off_forward_calls": 0,
+          "padded_text_queries": 2121976,
+          "active_text_positions": 2107945,
+          "logical_bank_payload_bytes": 262512640,
+          "logical_selected_raw_fp32_bytes": 724172800,
+          "logical_reader_kv_bytes": 525025280,
+          "logical_relation_kv_bytes": 144834560,
+          "logical_reader_query_bytes": 7605161984,
+          "logical_relation_query_bytes": 72417280,
+          "reader_calls": 15491,
+          "relation_calls": 4426,
+          "reader_attention_edges_including_heads": 492298432,
+          "relation_attention_edges_including_heads": 4526080,
+          "written_delta_bytes": 6518710272,
+          "variant": "M1",
+          "alpha": -0.014002065174281597,
+          "gate_tanh_alpha": -0.014001150615513325,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.3574941171157207e-09
+              ],
+              [
+                1.0,
+                1.3574941171157207e-09
+              ],
+              [
+                1.0,
+                1.3574941171157207e-09
+              ],
+              [
+                1.0,
+                1.3574941171157207e-09
+              ]
+            ],
+            "bank": [
+              [
+                8.597799023846164e-06,
+                2.7440105743181675e-09,
+                8.626560576985298e-10,
+                0.9999914169311523
+              ],
+              [
+                8.597799023846164e-06,
+                2.7440105743181675e-09,
+                8.626560576985298e-10,
+                0.9999914169311523
+              ],
+              [
+                8.597799023846164e-06,
+                2.7440105743181675e-09,
+                8.626560576985298e-10,
+                0.9999914169311523
+              ],
+              [
+                8.597799023846164e-06,
+                2.7440105743181675e-09,
+                8.626560576985298e-10,
+                0.9999914169311523
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.6537060737609863
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.054211241210019925
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.003211535468845239
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.002813667617677634
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.4245351068210203e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.1332541559157324e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0003576092394921107
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0018255847127837477
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.1756459042414687
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.1446483023428027
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.634244469792295e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.2205502663125024e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.1539593350059908
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 28.501760482788086
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 1.0573173352503387
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.03301281730071474
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.03208423179822907
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.827944185892897e-12
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.0661384365815717e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0013606100992086558
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.006953819807681814
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.0814087618861064
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.7101030659816798
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 6.609506782974092e-08
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00048207252156188884
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.3955380875565935
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 115.703805235133
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 2728,
+      "off_forward_calls": 0,
+      "padded_text_queries": 2616114,
+      "active_text_positions": 2598767,
+      "logical_bank_payload_bytes": 323627008,
+      "logical_selected_raw_fp32_bytes": 892764160,
+      "logical_reader_kv_bytes": 647254016,
+      "logical_relation_kv_bytes": 178552832,
+      "logical_reader_query_bytes": 9376152576,
+      "logical_relation_query_bytes": 89276416,
+      "reader_calls": 19096,
+      "relation_calls": 5456,
+      "reader_attention_edges_including_heads": 606938448,
+      "relation_attention_edges_including_heads": 5579776,
+      "written_delta_bytes": 8036702208,
+      "variant": "M1",
+      "alpha": -0.014701848849654198,
+      "gate_tanh_alpha": -0.01470078993588686,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.5263822428224216e-09
+          ],
+          [
+            1.0,
+            1.5263822428224216e-09
+          ]
+        ],
+        "bank": [
+          [
+            7.937666850921232e-06,
+            2.880860439091748e-09,
+            9.13886410991438e-10,
+            0.9999920129776001
+          ],
+          [
+            7.937666850921232e-06,
+            2.880860439091748e-09,
+            9.13886410991438e-10,
+            0.9999920129776001
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 992.8092975616455,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6749213443654966,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 6,
+    "optimizer_steps": 3096,
+    "examples_seen": 12372,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 13633.524435043335,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 0.9481832950107688,
+    "epoch_fully_completed": true,
+    "seconds": 115.85898982174695,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 2580,
+        "model_before_update": {
+          "forward_calls": 2766,
+          "off_forward_calls": 0,
+          "padded_text_queries": 2652219,
+          "active_text_positions": 2634685,
+          "logical_bank_payload_bytes": 328111104,
+          "logical_selected_raw_fp32_bytes": 905134080,
+          "logical_reader_kv_bytes": 656222208,
+          "logical_relation_kv_bytes": 181026816,
+          "logical_reader_query_bytes": 9505552896,
+          "logical_relation_query_bytes": 90513408,
+          "reader_calls": 19362,
+          "relation_calls": 5532,
+          "reader_attention_edges_including_heads": 615314808,
+          "relation_attention_edges_including_heads": 5657088,
+          "written_delta_bytes": 8147616768,
+          "variant": "M1",
+          "alpha": -0.014701848849654198,
+          "gate_tanh_alpha": -0.01470078993588686,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.525776727184791e-09
+              ],
+              [
+                1.0,
+                1.525776727184791e-09
+              ],
+              [
+                1.0,
+                1.525776727184791e-09
+              ],
+              [
+                1.0,
+                1.525776727184791e-09
+              ]
+            ],
+            "bank": [
+              [
+                8.00974066805793e-06,
+                2.892417638733491e-09,
+                9.174422332947074e-10,
+                0.9999920129776001
+              ],
+              [
+                8.00974066805793e-06,
+                2.892417638733491e-09,
+                9.174422332947074e-10,
+                0.9999920129776001
+              ],
+              [
+                8.00974066805793e-06,
+                2.892417638733491e-09,
+                9.174422332947074e-10,
+                0.9999920129776001
+              ],
+              [
+                8.00974066805793e-06,
+                2.892417638733491e-09,
+                9.174422332947074e-10,
+                0.9999920129776001
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.1129837036132812
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.0473803552502184
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0013072334018396433
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.001359362819292163
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.5934667626002601e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 8.333728808531785e-14
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00030978764587303367
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0016169910716668455
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.0549144040193967
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.05236251188760962
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 3.2060897229041588e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 3.172957044446083e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.10924798542202603
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 98.96036529541016
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 3.136490514583816
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.10820828788454827
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.11208194199888233
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.2968255788734754e-12
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.0151142871261187e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.006958847026490522
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.038352599043924004
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 2.863334528285638
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.5086804602933874
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.811610241223893e-07
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.001458323302032087
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.3789518827108809
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 73.60716252942929
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 3281,
+      "off_forward_calls": 0,
+      "padded_text_queries": 3146311,
+      "active_text_positions": 3125514,
+      "logical_bank_payload_bytes": 389225472,
+      "logical_selected_raw_fp32_bytes": 1073725440,
+      "logical_reader_kv_bytes": 778450944,
+      "logical_relation_kv_bytes": 214745088,
+      "logical_reader_query_bytes": 11276378624,
+      "logical_relation_query_bytes": 107372544,
+      "reader_calls": 22967,
+      "relation_calls": 6562,
+      "reader_attention_edges_including_heads": 729944152,
+      "relation_attention_edges_including_heads": 6710784,
+      "written_delta_bytes": 9665467392,
+      "variant": "M1",
+      "alpha": -0.01584448665380478,
+      "gate_tanh_alpha": -0.015843160450458527,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.3838167278734659e-09
+          ],
+          [
+            1.0,
+            1.3838167278734659e-09
+          ]
+        ],
+        "bank": [
+          [
+            5.177709681447595e-06,
+            2.1405370809191027e-09,
+            6.85584533588468e-10,
+            0.9999948740005493
+          ],
+          [
+            5.177709681447595e-06,
+            2.1405370809191027e-09,
+            6.85584533588468e-10,
+            0.9999948740005493
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 986.7636184692383,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6708114333577418,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 7,
+    "optimizer_steps": 3612,
+    "examples_seen": 14434,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 13580.93496799469,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 0.8810595962409541,
+    "epoch_fully_completed": true,
+    "seconds": 115.70852430723608,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 3096,
+        "model_before_update": {
+          "forward_calls": 3319,
+          "off_forward_calls": 0,
+          "padded_text_queries": 3182420,
+          "active_text_positions": 3161438,
+          "logical_bank_payload_bytes": 393709568,
+          "logical_selected_raw_fp32_bytes": 1086095360,
+          "logical_reader_kv_bytes": 787419136,
+          "logical_relation_kv_bytes": 217219072,
+          "logical_reader_query_bytes": 11405793280,
+          "logical_relation_query_bytes": 108609536,
+          "reader_calls": 23233,
+          "relation_calls": 6638,
+          "reader_attention_edges_including_heads": 738321440,
+          "relation_attention_edges_including_heads": 6788096,
+          "written_delta_bytes": 9776394240,
+          "variant": "M1",
+          "alpha": -0.01584448665380478,
+          "gate_tanh_alpha": -0.015843160450458527,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.3829671852150227e-09
+              ],
+              [
+                1.0,
+                1.3829671852150227e-09
+              ],
+              [
+                1.0,
+                1.3829671852150227e-09
+              ],
+              [
+                1.0,
+                1.3829671852150227e-09
+              ]
+            ],
+            "bank": [
+              [
+                5.123203663970344e-06,
+                2.1290098572990246e-09,
+                6.818573483613477e-10,
+                0.9999948740005493
+              ],
+              [
+                5.123203663970344e-06,
+                2.1290098572990246e-09,
+                6.818573483613477e-10,
+                0.9999948740005493
+              ],
+              [
+                5.123203663970344e-06,
+                2.1290098572990246e-09,
+                6.818573483613477e-10,
+                0.9999948740005493
+              ],
+              [
+                5.123203663970344e-06,
+                2.1290098572990246e-09,
+                6.818573483613477e-10,
+                0.9999948740005493
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 7.868274211883545
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.4059955098170986
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0162462309164707
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.016596657811724796
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.599158005206138e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.31156140433485e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00163137578000631
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.006629624351576452
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.20788270000962536
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.16144904608276578
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.1748900333213462e-08
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 8.184389333214641e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.17406845251116085
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 177.1535186767578
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 9.164414390770729
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.37016552755035914
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.3814686987130358
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.2471581143329724e-11
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 9.835643494894616e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0024583749301233713
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.02546897617331032
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 4.205989287748662
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 3.1828983283140726
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.2517809550273905e-07
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0018293343933918104
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.642647779044628
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 233.02977864553046
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 3834,
+      "off_forward_calls": 0,
+      "padded_text_queries": 3676676,
+      "active_text_positions": 3652261,
+      "logical_bank_payload_bytes": 454823936,
+      "logical_selected_raw_fp32_bytes": 1254686720,
+      "logical_reader_kv_bytes": 909647872,
+      "logical_relation_kv_bytes": 250937344,
+      "logical_reader_query_bytes": 13177206784,
+      "logical_relation_query_bytes": 125468672,
+      "reader_calls": 26838,
+      "relation_calls": 7668,
+      "reader_attention_edges_including_heads": 852988832,
+      "relation_attention_edges_including_heads": 7841792,
+      "written_delta_bytes": 11294748672,
+      "variant": "M1",
+      "alpha": -0.016941683366894722,
+      "gate_tanh_alpha": -0.01694006286561489,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.5290514410182254e-09
+          ],
+          [
+            1.0,
+            1.5290514410182254e-09
+          ]
+        ],
+        "bank": [
+          [
+            3.9431856748706196e-06,
+            2.0078305684734232e-09,
+            6.513588002299286e-10,
+            0.9999960660934448
+          ],
+          [
+            3.9431856748706196e-06,
+            2.0078305684734232e-09,
+            6.513588002299286e-10,
+            0.9999960660934448
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 982.4741802215576,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6678954318297469,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 8,
+    "optimizer_steps": 4128,
+    "examples_seen": 16496,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 13503.391953468323,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 0.914985982722862,
+    "epoch_fully_completed": true,
+    "seconds": 116.37482463661581,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 3612,
+        "model_before_update": {
+          "forward_calls": 3872,
+          "off_forward_calls": 0,
+          "padded_text_queries": 3712785,
+          "active_text_positions": 3688185,
+          "logical_bank_payload_bytes": 459308032,
+          "logical_selected_raw_fp32_bytes": 1267056640,
+          "logical_reader_kv_bytes": 918616064,
+          "logical_relation_kv_bytes": 253411328,
+          "logical_reader_query_bytes": 13306621440,
+          "logical_relation_query_bytes": 126705664,
+          "reader_calls": 27104,
+          "relation_calls": 7744,
+          "reader_attention_edges_including_heads": 861366120,
+          "relation_attention_edges_including_heads": 7919104,
+          "written_delta_bytes": 11405675520,
+          "variant": "M1",
+          "alpha": -0.016941683366894722,
+          "gate_tanh_alpha": -0.01694006286561489,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.5289114418948202e-09
+              ],
+              [
+                1.0,
+                1.5289114418948202e-09
+              ],
+              [
+                1.0,
+                1.5289114418948202e-09
+              ],
+              [
+                1.0,
+                1.5289114418948202e-09
+              ]
+            ],
+            "bank": [
+              [
+                3.983929673267994e-06,
+                2.0178048121266556e-09,
+                6.545008979230715e-10,
+                0.9999960660934448
+              ],
+              [
+                3.983929673267994e-06,
+                2.0178048121266556e-09,
+                6.545008979230715e-10,
+                0.9999960660934448
+              ],
+              [
+                3.983929673267994e-06,
+                2.0178048121266556e-09,
+                6.545008979230715e-10,
+                0.9999960660934448
+              ],
+              [
+                3.983929673267994e-06,
+                2.0178048121266556e-09,
+                6.545008979230715e-10,
+                0.9999960660934448
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.2686820030212402
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.18600074889987675
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.007615212993016559
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.007864572900626107
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.9737175166033817e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.7205333426140155e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0003083008600446435
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0014054258735475946
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.08641451236134275
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.0916993562133982
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.438815490390469e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 7.139506448026377e-06
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.15675941717280736
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.6194446682929993
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 2.0135567319696244
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.08301798645496769
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.08617664473294168
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.998100241587407e-12
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.014114243107223e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0009400691171709808
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0055923423122926745
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.9661788611493097
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.8517524230805864
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 8.298084755201583e-08
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 6.865712596651946e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.0456850887626576
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 85.85517417845406
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 4387,
+      "off_forward_calls": 0,
+      "padded_text_queries": 4206897,
+      "active_text_positions": 4179008,
+      "logical_bank_payload_bytes": 520422400,
+      "logical_selected_raw_fp32_bytes": 1435648000,
+      "logical_reader_kv_bytes": 1040844800,
+      "logical_relation_kv_bytes": 287129600,
+      "logical_reader_query_bytes": 15077518848,
+      "logical_relation_query_bytes": 143564800,
+      "reader_calls": 30709,
+      "relation_calls": 8774,
+      "reader_attention_edges_including_heads": 976000104,
+      "relation_attention_edges_including_heads": 8972800,
+      "written_delta_bytes": 12923587584,
+      "variant": "M1",
+      "alpha": -0.016745883971452713,
+      "gate_tanh_alpha": -0.01674431934952736,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.62494950828318e-09
+          ],
+          [
+            1.0,
+            1.62494950828318e-09
+          ]
+        ],
+        "bank": [
+          [
+            3.180969315508264e-06,
+            1.9086505709253743e-09,
+            6.134788232969868e-10,
+            0.9999967813491821
+          ],
+          [
+            3.180969315508264e-06,
+            1.9086505709253743e-09,
+            6.134788232969868e-10,
+            0.9999967813491821
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 987.0467319488525,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6710038966341622,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 9,
+    "optimizer_steps": 4644,
+    "examples_seen": 18558,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 13413.250136375427,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 0.7767106005208337,
+    "epoch_fully_completed": true,
+    "seconds": 114.84116873983294,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 4128,
+        "model_before_update": {
+          "forward_calls": 4425,
+          "off_forward_calls": 0,
+          "padded_text_queries": 4243002,
+          "active_text_positions": 4214928,
+          "logical_bank_payload_bytes": 524906496,
+          "logical_selected_raw_fp32_bytes": 1448017920,
+          "logical_reader_kv_bytes": 1049812992,
+          "logical_relation_kv_bytes": 289603584,
+          "logical_reader_query_bytes": 15206919168,
+          "logical_relation_query_bytes": 144801792,
+          "reader_calls": 30975,
+          "relation_calls": 8850,
+          "reader_attention_edges_including_heads": 984376464,
+          "relation_attention_edges_including_heads": 9050112,
+          "written_delta_bytes": 13034502144,
+          "variant": "M1",
+          "alpha": -0.016745883971452713,
+          "gate_tanh_alpha": -0.01674431934952736,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.626140111454788e-09
+              ],
+              [
+                1.0,
+                1.626140111454788e-09
+              ],
+              [
+                1.0,
+                1.626140111454788e-09
+              ],
+              [
+                1.0,
+                1.626140111454788e-09
+              ]
+            ],
+            "bank": [
+              [
+                3.1777187814441277e-06,
+                1.908610380851883e-09,
+                6.134975305549517e-10,
+                0.9999967813491821
+              ],
+              [
+                3.1777187814441277e-06,
+                1.908610380851883e-09,
+                6.134975305549517e-10,
+                0.9999967813491821
+              ],
+              [
+                3.1777187814441277e-06,
+                1.908610380851883e-09,
+                6.134975305549517e-10,
+                0.9999967813491821
+              ],
+              [
+                3.1777187814441277e-06,
+                1.908610380851883e-09,
+                6.134975305549517e-10,
+                0.9999967813491821
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 6.048814296722412
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.6351008603703714
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.026006083350449186
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.026065303277636155
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.851505296343604e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 4.037243143034607e-13
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0008260716214389383
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.004303113250762268
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.21143829276908055
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.18105611057388665
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.0556067455741722e-08
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 4.21734436840661e-05
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.18702231826856053
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 134.3273468017578
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 11.481710574949233
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.4708567735245687
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.47850446519336226
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 9.539741837296354e-12
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 8.564339154154863e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0034190893042364582
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0204085169990481
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 3.670081650200748
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 2.913947942615111
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.818676430208926e-07
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0009078499249522288
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.415056202127672
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 263.98207908934495
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 4940,
+      "off_forward_calls": 0,
+      "padded_text_queries": 4737228,
+      "active_text_positions": 4705755,
+      "logical_bank_payload_bytes": 586020864,
+      "logical_selected_raw_fp32_bytes": 1616609280,
+      "logical_reader_kv_bytes": 1172041728,
+      "logical_relation_kv_bytes": 323321856,
+      "logical_reader_query_bytes": 16978225152,
+      "logical_relation_query_bytes": 161660928,
+      "reader_calls": 34580,
+      "relation_calls": 9880,
+      "reader_attention_edges_including_heads": 1099036896,
+      "relation_attention_edges_including_heads": 10103808,
+      "written_delta_bytes": 14552764416,
+      "variant": "M1",
+      "alpha": -0.01756403222680092,
+      "gate_tanh_alpha": -0.017562225461006165,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.810073979591209e-09
+          ],
+          [
+            1.0,
+            1.810073979591209e-09
+          ]
+        ],
+        "bank": [
+          [
+            2.4200066945923027e-06,
+            1.764076995591779e-09,
+            5.677004422111054e-10,
+            0.999997615814209
+          ],
+          [
+            2.4200066945923027e-06,
+            1.764076995591779e-09,
+            5.677004422111054e-10,
+            0.999997615814209
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 986.4053783416748,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6705678982608259,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  },
+  {
+    "epoch": 10,
+    "optimizer_steps": 5160,
+    "examples_seen": 20620,
+    "train_examples_this_epoch": 2062,
+    "train_answer_loss_sum": 13308.76445388794,
+    "train_answer_token_count": 20659,
+    "train_numeric_mse_z": 0.7337154759533132,
+    "epoch_fully_completed": true,
+    "seconds": 118.98709758743644,
+    "task_gradient_diagnostics": [
+      {
+        "optimizer_step_before_update": 4644,
+        "model_before_update": {
+          "forward_calls": 4978,
+          "off_forward_calls": 0,
+          "padded_text_queries": 4773333,
+          "active_text_positions": 4741676,
+          "logical_bank_payload_bytes": 590504960,
+          "logical_selected_raw_fp32_bytes": 1628979200,
+          "logical_reader_kv_bytes": 1181009920,
+          "logical_relation_kv_bytes": 325795840,
+          "logical_reader_query_bytes": 17107625472,
+          "logical_relation_query_bytes": 162897920,
+          "reader_calls": 34846,
+          "relation_calls": 9956,
+          "reader_attention_edges_including_heads": 1107413256,
+          "relation_attention_edges_including_heads": 10181120,
+          "written_delta_bytes": 14663678976,
+          "variant": "M1",
+          "alpha": -0.01756403222680092,
+          "gate_tanh_alpha": -0.017562225461006165,
+          "routes": {
+            "view": [
+              [
+                1.0,
+                1.8092662923407943e-09
+              ],
+              [
+                1.0,
+                1.8092662923407943e-09
+              ],
+              [
+                1.0,
+                1.8092662923407943e-09
+              ],
+              [
+                1.0,
+                1.8092662923407943e-09
+              ]
+            ],
+            "bank": [
+              [
+                2.403116695859353e-06,
+                1.7576118338524793e-09,
+                5.656068946535697e-10,
+                0.999997615814209
+              ],
+              [
+                2.403116695859353e-06,
+                1.7576118338524793e-09,
+                5.656068946535697e-10,
+                0.999997615814209
+              ],
+              [
+                2.403116695859353e-06,
+                1.7576118338524793e-09,
+                5.656068946535697e-10,
+                0.999997615814209
+              ],
+              [
+                2.403116695859353e-06,
+                1.7576118338524793e-09,
+                5.656068946535697e-10,
+                0.999997615814209
+              ]
+            ]
+          },
+          "communication_semantics": "padded logical tensors; not measured bus traffic"
+        },
+        "tasks": {
+          "answer_ce": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.7582375407218933
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 0.14085859314162838
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.0054344571810202216
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.00530922402468179
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 1.3394799274403291e-13
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 9.752338225059667e-14
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0007302081897736629
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.0025801730783123504
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.06450208940813662
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 0.057030701681374196
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 2.940046078566185e-09
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 4.749226396341594e-06
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.11215291763991692
+            },
+            "numeric_head": {
+              "connected_tensors": 0,
+              "nonzero_tensors": 0,
+              "l2": 0.0
+            }
+          },
+          "numeric_mse": {
+            "alpha": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 57.40481185913086
+            },
+            "projections": {
+              "connected_tensors": 4,
+              "nonzero_tensors": 4,
+              "l2": 4.999213353096939
+            },
+            "type_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.1954667957861126
+            },
+            "source_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 0.19830378365187398
+            },
+            "condition_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 3.0140105784795376e-12
+            },
+            "missing_embedding": {
+              "connected_tensors": 1,
+              "nonzero_tensors": 1,
+              "l2": 2.4022807658889696e-12
+            },
+            "query_norm": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.002478675892085829
+            },
+            "query_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.013041681208426333
+            },
+            "relations": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.7766907832794074
+            },
+            "readers": {
+              "connected_tensors": 16,
+              "nonzero_tensors": 16,
+              "l2": 1.1810473786930902
+            },
+            "view_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 1.0353014964339887e-07
+            },
+            "bank_router": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.00030769406260210326
+            },
+            "output_projection": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 0.99467603644401
+            },
+            "numeric_head": {
+              "connected_tensors": 2,
+              "nonzero_tensors": 2,
+              "l2": 89.28412701418479
+            }
+          }
+        }
+      }
+    ],
+    "model_diagnostics": {
+      "forward_calls": 5493,
+      "off_forward_calls": 0,
+      "padded_text_queries": 5267495,
+      "active_text_positions": 5232502,
+      "logical_bank_payload_bytes": 651619328,
+      "logical_selected_raw_fp32_bytes": 1797570560,
+      "logical_reader_kv_bytes": 1303238656,
+      "logical_relation_kv_bytes": 359514112,
+      "logical_reader_query_bytes": 18878702080,
+      "logical_relation_query_bytes": 179757056,
+      "reader_calls": 38451,
+      "relation_calls": 10986,
+      "reader_attention_edges_including_heads": 1222058840,
+      "relation_attention_edges_including_heads": 11234816,
+      "written_delta_bytes": 16181744640,
+      "variant": "M1",
+      "alpha": -0.01668098196387291,
+      "gate_tanh_alpha": -0.0166794341057539,
+      "routes": {
+        "view": [
+          [
+            1.0,
+            1.9717998345214482e-09
+          ],
+          [
+            1.0,
+            1.9717998345214482e-09
+          ]
+        ],
+        "bank": [
+          [
+            2.2886395072418964e-06,
+            1.8376664634445206e-09,
+            5.940763991851838e-10,
+            0.9999977350234985
+          ],
+          [
+            2.2886395072418964e-06,
+            1.8376664634445206e-09,
+            5.940763991851838e-10,
+            0.9999977350234985
+          ]
+        ]
+      },
+      "communication_semantics": "padded logical tensors; not measured bus traffic"
+    },
+    "validation_answer_loss_sum": 1015.0578880310059,
+    "validation_answer_token_count": 1471,
+    "validation_answer_token_nll": 0.6900461509388212,
+    "validation_rows": 147,
+    "validation_ordered_ids_sha256": "97f80716d395710d390c5ddba590fb7df60ce0b8ba36923bb1033a9a2c47b949"
+  }
+]

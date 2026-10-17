@@ -1,0 +1,47 @@
+{
+  "recorded_at": "2026-10-17T08:51:16.893883+00:00",
+  "source_sha256": "d02e97147bec77140862491cab10a45051a647728d62bb47324621395f5cb787",
+  "source_unchanged": true,
+  "patch_applied": false,
+  "candidate_source_sha256": "fb659c33ea2fe08dd9f2770623d6ba717594899178816efd395033bd9b3bdad9",
+  "helper_function_AST_matches_patch": true,
+  "local_test": {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      ".",
+      "-p",
+      "test_safe_proc.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_disappearing_pid_does_not_escape_read_guard (test_safe_proc.ProcRegressionTests.test_disappearing_pid_does_not_escape_read_guard) ... ok\ntest_exact_pgid_only_excludes_zombie_and_malformed (test_safe_proc.ProcRegressionTests.test_exact_pgid_only_excludes_zombie_and_malformed) ... ok\ntest_real_owned_session_isolated_and_child_exit_observed (test_safe_proc.ProcRegressionTests.test_real_owned_session_isolated_and_child_exit_observed) ... skipped 'requires Linux /proc'\ntest_unavailable_proc_root_fails_explicitly (test_safe_proc.ProcRegressionTests.test_unavailable_proc_root_fails_explicitly) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.010s\n\nOK (skipped=1)\n"
+  },
+  "artifact_sha256": {
+    "mm_supervise_proc_race.patch": "b1f5c0d5984ac927141ff91f07e43d64b5aa7e4030e2fe00833311161d6acb45",
+    "README.md": "f4459524663beb272ca74edf2c52cc3651eb30af44e652172cd59dac63d208ea",
+    "safe_proc.py": "d4f6c81a0fccbb1499e5b533d1cca429a196d9039ac27fe6e1c3963fd95af1dd",
+    "test_safe_proc.py": "404aff97082fddb7f3ec5baa03143e1764c0a8bf275a2ce8c0b5cc6b481c06de"
+  },
+  "linux_test": {
+    "recorded_at": "2026-10-17T08:51:58.962189+00:00",
+    "hostname": "node1",
+    "tests_run": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true,
+    "log": "test_disappearing_pid_does_not_escape_read_guard (test_safe_proc.ProcRegressionTests.test_disappearing_pid_does_not_escape_read_guard) ... ok\ntest_exact_pgid_only_excludes_zombie_and_malformed (test_safe_proc.ProcRegressionTests.test_exact_pgid_only_excludes_zombie_and_malformed) ... ok\ntest_real_owned_session_isolated_and_child_exit_observed (test_safe_proc.ProcRegressionTests.test_real_owned_session_isolated_and_child_exit_observed) ... ok\ntest_unavailable_proc_root_fails_explicitly (test_safe_proc.ProcRegressionTests.test_unavailable_proc_root_fails_explicitly) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.238s\n\nOK\n",
+    "source_transport": "stdin memory only, no remote source writes",
+    "helper_sha256": "d4f6c81a0fccbb1499e5b533d1cca429a196d9039ac27fe6e1c3963fd95af1dd",
+    "test_sha256": "404aff97082fddb7f3ec5baa03143e1764c0a8bf275a2ce8c0b5cc6b481c06de"
+  },
+  "source_unchanged_after_tests": true,
+  "source_private_receipt_sha256": "bd97ac0fae6b8b2dab398657975b003ef9f309cd428b482a9dde6d68f1c7543d",
+  "public_note": "Derived receipt: local command paths normalized; original private receipt retained; test results unchanged."
+}
