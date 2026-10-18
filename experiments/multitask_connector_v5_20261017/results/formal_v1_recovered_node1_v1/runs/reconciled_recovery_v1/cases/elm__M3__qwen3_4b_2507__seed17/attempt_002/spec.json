@@ -1,0 +1,30 @@
+{
+  "schema": "mt-case-spec.v1",
+  "plan_path": "<REMOTE_SCOPE>/configs/queue_formal_v1.json",
+  "plan_sha256": "57524b9a29aed47727b932e1283cc48cf14a944b9b68e55eec450117e163c595",
+  "case": {
+    "case_id": "elm__M3__qwen3_4b_2507__seed17",
+    "task": "elm",
+    "method": "M3",
+    "backbone": "qwen3_4b_2507",
+    "seed": 17
+  },
+  "gpu": 6,
+  "gpu_memory_budget_bytes": 19327352832,
+  "rss_limit_bytes": 68719476736,
+  "expected_host": "<COMPUTE_HOST>",
+  "storage_reserve_bytes": 10737418240,
+  "timeout_seconds": 28800,
+  "cwd": "<REMOTE_SCOPE>",
+  "command": [
+    "<RUNTIME_SYS_EXECUTABLE>",
+    "<REMOTE_SCOPE>/resources/recovery_worker_v1.py",
+    "--mode",
+    "worker",
+    "--spec",
+    "<REMOTE_SCOPE>/runs/recovery_retry_v1/cases/elm__M3__qwen3_4b_2507__seed17/attempt_002/spec.json"
+  ],
+  "recovery_policy_path": "<REMOTE_SCOPE>/configs/recovery_resource_policy_v1.json",
+  "recovery_policy_sha256": "576d9a6577903812e084e6029b3345482b53108c280a46abe4c9b56d2bc8d172",
+  "recovery_adapter_sha256": "e5b2a540283ad713c47e5d683454824269792facb265390a508fcceb13b1d202"
+}

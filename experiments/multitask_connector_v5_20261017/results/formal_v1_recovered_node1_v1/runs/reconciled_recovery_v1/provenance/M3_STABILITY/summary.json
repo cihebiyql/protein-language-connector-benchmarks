@@ -1,0 +1,1315 @@
+{
+  "schema": "v5-recovery-interpretation.v1",
+  "analysis_filename": "analysis.json",
+  "analysis_sha256": "439110eb7751c21fff423feb2789affe3e9f30dd8decb8ade7cbaab98d763a69",
+  "plan_sha256": "57524b9a29aed47727b932e1283cc48cf14a944b9b68e55eec450117e163c595",
+  "data_manifest_sha256": "be4b440b2ee91729af25acc02ab6a248af2b6b8bebaa7b66c11b6002492a9ec5",
+  "analysis_status_counts": {
+    "accepted": 45
+  },
+  "queue_status_counts": {
+    "accepted": 45
+  },
+  "expected_cases": 45,
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "M3_vs_M0": [
+    {
+      "task": "meltome",
+      "backbone": "qwen25_1p5b",
+      "left": "M0",
+      "right": "M3",
+      "metric": "spearman",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-M0",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.6871822819551549,
+          "right": 0.682354556315716,
+          "gain": -0.004827725639438896
+        },
+        {
+          "seed": 42,
+          "left": -0.029124481954791514,
+          "right": 0.01418551495855269,
+          "gain": 0.0433099969133442
+        },
+        {
+          "seed": 2026,
+          "left": 0.6865856465881266,
+          "right": 0.6594711952029706,
+          "gain": -0.027114451385156002
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": 0.0037892732962497683,
+      "sample_sd_gain": 0.03599430833521151,
+      "wins": 1,
+      "ties": 0,
+      "losses": 2,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "meltome",
+      "backbone": "qwen3_4b_2507",
+      "left": "M0",
+      "right": "M3",
+      "metric": "spearman",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-M0",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.6890111041638074,
+          "right": 0.6777395743475471,
+          "gain": -0.01127152981626034
+        },
+        {
+          "seed": 42,
+          "left": 0.6861632938008938,
+          "right": 0.6884279235737227,
+          "gain": 0.00226462977282893
+        },
+        {
+          "seed": 2026,
+          "left": 0.669833780631549,
+          "right": 0.6609183828566272,
+          "gain": -0.008915397774921785
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.0059740992727843984,
+      "sample_sd_gain": 0.0072315511312809,
+      "wins": 1,
+      "ties": 0,
+      "losses": 2,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "elm",
+      "backbone": "qwen25_1p5b",
+      "left": "M0",
+      "right": "M3",
+      "metric": "class_macro_mrr",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-M0",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.03443806560458609,
+          "right": 0.032806751090955766,
+          "gain": -0.0016313145136303275
+        },
+        {
+          "seed": 42,
+          "left": 0.03279569892473118,
+          "right": 0.03366008245040503,
+          "gain": 0.000864383525673848
+        },
+        {
+          "seed": 2026,
+          "left": 0.032806751090955766,
+          "right": 0.03279569892473118,
+          "gain": -1.1052166224587157e-05
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.00025932771806035554,
+      "sample_sd_gain": 0.0012662376309667128,
+      "wins": 1,
+      "ties": 0,
+      "losses": 2,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "elm",
+      "backbone": "qwen3_4b_2507",
+      "left": "M0",
+      "right": "M3",
+      "metric": "class_macro_mrr",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-M0",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.035246064555395196,
+          "right": 0.03504430435619772,
+          "gain": -0.00020176019919747323
+        },
+        {
+          "seed": 42,
+          "left": 0.03279569892473118,
+          "right": 0.032977573857932374,
+          "gain": 0.0001818749332011954
+        },
+        {
+          "seed": 2026,
+          "left": 0.03279569892473118,
+          "right": 0.03284222497932175,
+          "gain": 4.652605459057324e-05
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": 8.88026286476514e-06,
+      "sample_sd_gain": 0.00019456845306635193,
+      "wins": 2,
+      "ties": 0,
+      "losses": 1,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "rt",
+      "backbone": "qwen25_1p5b",
+      "left": "M0",
+      "right": "M3",
+      "metric": "mae",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M0-M3",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 3.6547549360244664,
+          "right": 3.6627160118332904,
+          "gain": -0.007961075808823992
+        },
+        {
+          "seed": 42,
+          "left": 10.992843823080088,
+          "right": 11.005302237696615,
+          "gain": -0.012458414616526525
+        },
+        {
+          "seed": 2026,
+          "left": 3.8795610641198333,
+          "right": 6.16506390335068,
+          "gain": -2.285502839230847
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.7686407765520659,
+      "sample_sd_gain": 1.313643004933107,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "rt",
+      "backbone": "qwen3_4b_2507",
+      "left": "M0",
+      "right": "M3",
+      "metric": "mae",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M0-M3",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 3.5234656886884967,
+          "right": 4.961896997915459,
+          "gain": -1.4384313092269623
+        },
+        {
+          "seed": 42,
+          "left": 3.9614172565033727,
+          "right": 5.320253905047841,
+          "gain": -1.3588366485444685
+        },
+        {
+          "seed": 2026,
+          "left": 4.988482137805,
+          "right": 5.115410213633869,
+          "gain": -0.1269280758288689
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.9747320112000999,
+      "sample_sd_gain": 0.7352975330609373,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    }
+  ],
+  "M3_vs_ESM": [
+    {
+      "task": "meltome",
+      "backbone": "qwen25_1p5b",
+      "left": "ESM",
+      "right": "M3",
+      "metric": "spearman",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-ESM",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.6832358409437658,
+          "right": 0.682354556315716,
+          "gain": -0.0008812846280498166
+        },
+        {
+          "seed": 42,
+          "left": 0.6974137624063116,
+          "right": 0.01418551495855269,
+          "gain": -0.6832282474477589
+        },
+        {
+          "seed": 2026,
+          "left": 0.6957748678289967,
+          "right": 0.6594711952029706,
+          "gain": -0.03630367262602607
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.2401377349006116,
+      "sample_sd_gain": 0.38413615831478304,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "meltome",
+      "backbone": "qwen3_4b_2507",
+      "left": "ESM",
+      "right": "M3",
+      "metric": "spearman",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-ESM",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.6832358409437658,
+          "right": 0.6777395743475471,
+          "gain": -0.005496266596218713
+        },
+        {
+          "seed": 42,
+          "left": 0.6974137624063116,
+          "right": 0.6884279235737227,
+          "gain": -0.008985838832588855
+        },
+        {
+          "seed": 2026,
+          "left": 0.6957748678289967,
+          "right": 0.6609183828566272,
+          "gain": -0.034856484972369484
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.01644619680039235,
+      "sample_sd_gain": 0.016038962295910612,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "elm",
+      "backbone": "qwen25_1p5b",
+      "left": "ESM",
+      "right": "M3",
+      "metric": "class_macro_mrr",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-ESM",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.05403367058339527,
+          "right": 0.032806751090955766,
+          "gain": -0.021226919492439503
+        },
+        {
+          "seed": 42,
+          "left": 0.04665237857289456,
+          "right": 0.03366008245040503,
+          "gain": -0.012992296122489533
+        },
+        {
+          "seed": 2026,
+          "left": 0.07456024868339976,
+          "right": 0.03279569892473118,
+          "gain": -0.041764549758668584
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.025327921791199207,
+      "sample_sd_gain": 0.014818040009292016,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "elm",
+      "backbone": "qwen3_4b_2507",
+      "left": "ESM",
+      "right": "M3",
+      "metric": "class_macro_mrr",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "M3-ESM",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 0.05403367058339527,
+          "right": 0.03504430435619772,
+          "gain": -0.018989366227197546
+        },
+        {
+          "seed": 42,
+          "left": 0.04665237857289456,
+          "right": 0.032977573857932374,
+          "gain": -0.013674804714962185
+        },
+        {
+          "seed": 2026,
+          "left": 0.07456024868339976,
+          "right": 0.03284222497932175,
+          "gain": -0.04171802370407801
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -0.024794064882079248,
+      "sample_sd_gain": 0.01489551703276411,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "rt",
+      "backbone": "qwen25_1p5b",
+      "left": "ESM",
+      "right": "M3",
+      "metric": "mae",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "ESM-M3",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 3.365953831986097,
+          "right": 3.6627160118332904,
+          "gain": -0.29676217984719333
+        },
+        {
+          "seed": 42,
+          "left": 3.6099350125371004,
+          "right": 11.005302237696615,
+          "gain": -7.395367225159514
+        },
+        {
+          "seed": 2026,
+          "left": 3.4358254713575898,
+          "right": 6.16506390335068,
+          "gain": -2.7292384319930907
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -3.473789278999933,
+      "sample_sd_gain": 3.607397312491007,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    },
+    {
+      "task": "rt",
+      "backbone": "qwen3_4b_2507",
+      "left": "ESM",
+      "right": "M3",
+      "metric": "mae",
+      "required_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "gain_definition": "ESM-M3",
+      "positive_gain_favors": "M3",
+      "source_present": true,
+      "pairs": [
+        {
+          "seed": 17,
+          "left": 3.365953831986097,
+          "right": 4.961896997915459,
+          "gain": -1.595943165929362
+        },
+        {
+          "seed": 42,
+          "left": 3.6099350125371004,
+          "right": 5.320253905047841,
+          "gain": -1.7103188925107409
+        },
+        {
+          "seed": 2026,
+          "left": 3.4358254713575898,
+          "right": 5.115410213633869,
+          "gain": -1.6795847422762789
+        }
+      ],
+      "complete_three_seeds": true,
+      "n_complete_pairs": 3,
+      "mean_gain": -1.6619489335721271,
+      "sample_sd_gain": 0.0591922124881446,
+      "wins": 0,
+      "ties": 0,
+      "losses": 3,
+      "source_right_better_all_three": false,
+      "three_of_three_favors_M3": false,
+      "interpretation": "三个种子已齐，结果未满足3/3同方向有利于M3。",
+      "source_direction_consistent": true
+    }
+  ],
+  "overall_M3_vs_M0": {
+    "complete_strata": 6,
+    "expected_strata": 6,
+    "all_strata_mean_gain_positive": false,
+    "supports_universal_stable_advantage": false,
+    "status": "not_universally_stable",
+    "conclusion": "六个任务×底座层均完成三种子，但未全部呈现3/3同方向有利；当前结果不支持M3跨任务、跨底座的普遍稳定优势。"
+  },
+  "frozen_arm_metrics": [
+    {
+      "task": "meltome",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 2.764008260916656,
+      "sample_sd": 0.0562136694253102
+    },
+    {
+      "task": "meltome",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 3.5381769854540126,
+      "sample_sd": 0.055614434098937224
+    },
+    {
+      "task": "meltome",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.6921414903930246,
+      "sample_sd": 0.007755929212138423
+    },
+    {
+      "task": "meltome",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 2.7569397060703555,
+      "sample_sd": 0.0562763515515119
+    },
+    {
+      "task": "meltome",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 2.764447725121621,
+      "sample_sd": 0.05674373777707169
+    },
+    {
+      "task": "meltome",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 3.346666335856335,
+      "sample_sd": 0.5946681798038697
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 4.2320473112889,
+      "sample_sd": 0.657904592427937
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.44821448219616333,
+      "sample_sd": 0.4133877768100675
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 3.3526383804314315,
+      "sample_sd": 0.5991008877131013
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 3.3593399213797452,
+      "sample_sd": 0.5985306511873688
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 3.4875679350447992,
+      "sample_sd": 0.5667634420008206
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 4.367989260053445,
+      "sample_sd": 0.8580916809606426
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.45200375549241306,
+      "sample_sd": 0.3793343127929215
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 3.489257168200988,
+      "sample_sd": 0.5763111016773801
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 3.495923456726388,
+      "sample_sd": 0.5759176226833285
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 3.558984890446079,
+      "sample_sd": 0.41624710470622955
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 4.278224430174893,
+      "sample_sd": 0.4172644453386464
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.6816693928654167,
+      "sample_sd": 0.010348371547187487
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 3.5532628004823334,
+      "sample_sd": 0.41494110971762693
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 3.560056217636074,
+      "sample_sd": 0.41509121240068186
+    },
+    {
+      "task": "meltome",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 3.0841172005356623,
+      "sample_sd": 0.02086085183207129
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 4.051323148166703,
+      "sample_sd": 0.030306233311332014
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.6756952935926324,
+      "sample_sd": 0.013868237828580477
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 3.088645754832557,
+      "sample_sd": 0.01795122400467592
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 3.096213420737659,
+      "sample_sd": 0.01773352798029028
+    },
+    {
+      "task": "meltome",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "elm",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "class_macro_mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.058415432613229866,
+      "sample_sd": 0.014460711683412493
+    },
+    {
+      "task": "elm",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.05707678492174876,
+      "sample_sd": 0.011492644029959835
+    },
+    {
+      "task": "elm",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "recall_at_1",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "recall_at_3",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "class_macro_mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.03334683854009101,
+      "sample_sd": 0.0009450465159501289
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.03359571556796056,
+      "sample_sd": 0.001029522053033527
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "recall_at_1",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "recall_at_3",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "class_macro_mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.03308751082203066,
+      "sample_sd": 0.0004958923671614858
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.03338759419663153,
+      "sample_sd": 0.0006690602271917556
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "recall_at_1",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "recall_at_3",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "class_macro_mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.03361248746828585,
+      "sample_sd": 0.0014147192564768773
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.03397601974092996,
+      "sample_sd": 0.0017012982133520153
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "recall_at_1",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "recall_at_3",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "class_macro_mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.03362136773115062,
+      "sample_sd": 0.0012341561120501024
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "mrr",
+      "n_valid_seeds": 3,
+      "mean": 0.034020303439588916,
+      "sample_sd": 0.0015546459480100209
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "recall_at_1",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "elm",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "recall_at_3",
+      "n_valid_seeds": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0
+    },
+    {
+      "task": "rt",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 3.470571438626929,
+      "sample_sd": 0.12564698880942915
+    },
+    {
+      "task": "rt",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 4.605554142563229,
+      "sample_sd": 0.09543791957632602
+    },
+    {
+      "task": "rt",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.9435488764439386,
+      "sample_sd": 0.0002612139858408887
+    },
+    {
+      "task": "rt",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 3.470571438626929,
+      "sample_sd": 0.12564698880942915
+    },
+    {
+      "task": "rt",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 3.470571438626929,
+      "sample_sd": 0.12564698880942915
+    },
+    {
+      "task": "rt",
+      "method": "ESM",
+      "backbone": null,
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 6.175719941074796,
+      "sample_sd": 4.173265666087723
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 7.754907237826745,
+      "sample_sd": 4.797924679639824
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.6015461026053764,
+      "sample_sd": 0.5660806218696832
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 6.175719941074796,
+      "sample_sd": 4.173265666087723
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 6.175719941074796,
+      "sample_sd": 4.173265666087723
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 6.944360717626862,
+      "sample_sd": 3.7328100359669
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 8.372620310156247,
+      "sample_sd": 4.160615119376178
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.6122824956675552,
+      "sample_sd": 0.538308806693227
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 6.944360717626862,
+      "sample_sd": 3.7328100359669
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 6.944360717626862,
+      "sample_sd": 3.7328100359669
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen25_1p5b",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 4.157788360998956,
+      "sample_sd": 0.7519903636723634
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 5.4106739412071105,
+      "sample_sd": 0.9662267437004847
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.9174123668809101,
+      "sample_sd": 0.02198346513825345
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 4.157788360998956,
+      "sample_sd": 0.7519903636723634
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 4.157788360998956,
+      "sample_sd": 0.7519903636723634
+    },
+    {
+      "task": "rt",
+      "method": "M0",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "mae",
+      "n_valid_seeds": 3,
+      "mean": 5.132520372199056,
+      "sample_sd": 0.17979011754533702
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "rmse",
+      "n_valid_seeds": 3,
+      "mean": 6.502125452454521,
+      "sample_sd": 0.19024594706031897
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "spearman",
+      "n_valid_seeds": 3,
+      "mean": 0.8952824228233794,
+      "sample_sd": 0.013252068875945383
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_mae",
+      "n_valid_seeds": 3,
+      "mean": 5.132520372199056,
+      "sample_sd": 0.17979011754533702
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_rmse",
+      "n_valid_seeds": 3,
+      "mean": 5.132520372199056,
+      "sample_sd": 0.17979011754533702
+    },
+    {
+      "task": "rt",
+      "method": "M3",
+      "backbone": "qwen3_4b_2507",
+      "metric": "group_macro_spearman",
+      "n_valid_seeds": 0,
+      "mean": null,
+      "sample_sd": null
+    }
+  ],
+  "interpretation_policy": {
+    "no_run_or_seed_selection": true,
+    "means_and_sample_sd_require_three_seeds": true,
+    "direction_consistency_is_statistical_significance": false,
+    "seed_repeats_are": "training repeats, not biological replicates",
+    "no_pooling_of_different_task_metric_units": true,
+    "language_and_C1": "Separate channels in the complete source analysis; no values imputed here.",
+    "ELM_scope": "31-candidate function-description retrieval and strict generated-text catalog matching."
+  },
+  "recovery_context": "恢复针对ELM、M3、qwen3_4b_2507、seed17加载阶段的OOM；旧失败记录由恢复流程保留，补跑原因是技术性显存失败。数据划分、评价指标、训练预算和种子集合保持冻结。"
+}

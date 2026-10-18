@@ -1,0 +1,26 @@
+{
+  "schema": "mt-case-spec.v1",
+  "plan_path": "<REMOTE_SCOPE>/configs/queue_formal_v1.json",
+  "plan_sha256": "57524b9a29aed47727b932e1283cc48cf14a944b9b68e55eec450117e163c595",
+  "case": {
+    "case_id": "rt__M3__qwen25_1p5b__seed17",
+    "task": "rt",
+    "method": "M3",
+    "backbone": "qwen25_1p5b",
+    "seed": 17
+  },
+  "gpu": 3,
+  "gpu_memory_budget_bytes": 8589934592,
+  "rss_limit_bytes": 68719476736,
+  "expected_host": "<COMPUTE_HOST>",
+  "storage_reserve_bytes": 10737418240,
+  "timeout_seconds": 28800,
+  "cwd": "<REMOTE_SCOPE>",
+  "command": [
+    "<RUNTIME_SYS_EXECUTABLE>",
+    "-m",
+    "src.mt_case",
+    "--spec",
+    "<REMOTE_SCOPE>/runs/formal_v1/cases/rt__M3__qwen25_1p5b__seed17/attempt_001/spec.json"
+  ]
+}

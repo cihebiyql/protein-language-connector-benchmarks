@@ -1,0 +1,123 @@
+{
+  "schema": "multitask-frozen-views.v1",
+  "source_pins": {
+    "experiments/multitask_benchmark_v1_20261017/data/meltome/human.csv": "cfafab67d5e29188fe0846ab48cdf6aff36aaf4ccd635b7b66bb4002a939822c",
+    "data/processed/bench_v02/b1_homology_locked/b1_samples.jsonl": "8ec8591fe51ea001683da01c0b91a3b3f226e9772097bbc5c2f16b8151424d8d",
+    "data/processed/bench_v02/b1_homology_locked/b1_candidates_main.jsonl": "f4bb1c6ec0c31fa6cb93319b65afb8a487766edee45780f5ad7761922c4b42ec",
+    "data/processed/bench_v02/b1_homology_locked/benchmark_lock.json": "5b8ffbe6a148bf3569c552402e900d33de70877546c6aba0a82ba958c76ddef8",
+    "data/processed/foundation_20261016/rt_target_diagnostic/frozen_protocol.json": "8a15cce4d1daf5d7e7ddb2aa1f85750975a3b7a60ad4bca36d535d81962520ed",
+    "data/processed/foundation_20261016/rt_target_diagnostic/train.jsonl": "b16cf3165746d827da9bdbfe7ce2e4d7592e71e0ec2bdac82cfdb2b56cfb1a50",
+    "data/processed/foundation_20261016/rt_target_diagnostic/validation.jsonl": "f61f2ae4ccad234a3ef631987af8cc2bc7ca204e259219f61e1e2f103c42645c",
+    "data/processed/foundation_20261016/rt_target_diagnostic/selection.jsonl": "763d2b6c0ed2b1c87df1a34054057591d1cf7e7185fb3954ffee491afb9a9984",
+    "data/processed/foundation_20261016/rt_target_diagnostic/calibration.jsonl": "498df1e684d11c4bd5813f5f430e0a35a08cbac3f14a73fc9fa740ee6414fe61",
+    "data/processed/foundation_20261016/rt_target_diagnostic/test.jsonl": "03ed93ce1a963510ff50e4bf8bb76e10b4d24b022f9af6be7a60b81d03e57b5c"
+  },
+  "files": {
+    "meltome/train.jsonl": {
+      "sha256": "e96258eabf97d1be5f6ef2d4ab4f9790ca913e071994277c838faa262eeca360",
+      "rows": 7287
+    },
+    "meltome/validation.jsonl": {
+      "sha256": "091d7457a9ea0d9fbc4814ef2a30862b8e9ab6d764d155ad01bceb111fb52faf",
+      "rows": 861
+    },
+    "meltome/test.jsonl": {
+      "sha256": "4ce20348323d24f7f98f67f1d08315c6b581de26cf043efcde7e58618ffd70fb",
+      "rows": 1945
+    },
+    "elm/train.jsonl": {
+      "sha256": "6ceeacce87cfad4a2425f4d5343ad3f56a26901b68e38497092e004e12d5df61",
+      "rows": 378
+    },
+    "elm/validation.jsonl": {
+      "sha256": "5ade3e066535c6c787953073e963d3507aff7372e6c4b9a34bfbee260f948d2f",
+      "rows": 134
+    },
+    "elm/test.jsonl": {
+      "sha256": "da016b49aacdc4689ded22ba2d5729559dcddb58f724e0fddfb115ba641742a4",
+      "rows": 76
+    },
+    "rt/train.jsonl": {
+      "sha256": "c7e18760e7a157f12e58bc2554a8a3b7b2c55ace02cd17bda029795c827c2014",
+      "rows": 4952
+    },
+    "rt/selection.jsonl": {
+      "sha256": "33f68b6330ea96db11dc86d1f16f635741b5ccfde4060101b6fbb8011462d24a",
+      "rows": 525
+    },
+    "rt/calibration.jsonl": {
+      "sha256": "12b6813ffe897cb2e4789dfe7454800196ff87b1be1f003bc88284ca7cce6f6f",
+      "rows": 530
+    },
+    "rt/test.jsonl": {
+      "sha256": "9147cb524d6787b7534a163a7058830a5ad36fab2b3fe657370144df3d89697a",
+      "rows": 1063
+    },
+    "rt/validation.jsonl": {
+      "sha256": "6446d30057a5fc0fad56765dd4fa13fd92f24a92234c86725b4caff1ac8c09ba",
+      "rows": 1055
+    },
+    "elm/candidates.jsonl": {
+      "sha256": "8e6916f088f55f2a778badb666de85e2bd023a74421cc05a86f0ee28818af17b",
+      "rows": 31
+    }
+  },
+  "tasks": {
+    "meltome": {
+      "counts": {
+        "train": 7287,
+        "validation": 861,
+        "test": 1945
+      },
+      "unique_sequences": 9792,
+      "raw_residues_unique": 6200866,
+      "sequence_cross_split_overlap": 0,
+      "noncanonical_residue_counts": {
+        "U": 27
+      }
+    },
+    "elm": {
+      "counts": {
+        "train": 378,
+        "validation": 134,
+        "test": 76
+      },
+      "unique_sequences": 558,
+      "raw_residues_unique": 4407,
+      "sequence_cross_split_overlap": 0,
+      "noncanonical_residue_counts": {}
+    },
+    "rt": {
+      "counts": {
+        "train": 4952,
+        "selection": 525,
+        "calibration": 530,
+        "test": 1063,
+        "validation": 1055
+      },
+      "unique_sequences": 6929,
+      "raw_residues_unique": 120701,
+      "sequence_cross_split_overlap": 0,
+      "noncanonical_residue_counts": {}
+    }
+  },
+  "condition_fields": [
+    "task",
+    "molecule_scope",
+    "pH",
+    "phase",
+    "stationary_phase",
+    "mobile_phase_A",
+    "mobile_phase_B",
+    "sample",
+    "stereochemistry",
+    "modifications"
+  ],
+  "condition_buckets": 4096,
+  "condition_policy": "registered safe fields only; missing=0; field-aware SHA256, no IDs/classes/gold/publication metadata",
+  "expected_sequences": 17279,
+  "expected_residues": 6325974,
+  "rt_validation_role": "audit union; selection=checkpoint only; calibration=post-selection interval only",
+  "test_labels_usage": "schema/integrity only during preparation",
+  "source_code_sha256": "9782a2658cf2e1e6371fb7fe5ed7c4d92d65ea8d1d323d53d151240ecef73373"
+}
