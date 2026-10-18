@@ -1,0 +1,128 @@
+{
+  "schema": "v6-progress-with-independent-partial-rescore.v1",
+  "snapshot_at": "2026-10-18T20:48:52.618552+08:00",
+  "status": "running_partial_results",
+  "expected_cases": 9,
+  "counts": {
+    "pending": 3,
+    "running": 3,
+    "accepted": 3,
+    "failed": 0
+  },
+  "accepted_cases": 3,
+  "completed_case_metrics": {
+    "TEXT__seed17": {
+      "primary": 0.9239274009823109,
+      "joint_all_correct": 0.8054226475279107,
+      "questions": {
+        "rt": {
+          "balanced_accuracy": 0.9162195497995682,
+          "accuracy": 0.9170653907496013,
+          "valid_rate": 1.0
+        },
+        "ccs": {
+          "balanced_accuracy": 0.9316352521650535,
+          "accuracy": 0.9330143540669856,
+          "valid_rate": 1.0
+        },
+        "both": {
+          "balanced_accuracy": 0.8301026436272338,
+          "accuracy": 0.886762360446571,
+          "valid_rate": 1.0
+        }
+      },
+      "arm": "TEXT",
+      "seed": 17,
+      "epochs_completed": 6,
+      "normal_predictions_sha256": "64db31c192da06a3507c2d496f5d33b6def160c211a205d5fe92b2d4bc4b5f63",
+      "completion_sha256": "4ca40a3ca6f2ad3601875ad1cbbc907f1c582636c9477bb14106468f96afe94c"
+    },
+    "M0__seed17": {
+      "primary": 0.7790705518952298,
+      "joint_all_correct": 0.6140350877192983,
+      "questions": {
+        "rt": {
+          "balanced_accuracy": 0.7674992291088498,
+          "accuracy": 0.7719298245614035,
+          "valid_rate": 1.0
+        },
+        "ccs": {
+          "balanced_accuracy": 0.7906418746816097,
+          "accuracy": 0.7942583732057417,
+          "valid_rate": 1.0
+        },
+        "both": {
+          "balanced_accuracy": 0.8654002363018756,
+          "accuracy": 0.8548644338118022,
+          "valid_rate": 1.0
+        }
+      },
+      "arm": "M0",
+      "seed": 17,
+      "epochs_completed": 6,
+      "normal_predictions_sha256": "69cb5b037d8e23ac5249857aa86a4cabc965cc6f6ac2e14d4fdb3f29726be8e8",
+      "completion_sha256": "b92aedfdb81063d24ee7f25c2a282e7d08c12b00437211733f0b551af1ab31d6"
+    },
+    "M3__seed17": {
+      "primary": 0.7753088756236443,
+      "joint_all_correct": 0.5964912280701754,
+      "questions": {
+        "rt": {
+          "balanced_accuracy": 0.7641073080481036,
+          "accuracy": 0.7703349282296651,
+          "valid_rate": 1.0
+        },
+        "ccs": {
+          "balanced_accuracy": 0.786510443199185,
+          "accuracy": 0.7910685805422647,
+          "valid_rate": 1.0
+        },
+        "both": {
+          "balanced_accuracy": 0.8742800177226406,
+          "accuracy": 0.8947368421052632,
+          "valid_rate": 1.0
+        }
+      },
+      "arm": "M3",
+      "seed": 17,
+      "epochs_completed": 6,
+      "normal_predictions_sha256": "6de91fba04cdb9132af76f5c6a92fb0b83215d8f1ecb097a7175084e3a9b8811",
+      "completion_sha256": "456ebd98bd08343b4c1767c325f77de11654ab3a05dbf510e12d84a9c5fa627d"
+    }
+  },
+  "running_cases": [
+    {
+      "case": "TEXT__seed42",
+      "GPU": 3,
+      "epoch": 4,
+      "updates": 4142
+    },
+    {
+      "case": "M0__seed42",
+      "GPU": 5,
+      "epoch": 4,
+      "updates": 3579
+    },
+    {
+      "case": "M3__seed42",
+      "GPU": 6,
+      "epoch": 4,
+      "updates": 3417
+    }
+  ],
+  "test_peptides": 627,
+  "three_seed_summary_available": false,
+  "direction_decision": "pending_complete_three_seeds",
+  "frozen_manifest_sha256": "e3795b965abd8b98df8680e3dd820478a9bbef2c225746c1e0a39dae30c6c615",
+  "node1_independent_verified": true,
+  "scheduled_monitor": false,
+  "additional_operational_entrypoint_sha256": "4b7687c3f1b8a865f2d5672ec1101ef3ba5c63472b4075866b7acb21e5c2504c",
+  "parallel_motifae_pilot": {
+    "status": "complete_pilot_no_incremental_gain",
+    "completed_answers": 1608,
+    "expected_answers": 1608,
+    "decision": "pause_current_motifae_evidence_card_extension",
+    "verified_report_commit": "0d9ac604075e8c800aa78ea7347d0dc48bb2e3df",
+    "v6_final_direction_decision_still_requires_all_three_seeds": true
+  }
+}
