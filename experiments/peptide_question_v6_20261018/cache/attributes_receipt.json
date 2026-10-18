@@ -1,0 +1,762 @@
+{
+  "contract": {
+    "data_manifest_sha256": "5deb34a385875ad23bce97f1020abcf0c62d08e28bd908800c6a3dd0a0c34f81",
+    "endpoint_order": [
+      "rt",
+      "ccs"
+    ],
+    "feature_sha256": "acb640496f3e6b048ee0678e7e0b50576a484f591895b21cab2fa9782ad06035",
+    "specialist_source_sha256": "49e0b0597a6cc815fa140926473204e0552cfe5978ade7ff5b6124d8a580bb9b"
+  },
+  "elapsed_seconds": 10.584248766303062,
+  "endpoint_order": [
+    "rt",
+    "ccs"
+  ],
+  "experiment_vocabulary": [
+    "MissingGeneSet",
+    "Proteotypic",
+    "SRMATLAS"
+  ],
+  "external_labels_used": false,
+  "feature_spec": {
+    "esm_columns": "mean of eight ordered p15 and p30 slots;1280 values",
+    "excluded": [
+      "measured Mass",
+      "Intensity",
+      "Score",
+      "measured RT",
+      "measured CCS",
+      "identity",
+      "group_id"
+    ],
+    "physics_columns": [
+      "20_amino_acid_fractions",
+      "length",
+      "gravy",
+      "three_experiment_indicators"
+    ]
+  },
+  "final": {
+    "basis_value_count": 0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "endpoint_standardized_mse": [
+          0.17822796180684355,
+          0.08340423682003216
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.13081609931343785
+      },
+      {
+        "alpha": 1.0,
+        "endpoint_standardized_mse": [
+          0.17819714595788327,
+          0.08342493849162912
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.1308110422247562
+      },
+      {
+        "alpha": 10.0,
+        "endpoint_standardized_mse": [
+          0.17791225176375175,
+          0.0836763773877417
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.13079431457574672
+      },
+      {
+        "alpha": 0.1,
+        "endpoint_standardized_mse": [
+          0.28175334767304877,
+          0.13561391527982178
+        ],
+        "family": "esm_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.20868363147643526
+      },
+      {
+        "alpha": 1.0,
+        "endpoint_standardized_mse": [
+          0.250175623726484,
+          0.12396157497944232
+        ],
+        "family": "esm_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.18706859935296316
+      },
+      {
+        "alpha": 10.0,
+        "endpoint_standardized_mse": [
+          0.17562436003562276,
+          0.09829828644204731
+        ],
+        "family": "esm_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.13696132323883503
+      },
+      {
+        "alpha": 0.1,
+        "endpoint_standardized_mse": [
+          0.15019734693978734,
+          0.12383626850307385
+        ],
+        "family": "esm_rbf",
+        "gamma": 0.0007662835249042146,
+        "inner_standardized_mse": 0.1370168077214306
+      },
+      {
+        "alpha": 1.0,
+        "endpoint_standardized_mse": [
+          0.17328905121428775,
+          0.15061152375172135
+        ],
+        "family": "esm_rbf",
+        "gamma": 0.0007662835249042146,
+        "inner_standardized_mse": 0.16195028748300455
+      },
+      {
+        "alpha": 10.0,
+        "endpoint_standardized_mse": [
+          0.29720824658636696,
+          0.28202427494182786
+        ],
+        "family": "esm_rbf",
+        "gamma": 0.0007662835249042146,
+        "inner_standardized_mse": 0.2896162607640974
+      }
+    ],
+    "coefficient_count": 50,
+    "feature_columns": 25,
+    "inner_fit_groups": 2250,
+    "inner_fit_rows": 2265,
+    "inner_group_overlap": 0,
+    "inner_holdout_groups": 577,
+    "inner_holdout_rows": 580,
+    "selected": {
+      "alpha": 10.0,
+      "endpoint_standardized_mse": [
+        0.17791225176375175,
+        0.0836763773877417
+      ],
+      "family": "physics_ridge",
+      "gamma": null,
+      "inner_standardized_mse": 0.13079431457574672
+    }
+  },
+  "final_train_target_mean": [
+    24.896873704745147,
+    408.8761013740473
+  ],
+  "final_train_target_population_std": [
+    10.042919266517819,
+    46.43536022301366
+  ],
+  "fold_rule": "SHA256(oof-v1 NUL group) modulo5",
+  "inner_rule": "SHA256(inner-v1 NUL group) modulo5 equals0; grouped20percent",
+  "model_sha256": "909c13ff8681c88004f060061534b4d02f0120f3beba6cd19c458ffb06be6c08",
+  "outer_folds": [
+    {
+      "basis_value_count": 0,
+      "candidates": [
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.16799058710166814,
+            0.08622703525766487
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.1271088111796665
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.1679412728236804,
+            0.08626012909959348
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.12710070096163695
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.16748580623607967,
+            0.08665907842360902
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.12707244232984435
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.3879131911700571,
+            0.1993292492273285
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.2936212201986928
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.3050102513729731,
+            0.16592019758582974
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.23546522447940144
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.18399526074640413,
+            0.11888441566327944
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.15143983820484178
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.14718526521832329,
+            0.14442130124239544
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.14580328323035935
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.17157312751743709,
+            0.17805865967577458
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.17481589359660582
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.31126082725385873,
+            0.3363958186906357
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.3238283229722472
+        }
+      ],
+      "coefficient_count": 50,
+      "excluded_groups": 522,
+      "feature_columns": 25,
+      "fit_groups": 2305,
+      "fit_rows": 2321,
+      "fold": 0,
+      "heldout_rows": 524,
+      "inner_fit_groups": 1841,
+      "inner_fit_rows": 1854,
+      "inner_group_overlap": 0,
+      "inner_holdout_groups": 464,
+      "inner_holdout_rows": 467,
+      "outer_group_overlap": 0,
+      "selected": {
+        "alpha": 10.0,
+        "endpoint_standardized_mse": [
+          0.16748580623607967,
+          0.08665907842360902
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.12707244232984435
+      }
+    },
+    {
+      "basis_value_count": 0,
+      "candidates": [
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.19059998848289464,
+            0.08797079457555053
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.1392853915292226
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.19056168940442206,
+            0.08799086155242852
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.1392762754784253
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.19021321827647358,
+            0.08826246675633626
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.13923784251640492
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.40825148723251925,
+            0.21594941185116803
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.3121004495418436
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.31096541148699286,
+            0.1565312296464426
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.23374832056671774
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.18999420812401838,
+            0.10503586334338759
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.14751503573370298
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.15944512627948856,
+            0.14478333580593158
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.15211423104271007
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.18570763100638626,
+            0.1741983603342984
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.17995299567034234
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.3208065898047659,
+            0.3208993056987569
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.32085294775176143
+        }
+      ],
+      "coefficient_count": 50,
+      "excluded_groups": 596,
+      "feature_columns": 25,
+      "fit_groups": 2231,
+      "fit_rows": 2246,
+      "fold": 1,
+      "heldout_rows": 599,
+      "inner_fit_groups": 1784,
+      "inner_fit_rows": 1796,
+      "inner_group_overlap": 0,
+      "inner_holdout_groups": 447,
+      "inner_holdout_rows": 450,
+      "outer_group_overlap": 0,
+      "selected": {
+        "alpha": 10.0,
+        "endpoint_standardized_mse": [
+          0.19021321827647358,
+          0.08826246675633626
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.13923784251640492
+      }
+    },
+    {
+      "basis_value_count": 0,
+      "candidates": [
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.19267304398040172,
+            0.07867692279293911
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.13567498338667042
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.19261375884209822,
+            0.07870649135217216
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.13566012509713518
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.19205987966089255,
+            0.07907123256671829
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.1355655561138054
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.36954885222471257,
+            0.167801371515603
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.2686751118701578
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.29854878258770573,
+            0.13893972876951607
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.2187442556786109
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.1969450068236562,
+            0.09853889474239795
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.14774195078302707
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.172305415642471,
+            0.1220635356013908
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.1471844756219309
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.19691938316025015,
+            0.15493238766651934
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.17592588541338475
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.3308360140897762,
+            0.31151594662335824
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.32117598035656725
+        }
+      ],
+      "coefficient_count": 50,
+      "excluded_groups": 541,
+      "feature_columns": 25,
+      "fit_groups": 2286,
+      "fit_rows": 2304,
+      "fold": 2,
+      "heldout_rows": 541,
+      "inner_fit_groups": 1814,
+      "inner_fit_rows": 1829,
+      "inner_group_overlap": 0,
+      "inner_holdout_groups": 472,
+      "inner_holdout_rows": 475,
+      "outer_group_overlap": 0,
+      "selected": {
+        "alpha": 10.0,
+        "endpoint_standardized_mse": [
+          0.19205987966089255,
+          0.07907123256671829
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.1355655561138054
+      }
+    },
+    {
+      "basis_value_count": 0,
+      "candidates": [
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.16165814340901521,
+            0.08234243634199033
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.12200028987550277
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.1616530516900139,
+            0.08237793814927821
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.12201549491964606
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.16163513417055686,
+            0.08279979578176322
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.12221746497616004
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.37639966409615827,
+            0.17770707886846715
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.2770533714823127
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.3038614377966233,
+            0.14329422769173755
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.22357783274418042
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.18246820248769377,
+            0.1045403792562774
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.14350429087198557
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.15270347341548876,
+            0.12931978453160645
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.1410116289735476
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.17685703688241056,
+            0.15494214625574323
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.1658995915690769
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.3297371591663653,
+            0.2919046075966415
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.3108208833815034
+        }
+      ],
+      "coefficient_count": 50,
+      "excluded_groups": 559,
+      "feature_columns": 25,
+      "fit_groups": 2268,
+      "fit_rows": 2278,
+      "fold": 3,
+      "heldout_rows": 567,
+      "inner_fit_groups": 1802,
+      "inner_fit_rows": 1812,
+      "inner_group_overlap": 0,
+      "inner_holdout_groups": 466,
+      "inner_holdout_rows": 466,
+      "outer_group_overlap": 0,
+      "selected": {
+        "alpha": 0.1,
+        "endpoint_standardized_mse": [
+          0.16165814340901521,
+          0.08234243634199033
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.12200028987550277
+      }
+    },
+    {
+      "basis_value_count": 0,
+      "candidates": [
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.18273927089467104,
+            0.08375084342022371
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.1332450571574474
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.182699856266781,
+            0.08376157091276785
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.13323071358977442
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.18234407161707933,
+            0.08394024598516238
+          ],
+          "family": "physics_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.13314215880112085
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.44512352261517946,
+            0.24591804238918888
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.34552078250218415
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.34360037407320054,
+            0.17439279932084503
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.2589965866970228
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.20286971078059768,
+            0.09726068261871561
+          ],
+          "family": "esm_ridge",
+          "gamma": null,
+          "inner_standardized_mse": 0.15006519669965665
+        },
+        {
+          "alpha": 0.1,
+          "endpoint_standardized_mse": [
+            0.1630880671179901,
+            0.12076094941558471
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.1419245082667874
+        },
+        {
+          "alpha": 1.0,
+          "endpoint_standardized_mse": [
+            0.18923840788376017,
+            0.14679395019085067
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.16801617903730542
+        },
+        {
+          "alpha": 10.0,
+          "endpoint_standardized_mse": [
+            0.33075375946287017,
+            0.28895480612014784
+          ],
+          "family": "esm_rbf",
+          "gamma": 0.0007662835249042146,
+          "inner_standardized_mse": 0.309854282791509
+        }
+      ],
+      "coefficient_count": 50,
+      "excluded_groups": 609,
+      "feature_columns": 25,
+      "fit_groups": 2218,
+      "fit_rows": 2231,
+      "fold": 4,
+      "heldout_rows": 614,
+      "inner_fit_groups": 1759,
+      "inner_fit_rows": 1769,
+      "inner_group_overlap": 0,
+      "inner_holdout_groups": 459,
+      "inner_holdout_rows": 462,
+      "outer_group_overlap": 0,
+      "selected": {
+        "alpha": 10.0,
+        "endpoint_standardized_mse": [
+          0.18234407161707933,
+          0.08394024598516238
+        ],
+        "family": "physics_ridge",
+        "gamma": null,
+        "inner_standardized_mse": 0.13314215880112085
+      }
+    }
+  ],
+  "prediction_rows": 1251,
+  "schema": "nested-grouped-train-only-specialists.v1",
+  "selection_criterion": "mean of two endpoint population-standardized inner TRAIN MSE",
+  "sha256": "c32b8f1a781f0ffd9b198d2fe712cb8cd813d28c732dd9c7e5565551609fe2db",
+  "standardizers_fit_on_inner_fit_only": true,
+  "status": "complete",
+  "train_rows": 2845
+}

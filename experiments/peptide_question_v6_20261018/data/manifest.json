@@ -1,0 +1,79 @@
+{
+  "schema": "same-peptide-paired-panel.v1",
+  "source_url": "https://raw.githubusercontent.com/MannLabs/DeepCollisionalCrossSection/5187be8348ecea98565ef56c7be51a8dc49d8524/output/evidence_aligned_PT.csv",
+  "source_sha256": "cd4ab4b21c5a2855712e728a402ca4442795d617da82cf7a7a6db4b4f1a12917",
+  "source_commit": "5187be8348ecea98565ef56c7be51a8dc49d8524",
+  "label_semantics": {
+    "rt": "author selected highest-intensity experimental PT feature retention time, minutes",
+    "ccs": "author run-aligned average measured TIMS CCS, angstrom_squared"
+  },
+  "acquisition_population": "ProteomeTools synthetic peptides, uniform paper LC method; three Experiment cohorts",
+  "not_original_paper_split": true,
+  "raw_instrument_alignment_precomputed_by_authors": true,
+  "filters": "charge2;8-30 canonical residues;noC;no variable modifications;positivefinite labels",
+  "excluded": {
+    "modified_or_not_charge2": 73968,
+    "length_noncanonical_or_cysteine": 47086,
+    "prior_v5_sequence_quarantine": 1310
+  },
+  "eligible_after_quarantine": 91488,
+  "panel_sequences": 4096,
+  "panel_selection": "first4096 SHA256(panel-v1 NUL sequence); independent of label values and outcomes",
+  "grouping": "connected components sharing any exact8mer among panel; no claim of complete homology exclusion",
+  "groups": 4068,
+  "largest_group": 2,
+  "split_rule": "SHA256(split-v1 NUL group)%100:70/15/15; no QA-row split",
+  "counts": {
+    "train": 2845,
+    "validation": 624,
+    "test": 627
+  },
+  "thresholds": {
+    "rt": 25.169,
+    "ccs": 403.52185
+  },
+  "threshold_source": "TRAIN medians only",
+  "old_v5_sequences_quarantined": 17279,
+  "old_v5_frozen_file_pins": {
+    "data\\meltome\\test.jsonl": "4ce20348323d24f7f98f67f1d08315c6b581de26cf043efcde7e58618ffd70fb",
+    "data\\meltome\\train.jsonl": "e96258eabf97d1be5f6ef2d4ab4f9790ca913e071994277c838faa262eeca360",
+    "data\\meltome\\validation.jsonl": "091d7457a9ea0d9fbc4814ef2a30862b8e9ab6d764d155ad01bceb111fb52faf",
+    "data\\elm\\test.jsonl": "da016b49aacdc4689ded22ba2d5729559dcddb58f724e0fddfb115ba641742a4",
+    "data\\elm\\train.jsonl": "6ceeacce87cfad4a2425f4d5343ad3f56a26901b68e38497092e004e12d5df61",
+    "data\\elm\\validation.jsonl": "5ade3e066535c6c787953073e963d3507aff7372e6c4b9a34bfbee260f948d2f",
+    "data\\rt\\calibration.jsonl": "12b6813ffe897cb2e4789dfe7454800196ff87b1be1f003bc88284ca7cce6f6f",
+    "data\\rt\\selection.jsonl": "33f68b6330ea96db11dc86d1f16f635741b5ccfde4060101b6fbb8011462d24a",
+    "data\\rt\\test.jsonl": "9147cb524d6787b7534a163a7058830a5ad36fab2b3fe657370144df3d89697a",
+    "data\\rt\\train.jsonl": "c7e18760e7a157f12e58bc2554a8a3b7b2c55ace02cd17bda029795c827c2014",
+    "data\\rt\\validation.jsonl": "6446d30057a5fc0fad56765dd4fa13fd92f24a92234c86725b4caff1ac8c09ba"
+  },
+  "question_types": [
+    "rt",
+    "ccs",
+    "both"
+  ],
+  "independent_experimental_endpoints": 2,
+  "shuffled_control": "split-local acquisition cohort and four-residue length bins; singleton bins merged to nearest same-cohort bin; frozen RNG991 cyclic derangement",
+  "both_is_composition_not_third_independent_property": true,
+  "input_exclusions": [
+    "id",
+    "group_id",
+    "raw_sequence",
+    "measured Mass",
+    "Intensity",
+    "Score",
+    "measured RT",
+    "measured CCS"
+  ],
+  "safe_conditions": [
+    "charge2",
+    "experiment",
+    "common acquisition method"
+  ],
+  "files": {
+    "control_mapping.json": "154cf09bfa247bed29b22b04db24701f738be732b97bae0b311a6ec5078eb9f8",
+    "test.jsonl": "e4c88fd748d31598c61e4a4aa348eae1d570f2556fd1e00351fcab08063a060d",
+    "train.jsonl": "30bdee0da4977f7dad2dc89dfbd18f4b968ce0a7f2f2ddceb93f9bb04480cd57",
+    "validation.jsonl": "2f842f1ecc66bdebcc6f675de053485b2c2e13d4c8021423176d04a96fee226d"
+  }
+}

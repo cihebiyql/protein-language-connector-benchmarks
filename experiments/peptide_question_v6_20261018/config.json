@@ -1,0 +1,99 @@
+{
+  "schema": "same-peptide-question-experiment.v1",
+  "status": "frozen",
+  "scope_id": "peptide_question_v6_20261018",
+  "data_root": "data",
+  "features_path": "cache/features.npz",
+  "attributes_path": "cache/attributes.npz",
+  "control_mapping_path": "data/control_mapping.json",
+  "frozen_manifest": "frozen_manifest.json",
+  "model_asset_receipt": "resources/model_assets.json",
+  "model_path": "${QWEN3_4B_MODEL_PATH}",
+  "model_repo": "Qwen/Qwen3-4B-Instruct-2507",
+  "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "esm_model_path": "${ESM150M_MODEL_PATH}",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "arms": [
+    "TEXT",
+    "M0",
+    "M3"
+  ],
+  "gpu_devices": [
+    6,
+    5,
+    3
+  ],
+  "maximum_distinct_project_GPUs": 4,
+  "min_free_memory_mib": 16000,
+  "thresholds": {
+    "rt": 25.169,
+    "ccs": 403.52185
+  },
+  "threshold_source": "TRAIN medians only; computed before any model fit",
+  "method_context": "ProteomeTools synthetic peptides measured with the paper's common C18 LC-TIMS/PASEF method: 300 nL/min, 60 C, 35-min 5-to-30 percent B gradient. Retention time is the selected experimental feature; CCS is the author's aligned measured average. Unmodified non-cysteine peptide, charge2.",
+  "training": {
+    "epochs": 6,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "generation_batch_size": 8,
+    "max_new_tokens": 4,
+    "max_sequence_length": 1024,
+    "loss": "answer-only yes/no plus EOS token CE; no numeric or ranking heads",
+    "checkpoint_selection": "maximum validation mean balanced accuracy of rt and ccs; earliest exact tie",
+    "base_dtype": "bfloat16",
+    "adapter_dtype": "float32",
+    "tf32": false,
+    "cpu_threads": 2,
+    "complete_epochs_no_score_based_retries": true
+  },
+  "question_contract": {
+    "rt": "measured retention time above TRAIN median",
+    "ccs": "measured CCS above TRAIN median",
+    "both": "both conditions hold; composition of two physical endpoints",
+    "independent_measured_endpoints": 2,
+    "format": "unconstrained greedy generation; strip surrounding whitespace, then exactly lowercase yes/no",
+    "invalid_answers": "incorrect in full denominator",
+    "test_template": "third held-out wording; two training templates use same semantics"
+  },
+  "decision": {
+    "preregistered_before_formal_training": true,
+    "primary": "mean(BA_rt, BA_ccs) from generated answers",
+    "candidate_memory_arms": [
+      "M0",
+      "M3"
+    ],
+    "reference": "TEXT with nested TRAIN-only specialist predictions plus computed composition/length",
+    "minimum_mean_primary_gain": 0.02,
+    "all_three_seed_primary_gains_positive": true,
+    "at_least_one_independent_endpoint_all_seed_gains_positive": true,
+    "other_endpoint_mean_gain_floor": -0.02,
+    "joint_all_three_answers_mean_gain_positive": true,
+    "paired_group_bootstrap_replicates": 5000,
+    "bootstrap_seed": 156,
+    "one_sided_lower_quantile": 0.025,
+    "two_candidate_arms_familywise_one_sided_error": 0.05,
+    "bootstrap_lower_primary_gain_above_zero": true,
+    "molecular_controls": [
+      "mean",
+      "shuffled"
+    ],
+    "minimum_control_mean_primary_drop": 0.02,
+    "all_three_seed_control_drops_positive": true,
+    "on_qualified_complete_no_arm_passing": "pause_connector_direction_preserve_all_results",
+    "on_incomplete_or_integrity_failure": "technical_inconclusive_do_not_claim_scientific_failure",
+    "no_posthoc_metric_or_threshold_changes": true
+  },
+  "publication": {
+    "host": "node1",
+    "scheduled_monitor": false,
+    "local_callback_required": false
+  },
+  "scope": "new frozen processed-data within-ProteomeTools peptide analytical-property QA benchmark; not original paper split or function/therapeutic generalization"
+}
