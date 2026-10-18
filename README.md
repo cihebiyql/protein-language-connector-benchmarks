@@ -2,6 +2,8 @@
 
 Protein-language connector benchmarks, literature, frozen data, and auditable results.
 
+**配对差值图与节点复核回执：[图和复算Excel](experiments/multitask_connector_v5_20261017/reports/multiseed-stability-figure/README.md)。** 节点全量45组数值复核已通过，与独立公式结果一致；完整原始明细和权重包的后台发布状态另见COMPLETION_STATUS。
+
 **45组预测已完成独立数值复核：[三任务多种子汇总](experiments/multitask_connector_v5_20261017/reports/independent_math_review_v1/REPORT.md)。** M3相对同底座M0共5胜13负，六个任务×底座组合均未达到三个种子一致有利；相对ESM的18次配对全部落后。功能描述的严格生成阳性目录匹配12个运行均为0。所有坏种子和原失败保留。数值报告已核验；节点完整明细导出与最终发布状态另见[COMPLETION_STATUS](experiments/multitask_connector_v5_20261017/COMPLETION_STATUS.json)。
 
 **V5显存失败补跑已验收：[四卡上限与恢复说明](experiments/multitask_connector_v5_20261017/docs/RECOVERY_V1.md)。** 4B-M3功能描述seed17在GPU6完成同配置补跑并通过独立验收，原失败保留；原训练继续，原始三卡授权在本次恢复中扩为最多四卡。node1将自动重验全部45个固定位置、汇总三种子M3/M0及ESM对照并发布，见[恢复证据](experiments/multitask_connector_v5_20261017/operations/recovery_deployment_v1.json)。没有定时监控。
