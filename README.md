@@ -2,6 +2,8 @@
 
 Protein-language connector benchmarks, literature, frozen data, and auditable results.
 
+**45组预测已完成独立数值复核：[三任务多种子汇总](experiments/multitask_connector_v5_20261017/reports/independent_math_review_v1/REPORT.md)。** M3相对同底座M0共5胜13负，六个任务×底座组合均未达到三个种子一致有利；相对ESM的18次配对全部落后。功能描述的严格生成阳性目录匹配12个运行均为0。所有坏种子和原失败保留。数值报告已核验；节点完整明细导出与最终发布状态另见[COMPLETION_STATUS](experiments/multitask_connector_v5_20261017/COMPLETION_STATUS.json)。
+
 **V5显存失败补跑已验收：[四卡上限与恢复说明](experiments/multitask_connector_v5_20261017/docs/RECOVERY_V1.md)。** 4B-M3功能描述seed17在GPU6完成同配置补跑并通过独立验收，原失败保留；原训练继续，原始三卡授权在本次恢复中扩为最多四卡。node1将自动重验全部45个固定位置、汇总三种子M3/M0及ESM对照并发布，见[恢复证据](experiments/multitask_connector_v5_20261017/operations/recovery_deployment_v1.json)。没有定时监控。
 
 **V5 三任务真实神经对照已在 node1 启动：[热稳定性、功能描述与保留时间](experiments/multitask_connector_v5_20261017/README.md)。** 每个任务比较 ESM 基线，以及 Qwen2.5-1.5B-Instruct／Qwen3-4B-Instruct-2507 上的 M0 与 M3；固定种子17、42、2026，共45次独立训练，每次3个完整epoch。数据划分、选点规则和评价指标已冻结，最多使用同3块GPU，原pKD实验及结果保留。2026-10-17 22:50:38（北京时间）的只读队列观察为7组验收通过、4组运行、34组待运行，尚无完整三种子优势结论。已取回的前2组独立复算见[启动分析](experiments/multitask_connector_v5_20261017/analysis/startup_v1/analysis.json)，全队列最终取回状态见[收尾状态](experiments/multitask_connector_v5_20261017/COMPLETION_STATUS.json)。仅设置本次队列结束后取回、复算并发布的一次性收尾进程，没有定时监控。下列基础验证和V4状态保留为各自时间点的历史记录。
