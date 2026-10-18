@@ -1,0 +1,49 @@
+{
+  "arm": "M0",
+  "seed": 17,
+  "phase": "formal",
+  "frozen": {
+    "manifest_sha256": "e3795b965abd8b98df8680e3dd820478a9bbef2c225746c1e0a39dae30c6c615",
+    "files_verified": 31,
+    "config_sha256": "84fd84ed1539edd72c98d6543f354cc12f459f8de06aeb00248a0ddb572ee7fb"
+  },
+  "capacity": {
+    "variant": "M0",
+    "trainable_parameters": 893827,
+    "trainable_by_name": {
+      "alpha": 1,
+      "projections.0.weight": 81920,
+      "projections.0.bias": 128,
+      "projections.1.weight": 81920,
+      "projections.1.bias": 128,
+      "source_embedding.weight": 256,
+      "query_norm.weight": 2560,
+      "query_norm.bias": 2560,
+      "query_projection.weight": 327680,
+      "query_projection.bias": 128,
+      "reader.in_proj_weight": 49152,
+      "reader.in_proj_bias": 384,
+      "reader.out_proj.weight": 16384,
+      "reader.out_proj.bias": 128,
+      "view_router.weight": 256,
+      "view_router.bias": 2,
+      "output_projection.weight": 327680,
+      "output_projection.bias": 2560
+    },
+    "dtype": "torch.float32",
+    "logical_distinct_slots": 16,
+    "logical_bank_payload_bytes_per_sample": 8192,
+    "extra_lm_positions": 0,
+    "task_specific_parameters": 0,
+    "hook_layer_zero_based": 17,
+    "hook_after_block_one_based": 18
+  },
+  "backbone_frozen": true,
+  "backbone": "${QWEN3_4B_MODEL_PATH}",
+  "torch_version": "2.6.0+cu124",
+  "torch_initial_seed": 17,
+  "train_memory_mean_sha256": {
+    "p15": "78529ee544e1a3934cbd60e6f0f2dcf93325437c525f8e15d0e18e9b1fae5083",
+    "p30": "461773482296f27f74cf11febe5b04c79e12f85c6d6c7ca5707632c51e5fb7cb"
+  }
+}
