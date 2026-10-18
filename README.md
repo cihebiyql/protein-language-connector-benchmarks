@@ -2,6 +2,8 @@
 
 Protein-language connector benchmarks, literature, frozen data, and auditable results.
 
+**V5显存失败补跑已验收：[四卡上限与恢复说明](experiments/multitask_connector_v5_20261017/docs/RECOVERY_V1.md)。** 4B-M3功能描述seed17在GPU6完成同配置补跑并通过独立验收，原失败保留；原训练继续，原始三卡授权在本次恢复中扩为最多四卡。node1将自动重验全部45个固定位置、汇总三种子M3/M0及ESM对照并发布，见[恢复证据](experiments/multitask_connector_v5_20261017/operations/recovery_deployment_v1.json)。没有定时监控。
+
 **V5 三任务真实神经对照已在 node1 启动：[热稳定性、功能描述与保留时间](experiments/multitask_connector_v5_20261017/README.md)。** 每个任务比较 ESM 基线，以及 Qwen2.5-1.5B-Instruct／Qwen3-4B-Instruct-2507 上的 M0 与 M3；固定种子17、42、2026，共45次独立训练，每次3个完整epoch。数据划分、选点规则和评价指标已冻结，最多使用同3块GPU，原pKD实验及结果保留。2026-10-17 22:50:38（北京时间）的只读队列观察为7组验收通过、4组运行、34组待运行，尚无完整三种子优势结论。已取回的前2组独立复算见[启动分析](experiments/multitask_connector_v5_20261017/analysis/startup_v1/analysis.json)，全队列最终取回状态见[收尾状态](experiments/multitask_connector_v5_20261017/COMPLETION_STATUS.json)。仅设置本次队列结束后取回、复算并发布的一次性收尾进程，没有定时监控。下列基础验证和V4状态保留为各自时间点的历史记录。
 
 **V5收尾已迁到node1：[部署说明](experiments/multitask_connector_v5_20261017/docs/NODE1_PUBLICATION.md)。** 本轮训练结束后的独立复算、汇总和GitHub发布均由节点一次性后台进程完成，本机关机或断网不再中断收尾；没有新增定时监控。原训练和结果保留，见[接管证据](experiments/multitask_connector_v5_20261017/operations/node1_handoff_v1.json)。
