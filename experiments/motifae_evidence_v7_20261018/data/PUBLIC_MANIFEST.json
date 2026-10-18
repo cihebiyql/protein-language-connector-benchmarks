@@ -1,0 +1,32 @@
+{
+  "schema": "motifae-panel-public-summary.v1",
+  "panel_sha256": "cc31a9f0ee97e41c82c6ee938900bee5767bf77e7fe3a4fb484df6c31ca69a16",
+  "catalog_sha256": "47423cc09beb305616ed2d850bae18ce06cc6acf9cd55389bf98a120b44f8490",
+  "manifest_sha256": "d03987f5307501d3a95d8269918cca97678c951837211aff1dccf4174acc9627",
+  "counts": {
+    "qualification": {
+      "classes": 18,
+      "components": 26,
+      "parents": 36,
+      "rows": 39
+    },
+    "test": {
+      "classes": 18,
+      "components": 40,
+      "parents": 54,
+      "rows": 67
+    },
+    "train": {
+      "classes": 21,
+      "components": 105,
+      "parents": 172,
+      "rows": 201
+    }
+  },
+  "grouping": "union_all_original_train_parent_accession_parent_homology_peptide_family_and_shared_PMID_before_filtering",
+  "split_rule": "int(sha256('motifae-pilot-v1|' + '|'.join(sorted(component_sample_ids))).hexdigest(),16)%10: <6 train, <8 qualification, else test",
+  "original_train_rows": 378,
+  "protected_old_validation_test_rows": 210,
+  "old_validation_test_untouched": true,
+  "all_raw_rows_private": true
+}

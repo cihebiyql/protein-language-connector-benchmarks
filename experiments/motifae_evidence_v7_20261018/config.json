@@ -1,0 +1,84 @@
+{
+  "author_checkpoint": "MotifAE_k3_step_80000.pt",
+  "author_commit": "8dd6a7588d30726fef98c789dac3042370e829c5",
+  "cache_root": "cache",
+  "checkpoint_md5": "cabb07008f26705f07e18344607a2d51",
+  "dictionary": {
+    "min_qualification_parents": 2,
+    "min_train_parents": 2,
+    "negative_reference_quantile": 0.95,
+    "qualification_auc": 0.7,
+    "raw_probe_ridge_alpha": 1.0,
+    "top_k_associations": 3
+  },
+  "dictionary_semantics": {
+    "candidate_selection": "TRAIN only; ties lowest feature index",
+    "unqualified_features": "unknown; no invented functional name"
+  },
+  "esm_checkpoint": "${ESM650M_CHECKPOINT}",
+  "evaluation": {
+    "context_transfer": "same region encoded in full parent versus excised short sequence",
+    "controls": [
+      "same ESM650M raw-H33 supervised probe",
+      "original motif regex",
+      "deterministic evidence template"
+    ],
+    "isolated_activity": "not measured by the parent-protein annotation",
+    "language": "known-positive class recovery, residue overlap, evidence citation validity and activity overclaim rate",
+    "no_change_to_v6_stop_rule": true,
+    "no_posthoc_threshold_or_split_changes": true,
+    "pilot_not_final_direction_rescue": true,
+    "primary": "short-peptide feature localization against held-out parent annotation; dictionary coverage always reported",
+    "unannotated_positions": "unannotated reference, not validated biological negatives"
+  },
+  "gpu": 4,
+  "maximum_distinct_project_gpus_including_v6": 4,
+  "node1_independent": true,
+  "original_v6_untouched": true,
+  "pilot_signals": {
+    "max_overclaim_increase": 0.0,
+    "min_auc_gain": 0.02,
+    "min_class_gain": 0.02,
+    "min_wrong_card_drop": 0.02
+  },
+  "publication": {
+    "code_aggregates_and_fingerprints_public": true,
+    "per_query_cards_and_answers_private": true,
+    "raw_elm_private": true
+  },
+  "qa": {
+    "arms": [
+      "sequence",
+      "regex",
+      "raw_probe",
+      "motifae",
+      "motifae_shuffled",
+      "template"
+    ],
+    "batch_size": 1,
+    "do_sample": false,
+    "drop_invalid_answers": false,
+    "enable_thinking": false,
+    "format": "one JSON object; no language-model judge",
+    "max_new_tokens": 64,
+    "questions": [
+      "class",
+      "position",
+      "activity",
+      "evidence"
+    ],
+    "shuffle_seed": 991,
+    "train_qwen": false
+  },
+  "qwen_path": "${QWEN3_4B_MODEL_PATH}",
+  "qwen_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "scheduled_monitor": false,
+  "schema": "motifae-evidence-pilot.v1",
+  "scope_id": "motifae_evidence_v7_20261018",
+  "status": "frozen",
+  "v6_protected_gpus": [
+    3,
+    5,
+    6
+  ]
+}
