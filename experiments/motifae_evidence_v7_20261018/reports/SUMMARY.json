@@ -1,0 +1,765 @@
+{
+  "comparison": {
+    "all_gates_required": true,
+    "best_qwen_control_activity_overclaim_rate": 0.0,
+    "best_qwen_control_class_recovery_rate": 0.7611940298507462,
+    "paired_short_auc": {
+      "calculation": "same-anchor row MotifAE AUROC minus raw-H33 AUROC; average within parent; equal-weight mean of parent gains",
+      "excluded_unpaired_rows": 8,
+      "inference": "descriptive sample SD; no bootstrap, p-value or multi-seed stability claim",
+      "mean_gain": -0.18917416586736852,
+      "paired_parents": 46,
+      "paired_rows": 59,
+      "sample_sd": 0.19708061833733465
+    },
+    "qwen_activity_overclaim_rates": {
+      "motifae": 0.0,
+      "raw_probe": 0.0,
+      "regex": 0.0,
+      "sequence_control": 0.0
+    },
+    "qwen_class_recovery_rates": {
+      "motifae": 0.1044776119402985,
+      "motifae_shuffled": 0.029850746268656716,
+      "raw_probe": 0.11940298507462686,
+      "regex": 0.7611940298507462,
+      "sequence_control": 0.014925373134328358
+    },
+    "qwen_control_arms": [
+      "sequence",
+      "regex",
+      "raw_probe"
+    ]
+  },
+  "completion": {
+    "expected_test_peptides": 67,
+    "expected_total_answers": 1608,
+    "failure_stage": null,
+    "feature_pipeline_complete": true,
+    "qa_pipeline_complete": true,
+    "signal_configuration_valid": true
+  },
+  "data_counts": {
+    "qualification": {
+      "class_count": 18,
+      "group_count": 26,
+      "parent_count": 36,
+      "rows": 39
+    },
+    "test": {
+      "class_count": 18,
+      "group_count": 40,
+      "parent_count": 54,
+      "rows": 67
+    },
+    "train": {
+      "class_count": 21,
+      "group_count": 105,
+      "parent_count": 172,
+      "rows": 201
+    }
+  },
+  "decision_scope": "exploratory signal only; v6 direction-pause rule unchanged",
+  "dictionary_qualification": {
+    "min_qualification_parents": 2,
+    "min_train_parents": 2,
+    "qualification_auc": 0.7
+  },
+  "feature": {
+    "metrics": {
+      "anchor_feature_context_window_peak": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.6874639620275601,
+        "total_rows": 67
+      },
+      "anchor_feature_short_context_ratio": {
+        "defined_parents": 37,
+        "defined_rows": 48,
+        "macro_parent": 0.24961483584068653,
+        "total_rows": 67
+      },
+      "anchor_feature_short_peak": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.2238289028190184,
+        "total_rows": 67
+      },
+      "motifae_card_top1_positive_hit": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.08950617283950617,
+        "total_rows": 67
+      },
+      "motifae_card_top3_positive_hit": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.08950617283950617,
+        "total_rows": 67
+      },
+      "motifae_covered_anchor": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.12654320987654322,
+        "total_rows": 67
+      },
+      "motifae_covered_any_known_positive": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.13580246913580246,
+        "total_rows": 67
+      },
+      "motifae_full_anchor_argmax_hit": {
+        "defined_parents": 43,
+        "defined_rows": 56,
+        "macro_parent": 0.37596899224806196,
+        "total_rows": 67
+      },
+      "motifae_full_anchor_auc": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.7863939913680774,
+        "total_rows": 67
+      },
+      "motifae_full_qualified_anchor_auc": {
+        "defined_parents": 9,
+        "defined_rows": 9,
+        "macro_parent": 0.9395321125087821,
+        "total_rows": 67
+      },
+      "motifae_ranking_top1_known_positive_recall": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.11265432098765432,
+        "total_rows": 67
+      },
+      "motifae_ranking_top1_positive_hit": {
+        "all_row_mean_including_unsupported": 0.13432835820895522,
+        "covered_row_mean": 0.9,
+        "covered_rows": 10,
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.11728395061728394,
+        "total_rows": 67
+      },
+      "motifae_ranking_top3_known_positive_recall": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.13117283950617284,
+        "total_rows": 67
+      },
+      "motifae_ranking_top3_positive_hit": {
+        "all_row_mean_including_unsupported": 0.14925373134328357,
+        "covered_row_mean": 1.0,
+        "covered_rows": 10,
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.13580246913580246,
+        "total_rows": 67
+      },
+      "motifae_short_anchor_argmax_hit": {
+        "defined_parents": 24,
+        "defined_rows": 27,
+        "macro_parent": 0.875,
+        "total_rows": 67
+      },
+      "motifae_short_anchor_auc": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.6319050906868945,
+        "total_rows": 67
+      },
+      "motifae_short_qualified_anchor_auc": {
+        "defined_parents": 9,
+        "defined_rows": 9,
+        "macro_parent": 0.6944444444444445,
+        "total_rows": 67
+      },
+      "raw_probe_card_top1_positive_hit": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.12037037037037036,
+        "total_rows": 67
+      },
+      "raw_probe_card_top3_positive_hit": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.19444444444444445,
+        "total_rows": 67
+      },
+      "raw_probe_covered_anchor": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.25,
+        "total_rows": 67
+      },
+      "raw_probe_covered_any_known_positive": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.25925925925925924,
+        "total_rows": 67
+      },
+      "raw_probe_full_anchor_argmax_hit": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.5471014492753623,
+        "total_rows": 67
+      },
+      "raw_probe_full_anchor_auc": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.8686635309118746,
+        "total_rows": 67
+      },
+      "raw_probe_full_qualified_anchor_auc": {
+        "defined_parents": 14,
+        "defined_rows": 18,
+        "macro_parent": 0.9612686726764551,
+        "total_rows": 67
+      },
+      "raw_probe_ranking_top1_known_positive_recall": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.12037037037037036,
+        "total_rows": 67
+      },
+      "raw_probe_ranking_top1_positive_hit": {
+        "all_row_mean_including_unsupported": 0.11940298507462686,
+        "covered_row_mean": 0.42105263157894735,
+        "covered_rows": 19,
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.12037037037037036,
+        "total_rows": 67
+      },
+      "raw_probe_ranking_top3_known_positive_recall": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.19444444444444445,
+        "total_rows": 67
+      },
+      "raw_probe_ranking_top3_positive_hit": {
+        "all_row_mean_including_unsupported": 0.22388059701492538,
+        "covered_row_mean": 0.7894736842105263,
+        "covered_rows": 19,
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.19444444444444445,
+        "total_rows": 67
+      },
+      "raw_probe_short_anchor_argmax_hit": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.8297101449275361,
+        "total_rows": 67
+      },
+      "raw_probe_short_anchor_auc": {
+        "defined_parents": 46,
+        "defined_rows": 59,
+        "macro_parent": 0.8210792565542632,
+        "total_rows": 67
+      },
+      "raw_probe_short_qualified_anchor_auc": {
+        "defined_parents": 14,
+        "defined_rows": 18,
+        "macro_parent": 0.8710974116586364,
+        "total_rows": 67
+      },
+      "regex_full_known_positive_overlap": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.0,
+        "total_rows": 67
+      },
+      "regex_full_known_positive_residue_recall": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.9837162350320247,
+        "total_rows": 67
+      },
+      "regex_full_known_positive_span_count": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.1481481481481481,
+        "total_rows": 67
+      },
+      "regex_full_known_positive_span_recovered": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.1481481481481481,
+        "total_rows": 67
+      },
+      "regex_full_match_count": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.9907407407407407,
+        "total_rows": 67
+      },
+      "regex_short_known_positive_overlap": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.0,
+        "total_rows": 67
+      },
+      "regex_short_known_positive_residue_recall": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.9781045627536855,
+        "total_rows": 67
+      },
+      "regex_short_known_positive_span_count": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.0401234567901236,
+        "total_rows": 67
+      },
+      "regex_short_known_positive_span_recovered": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.0246913580246912,
+        "total_rows": 67
+      },
+      "regex_short_match_count": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 1.0401234567901234,
+        "total_rows": 67
+      },
+      "top32_context_window_short_jaccard": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.1433476266252635,
+        "total_rows": 67
+      },
+      "top32_full_short_jaccard": {
+        "defined_parents": 54,
+        "defined_rows": 67,
+        "macro_parent": 0.021765127531331613,
+        "total_rows": 67
+      }
+    },
+    "qualified_class_counts": {
+      "motifae": 3,
+      "raw_probe": 7
+    },
+    "qualified_classes": {
+      "motifae": [
+        "LIG_CtBP_PxDLS_1",
+        "LIG_PDZ_Class_1",
+        "TRG_ER_FFAT_1"
+      ],
+      "raw_probe": [
+        "LIG_14-3-3_CanoR_1",
+        "LIG_CtBP_PxDLS_1",
+        "LIG_PDZ_Class_1",
+        "MOD_CK1_1",
+        "MOD_CK2_1",
+        "MOD_SUMO_for_1",
+        "TRG_ER_FFAT_1"
+      ]
+    },
+    "test_parents": 54,
+    "test_rows": 67
+  },
+  "gates": {
+    "activity_overclaim_increase": {
+      "maximum": 0.0,
+      "observed": 0.0,
+      "passed": true
+    },
+    "paired_short_auc_gain": {
+      "minimum": 0.02,
+      "observed": -0.18917416586736852,
+      "passed": false
+    },
+    "qwen_class_gain_over_best_control": {
+      "minimum": 0.02,
+      "observed": -0.6567164179104478,
+      "passed": false
+    },
+    "wrong_card_class_recovery_drop": {
+      "minimum": 0.02,
+      "observed": 0.07462686567164178,
+      "passed": true
+    }
+  },
+  "input_health": {
+    "configuration": "readable",
+    "data_manifest": "readable",
+    "feature_metrics": "readable",
+    "qa_metrics": "readable"
+  },
+  "limitations": [
+    "这是单一固定划分的探索性试验，不是多随机种子稳定提升证据。",
+    "新面板只来自原 B1 TRAIN；原验证集、测试集和 v6 实验不受改变。",
+    "未标注残基只是定位参考，不是实验确认的生物学阴性。",
+    "短肽由已标注母蛋白区域截取，未提供孤立短肽活性实验。",
+    "特征抽取成功不等于完成生物学解释或实现语言模型翻译。",
+    "命名依赖 TRAIN 选择及资格集固定门槛；低覆盖类别保留，不重新划分或降低门槛。",
+    "两个特征方案的资格类别可能不同；给定锚点类别的配对 AUROC 只比较两者均定义的同一条样本，并单独报告覆盖。",
+    "功能类别指标衡量已知正例恢复，不能解释为特异性或对未标注类别的真阴性判断。",
+    "活性问题的正确边界答案始终是未建立证据，不能作为独立的分子信息理解能力。",
+    "模板是机械读取证据卡的对照，不是 Qwen 推理能力或新的训练模型。",
+    "本试验信号不替代、改变或推翻 v6 原有方向暂停规则。"
+  ],
+  "pilot_signals": {
+    "max_overclaim_increase": 0.0,
+    "min_auc_gain": 0.02,
+    "min_class_gain": 0.02,
+    "min_wrong_card_drop": 0.02
+  },
+  "publication_control_aliases": {
+    "sequence_control": "sequence (raw-sequence input comparator)"
+  },
+  "publication_scope": "aggregates and digests only; no per-query biological data, cards, answers or dictionary",
+  "qa": {
+    "arms": {
+      "motifae": {
+        "activity": {
+          "activity_overclaim_count": 0,
+          "activity_overclaim_rate": 0.0,
+          "card_faithfulness_applicable": true,
+          "correct_not_established_count": 67,
+          "correct_not_established_rate": 1.0,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "class": {
+          "card_faithfulness_applicable": true,
+          "card_supported_nonunknown_count": 45,
+          "card_supported_nonunknown_rate": 0.6716417910447762,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_recovered_count": 7,
+          "known_positive_recovered_rate": 0.1044776119402985,
+          "observed": 67,
+          "unsupported_nonunknown_count": 14,
+          "unsupported_nonunknown_rate": 0.208955223880597,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "evidence": {
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 22,
+          "observed": 67,
+          "strongest_record_or_correct_abstention_count": 45,
+          "strongest_record_or_correct_abstention_rate": 0.6716417910447762,
+          "valid": 45,
+          "valid_nonnull_citation_count": 45,
+          "valid_nonnull_citation_rate": 0.6716417910447762,
+          "valid_rate": 0.6716417910447762
+        },
+        "position": {
+          "anchor_overlap_count": 31,
+          "anchor_overlap_rate": 0.4626865671641791,
+          "card_contained_span_count": 45,
+          "card_contained_span_rate": 0.6716417910447762,
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_overlap_count": 31,
+          "known_positive_overlap_rate": 0.4626865671641791,
+          "mean_best_known_positive_iou_full_denominator": 0.22782586221911338,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        }
+      },
+      "motifae_shuffled": {
+        "activity": {
+          "activity_overclaim_count": 0,
+          "activity_overclaim_rate": 0.0,
+          "card_faithfulness_applicable": true,
+          "correct_not_established_count": 67,
+          "correct_not_established_rate": 1.0,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "class": {
+          "card_faithfulness_applicable": true,
+          "card_supported_nonunknown_count": 45,
+          "card_supported_nonunknown_rate": 0.6716417910447762,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_recovered_count": 2,
+          "known_positive_recovered_rate": 0.029850746268656716,
+          "observed": 67,
+          "unsupported_nonunknown_count": 11,
+          "unsupported_nonunknown_rate": 0.16417910447761194,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "evidence": {
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 22,
+          "observed": 67,
+          "strongest_record_or_correct_abstention_count": 45,
+          "strongest_record_or_correct_abstention_rate": 0.6716417910447762,
+          "valid": 45,
+          "valid_nonnull_citation_count": 45,
+          "valid_nonnull_citation_rate": 0.6716417910447762,
+          "valid_rate": 0.6716417910447762
+        },
+        "position": {
+          "anchor_overlap_count": 30,
+          "anchor_overlap_rate": 0.44776119402985076,
+          "card_contained_span_count": 39,
+          "card_contained_span_rate": 0.582089552238806,
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 8,
+          "known_positive_overlap_count": 31,
+          "known_positive_overlap_rate": 0.4626865671641791,
+          "mean_best_known_positive_iou_full_denominator": 0.17565385058800337,
+          "observed": 67,
+          "valid": 59,
+          "valid_rate": 0.8805970149253731
+        }
+      },
+      "raw_probe": {
+        "activity": {
+          "activity_overclaim_count": 0,
+          "activity_overclaim_rate": 0.0,
+          "card_faithfulness_applicable": true,
+          "correct_not_established_count": 67,
+          "correct_not_established_rate": 1.0,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "class": {
+          "card_faithfulness_applicable": true,
+          "card_supported_nonunknown_count": 67,
+          "card_supported_nonunknown_rate": 1.0,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_recovered_count": 8,
+          "known_positive_recovered_rate": 0.11940298507462686,
+          "observed": 67,
+          "unsupported_nonunknown_count": 0,
+          "unsupported_nonunknown_rate": 0.0,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "evidence": {
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "strongest_record_or_correct_abstention_count": 67,
+          "strongest_record_or_correct_abstention_rate": 1.0,
+          "valid": 67,
+          "valid_nonnull_citation_count": 67,
+          "valid_nonnull_citation_rate": 1.0,
+          "valid_rate": 1.0
+        },
+        "position": {
+          "anchor_overlap_count": 41,
+          "anchor_overlap_rate": 0.6119402985074627,
+          "card_contained_span_count": 67,
+          "card_contained_span_rate": 1.0,
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_overlap_count": 41,
+          "known_positive_overlap_rate": 0.6119402985074627,
+          "mean_best_known_positive_iou_full_denominator": 0.2025258100006263,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        }
+      },
+      "regex": {
+        "activity": {
+          "activity_overclaim_count": 0,
+          "activity_overclaim_rate": 0.0,
+          "card_faithfulness_applicable": true,
+          "correct_not_established_count": 67,
+          "correct_not_established_rate": 1.0,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "class": {
+          "card_faithfulness_applicable": true,
+          "card_supported_nonunknown_count": 66,
+          "card_supported_nonunknown_rate": 0.9850746268656716,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_recovered_count": 51,
+          "known_positive_recovered_rate": 0.7611940298507462,
+          "observed": 67,
+          "unsupported_nonunknown_count": 0,
+          "unsupported_nonunknown_rate": 0.0,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "evidence": {
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "strongest_record_or_correct_abstention_count": 65,
+          "strongest_record_or_correct_abstention_rate": 0.9701492537313433,
+          "valid": 67,
+          "valid_nonnull_citation_count": 67,
+          "valid_nonnull_citation_rate": 1.0,
+          "valid_rate": 1.0
+        },
+        "position": {
+          "anchor_overlap_count": 58,
+          "anchor_overlap_rate": 0.8656716417910447,
+          "card_contained_span_count": 64,
+          "card_contained_span_rate": 0.9552238805970149,
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_overlap_count": 58,
+          "known_positive_overlap_rate": 0.8656716417910447,
+          "mean_best_known_positive_iou_full_denominator": 0.7023834509639183,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        }
+      },
+      "sequence_control": {
+        "activity": {
+          "activity_overclaim_count": 0,
+          "activity_overclaim_rate": 0.0,
+          "card_faithfulness_applicable": false,
+          "correct_not_established_count": 67,
+          "correct_not_established_rate": 1.0,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "class": {
+          "card_faithfulness_applicable": false,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_recovered_count": 1,
+          "known_positive_recovered_rate": 0.014925373134328358,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "evidence": {
+          "card_faithfulness_applicable": false,
+          "expected": 67,
+          "invalid": 42,
+          "observed": 67,
+          "strongest_record_or_correct_abstention_count": 25,
+          "strongest_record_or_correct_abstention_rate": 0.373134328358209,
+          "valid": 25,
+          "valid_nonnull_citation_count": 0,
+          "valid_nonnull_citation_rate": 0.0,
+          "valid_rate": 0.373134328358209
+        },
+        "position": {
+          "anchor_overlap_count": 61,
+          "anchor_overlap_rate": 0.9104477611940298,
+          "card_faithfulness_applicable": false,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_overlap_count": 61,
+          "known_positive_overlap_rate": 0.9104477611940298,
+          "mean_best_known_positive_iou_full_denominator": 0.4038308742764405,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        }
+      },
+      "template": {
+        "activity": {
+          "activity_overclaim_count": 0,
+          "activity_overclaim_rate": 0.0,
+          "card_faithfulness_applicable": true,
+          "correct_not_established_count": 67,
+          "correct_not_established_rate": 1.0,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "class": {
+          "card_faithfulness_applicable": true,
+          "card_supported_nonunknown_count": 45,
+          "card_supported_nonunknown_rate": 0.6716417910447762,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_recovered_count": 7,
+          "known_positive_recovered_rate": 0.1044776119402985,
+          "observed": 67,
+          "unsupported_nonunknown_count": 0,
+          "unsupported_nonunknown_rate": 0.0,
+          "valid": 67,
+          "valid_rate": 1.0
+        },
+        "evidence": {
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 0,
+          "observed": 67,
+          "strongest_record_or_correct_abstention_count": 67,
+          "strongest_record_or_correct_abstention_rate": 1.0,
+          "valid": 67,
+          "valid_nonnull_citation_count": 45,
+          "valid_nonnull_citation_rate": 0.6716417910447762,
+          "valid_rate": 1.0
+        },
+        "position": {
+          "anchor_overlap_count": 19,
+          "anchor_overlap_rate": 0.2835820895522388,
+          "card_contained_span_count": 45,
+          "card_contained_span_rate": 0.6716417910447762,
+          "card_faithfulness_applicable": true,
+          "expected": 67,
+          "invalid": 0,
+          "known_positive_overlap_count": 19,
+          "known_positive_overlap_rate": 0.2835820895522388,
+          "mean_best_known_positive_iou_full_denominator": 0.16873855829079712,
+          "observed": 67,
+          "valid": 67,
+          "valid_rate": 1.0
+        }
+      }
+    },
+    "class_recovery_is_not_specificity": true,
+    "expected_records": 1608,
+    "full_denominator": 67,
+    "observed_records": 1608,
+    "qwen_generations": 1340,
+    "template_answers": 268,
+    "template_is_not_qwen": true,
+    "test_peptides": 67
+  },
+  "schema_version": 1,
+  "scope": "exploratory_motifae_evidence_pilot",
+  "source_digests": {
+    "cache_receipts_sha256": "cf146c76785f47a8d6aa6a9f14b4dd9c6162129df45e18861a6c3368d5690604",
+    "config_sha256": "bd6aaeee877b7d23ffc9c56ddf800342f4fe24567c16843a0022d0f61bcfcff3",
+    "dictionary_sha256": "78e5059f2207e858be71b0d20c61eb09df6d60171b4a5ab088fac03506041669",
+    "feature_metrics_sha256": "d786f99c7f286e65bd5dafb63e33e9d2f5de8c1c8a9a759e8f115764b6b511d0",
+    "frozen_manifest_sha256": "d16b79f68ac6c1dd327050fddf3376fd0c0a5c5c2d66aa6174b02add1692985a",
+    "qa_metrics_sha256": "a3a85b7071e0367228f17160684e59c4727aa53b409dee9a6d63e623c9904f93",
+    "qa_raw_answers_sha256": "2daa629317b14756fc1e0e31c52b7267805c12ed2579304ea062c92febe00e24",
+    "qa_run_contract_sha256": "6f5d2ab978577c79580397c64f34609c747cc45a35afbff49077049cbc6a495d"
+  },
+  "stable_multi_seed_gain_established": false,
+  "status": "complete_pilot_no_incremental_gain"
+}
